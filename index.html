@@ -1,766 +1,820 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Digital Forge transforms long-form content into high-quality short-form content built for growth.">
-  <title>Digital Forge | Content Built for Growth</title>
+  <meta name="description" content="Digital Forge - Contenido, edición y estrategia para marcas que quieren crecer.">
+  <title>Digital Forge | Contenido que impulsa marcas</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#f7f7f4;
-      --white:#ffffff;
-      --black:#0b0b0b;
-      --gray:#6f6f6f;
-      --line:#deded8;
-      --soft:#ecece7;
+      --black:#050505;
+      --black-2:#0b0b0b;
+      --white:#f4f1ec;
+      --pure:#ffffff;
+      --ink:#121212;
+      --gray:#9d9d9d;
+      --line:#d7d2cb;
+      --dark-line:#2b2b2b;
+      --max:1450px;
       --radius:24px;
-      --max:1200px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
       font-family:"Inter",sans-serif;
-      background:var(--bg);
-      color:var(--black);
+      background:var(--white);
+      color:var(--ink);
       overflow-x:hidden;
     }
-
     a{color:inherit;text-decoration:none}
-    .container{width:min(92%,var(--max));margin:auto}
+    img{display:block;max-width:100%}
+    .container{width:min(92%,var(--max));margin:0 auto}
 
-    .nav{
-      position:fixed;
-      inset:0 0 auto 0;
-      z-index:1000;
-      padding:18px 0;
-      transition:.3s ease;
-    }
-
-    .nav.scrolled{
-      background:rgba(247,247,244,.88);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--line);
-    }
-
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-    }
-
-    .logo img{height:38px;width:auto;display:block}
-
-    .nav-links{
-      display:flex;
-      list-style:none;
-      gap:28px;
-      font-size:14px;
-      font-weight:600;
-    }
-
-    .nav-links a{opacity:.75;transition:.2s}
-    .nav-links a:hover{opacity:1}
-
-    .nav-cta{
-      background:var(--black);
-      color:var(--white);
-      padding:12px 18px;
-      border-radius:999px;
-      font-size:14px;
-      font-weight:700;
-    }
-
-    .hero{
+    /* HEADER */
+    .top{
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.04), transparent 25%),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,.035), transparent 20%),
+        var(--black);
+      color:#fff;
       min-height:100vh;
-      padding:150px 0 80px;
-      display:flex;
-      align-items:center;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:70px;
-      align-items:end;
-    }
-
-    .kicker{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:12px;
-      letter-spacing:1.6px;
-      text-transform:uppercase;
-      font-weight:800;
-      color:var(--gray);
-      margin-bottom:28px;
-    }
-
-    .kicker::before{
-      content:"";
-      width:34px;
-      height:2px;
-      background:var(--black);
-    }
-
-    .hero h1{
-      font-size:clamp(4rem,8vw,8rem);
-      line-height:.88;
-      letter-spacing:-7px;
-      font-weight:800;
-      max-width:880px;
-    }
-
-    .hero h1 .muted{color:#aaa}
-
-    .hero-side{padding-bottom:14px}
-
-    .hero-side p{
-      font-size:18px;
-      line-height:1.7;
-      color:var(--gray);
-      margin-bottom:28px;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:999px;
-      padding:14px 20px;
-      font-size:14px;
-      font-weight:700;
-      border:1px solid var(--black);
-      transition:.25s ease;
-    }
-
-    .btn-dark{background:var(--black);color:#fff}
-    .btn-light{background:transparent}
-    .btn:hover{transform:translateY(-3px)}
-
-    .hero-strip{
-      margin-top:70px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-    }
-
-    .hero-stat{
-      padding:22px 0;
-      font-size:13px;
-      color:var(--gray);
-    }
-
-    .hero-stat strong{
-      color:var(--black);
-      display:block;
-      font-size:18px;
-      margin-bottom:4px;
-    }
-
-    .marquee{
-      background:var(--black);
-      color:white;
-      overflow:hidden;
-      white-space:nowrap;
-      padding:20px 0;
-      transform:rotate(-1.5deg) scale(1.02);
-      margin:10px 0 100px;
-    }
-
-    .marquee-track{
-      display:inline-block;
-      animation:scroll 18s linear infinite;
-      font-size:22px;
-      font-weight:800;
-      letter-spacing:1px;
-    }
-
-    @keyframes scroll{
-      from{transform:translateX(0)}
-      to{transform:translateX(-50%)}
-    }
-
-    .intro{padding:60px 0 120px}
-
-    .intro-grid{
-      display:grid;
-      grid-template-columns:.7fr 1.3fr;
-      gap:90px;
-    }
-
-    .section-label{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:1.8px;
-      color:var(--gray);
-      font-weight:800;
-    }
-
-    .intro h2{
-      font-size:clamp(2.5rem,5vw,5rem);
-      line-height:.96;
-      letter-spacing:-4px;
-      margin-bottom:28px;
-    }
-
-    .intro p{
-      color:var(--gray);
-      font-size:19px;
-      max-width:760px;
-      line-height:1.75;
-    }
-
-    .services{padding:40px 0 120px}
-
-    .services-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:30px;
-      margin-bottom:45px;
-    }
-
-    .services-head h2{
-      font-size:clamp(2.8rem,5vw,5rem);
-      letter-spacing:-4px;
-      line-height:.95;
-      max-width:760px;
-    }
-
-    .service-grid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      grid-template-rows:auto auto;
-      gap:18px;
-    }
-
-    .service-card{
-      border-radius:var(--radius);
-      padding:34px;
-      min-height:300px;
-      background:var(--white);
-      border:1px solid var(--line);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      transition:.3s ease;
       position:relative;
       overflow:hidden;
     }
 
-    .service-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 18px 50px rgba(0,0,0,.08);
-    }
-
-    .service-card.dark{
-      background:var(--black);
-      color:white;
-      border-color:var(--black);
-    }
-
-    .service-card.tall{
-      grid-row:span 2;
-      min-height:618px;
-    }
-
-    .service-card .num{
-      font-size:13px;
-      color:#999;
-      font-weight:800;
-    }
-
-    .service-card h3{
-      font-size:clamp(2rem,4vw,4rem);
-      line-height:1;
-      letter-spacing:-3px;
-      max-width:560px;
-    }
-
-    .service-card p{
-      color:var(--gray);
-      max-width:480px;
-      line-height:1.7;
-    }
-
-    .service-card.dark p{color:#aaa}
-
-    .orb{
-      position:absolute;
-      width:280px;
-      height:280px;
-      border:1px solid rgba(255,255,255,.16);
-      border-radius:50%;
-      right:-80px;
-      top:80px;
-    }
-
-    .orb::after{
+    .top::before{
       content:"";
       position:absolute;
-      inset:40px;
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:50%;
+      inset:0;
+      background-image:
+        repeating-radial-gradient(circle at 0 0, transparent 0 18px, rgba(255,255,255,.025) 19px 20px);
+      opacity:.6;
+      pointer-events:none;
     }
 
-    .process{
-      padding:120px 0;
-      background:var(--white);
+    .nav{
+      position:relative;
+      z-index:5;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+      padding:28px 0;
     }
 
-    .process-wrap{
+    .brand img{
+      height:70px;
+      width:auto;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:26px;
+      list-style:none;
+      font-size:12px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    .nav-links a{opacity:.82;transition:.2s}
+    .nav-links a:hover{opacity:1}
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.25);
+      transition:.25s;
+    }
+
+    .pill.light{
+      background:#f3f0eb;
+      color:#111;
+      border-color:#f3f0eb;
+    }
+
+    .pill:hover{transform:translateY(-2px)}
+
+    /* HERO */
+    .hero{
+      position:relative;
+      z-index:2;
       display:grid;
-      grid-template-columns:.8fr 1.2fr;
+      grid-template-columns:1fr 1fr;
       gap:80px;
-      align-items:start;
+      align-items:center;
+      padding:80px 0 95px;
     }
 
-    .process-left{
-      position:sticky;
-      top:120px;
+    .eyebrow{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      margin-bottom:28px;
     }
 
-    .process-left h2{
-      font-size:clamp(2.7rem,5vw,5rem);
-      line-height:.95;
-      letter-spacing:-4px;
+    .lang-badge,.eyebrow-text{
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:8px;
+      padding:7px 10px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .hero h1{
+      font-size:clamp(3.5rem,6.6vw,7.3rem);
+      line-height:.92;
+      letter-spacing:-.07em;
+      font-weight:900;
+      max-width:860px;
+    }
+
+    .hero h1 .en{
+      display:block;
+      color:#737373;
+      margin-top:12px;
+    }
+
+    .hero-copy{
+      margin-top:34px;
+      max-width:640px;
+    }
+
+    .hero-copy p{
+      color:#d1d1d1;
+      line-height:1.7;
+      margin-bottom:8px;
+      font-size:16px;
+    }
+
+    .hero-copy p.en{color:#8f8f8f}
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:34px;
+    }
+
+    .hero-visual{
+      position:relative;
+      min-height:560px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .visual-card{
+      width:90%;
+      height:420px;
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:20px;
+      overflow:hidden;
+      position:relative;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.01)),
+        radial-gradient(circle at 30% 20%, #2b2b2b, #090909 60%);
+      box-shadow:0 30px 80px rgba(0,0,0,.5);
+    }
+
+    .visual-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, transparent 0 15%, rgba(255,255,255,.035) 15% 16%, transparent 16% 55%, rgba(255,255,255,.03) 55% 56%, transparent 56%),
+        linear-gradient(0deg, transparent 0 30%, rgba(255,255,255,.03) 30% 31%, transparent 31%);
+    }
+
+    .visual-message{
+      position:absolute;
+      left:34px;
+      top:34px;
+      font-family:monospace;
+      font-weight:700;
+      font-size:18px;
+      line-height:1.55;
+      z-index:2;
+    }
+
+    .visual-message span{
+      display:block;
+      color:#8d8d8d;
       margin-top:14px;
     }
 
-    .step{
-      padding:30px 0;
-      border-bottom:1px solid var(--line);
+    .trust-card{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:26px;
+      margin:auto;
+      width:95%;
+      border:1px solid rgba(255,255,255,.65);
+      border-radius:18px;
+      background:rgba(10,10,10,.88);
+      backdrop-filter:blur(16px);
+      padding:18px 22px;
       display:grid;
-      grid-template-columns:70px 1fr;
+      grid-template-columns:auto 1fr auto;
       gap:20px;
-      opacity:.5;
-      transition:.3s ease;
+      align-items:center;
+      z-index:5;
     }
 
-    .step:hover{opacity:1}
+    .avatars{display:flex}
+    .avatar{
+      width:42px;height:42px;border-radius:50%;
+      border:2px solid #111;
+      background:linear-gradient(135deg,#777,#222);
+      margin-left:-8px;
+    }
+    .avatar:first-child{margin-left:0}
 
-    .step-num{
-      font-size:13px;
-      font-weight:800;
-      color:var(--gray);
+    .trust-copy strong{display:block;font-size:13px}
+    .trust-copy span{color:#999;font-size:11px}
+    .arrow-dot{
+      width:38px;height:38px;border-radius:50%;
+      border:1px solid #666;
+      display:grid;place-items:center;
     }
 
-    .step h3{
-      font-size:28px;
-      margin-bottom:10px;
-    }
-
-    .step p{
-      color:var(--gray);
-      max-width:580px;
-      line-height:1.7;
-    }
-
-    .why{
-      background:var(--black);
-      color:#fff;
-      padding:120px 0;
-    }
-
-    .why-top{
+    /* SHARED */
+    section.light{background:var(--white);color:var(--ink)}
+    section.dark{background:var(--black);color:#fff}
+    .section-pad{padding:92px 0}
+    .section-head{
       display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:80px;
-      margin-bottom:70px;
+      grid-template-columns:.8fr 1fr auto;
+      gap:40px;
+      align-items:end;
+      margin-bottom:42px;
     }
-
-    .why h2{
-      font-size:clamp(3rem,6vw,6rem);
-      line-height:.9;
-      letter-spacing:-5px;
+    .section-head h2{
+      font-size:clamp(2.5rem,4.7vw,5rem);
+      line-height:.96;
+      letter-spacing:-.055em;
     }
+    .section-head h2 span{display:block;color:#6f6f6f}
+    .section-head p{font-size:15px;line-height:1.7;color:#555;max-width:460px}
+    .section-head p.en{color:#8f8f8f;margin-top:8px}
 
-    .why-copy{
-      color:#aaa;
-      font-size:18px;
-      line-height:1.8;
-      align-self:end;
-    }
-
-    .why-metrics{
+    /* SERVICES */
+    .services-grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      border-top:1px solid #2b2b2b;
-    }
-
-    .metric{
-      padding:32px 24px 10px 0;
-      border-right:1px solid #2b2b2b;
-    }
-
-    .metric:last-child{border-right:none;padding-left:24px}
-    .metric:nth-child(2){padding-left:24px}
-
-    .metric strong{
-      display:block;
-      font-size:clamp(2.8rem,5vw,5rem);
-      letter-spacing:-4px;
-      margin-bottom:10px;
-    }
-
-    .metric span{
-      color:#8d8d8d;
-      font-size:14px;
-    }
-
-    .audience{padding:120px 0}
-
-    .audience h2{
-      text-align:center;
-      max-width:900px;
-      margin:0 auto 55px;
-      font-size:clamp(3rem,6vw,6rem);
-      line-height:.92;
-      letter-spacing:-5px;
-    }
-
-    .audience-list{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
+      grid-template-columns:repeat(5,1fr);
       gap:12px;
     }
 
-    .audience-chip{
-      padding:16px 24px;
-      border-radius:999px;
+    .service{
+      min-height:315px;
       border:1px solid var(--line);
-      background:var(--white);
-      font-weight:700;
-      transition:.25s ease;
+      border-radius:16px;
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      background:rgba(255,255,255,.45);
+      transition:.28s;
     }
 
-    .audience-chip:hover{
-      background:var(--black);
-      color:#fff;
-      transform:scale(1.05);
+    .service:hover{
+      transform:translateY(-6px);
+      background:#fff;
+      box-shadow:0 18px 40px rgba(0,0,0,.08);
     }
 
-    .cta{padding:30px 0 120px}
+    .service-icon{
+      font-size:36px;
+      line-height:1;
+      margin-bottom:30px;
+    }
 
-    .cta-box{
-      border-radius:32px;
-      background:var(--soft);
-      padding:80px;
+    .service h3{
+      font-size:18px;
+      line-height:1.2;
+      margin-bottom:6px;
+    }
+
+    .service h3 span{
+      display:block;
+      color:#666;
+      font-weight:500;
+      margin-top:3px;
+    }
+
+    .service p{
+      font-size:12px;
+      line-height:1.6;
+      color:#555;
+      margin-top:auto;
+    }
+
+    .service p.en{color:#888;margin-top:8px}
+    .service .mini-arrow{font-size:20px;margin-top:16px}
+
+    /* PROCESS */
+    .process-head{
       display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:50px;
+      grid-template-columns:1fr .7fr;
+      gap:60px;
+      margin-bottom:50px;
       align-items:end;
     }
 
-    .cta-box h2{
-      font-size:clamp(3rem,6vw,6rem);
-      line-height:.92;
-      letter-spacing:-5px;
+    .process-head h2{
+      font-size:clamp(2.8rem,5vw,5.2rem);
+      line-height:.95;
+      letter-spacing:-.055em;
+    }
+    .process-head h2 span{display:block;color:#8b8b8b}
+
+    .process-head p{color:#d0d0d0;line-height:1.7}
+    .process-head p.en{color:#838383;margin-top:8px}
+
+    .process-track{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:14px;
+      position:relative;
     }
 
-    .cta-side p{
-      color:var(--gray);
+    .process-track::before{
+      content:"";
+      position:absolute;
+      top:50px;
+      left:8%;
+      right:8%;
+      border-top:1px dashed #555;
+    }
+
+    .process-step{
+      position:relative;
+      z-index:2;
+      text-align:left;
+      padding:0 10px;
+    }
+
+    .process-symbol{
+      width:74px;height:74px;
       margin-bottom:24px;
-      line-height:1.7;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:var(--black);
+      font-size:38px;
+      position:relative;
     }
 
+    .process-step h3{
+      font-size:17px;
+      margin-bottom:5px;
+    }
+
+    .process-step h3 span{
+      display:block;
+      color:#8d8d8d;
+      font-weight:500;
+      margin-top:3px;
+    }
+
+    .process-step p{
+      font-size:12px;
+      line-height:1.6;
+      color:#c3c3c3;
+    }
+    .process-step p.en{color:#777;margin-top:7px}
+
+    /* WORK */
+    .work-wrap{
+      display:grid;
+      grid-template-columns:210px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .work-title h2{
+      font-size:clamp(2.6rem,4vw,4.5rem);
+      line-height:.95;
+      letter-spacing:-.055em;
+      margin-top:16px;
+    }
+    .work-title h2 span{display:block;color:#777}
+
+    .work-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:12px;
+    }
+
+    .work-card{
+      aspect-ratio:4/5;
+      border-radius:16px;
+      overflow:hidden;
+      position:relative;
+      background:
+        linear-gradient(180deg, transparent 30%, rgba(0,0,0,.85)),
+        radial-gradient(circle at 60% 20%, #777, #111 65%);
+      transition:.28s;
+    }
+
+    .work-card:nth-child(2){background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.9)),radial-gradient(circle at 50% 45%,#464646,#0d0d0d 70%)}
+    .work-card:nth-child(3){background:linear-gradient(180deg,transparent 20%,rgba(0,0,0,.85)),radial-gradient(circle at 55% 25%,#9a9a9a,#242424 65%)}
+    .work-card:nth-child(4){background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.9)),radial-gradient(circle at 50% 35%,#565656,#0b0b0b 70%)}
+    .work-card:nth-child(5){background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.9)),radial-gradient(circle at 70% 35%,#777,#151515 70%)}
+
+    .work-card:hover{transform:translateY(-6px) scale(1.01)}
+
+    .work-card span{
+      position:absolute;
+      left:18px;bottom:18px;
+      color:#fff;
+      font-size:20px;
+      font-weight:900;
+      text-transform:uppercase;
+      line-height:1;
+    }
+
+    /* METRICS */
+    .metrics{
+      margin-top:22px;
+      background:#0a0a0a;
+      color:#fff;
+      border-radius:16px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      overflow:hidden;
+    }
+
+    .metric{
+      padding:28px 30px;
+      border-right:1px solid #2b2b2b;
+    }
+    .metric:last-child{border-right:none}
+
+    .metric strong{
+      display:block;
+      font-size:clamp(2rem,3.5vw,3.5rem);
+      letter-spacing:-.05em;
+      margin-bottom:8px;
+    }
+
+    .metric span{
+      display:block;
+      font-size:12px;
+      color:#d0d0d0;
+    }
+    .metric span.en{color:#777;margin-top:4px}
+
+    /* FOOTER */
     footer{
-      padding:50px 0 32px;
-      border-top:1px solid var(--line);
+      background:var(--white);
+      padding:70px 0 28px;
     }
 
     .footer-grid{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:30px;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:50px;
+      padding-bottom:50px;
+      border-bottom:1px solid var(--line);
     }
 
-    .footer-brand img{height:38px;margin-bottom:12px}
-    .footer-brand p{font-size:13px;color:var(--gray)}
+    .footer-brand img{height:76px;margin-bottom:16px}
+    .footer-brand p{font-size:13px;line-height:1.6;color:#555;max-width:320px}
+    .footer-brand p.en{color:#888;margin-top:6px}
 
-    .footer-links{
-      display:flex;
-      gap:22px;
-      flex-wrap:wrap;
-      font-size:14px;
-      font-weight:600;
-    }
+    .footer-col h3{font-size:16px;margin-bottom:18px}
+    .footer-col ul{list-style:none;display:grid;gap:10px;font-size:13px;color:#444}
+    .footer-col a:hover{text-decoration:underline}
+    .copyright{text-align:center;color:#777;font-size:11px;padding-top:20px}
 
-    .copyright{
-      margin-top:36px;
-      font-size:12px;
-      color:#8d8d8d;
-    }
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(26px);transition:.7s ease}
+    .reveal.visible{opacity:1;transform:none}
 
-    .reveal{
-      opacity:0;
-      transform:translateY(30px);
-      transition:opacity .7s ease,transform .7s ease;
-    }
-
-    .reveal.visible{
-      opacity:1;
-      transform:none;
-    }
-
-    @media(max-width:900px){
+    @media(max-width:1100px){
       .nav-links{display:none}
-      .hero-grid,.intro-grid,.process-wrap,.why-top,.cta-box{
-        grid-template-columns:1fr;
-        gap:45px;
-      }
-
-      .service-grid{grid-template-columns:1fr}
-      .service-card.tall{grid-row:auto;min-height:380px}
-      .process-left{position:static}
-      .why-metrics{grid-template-columns:1fr}
-
-      .metric,.metric:nth-child(2),.metric:last-child{
-        padding:28px 0;
-        border-right:none;
-        border-bottom:1px solid #2b2b2b;
-      }
-
-      .cta-box{padding:50px 30px}
+      .hero{grid-template-columns:1fr;gap:30px}
+      .hero-visual{min-height:500px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .process-track{grid-template-columns:repeat(2,1fr)}
+      .process-track::before{display:none}
+      .work-wrap{grid-template-columns:1fr}
+      .work-grid{grid-template-columns:repeat(2,1fr)}
+      .metrics{grid-template-columns:repeat(2,1fr)}
+      .section-head{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
     }
 
-    @media(max-width:600px){
-      .hero{padding-top:125px}
-      .hero h1{font-size:4rem;letter-spacing:-4px}
-      .hero-strip{grid-template-columns:1fr}
-      .hero-stat{border-bottom:1px solid var(--line)}
-      .services-head{align-items:start;flex-direction:column}
-      .service-card{min-height:280px}
-      .footer-grid{align-items:start;flex-direction:column}
-      .nav-cta{padding:10px 14px}
+    @media(max-width:700px){
+      .brand img{height:56px}
+      .nav .pill{display:none}
+      .hero{padding-top:30px}
+      .hero h1{font-size:3.5rem}
+      .hero-visual{min-height:400px}
+      .visual-card{width:100%;height:330px}
+      .trust-card{grid-template-columns:1fr auto}
+      .avatars{display:none}
+      .services-grid,
+      .process-track,
+      .work-grid,
+      .metrics,
+      .footer-grid{grid-template-columns:1fr}
+      .metric{border-right:none;border-bottom:1px solid #2b2b2b}
+      .process-head{grid-template-columns:1fr}
     }
   </style>
 </head>
 
 <body>
-  <nav class="nav" id="nav">
-    <div class="container nav-inner">
-      <a class="logo" href="#home">
-        <img src="logo.png" alt="Digital Forge">
-      </a>
 
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#why">Why Us</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <header class="top" id="home">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="#home">
+          <img src="logo.png" alt="Digital Forge">
+        </a>
 
-      <a class="nav-cta" href="#contact">Start a Project</a>
-    </div>
-  </nav>
+        <ul class="nav-links">
+          <li><a href="#home">Inicio / Home</a></li>
+          <li><a href="#services">Servicios / Services</a></li>
+          <li><a href="#process">Proceso / Process</a></li>
+          <li><a href="#work">Trabajos / Work</a></li>
+          <li><a href="#contact">Contacto / Contact</a></li>
+        </ul>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-grid">
-          <div>
-            <div class="kicker">Digital Growth & Creative Services</div>
-            <h1>Turn your content <span class="muted">into growth.</span></h1>
+        <a href="#contact" class="pill light">Hablemos / Let's Talk →</a>
+      </nav>
+
+      <section class="hero">
+        <div class="reveal">
+          <div class="eyebrow">
+            <span class="lang-badge">ES / EN</span>
+            <span class="eyebrow-text">Creamos contenido que conecta.</span>
           </div>
 
-          <div class="hero-side">
-            <p>We turn your existing long-form content into sharp, consistent short-form content built to keep your brand visible and moving.</p>
+          <h1>
+            Contenido que impulsa marcas.
+            <span class="en">Content that drives brands.</span>
+          </h1>
 
-            <div class="hero-actions">
-              <a href="#contact" class="btn btn-dark">Start a Conversation</a>
-              <a href="#services" class="btn btn-light">See What We Do</a>
+          <div class="hero-copy">
+            <p>Transformamos contenido de formato largo en piezas cortas de alto impacto diseñadas para hacer crecer tu audiencia.</p>
+            <p class="en">We turn long-form content into high-impact short-form content designed to grow your audience.</p>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#contact" class="pill light">Hablemos / Let's Talk →</a>
+            <a href="#work" class="pill">Ver trabajos / View Work →</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="visual-card">
+            <div class="visual-message">
+              ESTRATEGIA. EDICIÓN.<br>CREATIVIDAD. RESULTADOS.
+              <span>STRATEGY. EDITING.<br>CREATIVITY. RESULTS.</span>
             </div>
           </div>
-        </div>
 
-        <div class="hero-strip">
-          <div class="hero-stat"><strong>Repurpose</strong>One idea into multiple assets</div>
-          <div class="hero-stat"><strong>Refine</strong>Every piece aligned to your brand</div>
-          <div class="hero-stat"><strong>Repeat</strong>A system designed for consistency</div>
+          <div class="trust-card">
+            <div class="avatars">
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+            </div>
+            <div class="trust-copy">
+              <strong>CREAMOS CONTENIDO QUE SE SIENTE DE MARCA</strong>
+              <span>CONTENT THAT FEELS ON-BRAND</span>
+            </div>
+            <div class="arrow-dot">→</div>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <div class="marquee">
-      <div class="marquee-track">
-        CONTENT &nbsp;→&nbsp; EDIT &nbsp;→&nbsp; REPURPOSE &nbsp;→&nbsp; DISTRIBUTE &nbsp;→&nbsp; GROW &nbsp;→&nbsp;
-        CONTENT &nbsp;→&nbsp; EDIT &nbsp;→&nbsp; REPURPOSE &nbsp;→&nbsp; DISTRIBUTE &nbsp;→&nbsp; GROW &nbsp;→&nbsp;
-      </div>
+      </section>
     </div>
+  </header>
 
-    <section class="intro reveal">
-      <div class="container intro-grid">
-        <div class="section-label">The idea</div>
-        <div>
-          <h2>Your content already has value. We make it work harder.</h2>
-          <p>Most businesses do not need more ideas. They need a better system for turning the content they already create into something consistent, useful and ready to publish.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="services">
+  <main>
+    <section class="light section-pad" id="services">
       <div class="container">
-        <div class="services-head reveal">
+        <div class="section-head reveal">
           <div>
-            <div class="section-label">Services</div>
-            <h2>Different problems need different creative solutions.</h2>
+            <div class="lang-badge" style="border-color:#bbb;display:inline-block">ES / EN</div>
+            <h2>Lo que hacemos <span>What we do</span></h2>
           </div>
-        </div>
-
-        <div class="service-grid">
-          <article class="service-card tall dark reveal">
-            <div class="num">01 / SHORT-FORM</div>
-            <div class="orb"></div>
-            <h3>Short-form video that feels built, not recycled.</h3>
-            <p>We turn podcasts, interviews, educational videos and long-form content into polished pieces designed for modern platforms.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="num">02 / REPURPOSING</div>
-            <h3>Content repurposing</h3>
-            <p>One strong piece of content becomes multiple assets, each adapted to where and how it will be used.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="num">03 / CREATIVE SUPPORT</div>
-            <h3>Creative execution</h3>
-            <p>Editing, formatting and presentation aligned around your brand so every piece feels consistent.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="process" id="process">
-      <div class="container process-wrap">
-        <div class="process-left reveal">
-          <div class="section-label">Process</div>
-          <h2>Simple on your side. Structured on ours.</h2>
-        </div>
-
-        <div>
-          <div class="step reveal">
-            <div class="step-num">01</div>
-            <div><h3>Send</h3><p>Share your source content, brand references and what you want to achieve.</p></div>
-          </div>
-
-          <div class="step reveal">
-            <div class="step-num">02</div>
-            <div><h3>Shape</h3><p>We identify the strongest moments, angles and formats to turn into usable short-form assets.</p></div>
-          </div>
-
-          <div class="step reveal">
-            <div class="step-num">03</div>
-            <div><h3>Refine</h3><p>Every piece goes through creative review so it feels clean, consistent and intentional.</p></div>
-          </div>
-
-          <div class="step reveal">
-            <div class="step-num">04</div>
-            <div><h3>Deliver</h3><p>You receive polished content ready to publish, without rebuilding your content process from scratch.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="why" id="why">
-      <div class="container">
-        <div class="why-top reveal">
-          <h2>More output. Less friction.</h2>
-          <p class="why-copy">Digital Forge is built for businesses that already have something worth saying but do not want their growth limited by editing time, inconsistency or creative bottlenecks.</p>
-        </div>
-
-        <div class="why-metrics reveal">
-          <div class="metric"><strong>01</strong><span>One source of content can become many usable assets.</span></div>
-          <div class="metric"><strong>02</strong><span>Your brand stays visually consistent across every piece.</span></div>
-          <div class="metric"><strong>03</strong><span>Your team spends less time inside editing timelines.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="audience reveal">
-      <div class="container">
-        <div class="section-label" style="text-align:center;margin-bottom:16px;">Built for</div>
-        <h2>People with expertise, ideas and businesses worth seeing.</h2>
-
-        <div class="audience-list">
-          <span class="audience-chip">Founders</span>
-          <span class="audience-chip">Coaches</span>
-          <span class="audience-chip">Consultants</span>
-          <span class="audience-chip">Creators</span>
-          <span class="audience-chip">Personal Brands</span>
-          <span class="audience-chip">Service Businesses</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta" id="contact">
-      <div class="container">
-        <div class="cta-box reveal">
           <div>
-            <div class="section-label">Start here</div>
-            <h2>Make your content work harder.</h2>
+            <p>Soluciones creativas para hacer crecer tu marca en todas las plataformas.</p>
+            <p class="en">Creative solutions to grow your brand across every platform.</p>
+          </div>
+          <a href="#contact" class="pill" style="border-color:#111">Ver todos / View All →</a>
+        </div>
+
+        <div class="services-grid">
+          <article class="service reveal">
+            <div class="service-icon">⚡</div>
+            <div>
+              <h3>Edición de Shorts <span>Shorts Editing</span></h3>
+              <p>Videos cortos que capturan atención y generan impacto.</p>
+              <p class="en">Short videos that capture attention and make an impact.</p>
+              <div class="mini-arrow">→</div>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-icon">◎</div>
+            <div>
+              <h3>Estrategia de Contenido <span>Content Strategy</span></h3>
+              <p>Planes personalizados para hacer crecer tu audiencia.</p>
+              <p class="en">Custom plans to grow your audience.</p>
+              <div class="mini-arrow">→</div>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-icon">◉</div>
+            <div>
+              <h3>Gestión de Redes <span>Social Media Management</span></h3>
+              <p>Manejamos tus redes para que te enfoques en tu negocio.</p>
+              <p class="en">We manage your socials so you can focus on your business.</p>
+              <div class="mini-arrow">→</div>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-icon">▥</div>
+            <div>
+              <h3>Publicidad Digital <span>Paid Advertising</span></h3>
+              <p>Campañas que convierten y generan resultados.</p>
+              <p class="en">Campaigns that convert and deliver results.</p>
+              <div class="mini-arrow">→</div>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-icon">✥</div>
+            <div>
+              <h3>Diseño Visual <span>Visual Design</span></h3>
+              <p>Diseños que comunican, conectan y venden.</p>
+              <p class="en">Designs that communicate, connect and sell.</p>
+              <div class="mini-arrow">→</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark section-pad" id="process">
+      <div class="container">
+        <div class="process-head reveal">
+          <div>
+            <div class="lang-badge" style="display:inline-block">ES / EN</div>
+            <h2>Nuestro proceso <span>Our process</span></h2>
+          </div>
+          <div>
+            <p>Un enfoque claro y estratégico para transformar ideas en resultados.</p>
+            <p class="en">A clear and strategic approach to turn ideas into results.</p>
+          </div>
+        </div>
+
+        <div class="process-track">
+          <div class="process-step reveal">
+            <div class="process-symbol">◌</div>
+            <h3>Descubrimos <span>Discover</span></h3>
+            <p>Entendemos tu marca, objetivos y audiencia.</p>
+            <p class="en">We understand your brand, goals and audience.</p>
           </div>
 
-          <div class="cta-side">
-            <p>Tell us what content you already have and where you want to go. We will help you turn it into a repeatable creative system.</p>
-            <a href="mailto:digitalforge.team@outlook.com?subject=Digital%20Forge%20Project" class="btn btn-dark">Contact Digital Forge</a>
+          <div class="process-step reveal">
+            <div class="process-symbol">✳</div>
+            <h3>Planeamos <span>Plan</span></h3>
+            <p>Creamos la estrategia perfecta para ti.</p>
+            <p class="en">We create the perfect strategy for you.</p>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-symbol">◐</div>
+            <h3>Creamos <span>Create</span></h3>
+            <p>Producimos contenido que conecta.</p>
+            <p class="en">We produce content that connects.</p>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-symbol">➤</div>
+            <h3>Publicamos <span>Publish</span></h3>
+            <p>Llevamos tu contenido a donde importa.</p>
+            <p class="en">We take your content where it matters.</p>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-symbol">◉</div>
+            <h3>Optimizamos <span>Optimize</span></h3>
+            <p>Analizamos y mejoramos para más resultados.</p>
+            <p class="en">We analyze and improve for better results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="light section-pad" id="work">
+      <div class="container">
+        <div class="work-wrap">
+          <div class="work-title reveal">
+            <div class="lang-badge" style="border-color:#bbb;display:inline-block">ES / EN</div>
+            <h2>Trabajos recientes <span>Recent work</span></h2>
+          </div>
+
+          <div class="work-grid">
+            <div class="work-card reveal"><span>SHORTS<br>DROP</span></div>
+            <div class="work-card reveal"><span>BRAND<br>STORY</span></div>
+            <div class="work-card reveal"><span>PODCAST<br>CLIPS</span></div>
+            <div class="work-card reveal"><span>VISUAL<br>CAMPAIGN</span></div>
+            <div class="work-card reveal"><span>BEHIND<br>THE SCENES</span></div>
+          </div>
+        </div>
+
+        <div class="metrics reveal">
+          <div class="metric">
+            <strong>∞</strong>
+            <span>Ideas que podemos convertir en contenido</span>
+            <span class="en">Ideas we can turn into content</span>
+          </div>
+          <div class="metric">
+            <strong>24/7</strong>
+            <span>Tu contenido puede seguir trabajando</span>
+            <span class="en">Your content can keep working</span>
+          </div>
+          <div class="metric">
+            <strong>1→10</strong>
+            <span>Una pieza puede convertirse en muchas</span>
+            <span class="en">One piece can become many</span>
+          </div>
+          <div class="metric">
+            <strong>ES/EN</strong>
+            <span>Comunicación bilingüe</span>
+            <span class="en">Bilingual communication</span>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer id="contact">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="logo.png" alt="Digital Forge">
-          <p>Digital Growth & Creative Services</p>
+          <p>Somos tu socio creativo para construir, crecer y escalar tu marca en digital.</p>
+          <p class="en">We are your creative partner to build, grow and scale your brand.</p>
         </div>
 
-        <div class="footer-links">
-          <a href="#services">Services</a>
-          <a href="#process">Process</a>
-          <a href="#why">Why Us</a>
-          <a href="mailto:digitalforge.team@outlook.com">Email</a>
+        <div class="footer-col">
+          <h3>Hablemos / Let's talk</h3>
+          <ul>
+            <li><a href="mailto:digitalforge.team@outlook.com">digitalforge.team@outlook.com</a></li>
+            <li>Instagram</li>
+            <li>LinkedIn</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Navegación / Navigation</h3>
+          <ul>
+            <li><a href="#home">Inicio / Home</a></li>
+            <li><a href="#services">Servicios / Services</a></li>
+            <li><a href="#process">Proceso / Process</a></li>
+            <li><a href="#work">Trabajos / Work</a></li>
+          </ul>
         </div>
       </div>
 
-      <div class="copyright">© 2026 Digital Forge. All rights reserved.</div>
+      <div class="copyright">© 2026 Digital Forge. Todos los derechos reservados. / All rights reserved.</div>
     </div>
   </footer>
 
   <script>
-    const nav = document.getElementById("nav");
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add("visible")}
+      })
+    },{threshold:.12});
 
-    window.addEventListener("scroll", () => {
-      nav.classList.toggle("scrolled", window.scrollY > 30);
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
   </script>
+
 </body>
 </html>
