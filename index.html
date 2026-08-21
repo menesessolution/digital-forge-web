@@ -1,1757 +1,886 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Digital Forge turns existing content into high-quality short-form content designed to help businesses grow.">
-    <title>Digital Forge | Turn Content Into Growth</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --black: #080808;
-            --white: #ffffff;
-            --gray-100: #f5f5f5;
-            --gray-200: #e9e9e9;
-            --gray-500: #666666;
-            --gray-700: #2b2b2b;
-            --max-width: 1180px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            color: var(--black);
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(90%, var(--max-width));
-            margin: 0 auto;
-        }
-
-        /* NAVBAR */
-
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.94);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .nav-inner {
-            min-height: 78px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .logo img {
-            width: auto;
-            height: 42px;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            font-weight: 600;
-            transition: opacity .2s ease;
-        }
-
-        .nav-links a:hover {
-            opacity: .55;
-        }
-
-        .nav-cta {
-            background: var(--black);
-            color: var(--white);
-            padding: 12px 18px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        /* HERO */
-
-        .hero {
-            padding: 110px 0 100px;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.15fr .85fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 25px;
-            color: var(--gray-500);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 28px;
-            height: 2px;
-            background: var(--black);
-        }
-
-        .hero h1 {
-            max-width: 720px;
-            font-size: clamp(3.2rem, 6vw, 6rem);
-            line-height: .98;
-            letter-spacing: -4px;
-            font-weight: 800;
-            margin-bottom: 28px;
-        }
-
-        .hero h1 span {
-            color: var(--gray-500);
-        }
-
-        .hero-text {
-            max-width: 600px;
-            color: var(--gray-500);
-            font-size: 18px;
-            margin-bottom: 34px;
-        }
-
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 22px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 700;
-            transition: transform .2s ease, background .2s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-black {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .btn-outline {
-            border: 1px solid #cfcfcf;
-            background: var(--white);
-        }
-
-        .hero-card {
-            background: var(--black);
-            color: var(--white);
-            min-height: 470px;
-            border-radius: 16px;
-            padding: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hero-card::before,
-        .hero-card::after {
-            content: "";
-            position: absolute;
-            border: 1px solid rgba(255,255,255,.15);
-            border-radius: 50%;
-        }
-
-        .hero-card::before {
-            width: 360px;
-            height: 360px;
-            right: -160px;
-            top: -100px;
-        }
-
-        .hero-card::after {
-            width: 500px;
-            height: 500px;
-            left: -250px;
-            bottom: -280px;
-        }
-
-        .card-top {
-            position: relative;
-            z-index: 2;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #aaa;
-        }
-
-        .hero-card h2 {
-            position: relative;
-            z-index: 2;
-            font-size: 42px;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            max-width: 380px;
-        }
-
-        .hero-card-bottom {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 20px;
-        }
-
-        .hero-number {
-            font-size: 80px;
-            line-height: .8;
-            font-weight: 800;
-            letter-spacing: -6px;
-        }
-
-        .hero-label {
-            max-width: 150px;
-            color: #aaa;
-            font-size: 13px;
-        }
-
-        /* INTRO */
-
-        .intro {
-            padding: 100px 0;
-        }
-
-        .intro-grid {
-            display: grid;
-            grid-template-columns: .7fr 1.3fr;
-            gap: 80px;
-        }
-
-        .section-label {
-            color: var(--gray-500);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .intro h2 {
-            font-size: clamp(2.2rem, 4vw, 4rem);
-            line-height: 1.05;
-            letter-spacing: -2px;
-            margin-bottom: 25px;
-        }
-
-        .intro p {
-            max-width: 750px;
-            color: var(--gray-500);
-            font-size: 19px;
-        }
-
-        /* SERVICES */
-
-        .services {
-            background: var(--gray-100);
-            padding: 100px 0;
-        }
-
-        .section-heading {
-            max-width: 720px;
-            margin-bottom: 55px;
-        }
-
-        .section-heading h2 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            line-height: 1;
-            letter-spacing: -3px;
-            margin-top: 14px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: #dcdcdc;
-            border: 1px solid #dcdcdc;
-        }
-
-        .service {
-            background: var(--white);
-            padding: 40px;
-            min-height: 260px;
-        }
-
-        .service-number {
-            color: #aaa;
-            font-size: 13px;
-            font-weight: 800;
-        }
-
-        .service h3 {
-            font-size: 25px;
-            margin: 50px 0 12px;
-        }
-
-        .service p {
-            color: var(--gray-500);
-            max-width: 450px;
-        }
-
-        /* PROCESS */
-
-        .process {
-            padding: 110px 0;
-        }
-
-        .process-list {
-            border-top: 1px solid var(--black);
-        }
-
-        .process-item {
-            display: grid;
-            grid-template-columns: 90px 1fr 1.2fr;
-            gap: 30px;
-            padding: 30px 0;
-            border-bottom: 1px solid var(--gray-200);
-            align-items: center;
-        }
-
-        .process-number {
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--gray-500);
-        }
-
-        .process-item h3 {
-            font-size: 25px;
-        }
-
-        .process-item p {
-            color: var(--gray-500);
-        }
-
-        /* WHY */
-
-        .why {
-            background: var(--black);
-            color: var(--white);
-            padding: 110px 0;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-        }
-
-        .why h2 {
-            font-size: clamp(2.7rem, 5vw, 5rem);
-            line-height: .98;
-            letter-spacing: -3px;
-        }
-
-        .why-intro {
-            color: #aaa;
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-
-        .benefits {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .benefit {
-            border-top: 1px solid #333;
-            padding-top: 20px;
-        }
-
-        .benefit h3 {
-            margin-bottom: 8px;
-            font-size: 17px;
-        }
-
-        .benefit p {
-            color: #888;
-            font-size: 14px;
-        }
-
-        /* TARGET */
-
-        .target {
-            padding: 110px 0;
-            text-align: center;
-        }
-
-        .target h2 {
-            max-width: 850px;
-            margin: 15px auto 20px;
-            font-size: clamp(2.6rem, 5vw, 5rem);
-            line-height: 1;
-            letter-spacing: -3px;
-        }
-
-        .target > p {
-            max-width: 650px;
-            margin: 0 auto 45px;
-            color: var(--gray-500);
-            font-size: 17px;
-        }
-
-        .tags {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tag {
-            border: 1px solid #d5d5d5;
-            border-radius: 100px;
-            padding: 13px 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* CTA */
-
-        .cta {
-            margin: 0 5%;
-            background: var(--gray-100);
-            border-radius: 18px;
-            padding: 90px 30px;
-            text-align: center;
-        }
-
-        .cta h2 {
-            max-width: 850px;
-            margin: 0 auto 18px;
-            font-size: clamp(2.7rem, 5vw, 5rem);
-            line-height: 1;
-            letter-spacing: -3px;
-        }
-
-        .cta p {
-            color: var(--gray-500);
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 70px 0 35px;
-        }
-
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            padding-bottom: 55px;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .footer-brand img {
-            width: auto;
-            height: 38px;
-            margin-bottom: 15px;
-        }
-
-        .footer-brand p {
-            color: var(--gray-500);
-            font-size: 14px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .footer-links a {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .copyright {
-            padding-top: 25px;
-            color: #888;
-            font-size: 12px;
-            text-align: center;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 850px) {
-            .nav-links,
-            .nav-cta {
-                display: none;
-            }
-
-            .hero {
-                padding: 75px 0;
-            }
-
-            .hero-grid,
-            .intro-grid,
-            .why-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .hero h1 {
-                letter-spacing: -2.5px;
-            }
-
-            .hero-card {
-                min-height: 380px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-item {
-                grid-template-columns: 50px 1fr;
-            }
-
-            .process-item p {
-                grid-column: 2;
-            }
-
-            .benefits {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-top {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .container {
-                width: 88%;
-            }
-
-            .hero h1 {
-                font-size: 3.1rem;
-            }
-
-            .hero-card h2 {
-                font-size: 32px;
-            }
-
-            .hero-number {
-                font-size: 60px;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .cta {
-                margin: 0 4%;
-                padding: 65px 20px;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
 </head>
-
 <body>
-
-    <nav class="navbar">
-        <div class="container nav-inner">
-            <a href="#home" class="logo">
-                <img src="logo.png" alt="Digital Forge">
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#why">Why Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-            <a href="#contact" class="nav-cta">Book a Call</a>
-        </div>
-    </nav>
-
-    <main>
-
-        <section class="hero" id="home">
-            <div class="container hero-grid">
-
-                <div>
-                    <div class="eyebrow">Digital Growth & Creative Services</div>
-
-                    <h1>
-                        Turn Your Content
-                        <span>Into Growth.</span>
-                    </h1>
-
-                    <p class="hero-text">
-                        We transform your existing content into high-quality short-form content designed to keep your business visible, consistent and engaging.
-                    </p>
-
-                    <div class="buttons">
-                        <a href="#contact" class="btn btn-black">Book a Free Strategy Call</a>
-                        <a href="#services" class="btn btn-outline">Explore Services</a>
-                    </div>
-                </div>
-
-                <div class="hero-card">
-                    <div class="card-top">Digital Forge / 2026</div>
-
-                    <h2>
-                        Your content already has value.
-                        <br><br>
-                        We make it work harder.
-                    </h2>
-
-                    <div class="hero-card-bottom">
-                        <div class="hero-number">01</div>
-                        <div class="hero-label">
-                            Strategy, creative execution and content systems built for growth.
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="intro">
-            <div class="container intro-grid">
-                <div>
-                    <div class="section-label">The Problem</div>
-                </div>
-
-                <div>
-                    <h2>You create the content. We turn it into a system.</h2>
-
-                    <p>
-                        Creating valuable content takes time. Turning that content into consistent, engaging short-form content takes even more.
-                        Digital Forge handles the creative execution so you can stay focused on your business.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="services" id="services">
-            <div class="container">
-
-                <div class="section-heading">
-                    <div class="section-label">What We Do</div>
-                    <h2>Creative execution without the creative headache.</h2>
-                </div>
-
-                <div class="services-grid">
-
-                    <article class="service">
-                        <div class="service-number">01 / VIDEO</div>
-                        <h3>Short-Form Video</h3>
-                        <p>
-                            We turn podcasts, interviews, educational content and long-form videos into engaging short-form pieces built for modern platforms.
-                        </p>
-                    </article>
-
-                    <article class="service">
-                        <div class="service-number">02 / REPURPOSING</div>
-                        <h3>Content Repurposing</h3>
-                        <p>
-                            One piece of long-form content can become multiple pieces of content ready for distribution across your channels.
-                        </p>
-                    </article>
-
-                    <article class="service">
-                        <div class="service-number">03 / CREATIVE</div>
-                        <h3>Creative Support</h3>
-                        <p>
-                            Consistent editing and creative execution built around your brand, your audience and your goals.
-                        </p>
-                    </article>
-
-                    <article class="service">
-                        <div class="service-number">04 / SYSTEMS</div>
-                        <h3>Content Systems</h3>
-                        <p>
-                            We help create a repeatable workflow that makes publishing consistently easier and more efficient.
-                        </p>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="process" id="process">
-            <div class="container">
-
-                <div class="section-heading">
-                    <div class="section-label">Our Process</div>
-                    <h2>Simple process. Powerful output.</h2>
-                </div>
-
-                <div class="process-list">
-
-                    <div class="process-item">
-                        <div class="process-number">01</div>
-                        <h3>Send</h3>
-                        <p>Share your existing content, brand guidelines and goals with us.</p>
-                    </div>
-
-                    <div class="process-item">
-                        <div class="process-number">02</div>
-                        <h3>Create</h3>
-                        <p>Our creative team turns your content into polished, engaging short-form pieces.</p>
-                    </div>
-
-                    <div class="process-item">
-                        <div class="process-number">03</div>
-                        <h3>Review</h3>
-                        <p>Every piece goes through quality control before it reaches you.</p>
-                    </div>
-
-                    <div class="process-item">
-                        <div class="process-number">04</div>
-                        <h3>Publish</h3>
-                        <p>Receive ready-to-publish content that keeps your brand consistently visible.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="why" id="why">
-            <div class="container why-grid">
-
-                <div>
-                    <div class="section-label">Why Digital Forge</div>
-                    <h2>More content. Less work for you.</h2>
-                </div>
-
-                <div>
-                    <p class="why-intro">
-                        Your time should be spent running your business, not spending hours turning one piece of content into ten.
-                    </p>
-
-                    <div class="benefits">
-
-                        <div class="benefit">
-                            <h3>Consistent Output</h3>
-                            <p>Keep your brand active without constantly creating from scratch.</p>
-                        </div>
-
-                        <div class="benefit">
-                            <h3>Save Time</h3>
-                            <p>Let our team handle the repetitive creative execution.</p>
-                        </div>
-
-                        <div class="benefit">
-                            <h3>Professional Quality</h3>
-                            <p>Every piece is edited with your brand and audience in mind.</p>
-                        </div>
-
-                        <div class="benefit">
-                            <h3>Built To Scale</h3>
-                            <p>Create a content workflow that can grow with your business.</p>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="target">
-            <div class="container">
-
-                <div class="section-label">Who It's For</div>
-
-                <h2>Built for businesses that want to grow.</h2>
-
-                <p>
-                    If you are already creating valuable content but don't have the time or resources to repurpose it consistently, Digital Forge is built for you.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Founders</span>
-                    <span class="tag">Coaches</span>
-                    <span class="tag">Consultants</span>
-                    <span class="tag">Creators</span>
-                    <span class="tag">Service Businesses</span>
-                    <span class="tag">Personal Brands</span>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="cta" id="contact">
-            <div class="section-label">Let's Work Together</div>
-
-            <h2>Ready to turn your content into growth?</h2>
-
-            <p>
-                Let's build a content system that works for your business.
-            </p>
-
-            <a href="mailto:digitalforge.team@outlook.com?subject=Digital%20Forge%20Strategy%20Call" class="btn btn-black">
-                Start a Conversation
-            </a>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container">
-
-            <div class="footer-top">
-
-                <div class="footer-brand">
-                    <img src="logo.png" alt="Digital Forge">
-                    <p>Digital Growth & Creative Services</p>
-                </div>
-
-                <div class="footer-links">
-                    <a href="#services">Services</a>
-                    <a href="#process">Process</a>
-                    <a href="#contact">Contact</a>
-                    <a href="mailto:digitalforge.team@outlook.com">Email</a>
-                </div>
-
-            </div>
-
-            <p class="copyright">
-                © 2026 Digital Forge. All rights reserved.
-            </p>
-
-        </div>
-    </footer>
-
-</body>
-</html>
-EOFcat > index.html <<'EOF'
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Digital Forge turns existing content into high-quality short-form content designed to help businesses grow.">
-    <title>Digital Forge | Turn Content Into Growth</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --black: #080808;
-            --white: #ffffff;
-            --gray-100: #f5f5f5;
-            --gray-200: #e9e9e9;
-            --gray-500: #666666;
-            --gray-700: #2b2b2b;
-            --max-width: 1180px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            color: var(--black);
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(90%, var(--max-width));
-            margin: 0 auto;
-        }
-
-        /* NAVBAR */
-
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.94);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .nav-inner {
-            min-height: 78px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .logo img {
-            width: auto;
-            height: 42px;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            font-weight: 600;
-            transition: opacity .2s ease;
-        }
-
-        .nav-links a:hover {
-            opacity: .55;
-        }
-
-        .nav-cta {
-            background: var(--black);
-            color: var(--white);
-            padding: 12px 18px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        /* HERO */
-
-        .hero {
-            padding: 110px 0 100px;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.15fr .85fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 25px;
-            color: var(--gray-500);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 28px;
-            height: 2px;
-            background: var(--black);
-        }
-
-        .hero h1 {
-            max-width: 720px;
-            font-size: clamp(3.2rem, 6vw, 6rem);
-            line-height: .98;
-            letter-spacing: -4px;
-            font-weight: 800;
-            margin-bottom: 28px;
-        }
-
-        .hero h1 span {
-            color: var(--gray-500);
-        }
-
-        .hero-text {
-            max-width: 600px;
-            color: var(--gray-500);
-            font-size: 18px;
-            margin-bottom: 34px;
-        }
-
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 22px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 700;
-            transition: transform .2s ease, background .2s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-black {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .btn-outline {
-            border: 1px solid #cfcfcf;
-            background: var(--white);
-        }
-
-        .hero-card {
-            background: var(--black);
-            color: var(--white);
-            min-height: 470px;
-            border-radius: 16px;
-            padding: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hero-card::before,
-        .hero-card::after {
-            content: "";
-            position: absolute;
-            border: 1px solid rgba(255,255,255,.15);
-            border-radius: 50%;
-        }
-
-        .hero-card::before {
-            width: 360px;
-            height: 360px;
-            right: -160px;
-            top: -100px;
-        }
-
-        .hero-card::after {
-            width: 500px;
-            height: 500px;
-            left: -250px;
-            bottom: -280px;
-        }
-
-        .card-top {
-            position: relative;
-            z-index: 2;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #aaa;
-        }
-
-        .hero-card h2 {
-            position: relative;
-            z-index: 2;
-            font-size: 42px;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            max-width: 380px;
-        }
-
-        .hero-card-bottom {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 20px;
-        }
-
-        .hero-number {
-            font-size: 80px;
-            line-height: .8;
-            font-weight: 800;
-            letter-spacing: -6px;
-        }
-
-        .hero-label {
-            max-width: 150px;
-            color: #aaa;
-            font-size: 13px;
-        }
-
-        /* INTRO */
-
-        .intro {
-            padding: 100px 0;
-        }
-
-        .intro-grid {
-            display: grid;
-            grid-template-columns: .7fr 1.3fr;
-            gap: 80px;
-        }
-
-        .section-label {
-            color: var(--gray-500);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .intro h2 {
-            font-size: clamp(2.2rem, 4vw, 4rem);
-            line-height: 1.05;
-            letter-spacing: -2px;
-            margin-bottom: 25px;
-        }
-
-        .intro p {
-            max-width: 750px;
-            color: var(--gray-500);
-            font-size: 19px;
-        }
-
-        /* SERVICES */
-
-        .services {
-            background: var(--gray-100);
-            padding: 100px 0;
-        }
-
-        .section-heading {
-            max-width: 720px;
-            margin-bottom: 55px;
-        }
-
-        .section-heading h2 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            line-height: 1;
-            letter-spacing: -3px;
-            margin-top: 14px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: #dcdcdc;
-            border: 1px solid #dcdcdc;
-        }
-
-        .service {
-            background: var(--white);
-            padding: 40px;
-            min-height: 260px;
-        }
-
-        .service-number {
-            color: #aaa;
-            font-size: 13px;
-            font-weight: 800;
-        }
-
-        .service h3 {
-            font-size: 25px;
-            margin: 50px 0 12px;
-        }
-
-        .service p {
-            color: var(--gray-500);
-            max-width: 450px;
-        }
-
-        /* PROCESS */
-
-        .process {
-            padding: 110px 0;
-        }
-
-        .process-list {
-            border-top: 1px solid var(--black);
-        }
-
-        .process-item {
-            display: grid;
-            grid-template-columns: 90px 1fr 1.2fr;
-            gap: 30px;
-            padding: 30px 0;
-            border-bottom: 1px solid var(--gray-200);
-            align-items: center;
-        }
-
-        .process-number {
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--gray-500);
-        }
-
-        .process-item h3 {
-            font-size: 25px;
-        }
-
-        .process-item p {
-            color: var(--gray-500);
-        }
-
-        /* WHY */
-
-        .why {
-            background: var(--black);
-            color: var(--white);
-            padding: 110px 0;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-        }
-
-        .why h2 {
-            font-size: clamp(2.7rem, 5vw, 5rem);
-            line-height: .98;
-            letter-spacing: -3px;
-        }
-
-        .why-intro {
-            color: #aaa;
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-
-        .benefits {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .benefit {
-            border-top: 1px solid #333;
-            padding-top: 20px;
-        }
-
-        .benefit h3 {
-            margin-bottom: 8px;
-            font-size: 17px;
-        }
-
-        .benefit p {
-            color: #888;
-            font-size: 14px;
-        }
-
-        /* TARGET */
-
-        .target {
-            padding: 110px 0;
-            text-align: center;
-        }
-
-        .target h2 {
-            max-width: 850px;
-            margin: 15px auto 20px;
-            font-size: clamp(2.6rem, 5vw, 5rem);
-            line-height: 1;
-            letter-spacing: -3px;
-        }
-
-        .target > p {
-            max-width: 650px;
-            margin: 0 auto 45px;
-            color: var(--gray-500);
-            font-size: 17px;
-        }
-
-        .tags {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tag {
-            border: 1px solid #d5d5d5;
-            border-radius: 100px;
-            padding: 13px 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* CTA */
-
-        .cta {
-            margin: 0 5%;
-            background: var(--gray-100);
-            border-radius: 18px;
-            padding: 90px 30px;
-            text-align: center;
-        }
-
-        .cta h2 {
-            max-width: 850px;
-            margin: 0 auto 18px;
-            font-size: clamp(2.7rem, 5vw, 5rem);
-            line-height: 1;
-            letter-spacing: -3px;
-        }
-
-        .cta p {
-            color: var(--gray-500);
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 70px 0 35px;
-        }
-
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            padding-bottom: 55px;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .footer-brand img {
-            width: auto;
-            height: 38px;
-            margin-bottom: 15px;
-        }
-
-        .footer-brand p {
-            color: var(--gray-500);
-            font-size: 14px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .footer-links a {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .copyright {
-            padding-top: 25px;
-            color: #888;
-            font-size: 12px;
-            text-align: center;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 850px) {
-            .nav-links,
-            .nav-cta {
-                display: none;
-            }
-
-            .hero {
-                padding: 75px 0;
-            }
-
-            .hero-grid,
-            .intro-grid,
-            .why-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .hero h1 {
-                letter-spacing: -2.5px;
-            }
-
-            .hero-card {
-                min-height: 380px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-item {
-                grid-template-columns: 50px 1fr;
-            }
-
-            .process-item p {
-                grid-column: 2;
-            }
-
-            .benefits {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-top {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .container {
-                width: 88%;
-            }
-
-            .hero h1 {
-                font-size: 3.1rem;
-            }
-
-            .hero-card h2 {
-                font-size: 32px;
-            }
-
-            .hero-number {
-                font-size: 60px;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .cta {
-                margin: 0 4%;
-                padding: 65px 20px;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <nav class="navbar">
-        <div class="container nav-inner">
-            <a href="#home" class="logo">
-                <img src="logo.png" alt="Digital Forge">
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#why">Why Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-            <a href="#contact" class="nav-cta">Book a Call</a>
-        </div>
-    </nav>
-
-    <main>
-
-        <section class="hero" id="home">
-            <div class="container hero-grid">
-
-                <div>
-                    <div class="eyebrow">Digital Growth & Creative Services</div>
-
-                    <h1>
-                        Turn Your Content
-                        <span>Into Growth.</span>
-                    </h1>
-
-                    <p class="hero-text">
-                        We transform your existing content into high-quality short-form content designed to keep your business visible, consistent and engaging.
-                    </p>
-
-                    <div class="buttons">
-                        <a href="#contact" class="btn btn-black">Book a Free Strategy Call</a>
-                        <a href="#services" class="btn btn-outline">Explore Services</a>
-                    </div>
-                </div>
-
-                <div class="hero-card">
-                    <div class="card-top">Digital Forge / 2026</div>
-
-                    <h2>
-                        Your content already has value.
-                        <br><br>
-                        We make it work harder.
-                    </h2>
-
-                    <div class="hero-card-bottom">
-                        <div class="hero-number">01</div>
-                        <div class="hero-label">
-                            Strategy, creative execution and content systems built for growth.
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="intro">
-            <div class="container intro-grid">
-                <div>
-                    <div class="section-label">The Problem</div>
-                </div>
-
-                <div>
-                    <h2>You create the content. We turn it into a system.</h2>
-
-                    <p>
-                        Creating valuable content takes time. Turning that content into consistent, engaging short-form content takes even more.
-                        Digital Forge handles the creative execution so you can stay focused on your business.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="services" id="services">
-            <div class="container">
-
-                <div class="section-heading">
-                    <div class="section-label">What We Do</div>
-                    <h2>Creative execution without the creative headache.</h2>
-                </div>
-
-                <div class="services-grid">
-
-                    <article class="service">
-                        <div class="service-number">01 / VIDEO</div>
-                        <h3>Short-Form Video</h3>
-                        <p>
-                            We turn podcasts, interviews, educational content and long-form videos into engaging short-form pieces built for modern platforms.
-                        </p>
-                    </article>
-
-                    <article class="service">
-                        <div class="service-number">02 / REPURPOSING</div>
-                        <h3>Content Repurposing</h3>
-                        <p>
-                            One piece of long-form content can become multiple pieces of content ready for distribution across your channels.
-                        </p>
-                    </article>
-
-                    <article class="service">
-                        <div class="service-number">03 / CREATIVE</div>
-                        <h3>Creative Support</h3>
-                        <p>
-                            Consistent editing and creative execution built around your brand, your audience and your goals.
-                        </p>
-                    </article>
-
-                    <article class="service">
-                        <div class="service-number">04 / SYSTEMS</div>
-                        <h3>Content Systems</h3>
-                        <p>
-                            We help create a repeatable workflow that makes publishing consistently easier and more efficient.
-                        </p>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="process" id="process">
-            <div class="container">
-
-                <div class="section-heading">
-                    <div class="section-label">Our Process</div>
-                    <h2>Simple process. Powerful output.</h2>
-                </div>
-
-                <div class="process-list">
-
-                    <div class="process-item">
-                        <div class="process-number">01</div>
-                        <h3>Send</h3>
-                        <p>Share your existing content, brand guidelines and goals with us.</p>
-                    </div>
-
-                    <div class="process-item">
-                        <div class="process-number">02</div>
-                        <h3>Create</h3>
-                        <p>Our creative team turns your content into polished, engaging short-form pieces.</p>
-                    </div>
-
-                    <div class="process-item">
-                        <div class="process-number">03</div>
-                        <h3>Review</h3>
-                        <p>Every piece goes through quality control before it reaches you.</p>
-                    </div>
-
-                    <div class="process-item">
-                        <div class="process-number">04</div>
-                        <h3>Publish</h3>
-                        <p>Receive ready-to-publish content that keeps your brand consistently visible.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="why" id="why">
-            <div class="container why-grid">
-
-                <div>
-                    <div class="section-label">Why Digital Forge</div>
-                    <h2>More content. Less work for you.</h2>
-                </div>
-
-                <div>
-                    <p class="why-intro">
-                        Your time should be spent running your business, not spending hours turning one piece of content into ten.
-                    </p>
-
-                    <div class="benefits">
-
-                        <div class="benefit">
-                            <h3>Consistent Output</h3>
-                            <p>Keep your brand active without constantly creating from scratch.</p>
-                        </div>
-
-                        <div class="benefit">
-                            <h3>Save Time</h3>
-                            <p>Let our team handle the repetitive creative execution.</p>
-                        </div>
-
-                        <div class="benefit">
-                            <h3>Professional Quality</h3>
-                            <p>Every piece is edited with your brand and audience in mind.</p>
-                        </div>
-
-                        <div class="benefit">
-                            <h3>Built To Scale</h3>
-                            <p>Create a content workflow that can grow with your business.</p>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="target">
-            <div class="container">
-
-                <div class="section-label">Who It's For</div>
-
-                <h2>Built for businesses that want to grow.</h2>
-
-                <p>
-                    If you are already creating valuable content but don't have the time or resources to repurpose it consistently, Digital Forge is built for you.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Founders</span>
-                    <span class="tag">Coaches</span>
-                    <span class="tag">Consultants</span>
-                    <span class="tag">Creators</span>
-                    <span class="tag">Service Businesses</span>
-                    <span class="tag">Personal Brands</span>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="cta" id="contact">
-            <div class="section-label">Let's Work Together</div>
-
-            <h2>Ready to turn your content into growth?</h2>
-
-            <p>
-                Let's build a content system that works for your business.
-            </p>
-
-            <a href="mailto:digitalforge.team@outlook.com?subject=Digital%20Forge%20Strategy%20Call" class="btn btn-black">
-                Start a Conversation
-            </a>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container">
-
-            <div class="footer-top">
-
-                <div class="footer-brand">
-                    <img src="logo.png" alt="Digital Forge">
-                    <p>Digital Growth & Creative Services</p>
-                </div>
-
-                <div class="footer-links">
-                    <a href="#services">Services</a>
-                    <a href="#process">Process</a>
-                    <a href="#contact">Contact</a>
-                    <a href="mailto:digitalforge.team@outlook.com">Email</a>
-                </div>
-
-            </div>
-
-            <p class="copyright">
-                © 2026 Digital Forge. All rights reserved.
-            </p>
-
-        </div>
-    </footer>
-
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Digital Forge transforms long-form content into high-quality short-form content built for growth."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Digital Forge | Content Built for Growth&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg:#f7f7f4;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--white:#ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--black:#0b0b0b;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--gray:#6f6f6f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--line:#deded8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--soft:#ecece7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--radius:24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--max:1200px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>*{box-sizing:border-box;margin:0;padding:0}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html{scroll-behavior:smooth}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family:"Inter",sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--black);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow-x:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>a{color:inherit;text-decoration:none}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container{width:min(92%,var(--max));margin:auto}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* NAV */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:fixed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>inset:0 0 auto 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index:1000;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:18px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition:.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav.scrolled{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(247,247,244,.88);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter:blur(14px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-inner{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.logo img{height:38px;width:auto;display:block}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-links{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>list-style:none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:28px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-links a{opacity:.75;transition:.2s}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-links a:hover{opacity:1}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-cta{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--black);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:700;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* HERO */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height:100vh;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:150px 0 80px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-grid{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1.2fr .8fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:70px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:end;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.kicker{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:1.6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform:uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--gray);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:28px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.kicker::before{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content:"";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:34px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height:2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--black);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero h1{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(4rem,8vw,8rem);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:.88;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-7px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:880px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero h1 .muted{color:#aaa}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-side{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-bottom:14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-side p{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--gray);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:28px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-actions{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:inline-flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:14px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--black);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition:.25s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-dark{background:var(--black);color:#fff}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-light{background:transparent}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover{transform:translateY(-3px)}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-strip{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:70px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(3,1fr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-stat{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:22px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--gray);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-stat strong{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--black);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* MARQUEE */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.marquee{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--black);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>white-space:nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform:rotate(-1.5deg) scale(1.02);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:10px 0 100px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.marquee-track{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>animation:scroll 18s linear infinite;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:22px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:1px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@keyframes scroll{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>from{transform:translateX(0)}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>to{transform:translateX(-50%)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* INTRO */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.intro{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:60px 0 120px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.intro-grid{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:.7fr 1.3fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:90px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section-label{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform:uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:1.8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--gray);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.intro h2{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(2.5rem,5vw,5rem);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:.96;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:28px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.intro p{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--gray);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:19px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:760px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.75;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* SERVICES */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.services{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:40px 0 120px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.services-head{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:end;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:30px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:45px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.services-head h2{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(2.8rem,5vw,5rem);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:.95;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:760px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.service-grid{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1.2fr .8fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-rows:auto auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.service-card{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:var(--radius);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:34px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height:300px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction:column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition:.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.service-card:hover{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform:translateY(-6px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 18px 50px rgba(0,0,0,.08);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.service-card.dark{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--black);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color:var(--black);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.service-card.tall{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-row:span 2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height:618px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.service-card .num{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#999;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.service-card h3{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(2rem,4vw,4rem);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-3px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:560px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.service-card p{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--gray);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:480px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.7;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.service-card.dark p{color:#aaa}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.orb{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:280px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height:280px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.16);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:50%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>right:-80px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top:80px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.orb::after{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content:"";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>inset:40px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:50%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* PROCESS */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.process{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:120px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.process-wrap{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:.8fr 1.2fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:80px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:start;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.process-left{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:sticky;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top:120px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.process-left h2{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(2.7rem,5vw,5rem);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:.95;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:30px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:70px 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity:.5;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition:.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step:hover{opacity:1}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step-num{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--gray);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step h3{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:28px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step p{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--gray);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:580px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.7;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* WHY */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.why{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--black);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:120px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.why-top{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1.1fr .9fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:80px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:70px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.why h2{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(3rem,6vw,6rem);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:.9;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-5px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.why-copy{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#aaa;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-self:end;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.why-metrics{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(3,1fr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid #2b2b2b;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.metric{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:32px 24px 10px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-right:1px solid #2b2b2b;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.metric:last-child{border-right:none;padding-left:24px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.metric:nth-child(2){padding-left:24px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.metric strong{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(2.8rem,5vw,5rem);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.metric span{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#8d8d8d;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* AUDIENCE */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.audience{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:120px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.audience h2{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width:900px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0 auto 55px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(3rem,6vw,6rem);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:.92;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-5px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.audience-list{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.audience-chip{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:16px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition:.25s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.audience-chip:hover{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--black);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform:scale(1.05);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* CTA */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:30px 0 120px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta-box{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:32px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:var(--soft);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:80px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1.2fr .8fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:50px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:end;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta-box h2{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(3rem,6vw,6rem);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:.92;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-5px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta-side p{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--gray);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.7;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* FOOTER */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:50px 0 32px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid var(--line);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.footer-grid{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:end;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:30px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.footer-brand img{height:38px;margin-bottom:12px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.footer-brand p{font-size:13px;color:var(--gray)}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.footer-links{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:22px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.copyright{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:36px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#8d8d8d;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* REVEAL */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.reveal{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform:translateY(30px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition:opacity .7s ease,transform .7s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.reveal.visible{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity:1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* MOBILE */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media(max-width:900px){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.nav-links{display:none}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-grid,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.intro-grid,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.process-wrap,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.why-top,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.cta-box{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns:1fr;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>gap:45px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero h1,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.intro h2,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.services-head h2,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.process-left h2,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.why h2,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.audience h2,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.cta-box h2{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>letter-spacing:-3px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.service-grid{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns:1fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.service-card.tall{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>grid-row:auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>min-height:380px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.process-left{position:static}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.why-metrics{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns:1fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.metric,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.metric:nth-child(2),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.metric:last-child{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>padding:28px 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>border-right:none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>border-bottom:1px solid #2b2b2b;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.cta-box{padding:50px 30px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media(max-width:600px){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero{padding-top:125px}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero h1{font-size:4rem;letter-spacing:-4px}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-strip{grid-template-columns:1fr}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-stat{border-bottom:1px solid var(--line)}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.services-head{align-items:start;flex-direction:column}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.service-card{min-height:280px}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.footer-grid{align-items:start;flex-direction:column}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.nav-cta{padding:10px 14px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;nav class="nav" id="nav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container nav-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="logo" href="#home"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="logo.png" alt="Digital Forge"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/a&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="nav-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="#process"&gt;Process&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="#why"&gt;Why Us&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="nav-cta" href="#contact"&gt;Start a Project&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="hero" id="home"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="kicker"&gt;Digital Growth &amp; Creative Services&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Turn your content</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="muted"&gt;into growth.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="hero-side"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>We turn your existing long-form content into sharp, consistent short-form content built to keep your brand visible and moving.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="hero-actions"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;a href="#contact" class="btn btn-dark"&gt;Start a Conversation&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;a href="#services" class="btn btn-light"&gt;See What We Do&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-strip"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="hero-stat"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;Repurpose&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>One idea into multiple assets</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="hero-stat"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;Refine&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Every piece aligned to your brand</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="hero-stat"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;Repeat&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>A system designed for consistency</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="marquee"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="marquee-track"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>CONTENT &amp;nbsp;→&amp;nbsp; EDIT &amp;nbsp;→&amp;nbsp; REPURPOSE &amp;nbsp;→&amp;nbsp; DISTRIBUTE &amp;nbsp;→&amp;nbsp; GROW &amp;nbsp;→&amp;nbsp;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>CONTENT &amp;nbsp;→&amp;nbsp; EDIT &amp;nbsp;→&amp;nbsp; REPURPOSE &amp;nbsp;→&amp;nbsp; DISTRIBUTE &amp;nbsp;→&amp;nbsp; GROW &amp;nbsp;→&amp;nbsp;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="intro reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container intro-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="section-label"&gt;The idea&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Your content already has value. We make it work harder.&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Most businesses do not need more ideas. They need a better system for turning the content they already create into something consistent, useful and ready to publish.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="services" id="services"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="services-head reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="section-label"&gt;Services&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Different problems need different creative solutions.&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;article class="service-card tall dark reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="num"&gt;01 / SHORT-FORM&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="orb"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Short-form video that feels built, not recycled.&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>We turn podcasts, interviews, educational videos and long-form content into polished pieces designed for modern platforms.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;article class="service-card reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="num"&gt;02 / REPURPOSING&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Content repurposing&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>One strong piece of content becomes multiple assets, each adapted to where and how it will be used.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;article class="service-card reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="num"&gt;03 / CREATIVE SUPPORT&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Creative execution&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Editing, formatting and presentation aligned around your brand so every piece feels consistent.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="process" id="process"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container process-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="process-left reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="section-label"&gt;Process&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Simple on your side. Structured on ours.&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-num"&gt;01&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Send&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Share your source content, brand references and what you want to achieve.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-num"&gt;02&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Shape&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;We identify the strongest moments, angles and formats to turn into usable short-form assets.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-num"&gt;03&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Refine&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Every piece goes through creative review so it feels clean, consistent and intentional.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="step reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-num"&gt;04&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Deliver&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;You receive polished content ready to publish, without rebuilding your content process from scratch.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="why" id="why"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="why-top reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;More output. Less friction.&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="why-copy"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Digital Forge is built for businesses that already have something worth saying but do not want their growth limited by editing time, inconsistency or creative bottlenecks.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="why-metrics reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="metric"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;01&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;One source of content can become many usable assets.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="metric"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;02&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;Your brand stays visually consistent across every piece.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="metric"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;03&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;Your team spends less time inside editing timelines.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="audience reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="section-label" style="text-align:center;margin-bottom:16px;"&gt;Built for&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;People with expertise, ideas and businesses worth seeing.&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="audience-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="audience-chip"&gt;Founders&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="audience-chip"&gt;Coaches&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="audience-chip"&gt;Consultants&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="audience-chip"&gt;Creators&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="audience-chip"&gt;Personal Brands&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="audience-chip"&gt;Service Businesses&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="cta" id="contact"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="cta-box reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="section-label"&gt;Start here&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Make your content work harder.&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="cta-side"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Tell us what content you already have and where you want to go. We will help you turn it into a repeatable creative system.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="mailto:digitalforge.team@outlook.com?subject=Digital%20Forge%20Project" class="btn btn-dark"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Contact Digital Forge</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="footer-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="footer-brand"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="logo.png" alt="Digital Forge"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Digital Growth &amp; Creative Services&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="footer-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="#services"&gt;Services&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="#process"&gt;Process&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="#why"&gt;Why Us&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="mailto:digitalforge.team@outlook.com"&gt;Email&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="copyright"&gt;© 2026 Digital Forge. All rights reserved.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const nav = document.getElementById("nav");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener("scroll", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>nav.classList.toggle("scrolled", window.scrollY &gt; 30);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const observer = new IntersectionObserver((entries) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>entries.forEach((entry) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (entry.isIntersecting) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>entry.target.classList.add("visible");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}, { threshold: 0.12 });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.querySelectorAll(".reveal").forEach((el) =&gt; observer.observe(el));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
 </body>
 </html>
