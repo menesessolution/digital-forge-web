@@ -1,16 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Digital Forge - Contenido, edición y estrategia para marcas que quieren crecer.">
-  <title>Digital Forge | Contenido que impulsa marcas</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Digital Forge - Contenido, edición y estrategia para marcas que quieren crecer." name="description"/>
+<title>Digital Forge | Contenido que impulsa marcas</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
     :root{
       --black:#050505;
       --black-2:#0b0b0b;
@@ -767,318 +766,313 @@
       .metric{border-right:none;border-bottom:1px solid #2b2b2b}
       .process-head{grid-template-columns:1fr}
     }
-  </style>
+  
+
+    /* LANGUAGE SWITCH */
+    .language-switch{
+      display:inline-flex;
+      align-items:center;
+      padding:4px;
+      border:1px solid rgba(255,255,255,.28);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      backdrop-filter:blur(10px);
+    }
+
+    .lang-option{
+      appearance:none;
+      border:0;
+      background:transparent;
+      color:#9b9b9b;
+      min-width:42px;
+      padding:9px 12px;
+      border-radius:999px;
+      font:inherit;
+      font-size:12px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .lang-option:hover{color:#fff}
+    .lang-option.active{
+      background:#f3f0eb;
+      color:#111;
+    }
+
+    .language-switch:focus-within{outline:2px solid rgba(255,255,255,.65);outline-offset:3px}
+
+    @media(max-width:700px){
+      .nav{gap:12px}
+      .language-switch{margin-left:auto}
+      .lang-option{min-width:38px;padding:8px 10px}
+    }
+</style>
 </head>
-
 <body>
+<header class="top" id="home">
+<div class="container">
+<nav class="nav">
+<a class="brand" href="#home">
+<img alt="Digital Forge" src="logo.png"/>
+</a>
+<ul class="nav-links">
+<li><a data-en="Home" data-es="Inicio" href="#home">Inicio</a></li>
+<li><a data-en="Services" data-es="Servicios" href="#services">Servicios</a></li>
+<li><a data-en="Process" data-es="Proceso" href="#process">Proceso</a></li>
+<li><a data-en="System" data-es="Sistema" href="#system">Sistema</a></li>
+<li><a data-en="Contact" data-es="Contacto" href="#contact">Contacto</a></li>
+</ul>
+<div aria-label="Language selector" class="language-switch" role="group"><button aria-pressed="true" class="lang-option" data-lang="es" type="button">ES</button><button aria-pressed="false" class="lang-option" data-lang="en" type="button">EN</button></div><a class="pill light" data-en="Let's Talk →" data-es="Hablemos →" href="#contact">Hablemos →</a>
+</nav>
+<section class="hero">
+<div class="reveal">
+<div class="eyebrow">
+<span class="lang-badge" data-en="EN" data-es="ES">ES</span>
+<span class="eyebrow-text" data-en="We create content that connects." data-es="Creamos contenido que conecta.">Creamos contenido que conecta.</span>
+</div>
+<h1 data-en="Content that drives brands." data-es="Contenido que impulsa marcas.">Contenido que impulsa marcas.</h1>
+<div class="hero-copy">
+<p data-en="We turn long-form content into high-impact short-form content designed to grow your audience." data-es="Transformamos contenido de formato largo en piezas cortas de alto impacto diseñadas para hacer crecer tu audiencia.">Transformamos contenido de formato largo en piezas cortas de alto impacto diseñadas para hacer crecer tu audiencia.</p>
 
-  <header class="top" id="home">
-    <div class="container">
-      <nav class="nav">
-        <a class="brand" href="#home">
-          <img src="logo.png" alt="Digital Forge">
-        </a>
+</div>
+<div class="hero-actions">
+<a class="pill light" data-en="Let's Talk →" data-es="Hablemos →" href="#contact">Hablemos →</a>
+<a class="pill" data-en="View Work →" data-es="Ver trabajos →" href="#work">Ver trabajos →</a>
+</div>
+</div>
+<div class="hero-visual reveal">
+<div class="visual-card">
+<div class="visual-message" data-en="STRATEGY. EDITING.
+CREATIVITY. RESULTS." data-es="ESTRATEGIA. EDICIÓN.
+CREATIVIDAD. RESULTADOS.">ESTRATEGIA. EDICIÓN.
+CREATIVIDAD. RESULTADOS.</div>
+</div>
+<div class="trust-card">
+<div class="avatars">
+<div class="avatar"></div>
+<div class="avatar"></div>
+<div class="avatar"></div>
+<div class="avatar"></div>
+</div>
+<div class="trust-copy">
+<strong data-en="WE CREATE CONTENT THAT FEELS ON-BRAND" data-es="CREAMOS CONTENIDO QUE SE SIENTE DE MARCA">CREAMOS CONTENIDO QUE SE SIENTE DE MARCA</strong>
+<span data-en="BUILT FOR YOUR BRAND" data-es="HECHO PARA TU IDENTIDAD">HECHO PARA TU IDENTIDAD</span>
+</div>
+<div class="arrow-dot">→</div>
+</div>
+</div>
+</section>
+</div>
+</header>
+<main>
+<section class="light section-pad" id="services">
+<div class="container">
+<div class="section-head reveal">
+<div>
+<div class="lang-badge" data-en="SERVICES" data-es="SERVICIOS" style="border-color:#bbb;display:inline-block">SERVICIOS</div>
+<h2 data-en="What we do" data-es="Lo que hacemos">Lo que hacemos</h2>
+</div>
+<div>
+<p data-en="Creative solutions to grow your brand across every platform." data-es="Soluciones creativas para hacer crecer tu marca en todas las plataformas.">Soluciones creativas para hacer crecer tu marca en todas las plataformas.</p>
 
-        <ul class="nav-links">
-          <li><a href="#home">Inicio / Home</a></li>
-          <li><a href="#services">Servicios / Services</a></li>
-          <li><a href="#process">Proceso / Process</a></li>
-          <li><a href="#system">Sistema / System</a></li>
-          <li><a href="#contact">Contacto / Contact</a></li>
-        </ul>
+</div>
+<a class="pill" data-en="View All →" data-es="Ver todos →" href="#contact" style="border-color:#111">Ver todos →</a>
+</div>
+<div class="services-grid">
+<article class="service reveal">
+<div class="service-icon">⚡</div>
+<div>
+<h3 data-en="Shorts Editing" data-es="Edición de Shorts">Edición de Shorts</h3>
+<p data-en="Short videos that capture attention and make an impact." data-es="Videos cortos que capturan atención y generan impacto.">Videos cortos que capturan atención y generan impacto.</p>
 
-        <a href="#contact" class="pill light">Hablemos / Let's Talk →</a>
-      </nav>
+<div class="mini-arrow">→</div>
+</div>
+</article>
+<article class="service reveal">
+<div class="service-icon">◎</div>
+<div>
+<h3 data-en="Content Strategy" data-es="Estrategia de Contenido">Estrategia de Contenido</h3>
+<p data-en="Custom plans to grow your audience." data-es="Planes personalizados para hacer crecer tu audiencia.">Planes personalizados para hacer crecer tu audiencia.</p>
 
-      <section class="hero">
-        <div class="reveal">
-          <div class="eyebrow">
-            <span class="lang-badge">ES / EN</span>
-            <span class="eyebrow-text">Creamos contenido que conecta.</span>
-          </div>
+<div class="mini-arrow">→</div>
+</div>
+</article>
+<article class="service reveal">
+<div class="service-icon">◉</div>
+<div>
+<h3 data-en="Social Media Management" data-es="Gestión de Redes">Gestión de Redes</h3>
+<p data-en="We manage your socials so you can focus on your business." data-es="Manejamos tus redes para que te enfoques en tu negocio.">Manejamos tus redes para que te enfoques en tu negocio.</p>
 
-          <h1>
-            Contenido que impulsa marcas.
-            <span class="en">Content that drives brands.</span>
-          </h1>
+<div class="mini-arrow">→</div>
+</div>
+</article>
+<article class="service reveal">
+<div class="service-icon">▥</div>
+<div>
+<h3 data-en="Paid Advertising" data-es="Publicidad Digital">Publicidad Digital</h3>
+<p data-en="Campaigns that convert and deliver results." data-es="Campañas que convierten y generan resultados.">Campañas que convierten y generan resultados.</p>
 
-          <div class="hero-copy">
-            <p>Transformamos contenido de formato largo en piezas cortas de alto impacto diseñadas para hacer crecer tu audiencia.</p>
-            <p class="en">We turn long-form content into high-impact short-form content designed to grow your audience.</p>
-          </div>
+<div class="mini-arrow">→</div>
+</div>
+</article>
+<article class="service reveal">
+<div class="service-icon">✥</div>
+<div>
+<h3 data-en="Visual Design" data-es="Diseño Visual">Diseño Visual</h3>
+<p data-en="Designs that communicate, connect and sell." data-es="Diseños que comunican, conectan y venden.">Diseños que comunican, conectan y venden.</p>
 
-          <div class="hero-actions">
-            <a href="#contact" class="pill light">Hablemos / Let's Talk →</a>
-            <a href="#work" class="pill">Ver trabajos / View Work →</a>
-          </div>
-        </div>
+<div class="mini-arrow">→</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="dark section-pad" id="process">
+<div class="container">
+<div class="process-head reveal">
+<div>
+<div class="lang-badge" data-en="PROCESS" data-es="PROCESO" style="display:inline-block">PROCESO</div>
+<h2 data-en="Our process" data-es="Nuestro proceso">Nuestro proceso</h2>
+</div>
+<div>
+<p data-en="A clear and strategic approach to turn ideas into results." data-es="Un enfoque claro y estratégico para transformar ideas en resultados.">Un enfoque claro y estratégico para transformar ideas en resultados.</p>
 
-        <div class="hero-visual reveal">
-          <div class="visual-card">
-            <div class="visual-message">
-              ESTRATEGIA. EDICIÓN.<br>CREATIVIDAD. RESULTADOS.
-              <span>STRATEGY. EDITING.<br>CREATIVITY. RESULTS.</span>
-            </div>
-          </div>
+</div>
+</div>
+<div class="process-track">
+<div class="process-step reveal">
+<div class="process-symbol">◌</div>
+<h3 data-en="Discover" data-es="Descubrimos">Descubrimos</h3>
+<p data-en="We understand your brand, goals and audience." data-es="Entendemos tu marca, objetivos y audiencia.">Entendemos tu marca, objetivos y audiencia.</p>
 
-          <div class="trust-card">
-            <div class="avatars">
-              <div class="avatar"></div>
-              <div class="avatar"></div>
-              <div class="avatar"></div>
-              <div class="avatar"></div>
-            </div>
-            <div class="trust-copy">
-              <strong>CREAMOS CONTENIDO QUE SE SIENTE DE MARCA</strong>
-              <span>CONTENT THAT FEELS ON-BRAND</span>
-            </div>
-            <div class="arrow-dot">→</div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </header>
+</div>
+<div class="process-step reveal">
+<div class="process-symbol">✳</div>
+<h3 data-en="Plan" data-es="Planeamos">Planeamos</h3>
+<p data-en="We create the perfect strategy for you." data-es="Creamos la estrategia perfecta para ti.">Creamos la estrategia perfecta para ti.</p>
 
-  <main>
-    <section class="light section-pad" id="services">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <div class="lang-badge" style="border-color:#bbb;display:inline-block">ES / EN</div>
-            <h2>Lo que hacemos <span>What we do</span></h2>
-          </div>
-          <div>
-            <p>Soluciones creativas para hacer crecer tu marca en todas las plataformas.</p>
-            <p class="en">Creative solutions to grow your brand across every platform.</p>
-          </div>
-          <a href="#contact" class="pill" style="border-color:#111">Ver todos / View All →</a>
-        </div>
+</div>
+<div class="process-step reveal">
+<div class="process-symbol">◐</div>
+<h3 data-en="Create" data-es="Creamos">Creamos</h3>
+<p data-en="We produce content that connects." data-es="Producimos contenido que conecta.">Producimos contenido que conecta.</p>
 
-        <div class="services-grid">
-          <article class="service reveal">
-            <div class="service-icon">⚡</div>
-            <div>
-              <h3>Edición de Shorts <span>Shorts Editing</span></h3>
-              <p>Videos cortos que capturan atención y generan impacto.</p>
-              <p class="en">Short videos that capture attention and make an impact.</p>
-              <div class="mini-arrow">→</div>
-            </div>
-          </article>
+</div>
+<div class="process-step reveal">
+<div class="process-symbol">➤</div>
+<h3 data-en="Publish" data-es="Publicamos">Publicamos</h3>
+<p data-en="We take your content where it matters." data-es="Llevamos tu contenido a donde importa.">Llevamos tu contenido a donde importa.</p>
 
-          <article class="service reveal">
-            <div class="service-icon">◎</div>
-            <div>
-              <h3>Estrategia de Contenido <span>Content Strategy</span></h3>
-              <p>Planes personalizados para hacer crecer tu audiencia.</p>
-              <p class="en">Custom plans to grow your audience.</p>
-              <div class="mini-arrow">→</div>
-            </div>
-          </article>
+</div>
+<div class="process-step reveal">
+<div class="process-symbol">◉</div>
+<h3 data-en="Optimize" data-es="Optimizamos">Optimizamos</h3>
+<p data-en="We analyze and improve for better results." data-es="Analizamos y mejoramos para más resultados.">Analizamos y mejoramos para más resultados.</p>
 
-          <article class="service reveal">
-            <div class="service-icon">◉</div>
-            <div>
-              <h3>Gestión de Redes <span>Social Media Management</span></h3>
-              <p>Manejamos tus redes para que te enfoques en tu negocio.</p>
-              <p class="en">We manage your socials so you can focus on your business.</p>
-              <div class="mini-arrow">→</div>
-            </div>
-          </article>
+</div>
+</div>
+</div>
+</section>
+<section class="light section-pad" id="system">
+<div class="container">
+<div class="system-head reveal">
+<div>
+<div class="lang-badge" data-en="SYSTEM" data-es="SISTEMA" style="border-color:#bbb;display:inline-block">SISTEMA</div>
+<h2 data-en="One idea. Many assets." data-es="Una idea. Muchas piezas.">Una idea. Muchas piezas.</h2>
+</div>
+<div class="system-copy">
+<p data-en="You do not need to create from scratch every day. We take one core piece of content and turn it into multiple formats ready to publish." data-es="No necesitas crear desde cero todos los días. Tomamos una pieza principal de contenido y la convertimos en múltiples formatos listos para publicar.">No necesitas crear desde cero todos los días. Tomamos una pieza principal de contenido y la convertimos en múltiples formatos listos para publicar.</p>
 
-          <article class="service reveal">
-            <div class="service-icon">▥</div>
-            <div>
-              <h3>Publicidad Digital <span>Paid Advertising</span></h3>
-              <p>Campañas que convierten y generan resultados.</p>
-              <p class="en">Campaigns that convert and deliver results.</p>
-              <div class="mini-arrow">→</div>
-            </div>
-          </article>
+</div>
+</div>
+<div class="content-system reveal">
+<div class="source-card">
+<div class="source-label" data-en="SOURCE CONTENT" data-es="CONTENIDO ORIGINAL">CONTENIDO ORIGINAL</div>
+<div class="source-icon">●</div>
+<h3 data-en="1 piece of long-form content" data-es="1 pieza de contenido largo">1 pieza de contenido largo</h3>
+<p data-en="Podcast, interview, educational video, webinar or content recorded by your team." data-es="Podcast, entrevista, video educativo, webinar o contenido grabado por tu equipo.">Podcast, entrevista, video educativo, webinar o contenido grabado por tu equipo.</p>
+<span data-en="Your source content" data-es="Tu contenido base">Tu contenido base</span>
+</div>
+<div class="flow-arrow">→</div>
+<div class="output-grid">
+<div class="output-card">
+<div class="output-icon">▶</div>
+<strong data-en="Short-form Video" data-es="Video corto">Video corto</strong>
+<span data-en="Reels · TikTok · Shorts" data-es="Reels · TikTok · Shorts">Reels · TikTok · Shorts</span>
+</div>
+<div class="output-card">
+<div class="output-icon">✦</div>
+<strong data-en="Hook Variations" data-es="Variaciones de hooks">Variaciones de hooks</strong>
+<span data-en="Multiple opening hooks" data-es="Diferentes aperturas">Diferentes aperturas</span>
+</div>
+<div class="output-card">
+<div class="output-icon">▤</div>
+<strong data-en="Carousel Ideas" data-es="Ideas de carruseles">Ideas de carruseles</strong>
+<span data-en="Educational carousels" data-es="Carruseles educativos">Carruseles educativos</span>
+</div>
+<div class="output-card">
+<div class="output-icon">✎</div>
+<strong data-en="Captions" data-es="Textos para publicar">Textos para publicar</strong>
+<span data-en="Ready-to-use copy" data-es="Copys listos para usar">Copys listos para usar</span>
+</div>
+<div class="output-card wide">
+<div class="output-icon">∞</div>
+<strong data-en="Content System" data-es="Sistema de contenido">Sistema de contenido</strong>
+<span data-en="More consistency without starting from zero" data-es="Más consistencia sin crear todo desde cero">Más consistencia sin crear todo desde cero</span>
+</div>
+</div>
+</div>
+<div class="system-bottom reveal">
+<div class="system-point">
+<strong data-en="LESS FRICTION" data-es="MENOS FRICCIÓN">MENOS FRICCIÓN</strong>
+<span data-en="Less repetitive work" data-es="Menos trabajo repetitivo">Menos trabajo repetitivo</span>
+</div>
+<div class="system-point">
+<strong data-en="MORE CONSISTENCY" data-es="MÁS CONSISTENCIA">MÁS CONSISTENCIA</strong>
+<span data-en="A more consistent presence" data-es="Una presencia más constante">Una presencia más constante</span>
+</div>
+<div class="system-point">
+<strong data-en="MORE VALUE" data-es="MEJOR APROVECHAMIENTO">MEJOR APROVECHAMIENTO</strong>
+<span data-en="More value from each piece" data-es="Más valor de cada pieza">Más valor de cada pieza</span>
+</div>
+<div class="system-point">
+<strong data-en="BUILT TO SCALE" data-es="LISTO PARA ESCALAR">LISTO PARA ESCALAR</strong>
+<span data-en="A system ready to grow" data-es="Un sistema preparado para crecer">Un sistema preparado para crecer</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer id="contact">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<img alt="Digital Forge" src="logo.png"/>
+<p data-en="We are your creative partner to build, grow and scale your brand." data-es="Somos tu socio creativo para construir, crecer y escalar tu marca en digital.">Somos tu socio creativo para construir, crecer y escalar tu marca en digital.</p>
 
-          <article class="service reveal">
-            <div class="service-icon">✥</div>
-            <div>
-              <h3>Diseño Visual <span>Visual Design</span></h3>
-              <p>Diseños que comunican, conectan y venden.</p>
-              <p class="en">Designs that communicate, connect and sell.</p>
-              <div class="mini-arrow">→</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="dark section-pad" id="process">
-      <div class="container">
-        <div class="process-head reveal">
-          <div>
-            <div class="lang-badge" style="display:inline-block">ES / EN</div>
-            <h2>Nuestro proceso <span>Our process</span></h2>
-          </div>
-          <div>
-            <p>Un enfoque claro y estratégico para transformar ideas en resultados.</p>
-            <p class="en">A clear and strategic approach to turn ideas into results.</p>
-          </div>
-        </div>
-
-        <div class="process-track">
-          <div class="process-step reveal">
-            <div class="process-symbol">◌</div>
-            <h3>Descubrimos <span>Discover</span></h3>
-            <p>Entendemos tu marca, objetivos y audiencia.</p>
-            <p class="en">We understand your brand, goals and audience.</p>
-          </div>
-
-          <div class="process-step reveal">
-            <div class="process-symbol">✳</div>
-            <h3>Planeamos <span>Plan</span></h3>
-            <p>Creamos la estrategia perfecta para ti.</p>
-            <p class="en">We create the perfect strategy for you.</p>
-          </div>
-
-          <div class="process-step reveal">
-            <div class="process-symbol">◐</div>
-            <h3>Creamos <span>Create</span></h3>
-            <p>Producimos contenido que conecta.</p>
-            <p class="en">We produce content that connects.</p>
-          </div>
-
-          <div class="process-step reveal">
-            <div class="process-symbol">➤</div>
-            <h3>Publicamos <span>Publish</span></h3>
-            <p>Llevamos tu contenido a donde importa.</p>
-            <p class="en">We take your content where it matters.</p>
-          </div>
-
-          <div class="process-step reveal">
-            <div class="process-symbol">◉</div>
-            <h3>Optimizamos <span>Optimize</span></h3>
-            <p>Analizamos y mejoramos para más resultados.</p>
-            <p class="en">We analyze and improve for better results.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    
-    <section class="light section-pad" id="system">
-      <div class="container">
-        <div class="system-head reveal">
-          <div>
-            <div class="lang-badge" style="border-color:#bbb;display:inline-block">ES / EN</div>
-            <h2>Una idea. Muchas piezas. <span>One idea. Many assets.</span></h2>
-          </div>
-
-          <div class="system-copy">
-            <p>
-              No necesitas crear desde cero todos los días. Tomamos una pieza principal de contenido y la convertimos en múltiples formatos listos para publicar.
-            </p>
-            <p class="en">
-              You do not need to create from scratch every day. We take one core piece of content and turn it into multiple formats ready to publish.
-            </p>
-          </div>
-        </div>
-
-        <div class="content-system reveal">
-          <div class="source-card">
-            <div class="source-label">CONTENIDO ORIGINAL / SOURCE CONTENT</div>
-            <div class="source-icon">●</div>
-            <h3>1 pieza de contenido largo</h3>
-            <p>Podcast, entrevista, video educativo, webinar o contenido grabado por tu equipo.</p>
-            <span>Podcast, interview, webinar or long-form video.</span>
-          </div>
-
-          <div class="flow-arrow">→</div>
-
-          <div class="output-grid">
-            <div class="output-card">
-              <div class="output-icon">▶</div>
-              <strong>Short-form Video</strong>
-              <span>Reels / TikTok / Shorts</span>
-            </div>
-
-            <div class="output-card">
-              <div class="output-icon">✦</div>
-              <strong>Hook Variations</strong>
-              <span>Diferentes aperturas / Multiple hooks</span>
-            </div>
-
-            <div class="output-card">
-              <div class="output-icon">▤</div>
-              <strong>Carousel Ideas</strong>
-              <span>Carruseles educativos / Educational carousels</span>
-            </div>
-
-            <div class="output-card">
-              <div class="output-icon">✎</div>
-              <strong>Captions</strong>
-              <span>Copys listos / Ready-to-use copy</span>
-            </div>
-
-            <div class="output-card wide">
-              <div class="output-icon">∞</div>
-              <strong>Content System</strong>
-              <span>Más consistencia sin crear todo desde cero / More consistency without starting from zero</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="system-bottom reveal">
-          <div class="system-point">
-            <strong>MENOS FRICCIÓN</strong>
-            <span>Less friction</span>
-          </div>
-          <div class="system-point">
-            <strong>MÁS CONSISTENCIA</strong>
-            <span>More consistency</span>
-          </div>
-          <div class="system-point">
-            <strong>MEJOR APROVECHAMIENTO</strong>
-            <span>More value from each piece</span>
-          </div>
-          <div class="system-point">
-            <strong>LISTO PARA ESCALAR</strong>
-            <span>Built to scale</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer id="contact">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="logo.png" alt="Digital Forge">
-          <p>Somos tu socio creativo para construir, crecer y escalar tu marca en digital.</p>
-          <p class="en">We are your creative partner to build, grow and scale your brand.</p>
-        </div>
-
-        <div class="footer-col">
-          <h3>Hablemos / Let's talk</h3>
-          <ul>
-            <li><a href="mailto:digitalforge.team@outlook.com">digitalforge.team@outlook.com</a></li>
-            <li><a href="https://www.instagram.com/digitalforge__/" target="_blank" rel="noopener noreferrer">@digitalforge__</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h3>Navegación / Navigation</h3>
-          <ul>
-            <li><a href="#home">Inicio / Home</a></li>
-            <li><a href="#services">Servicios / Services</a></li>
-            <li><a href="#process">Proceso / Process</a></li>
-            <li><a href="#system">Sistema / System</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="copyright">© 2026 Digital Forge. Todos los derechos reservados. / All rights reserved.</div>
-    </div>
-  </footer>
-
-  <script>
+</div>
+<div class="footer-col">
+<h3 data-en="Let's talk" data-es="Hablemos">Hablemos</h3>
+<ul>
+<li><a href="mailto:digitalforge.team@outlook.com">digitalforge.team@outlook.com</a></li>
+<li><a href="https://www.instagram.com/digitalforge__/" rel="noopener noreferrer" target="_blank">@digitalforge__</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h3 data-en="Navigation" data-es="Navegación">Navegación</h3>
+<ul>
+<li><a data-en="Home" data-es="Inicio" href="#home">Inicio</a></li>
+<li><a data-en="Services" data-es="Servicios" href="#services">Servicios</a></li>
+<li><a data-en="Process" data-es="Proceso" href="#process">Proceso</a></li>
+<li><a data-en="System" data-es="Sistema" href="#system">Sistema</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright" data-en="© 2026 Digital Forge. All rights reserved." data-es="© 2026 Digital Forge. Todos los derechos reservados.">© 2026 Digital Forge. Todos los derechos reservados.</div>
+</div>
+</footer>
+<script>
     const observer = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){entry.target.classList.add("visible")}
@@ -1086,7 +1080,46 @@
     },{threshold:.12});
 
     document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
-  </script>
 
+    const languageButtons = document.querySelectorAll(".lang-option");
+    const translatableElements = document.querySelectorAll("[data-es][data-en]");
+    const languageBadge = document.querySelector(".hero .lang-badge");
+
+    function setLanguage(lang){
+      const selected = lang === "en" ? "en" : "es";
+
+      document.documentElement.lang = selected;
+
+      translatableElements.forEach((el)=>{
+        el.textContent = el.dataset[selected];
+      });
+
+      languageButtons.forEach((button)=>{
+        const active = button.dataset.lang === selected;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+
+      if(languageBadge){ languageBadge.textContent = selected.toUpperCase(); }
+
+      if(selected === "en"){
+        document.title = "Digital Forge | Content that drives brands";
+        document.querySelector('meta[name="description"]').setAttribute("content", "Digital Forge - Content, editing and strategy for brands that want to grow.");
+      }else{
+        document.title = "Digital Forge | Contenido que impulsa marcas";
+        document.querySelector('meta[name="description"]').setAttribute("content", "Digital Forge - Contenido, edición y estrategia para marcas que quieren crecer.");
+      }
+
+      try{ localStorage.setItem("digitalForgeLanguage", selected); }catch(e){}
+    }
+
+    let savedLanguage = "es";
+    try{ savedLanguage = localStorage.getItem("digitalForgeLanguage") || "es"; }catch(e){}
+    setLanguage(savedLanguage);
+
+    languageButtons.forEach((button)=>{
+      button.addEventListener("click", ()=>setLanguage(button.dataset.lang));
+    });
+</script>
 </body>
 </html>
