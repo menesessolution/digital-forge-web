@@ -457,6 +457,227 @@
       font-weight:600;
     }
 
+
+    /* CONTENT SYSTEM */
+    .system-head{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:end;
+      margin-bottom:48px;
+    }
+
+    .system-head h2{
+      font-size:clamp(3rem,5.4vw,5.8rem);
+      line-height:.94;
+      letter-spacing:-.06em;
+      margin-top:18px;
+    }
+
+    .system-head h2 span{
+      display:block;
+      color:#777;
+    }
+
+    .system-copy p{
+      color:#4f4f4f;
+      line-height:1.75;
+      font-size:15px;
+      max-width:560px;
+    }
+
+    .system-copy p.en{
+      color:#8b8b8b;
+      margin-top:9px;
+    }
+
+    .content-system{
+      display:grid;
+      grid-template-columns:.9fr 90px 1.5fr;
+      gap:24px;
+      align-items:center;
+      background:#ece8e2;
+      border-radius:26px;
+      padding:34px;
+      border:1px solid #d7d2cb;
+    }
+
+    .source-card{
+      background:#090909;
+      color:#fff;
+      border-radius:22px;
+      min-height:420px;
+      padding:30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .source-card::before{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      border:1px solid #2e2e2e;
+      top:-70px;
+      right:-80px;
+      box-shadow:
+        0 0 0 40px rgba(255,255,255,.015),
+        0 0 0 80px rgba(255,255,255,.01);
+    }
+
+    .source-label{
+      position:absolute;
+      top:28px;
+      left:28px;
+      font-size:10px;
+      letter-spacing:.12em;
+      color:#969696;
+      font-weight:700;
+    }
+
+    .source-icon{
+      font-size:62px;
+      color:#fff;
+      margin-bottom:auto;
+      opacity:.9;
+    }
+
+    .source-card h3{
+      font-size:31px;
+      line-height:1;
+      letter-spacing:-.04em;
+      margin-bottom:14px;
+      max-width:330px;
+    }
+
+    .source-card p{
+      font-size:13px;
+      line-height:1.65;
+      color:#d0d0d0;
+      margin-bottom:7px;
+    }
+
+    .source-card span{
+      font-size:11px;
+      line-height:1.55;
+      color:#777;
+    }
+
+    .flow-arrow{
+      font-size:48px;
+      text-align:center;
+      color:#111;
+      animation:pulseArrow 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulseArrow{
+      0%,100%{transform:translateX(0);opacity:.45}
+      50%{transform:translateX(8px);opacity:1}
+    }
+
+    .output-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .output-card{
+      background:#fff;
+      border:1px solid #d7d2cb;
+      border-radius:18px;
+      min-height:150px;
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      transition:.25s ease;
+    }
+
+    .output-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 16px 35px rgba(0,0,0,.08);
+    }
+
+    .output-card.wide{
+      grid-column:1 / -1;
+      min-height:130px;
+      background:#111;
+      color:#fff;
+      border-color:#111;
+    }
+
+    .output-icon{
+      font-size:28px;
+      margin-bottom:auto;
+    }
+
+    .output-card strong{
+      font-size:17px;
+      margin-bottom:5px;
+    }
+
+    .output-card span{
+      font-size:11px;
+      color:#777;
+      line-height:1.45;
+    }
+
+    .output-card.wide span{
+      color:#929292;
+    }
+
+    .system-bottom{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      margin-top:18px;
+      border-top:1px solid #bbb5ad;
+      border-bottom:1px solid #bbb5ad;
+    }
+
+    .system-point{
+      padding:22px 20px;
+      border-right:1px solid #bbb5ad;
+    }
+
+    .system-point:last-child{border-right:none}
+
+    .system-point strong{
+      display:block;
+      font-size:13px;
+      margin-bottom:5px;
+    }
+
+    .system-point span{
+      display:block;
+      font-size:11px;
+      color:#858585;
+    }
+
+    @media(max-width:1000px){
+      .system-head{grid-template-columns:1fr;gap:26px}
+      .content-system{grid-template-columns:1fr}
+      .flow-arrow{transform:rotate(90deg)}
+      @keyframes pulseArrow{
+        0%,100%{transform:rotate(90deg) translateX(0);opacity:.45}
+        50%{transform:rotate(90deg) translateX(8px);opacity:1}
+      }
+      .source-card{min-height:330px}
+      .system-bottom{grid-template-columns:1fr 1fr}
+      .system-point:nth-child(2){border-right:none}
+    }
+
+    @media(max-width:650px){
+      .output-grid{grid-template-columns:1fr}
+      .output-card.wide{grid-column:auto}
+      .system-bottom{grid-template-columns:1fr}
+      .system-point{border-right:none;border-bottom:1px solid #bbb5ad}
+      .system-point:last-child{border-bottom:none}
+    }
+
     /* METRICS */
     .metrics{
       margin-top:22px;
@@ -562,7 +783,7 @@
           <li><a href="#home">Inicio / Home</a></li>
           <li><a href="#services">Servicios / Services</a></li>
           <li><a href="#process">Proceso / Process</a></li>
-          <li><a href="#work">Trabajos / Work</a></li>
+          <li><a href="#system">Sistema / System</a></li>
           <li><a href="#contact">Contacto / Contact</a></li>
         </ul>
 
@@ -739,61 +960,90 @@
       </div>
     </section>
 
-    <section class="light section-pad" id="work">
+    
+    <section class="light section-pad" id="system">
       <div class="container">
-        <div class="work-wrap">
-          <div class="work-title reveal">
+        <div class="system-head reveal">
+          <div>
             <div class="lang-badge" style="border-color:#bbb;display:inline-block">ES / EN</div>
-            <h2>Lo que podemos crear <span>What We Can Create</span></h2>
-            <p style="margin-top:18px;color:#666;font-size:13px;line-height:1.6">
-              Conceptos creativos que muestran cómo podemos transformar tu contenido.
-              <span style="display:block;color:#999;margin-top:5px">Creative concepts showing how we can transform your content.</span>
-            </p>
+            <h2>Una idea. Muchas piezas. <span>One idea. Many assets.</span></h2>
           </div>
 
-          <div class="work-grid">
-            <div class="work-card reveal">
-              <span>PODCAST<br>CLIPS<small>CONCEPT / DEMO</small></span>
+          <div class="system-copy">
+            <p>
+              No necesitas crear desde cero todos los días. Tomamos una pieza principal de contenido y la convertimos en múltiples formatos listos para publicar.
+            </p>
+            <p class="en">
+              You do not need to create from scratch every day. We take one core piece of content and turn it into multiple formats ready to publish.
+            </p>
+          </div>
+        </div>
+
+        <div class="content-system reveal">
+          <div class="source-card">
+            <div class="source-label">CONTENIDO ORIGINAL / SOURCE CONTENT</div>
+            <div class="source-icon">●</div>
+            <h3>1 pieza de contenido largo</h3>
+            <p>Podcast, entrevista, video educativo, webinar o contenido grabado por tu equipo.</p>
+            <span>Podcast, interview, webinar or long-form video.</span>
+          </div>
+
+          <div class="flow-arrow">→</div>
+
+          <div class="output-grid">
+            <div class="output-card">
+              <div class="output-icon">▶</div>
+              <strong>Short-form Video</strong>
+              <span>Reels / TikTok / Shorts</span>
             </div>
-            <div class="work-card reveal">
-              <span>FOUNDER<br>CONTENT<small>CONCEPT / DEMO</small></span>
+
+            <div class="output-card">
+              <div class="output-icon">✦</div>
+              <strong>Hook Variations</strong>
+              <span>Diferentes aperturas / Multiple hooks</span>
             </div>
-            <div class="work-card reveal">
-              <span>EDUCATIONAL<br>REELS<small>CONCEPT / DEMO</small></span>
+
+            <div class="output-card">
+              <div class="output-icon">▤</div>
+              <strong>Carousel Ideas</strong>
+              <span>Carruseles educativos / Educational carousels</span>
             </div>
-            <div class="work-card reveal">
-              <span>PRODUCT<br>ADS<small>CONCEPT / DEMO</small></span>
+
+            <div class="output-card">
+              <div class="output-icon">✎</div>
+              <strong>Captions</strong>
+              <span>Copys listos / Ready-to-use copy</span>
             </div>
-            <div class="work-card reveal">
-              <span>BRAND<br>STORY<small>CONCEPT / DEMO</small></span>
+
+            <div class="output-card wide">
+              <div class="output-icon">∞</div>
+              <strong>Content System</strong>
+              <span>Más consistencia sin crear todo desde cero / More consistency without starting from zero</span>
             </div>
           </div>
         </div>
 
-        <div class="metrics reveal">
-          <div class="metric">
-            <strong>SHORT</strong>
-            <span>Enfoque en contenido de formato corto</span>
-            <span class="en">Short-form focused</span>
+        <div class="system-bottom reveal">
+          <div class="system-point">
+            <strong>MENOS FRICCIÓN</strong>
+            <span>Less friction</span>
           </div>
-          <div class="metric">
-            <strong>ES/EN</strong>
-            <span>Comunicación bilingüe</span>
-            <span class="en">Bilingual communication</span>
+          <div class="system-point">
+            <strong>MÁS CONSISTENCIA</strong>
+            <span>More consistency</span>
           </div>
-          <div class="metric">
-            <strong>BRAND</strong>
-            <span>Cada pieza alineada con tu identidad</span>
-            <span class="en">Every piece aligned with your brand</span>
+          <div class="system-point">
+            <strong>MEJOR APROVECHAMIENTO</strong>
+            <span>More value from each piece</span>
           </div>
-          <div class="metric">
-            <strong>GROW</strong>
-            <span>Contenido construido con crecimiento en mente</span>
-            <span class="en">Built with growth in mind</span>
+          <div class="system-point">
+            <strong>LISTO PARA ESCALAR</strong>
+            <span>Built to scale</span>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer id="contact">
@@ -820,7 +1070,7 @@
             <li><a href="#home">Inicio / Home</a></li>
             <li><a href="#services">Servicios / Services</a></li>
             <li><a href="#process">Proceso / Process</a></li>
-            <li><a href="#work">Trabajos / Work</a></li>
+            <li><a href="#system">Sistema / System</a></li>
           </ul>
         </div>
       </div>
