@@ -417,6 +417,19 @@
     .process-engine[data-mode="web"]{background:#ece8e2;color:#111;border-color:#bfb9b0}.process-engine[data-mode="web"] .process-nav{border-color:#c9c3ba}.process-engine[data-mode="web"] .process-tab{border-color:#c9c3ba;color:#777}.process-engine[data-mode="web"] .process-tab:hover,.process-engine[data-mode="web"] .process-tab.active{background:#fff;color:#111}.process-engine[data-mode="web"] .process-tab::after{background:#111}.process-engine[data-mode="web"] .process-active-text{color:#5f5b55}.process-engine[data-mode="web"] .process-panel::before{background:radial-gradient(circle,rgba(0,0,0,.05),transparent 67%)}.process-engine[data-mode="web"] .process-next{border-color:#777;color:#111}.process-engine[data-mode="web"] .process-next:hover{background:#111;color:#fff}.process-engine[data-mode="web"] .map-card,.process-engine[data-mode="web"] .production-ui,.process-engine[data-mode="web"] .adapt-item{background:#f8f6f2;color:#111;border-color:#bdb7ae}.process-engine[data-mode="web"] .map-card:first-child{color:#111}.process-engine[data-mode="web"] .discovery-orbit,.process-engine[data-mode="web"] .orbit-core,.process-engine[data-mode="web"] .delivery-box{border-color:#777}
     @media(prefers-reduced-motion:reduce){.process-scene,.discovery-orbit{animation:none!important;transition:none!important}}
 
+    /* WEBSITE CREATION PROCESS */
+    .web-process-section{background:#0c1212;color:#fff;position:relative;overflow:hidden}
+    .web-process-section::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent)}
+    .web-process-section .container{position:relative;z-index:1}
+    .web-process-engine{background:linear-gradient(145deg,#111919,#080d0d);border-color:#2a3635}
+    .web-process-engine .process-nav{border-color:#2a3635}.web-process-engine .process-tab{border-color:#2a3635}.web-process-engine .process-tab::after{background:#cfe0dd}.web-process-engine .process-panel::before{background:radial-gradient(circle,rgba(185,219,213,.08),transparent 67%)}
+    .web-goal-board{width:92%;display:grid;grid-template-columns:1fr 1fr;gap:8px}.web-goal-card{border:1px solid #33413f;border-radius:11px;background:#101817;padding:15px;color:#8b9997;font:700 8px monospace}.web-goal-card:first-child{grid-column:1/-1;background:#dfe5e5;color:#111;padding:22px}.web-goal-card strong{display:block;font:900 18px "Inter",sans-serif;letter-spacing:-.04em;margin-top:7px}.web-goal-line{height:4px;background:#3d4b49;border-radius:3px;margin-top:10px}.web-goal-card:first-child .web-goal-line{background:#9ba8a6;width:70%}
+    .web-sitemap-tree{width:92%;display:grid;gap:10px;justify-items:center}.sitemap-home{border:1px solid #c8d8d5;border-radius:10px;background:#dfe5e5;color:#111;padding:15px 28px;font:900 10px "Inter",sans-serif;position:relative}.sitemap-home::after{content:"";position:absolute;left:50%;top:100%;width:1px;height:20px;background:#64716f}.sitemap-pages{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid #64716f;padding-top:15px}.sitemap-page{border:1px solid #33413f;border-radius:9px;background:#101817;color:#a4b0ae;padding:16px 8px;text-align:center;font:800 8px monospace;position:relative}.sitemap-page::before{content:"";position:absolute;left:50%;bottom:100%;width:1px;height:15px;background:#64716f}
+    .web-design-board{width:92%;border:1px solid #33413f;border-radius:13px;background:#101817;padding:17px;display:grid;grid-template-columns:.75fr 1.25fr;gap:13px}.web-palette{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.web-swatch{aspect-ratio:1;border-radius:9px;background:#dfe5e5}.web-swatch:nth-child(2){background:#82918f}.web-swatch:nth-child(3){background:#263230}.web-swatch:nth-child(4){background:#f5f3ef}.web-type-system{border:1px solid #2d3937;border-radius:9px;padding:14px}.web-type-system strong{display:block;font-size:25px;line-height:.9;letter-spacing:-.06em}.web-type-line{height:4px;background:#53615f;border-radius:3px;margin-top:15px;box-shadow:0 9px 0 #374441,0 18px 0 #273330}.web-button-sample{width:72px;height:19px;border-radius:999px;background:#dfe5e5;margin-top:34px}
+    .web-build-window{width:94%;border:1px solid #33413f;border-radius:13px;background:#0c1212;overflow:hidden}.web-build-bar{height:30px;border-bottom:1px solid #33413f;display:flex;align-items:center;gap:5px;padding:0 11px}.web-build-bar i{width:6px;height:6px;border-radius:50%;background:#71807e}.web-build-body{display:grid;grid-template-columns:.75fr 1.25fr;min-height:155px}.web-code-lines{padding:18px 13px;border-right:1px solid #33413f}.web-code-lines i{display:block;height:4px;border-radius:3px;background:#53615f;margin-bottom:10px}.web-code-lines i:nth-child(2){width:70%;margin-left:14px}.web-code-lines i:nth-child(3){width:82%;margin-left:7px}.web-code-lines i:nth-child(4){width:55%;margin-left:21px}.web-build-preview{margin:13px;border:1px solid #33413f;border-radius:8px;background:#e6ebe9;padding:10px}.web-build-preview::before{content:"";display:block;height:60px;border-radius:6px;background:#111;margin-bottom:8px}.web-build-preview::after{content:"";display:block;height:25px;border-radius:5px;background:#aab5b3;box-shadow:42px 0 0 #cad2d0}
+    .web-live-window{width:250px;border:1px solid #44524f;border-radius:15px;background:#101817;padding:24px;text-align:center;box-shadow:12px 14px 0 rgba(194,218,214,.08)}.web-live-check{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;margin:0 auto 22px;background:#dfe5e5;color:#111;font-size:18px}.web-live-window strong{display:block;font-size:22px;line-height:.92;letter-spacing:-.04em}.web-live-window span{display:block;margin-top:10px;font:700 8px monospace;color:#75827f}
+    @media(max-width:700px){.web-design-board{grid-template-columns:.8fr 1.2fr}.web-build-body{grid-template-columns:.65fr 1.35fr}.web-goal-card strong{font-size:15px}.sitemap-pages{gap:5px}.sitemap-page{padding:14px 4px;font-size:7px}}
+
     /* WORK */
     .work-wrap{
       display:grid;
@@ -761,7 +774,11 @@
     .web-sector-head{display:grid;grid-template-columns:1.05fr .7fr;gap:70px;align-items:end;margin-bottom:48px}
     .web-sector-head h2{font-size:clamp(3.3rem,6vw,6.5rem);line-height:.9;letter-spacing:-.065em;margin-top:17px;max-width:840px}
     .web-sector-head h2 span{display:block;color:#687575}
+    .web-sector-overview{display:grid;gap:20px;align-content:end}
     .web-sector-intro{font-size:15px;line-height:1.75;color:#465050;max-width:570px}
+    .web-capabilities{display:flex;flex-wrap:wrap;gap:7px;max-width:590px}
+    .web-capability{display:inline-flex;align-items:center;gap:7px;border:1px solid #aeb9b8;border-radius:999px;background:rgba(255,255,255,.42);padding:9px 11px;font:800 9px "Inter",sans-serif;color:#3f4b4a}
+    .web-capability::before{content:"";width:6px;height:6px;border-radius:2px;background:#111}
     .web-studio{display:grid;grid-template-columns:.62fr 1.38fr;min-height:570px;border:1px solid #aeb9b8;border-radius:26px;overflow:hidden;background:rgba(247,249,248,.7);box-shadow:0 30px 80px rgba(35,49,49,.13)}
     .web-studio-copy{background:#0b1010;color:#fff;padding:35px 30px;display:flex;flex-direction:column;min-width:0}
     .web-studio-label{font:700 9px monospace;letter-spacing:.14em;color:#758181;margin-bottom:26px}
@@ -843,7 +860,7 @@
     /* SMART CONTACT */
     .smart-contact{background:#080808;color:#fff;padding:100px 0}
     .contact-builder-head{display:grid;grid-template-columns:1fr .8fr;gap:60px;align-items:end;margin-bottom:46px}.contact-builder-head h2{font-size:clamp(3rem,5.5vw,5.8rem);line-height:.92;letter-spacing:-.06em;margin-top:16px}.contact-builder-head p{color:#aaa;line-height:1.7;max-width:520px}
-    .contact-builder{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;align-items:stretch}.contact-questions,.contact-summary{border:1px solid #2d2d2d;border-radius:20px;background:#101010;padding:30px}.contact-question{padding:0 0 25px;margin-bottom:25px;border-bottom:1px solid #292929}.contact-question:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}.contact-question h3{font-size:13px;margin-bottom:14px}.choice-row{display:flex;flex-wrap:wrap;gap:8px}.choice-chip{appearance:none;border:1px solid #383838;border-radius:999px;background:transparent;color:#8e8e8e;padding:10px 13px;font:700 10px "Inter",sans-serif;cursor:pointer;transition:.22s ease}.choice-chip:hover,.choice-chip:focus-visible,.choice-chip.active{background:#f4f1ec;border-color:#f4f1ec;color:#111}
+    .contact-builder{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;align-items:stretch}.contact-questions,.contact-summary{border:1px solid #2d2d2d;border-radius:20px;background:#101010;padding:30px}.contact-question{padding:0 0 25px;margin-bottom:25px;border-bottom:1px solid #292929}.contact-question:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}.contact-question h3{font-size:13px;margin-bottom:14px}.choice-row{display:flex;flex-wrap:wrap;gap:8px}.contact-service-panel[hidden]{display:none!important}.choice-chip{appearance:none;border:1px solid #383838;border-radius:999px;background:transparent;color:#8e8e8e;padding:10px 13px;font:700 10px "Inter",sans-serif;cursor:pointer;transition:.22s ease}.choice-chip:hover,.choice-chip:focus-visible,.choice-chip.active{background:#f4f1ec;border-color:#f4f1ec;color:#111}
     .contact-summary{display:flex;flex-direction:column;justify-content:space-between;background:#f4f1ec;color:#111}.summary-label{font:700 9px monospace;letter-spacing:.12em;color:#777}.summary-message{font-size:clamp(1.45rem,2.3vw,2.4rem);line-height:1.05;letter-spacing:-.045em;margin:24px 0 36px}.summary-selections{display:grid;gap:8px;margin-bottom:26px}.summary-selection{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #cac4bc;padding-top:9px;font-size:10px}.summary-selection span:first-child{color:#777}.smart-whatsapp{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#111;color:#fff;border-radius:999px;padding:15px 18px;font-size:12px;font-weight:800;transition:.25s ease}.smart-whatsapp:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.18)}
     @media(max-width:900px){.contact-builder-head,.contact-builder{grid-template-columns:1fr}.contact-builder-head{gap:24px}.contact-summary{min-height:390px}}
     @media(max-width:600px){.smart-contact{padding:75px 0}.contact-questions,.contact-summary{padding:22px}.choice-row{display:grid;grid-template-columns:1fr 1fr}.choice-chip{text-align:left}.summary-message{font-size:1.65rem}}
@@ -973,6 +990,7 @@
       transform:translateY(-3px);
       box-shadow:0 18px 46px rgba(0,0,0,.28);
     }
+    .whatsapp-float.is-hidden{opacity:0;pointer-events:none;transform:translateY(10px)}
 
     .whatsapp-icon{
       width:20px;
@@ -1227,7 +1245,10 @@
 <div class="lang-badge" data-en="WEBSITE CREATION" data-es="CREACIÓN WEB" style="border-color:#8f9b99;display:inline-block">CREACIÓN WEB</div>
 <h2><b data-en="Websites" data-es="Páginas web">Páginas web</b> <span data-en="with their own structure." data-es="con estructura propia.">con estructura propia.</span></h2>
 </div>
-<p class="web-sector-intro" data-en="A completely separate service for creating landing pages, business websites and professional portfolios. Here the experience is about structure, navigation, responsive design and launch—not video formats." data-es="Un servicio completamente separado para crear landing pages, webs para empresas y portafolios profesionales. Aquí la experiencia habla de estructura, navegación, diseño adaptable y publicación; no de formatos de video.">Un servicio completamente separado para crear landing pages, webs para empresas y portafolios profesionales. Aquí la experiencia habla de estructura, navegación, diseño adaptable y publicación; no de formatos de video.</p>
+<div class="web-sector-overview">
+<p class="web-sector-intro" data-en="A complete service for creating landing pages, business websites and professional portfolios, with a clear structure from purpose to launch." data-es="Un servicio completo para crear landing pages, webs para empresas y portafolios profesionales, con una estructura clara desde el objetivo hasta la publicación.">Un servicio completo para crear landing pages, webs para empresas y portafolios profesionales, con una estructura clara desde el objetivo hasta la publicación.</p>
+<div class="web-capabilities" aria-label="Elementos del servicio web"><span class="web-capability" data-en="Site map" data-es="Mapa del sitio">Mapa del sitio</span><span class="web-capability" data-en="Visual design" data-es="Diseño visual">Diseño visual</span><span class="web-capability" data-en="Responsive layout" data-es="Diseño adaptable">Diseño adaptable</span><span class="web-capability" data-en="Contact actions" data-es="Acciones de contacto">Acciones de contacto</span><span class="web-capability" data-en="Final launch" data-es="Publicación final">Publicación final</span></div>
+</div>
 </div>
 
 <div class="web-studio reveal" id="web-sector-engine">
@@ -1291,9 +1312,39 @@
 </div>
 </div>
 </section>
+<section class="web-process-section section-pad" id="web-process" data-view-section="web" hidden>
+<div class="container">
+<div class="process-head reveal">
+<div>
+<div class="lang-badge" data-en="WEB CREATION PROCESS" data-es="PROCESO DE CREACIÓN WEB" style="display:inline-block">PROCESO DE CREACIÓN WEB</div>
+<h2 data-en="Our website creation process" data-es="Nuestro proceso de creación web">Nuestro proceso de creación web</h2>
+</div>
+<div><p data-en="A clear path from defining the website's purpose to publishing the final version." data-es="Un recorrido claro desde la definición del objetivo de la web hasta la publicación de la versión final.">Un recorrido claro desde la definición del objetivo de la web hasta la publicación de la versión final.</p></div>
+</div>
+<div class="process-engine web-process-engine reveal" id="web-process-engine">
+<div class="process-nav" role="tablist" aria-label="Proceso de creación web Digital Forge">
+<button class="process-tab web-process-tab active" type="button" role="tab" aria-selected="true" data-web-process="0"><span class="process-number">01</span><span class="process-label" data-en="Purpose" data-es="Objetivo">Objetivo</span></button>
+<button class="process-tab web-process-tab" type="button" role="tab" aria-selected="false" data-web-process="1"><span class="process-number">02</span><span class="process-label" data-en="Structure" data-es="Estructura">Estructura</span></button>
+<button class="process-tab web-process-tab" type="button" role="tab" aria-selected="false" data-web-process="2"><span class="process-number">03</span><span class="process-label" data-en="Design" data-es="Diseño">Diseño</span></button>
+<button class="process-tab web-process-tab" type="button" role="tab" aria-selected="false" data-web-process="3"><span class="process-number">04</span><span class="process-label" data-en="Build" data-es="Construcción">Construcción</span></button>
+<button class="process-tab web-process-tab" type="button" role="tab" aria-selected="false" data-web-process="4"><span class="process-number">05</span><span class="process-label" data-en="Launch" data-es="Publicación">Publicación</span></button>
+</div>
+<div class="process-panel">
+<div class="process-copy"><span class="process-status" id="web-process-status">ETAPA 01 / 05</span><h3 class="process-active-title" id="web-process-title">Definimos el objetivo.</h3><p class="process-active-text" id="web-process-text">Aclaramos qué debe comunicar la página, a quién se dirige y cuál será su acción principal.</p><button class="process-next" id="web-process-next" type="button" aria-label="Siguiente etapa web">→</button></div>
+<div class="process-visual" aria-hidden="true">
+<div class="process-scene web-process-scene active" data-web-process-view="0"><div class="web-goal-board"><div class="web-goal-card"><span data-en="MAIN PURPOSE" data-es="OBJETIVO PRINCIPAL">OBJETIVO PRINCIPAL</span><strong data-en="What should the website achieve?" data-es="¿Qué debe lograr la página?">¿Qué debe lograr la página?</strong><div class="web-goal-line"></div></div><div class="web-goal-card"><span data-en="AUDIENCE" data-es="AUDIENCIA">AUDIENCIA</span><div class="web-goal-line"></div></div><div class="web-goal-card"><span data-en="MAIN ACTION" data-es="ACCIÓN PRINCIPAL">ACCIÓN PRINCIPAL</span><div class="web-goal-line"></div></div></div></div>
+<div class="process-scene web-process-scene" data-web-process-view="1"><div class="web-sitemap-tree"><div class="sitemap-home" data-en="HOME" data-es="INICIO">INICIO</div><div class="sitemap-pages"><div class="sitemap-page" data-en="ABOUT" data-es="NOSOTROS">NOSOTROS</div><div class="sitemap-page" data-en="SERVICES" data-es="SERVICIOS">SERVICIOS</div><div class="sitemap-page" data-en="CONTACT" data-es="CONTACTO">CONTACTO</div></div></div></div>
+<div class="process-scene web-process-scene" data-web-process-view="2"><div class="web-design-board"><div class="web-palette"><span class="web-swatch"></span><span class="web-swatch"></span><span class="web-swatch"></span><span class="web-swatch"></span></div><div class="web-type-system"><strong>Aa</strong><div class="web-type-line"></div><div class="web-button-sample"></div></div></div></div>
+<div class="process-scene web-process-scene" data-web-process-view="3"><div class="web-build-window"><div class="web-build-bar"><i></i><i></i><i></i></div><div class="web-build-body"><div class="web-code-lines"><i></i><i></i><i></i><i></i></div><div class="web-build-preview"></div></div></div></div>
+<div class="process-scene web-process-scene" data-web-process-view="4"><div class="web-live-window"><div class="web-live-check">✓</div><strong data-en="WEBSITE READY TO SHARE" data-es="WEB LISTA PARA COMPARTIR">WEB LISTA PARA COMPARTIR</strong><span>yourbrand.com → LIVE</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section class="smart-contact" id="contact">
 <div class="container">
-<div class="contact-builder-head reveal"><div><div class="lang-badge" data-en="LET'S START" data-es="EMPECEMOS" style="display:inline-block">EMPECEMOS</div><h2 data-en="Tell us about the project you need." data-es="Cuéntanos qué proyecto necesitas.">Cuéntanos qué proyecto necesitas.</h2></div><p data-en="Choose a few options and we will prepare your WhatsApp message. No long forms and no commitment." data-es="Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.">Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.</p></div>
+<div class="contact-builder-head reveal"><div><div class="lang-badge" data-en="LET'S START" data-es="EMPECEMOS" style="display:inline-block">EMPECEMOS</div><h2 id="contact-view-title" data-en="Tell us about the video you need." data-es="Cuéntanos qué video necesitas.">Cuéntanos qué video necesitas.</h2></div><p id="contact-view-intro" data-en="Choose a few editing options and we will prepare your WhatsApp message. No long forms and no commitment." data-es="Selecciona algunas opciones de edición y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.">Selecciona algunas opciones de edición y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.</p></div>
 <div class="contact-builder reveal">
 <div class="contact-questions">
 <div class="contact-question"><h3 data-en="1. Which service interests you most?" data-es="1. ¿Qué servicio te interesa más?">1. ¿Qué servicio te interesa más?</h3><div class="choice-row contact-service-panel" data-contact-services="video"><button class="choice-chip active" type="button" data-choice-group="service" data-choice="shorts" data-en="Shorts Editing" data-es="Edición de Shorts">Edición de Shorts</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="longform" data-en="Long-form Editing" data-es="Videos Largos">Videos Largos</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="captions" data-en="Captions &amp; Motion" data-es="Subtítulos y Motion">Subtítulos y Motion</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="repurpose" data-en="Content Repurposing" data-es="Reutilización de Contenido">Reutilización de Contenido</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="adaptations" data-en="Format Adaptations" data-es="Adaptación de Formatos">Adaptación de Formatos</button></div><div class="choice-row contact-service-panel" data-contact-services="web" hidden><button class="choice-chip" type="button" data-choice-group="service" data-choice="landing" data-en="Landing Page" data-es="Landing Page">Landing Page</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="businessweb" data-en="Business Website" data-es="Web para Empresa">Web para Empresa</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="portfolio" data-en="Professional Portfolio" data-es="Portafolio Profesional">Portafolio Profesional</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="responsive" data-en="Responsive Design" data-es="Diseño Adaptable">Diseño Adaptable</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="publishweb" data-en="Website Launch" data-es="Publicación Web">Publicación Web</button></div></div>
@@ -1410,9 +1461,11 @@
       try{ localStorage.setItem("digitalForgeLanguage", selected); }catch(e){}
       if(typeof renderStage === "function"){ renderStage(activeStage, false); }
       if(typeof renderProcess === "function"){ renderProcess(activeProcess, false); }
+      if(typeof renderWebProcess === "function"){ renderWebProcess(activeWebProcess, false); }
       if(typeof renderFormat === "function"){ renderFormat(activeFormat, false); }
       if(typeof renderWebSector === "function"){ renderWebSector(activeWebSectorStage); }
       if(typeof updateSmartContact === "function"){ updateSmartContact(); }
+      if(typeof refreshServiceViewContact === "function"){ refreshServiceViewContact(); }
     }
 
     const engine = document.getElementById("content-engine");
@@ -1460,8 +1513,8 @@
     engine.addEventListener("pointerleave",()=>{engine.style.setProperty("--parallax-x","0px");engine.style.setProperty("--parallax-y","0px");});
 
     const processEngine = document.getElementById("process-engine");
-    const processTabs = Array.from(document.querySelectorAll(".process-tab"));
-    const processScenes = Array.from(document.querySelectorAll(".process-scene"));
+    const processTabs = Array.from(processEngine.querySelectorAll(".process-tab"));
+    const processScenes = Array.from(processEngine.querySelectorAll(".process-scene"));
     const processStatus = document.getElementById("process-status");
     const processTitle = document.getElementById("process-active-title");
     const processText = document.getElementById("process-active-text");
@@ -1497,6 +1550,38 @@
     processNext.addEventListener("click",()=>renderProcess(activeProcess+1));
     processEngine.addEventListener("mouseenter",()=>clearInterval(processTimer));
     processEngine.addEventListener("mouseleave",startProcessTimer);
+
+    const webProcessEngine=document.getElementById("web-process-engine");
+    const webProcessTabs=Array.from(webProcessEngine.querySelectorAll(".web-process-tab"));
+    const webProcessScenes=Array.from(webProcessEngine.querySelectorAll(".web-process-scene"));
+    const webProcessStatus=document.getElementById("web-process-status");
+    const webProcessTitle=document.getElementById("web-process-title");
+    const webProcessText=document.getElementById("web-process-text");
+    const webProcessNext=document.getElementById("web-process-next");
+    let activeWebProcess=0;
+    let webProcessTimer;
+    const webProcessContent=[
+      {es:["ETAPA 01 / 05","Definimos el objetivo.","Aclaramos qué debe comunicar la página, a quién se dirige y cuál será su acción principal."],en:["STAGE 01 / 05","We define the purpose.","We clarify what the website should communicate, who it is for and its primary action."]},
+      {es:["ETAPA 02 / 05","Organizamos la estructura.","Definimos las páginas, secciones, contenido y navegación antes de comenzar el diseño."],en:["STAGE 02 / 05","We organize the structure.","We define pages, sections, content and navigation before design begins."]},
+      {es:["ETAPA 03 / 05","Diseñamos la experiencia.","Aplicamos la identidad visual, las jerarquías y los componentes que formarán la página."],en:["STAGE 03 / 05","We design the experience.","We apply the visual identity, hierarchy and components that will shape the website."]},
+      {es:["ETAPA 04 / 05","Construimos y revisamos.","Desarrollamos la página, comprobamos su adaptación a cada pantalla y aplicamos los cambios acordados."],en:["STAGE 04 / 05","We build and review.","We develop the website, check its responsiveness and apply the agreed changes."]},
+      {es:["ETAPA 05 / 05","Publicamos la web.","Realizamos la configuración final y publicamos usando el dominio y alojamiento acordados."],en:["STAGE 05 / 05","We launch the website.","We complete the final setup and publish using the agreed domain and hosting."]}
+    ];
+    function renderWebProcess(index,restart=true){
+      activeWebProcess=(index+webProcessContent.length)%webProcessContent.length;
+      const lang=document.documentElement.lang==="en"?"en":"es";
+      const copy=webProcessContent[activeWebProcess][lang];
+      webProcessTabs.forEach((tab,i)=>{const active=i===activeWebProcess;tab.classList.toggle("active",active);tab.setAttribute("aria-selected",String(active));});
+      webProcessScenes.forEach((scene,i)=>scene.classList.toggle("active",i===activeWebProcess));
+      webProcessStatus.textContent=copy[0];webProcessTitle.textContent=copy[1];webProcessText.textContent=copy[2];
+      webProcessNext.setAttribute("aria-label",lang==="en"?"Next website stage":"Siguiente etapa web");
+      if(restart){startWebProcessTimer();}
+    }
+    function startWebProcessTimer(){clearInterval(webProcessTimer);if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){webProcessTimer=setInterval(()=>renderWebProcess(activeWebProcess+1,false),9000);}}
+    webProcessTabs.forEach((tab)=>{tab.addEventListener("click",()=>renderWebProcess(Number(tab.dataset.webProcess)));tab.addEventListener("mouseenter",()=>renderWebProcess(Number(tab.dataset.webProcess),false));tab.addEventListener("keydown",(event)=>{if(event.key==="ArrowRight"){event.preventDefault();renderWebProcess(activeWebProcess+1);webProcessTabs[activeWebProcess].focus();}if(event.key==="ArrowLeft"){event.preventDefault();renderWebProcess(activeWebProcess-1);webProcessTabs[activeWebProcess].focus();}});});
+    webProcessNext.addEventListener("click",()=>renderWebProcess(activeWebProcess+1));
+    webProcessEngine.addEventListener("mouseenter",()=>clearInterval(webProcessTimer));
+    webProcessEngine.addEventListener("mouseleave",startWebProcessTimer);
 
     const modeButtons=Array.from(document.querySelectorAll(".mode-option"));
     const serviceCategoryButtons=Array.from(document.querySelectorAll(".service-category"));
@@ -1616,6 +1701,9 @@
     });
 
     const smartContact = document.getElementById("contact");
+    const floatingWhatsapp=document.getElementById("whatsapp-link");
+    const contactVisibilityObserver=new IntersectionObserver((entries)=>{entries.forEach((entry)=>floatingWhatsapp.classList.toggle("is-hidden",entry.isIntersecting));},{threshold:.12});
+    contactVisibilityObserver.observe(smartContact);
     const choiceButtons = Array.from(document.querySelectorAll("[data-choice-group]"));
     const contactServicePanels=Array.from(document.querySelectorAll("[data-contact-services]"));
     const serviceContactButtons = Array.from(document.querySelectorAll("[data-select-service]"));
@@ -1628,13 +1716,14 @@
     const smartLabels={
       service:{shorts:{es:"Edición de Shorts",en:"Shorts Editing"},longform:{es:"Edición de Videos Largos",en:"Long-form Video Editing"},captions:{es:"Subtítulos y Motion Graphics",en:"Captions and Motion Graphics"},repurpose:{es:"Reutilización de Contenido",en:"Content Repurposing"},adaptations:{es:"Adaptación de Formatos",en:"Format Adaptations"},landing:{es:"Landing Page",en:"Landing Page"},businessweb:{es:"Web para Empresa",en:"Business Website"},portfolio:{es:"Portafolio Profesional",en:"Professional Portfolio"},responsive:{es:"Diseño Web Adaptable",en:"Responsive Web Design"},publishweb:{es:"Configuración y Publicación Web",en:"Website Setup and Launch"}},
       content:{educational:{es:"un proyecto educativo",en:"an educational project"},personal:{es:"una marca personal",en:"a personal brand"},business:{es:"una empresa o negocio",en:"a company or business"},unsure:{es:"un proyecto que aún estoy definiendo",en:"a project I am still defining"}},
-      goal:{quality:{es:"mejorar la calidad",en:"improve the quality"},clarity:{es:"presentar la marca con claridad",en:"present the brand clearly"},adapt:{es:"adaptar el proyecto a formatos o dispositivos",en:"adapt the project to formats or devices"},delivery:{es:"preparar la entrega final",en:"prepare the final delivery"}}
+      goal:{quality:{es:"mejorar la calidad de la edición",en:"improve the editing quality"},clarity:{es:"comunicar el mensaje con claridad",en:"communicate the message clearly"},adapt:{es:"adaptar el video a diferentes formatos",en:"adapt the video to different formats"},delivery:{es:"preparar las versiones finales",en:"prepare the final versions"}},
+      goalWeb:{quality:{es:"definir una estructura clara",en:"define a clear structure"},clarity:{es:"presentar la marca profesionalmente",en:"present the brand professionally"},adapt:{es:"adaptar la web a todos los dispositivos",en:"adapt the website to every device"},delivery:{es:"preparar y publicar la página",en:"prepare and launch the website"}}
     };
     function updateSmartContact(){
       const lang=document.documentElement.lang==="en"?"en":"es";
       const service=smartLabels.service[smartSelections.service][lang];
       const content=smartLabels.content[smartSelections.content][lang];
-      const goal=smartLabels.goal[smartSelections.goal][lang];
+      const goal=(smartSelections.project==="web"?smartLabels.goalWeb:smartLabels.goal)[smartSelections.goal][lang];
       const both=smartSelections.project==="both";
       const message=lang==="en"?(both?`Hello Digital Forge. I'm interested in both video editing and web creation, especially ${service}, for ${content}. I need to ${goal}.`:`Hello Digital Forge. I'm interested in ${service} for ${content}, and I need to ${goal}.`):(both?`Hola Digital Forge. Me interesan la edición de video y la creación web, especialmente ${service}, para ${content}. Necesito ${goal}.`:`Hola Digital Forge. Me interesa ${service} para ${content} y necesito ${goal}.`);
       summaryMessage.textContent=message;
@@ -1660,7 +1749,20 @@
     const serviceViewControls=Array.from(document.querySelectorAll("[data-service-view-select]"));
     const serviceViewSections=Array.from(document.querySelectorAll("[data-view-section]"));
     const topHeader=document.querySelector(".top");
+    const contactViewTitle=document.getElementById("contact-view-title");
+    const contactViewIntro=document.getElementById("contact-view-intro");
+    const goalChoiceButtons=choiceButtons.filter((button)=>button.dataset.choiceGroup==="goal");
     let activeServiceView="video";
+    const contactViewCopy={
+      video:{es:{title:"Cuéntanos qué video necesitas.",intro:"Selecciona algunas opciones de edición y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.",goals:{quality:"Mejorar la edición",clarity:"Comunicar con claridad",adapt:"Adaptar a formatos",delivery:"Preparar la entrega"}},en:{title:"Tell us about the video you need.",intro:"Choose a few editing options and we will prepare your WhatsApp message. No long forms and no commitment.",goals:{quality:"Improve the edit",clarity:"Communicate clearly",adapt:"Adapt to formats",delivery:"Prepare delivery"}}},
+      web:{es:{title:"Cuéntanos qué página web necesitas.",intro:"Selecciona algunas opciones de creación web y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.",goals:{quality:"Definir la estructura",clarity:"Presentar la marca",adapt:"Adaptar a dispositivos",delivery:"Publicar la web"}},en:{title:"Tell us about the website you need.",intro:"Choose a few website options and we will prepare your WhatsApp message. No long forms and no commitment.",goals:{quality:"Define the structure",clarity:"Present the brand",adapt:"Adapt to devices",delivery:"Launch the website"}}}
+    };
+    function refreshServiceViewContact(){
+      const lang=document.documentElement.lang==="en"?"en":"es";
+      const copy=contactViewCopy[activeServiceView][lang];
+      contactViewTitle.textContent=copy.title;contactViewIntro.textContent=copy.intro;
+      goalChoiceButtons.forEach((button)=>{button.textContent=copy.goals[button.dataset.choice];});
+    }
     function setServiceView(view,save=true){
       activeServiceView=view==="web"?"web":"video";
       serviceViewSections.forEach((section)=>{section.hidden=section.dataset.viewSection!==activeServiceView;});
@@ -1671,11 +1773,14 @@
         if(control.matches("a")){active?control.setAttribute("aria-current","page"):control.removeAttribute("aria-current");}
       });
       topHeader.classList.toggle("web-view",activeServiceView==="web");
+      refreshServiceViewContact();
       selectSmartChoice("project",activeServiceView);
       if(activeServiceView==="video"){
         startStageTimer();startProcessTimer();startFormatTimer();
+        clearInterval(webProcessTimer);
       }else{
         clearInterval(stageTimer);clearInterval(processTimer);clearInterval(formatTimer);
+        startWebProcessTimer();
       }
       if(save){try{localStorage.setItem("digitalForgeServiceView",activeServiceView);}catch(e){}}
     }
