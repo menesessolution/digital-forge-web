@@ -3,7 +3,9 @@ import { cleanText, ensureDatabase, json, nowIso } from './db.js';
 const encoder = new TextEncoder();
 const SESSION_COOKIE = 'df_client_session';
 const SESSION_SECONDS = 60 * 60 * 24 * 7;
-const PASSWORD_ITERATIONS = 210000;
+// Cloudflare Workers caps each PBKDF2 operation at 100,000 iterations. Chaining
+// three domain-separated rounds preserves 210,000 iterations of total work.
+const PASSWORD_ROUNDS = [100000, 100000, 10000];
 
 function toBase64Url(bytes) {
   let binary = '';
@@ -28,9 +30,21 @@ async function sha256(value) {
 }
 
 async function passwordBits(password, salt) {
-  const key = await crypto.subtle.importKey('raw', encoder.encode(password), 'PBKDF2', false, ['deriveBits']);
-  const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt, iterations: PASSWORD_ITERATIONS }, key, 256);
-  return new Uint8Array(bits);
+  let material = encoder.encode(password);
+  for (let index = 0; index < PASSWORD_ROUNDS.length; index += 1) {
+    const roundSalt = new Uint8Array(salt.length + 1);
+    roundSalt.set(salt);
+    roundSalt[salt.length] = index + 1;
+    const key = await crypto.subtle.importKey('raw', material, 'PBKDF2', false, ['deriveBits']);
+    const bits = await crypto.subtle.deriveBits({
+      name: 'PBKDF2',
+      hash: 'SHA-256',
+      salt: roundSalt,
+      iterations: PASSWORD_ROUNDS[index],
+    }, key, 256);
+    material = new Uint8Array(bits);
+  }
+  return material;
 }
 
 function equalBytes(a, b) {
