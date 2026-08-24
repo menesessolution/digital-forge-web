@@ -125,7 +125,7 @@ export async function authenticateClient(env, request) {
   if (!token) return null;
   const db = await ensureDatabase(env);
   const sessionId = toBase64Url(await sha256(token));
-  return db.prepare(`SELECT c.id,c.name,c.email,c.locale,c.status,s.expires_at
+  return db.prepare(`SELECT c.id,c.name,c.email,c.locale,c.status,c.must_change_password,s.expires_at
     FROM client_sessions s JOIN clients c ON c.id=s.client_id
     WHERE s.id=? AND s.expires_at>? AND c.status='active'`)
     .bind(sessionId, Math.floor(Date.now() / 1000)).first();

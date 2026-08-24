@@ -64,6 +64,7 @@ const schemaStatements = [
     password_salt TEXT NOT NULL,
     locale TEXT NOT NULL DEFAULT 'es' CHECK (locale IN ('es','en')),
     status TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active','inactive')),
+    must_change_password INTEGER NOT NULL DEFAULT 1 CHECK (must_change_password IN (0,1)),
     last_login_at TEXT NOT NULL DEFAULT '',
     created_at TEXT NOT NULL,
     updated_at TEXT NOT NULL
@@ -158,6 +159,15 @@ export async function ensureDatabase(env) {
   if (!existingProjectColumns.has('payment_currency')) projectMigrations.push(env.DB.prepare("ALTER TABLE projects ADD COLUMN payment_currency TEXT NOT NULL DEFAULT 'USD'"));
   if (!existingProjectColumns.has('payment_status')) projectMigrations.push(env.DB.prepare("ALTER TABLE projects ADD COLUMN payment_status TEXT NOT NULL DEFAULT 'not_required'"));
   if (projectMigrations.length) await env.DB.batch(projectMigrations);
+  const clientColumns = await env.DB.prepare('PRAGMA table_info(clients)').all();
+  const existingClientColumns = new Set((clientColumns.results || []).map((column) => column.name));
+  if (!existingClientColumns.has('must_change_password')) {
+    try {
+      await env.DB.prepare('ALTER TABLE clients ADD COLUMN must_change_password INTEGER NOT NULL DEFAULT 1 CHECK (must_change_password IN (0,1))').run();
+    } catch (error) {
+      if (!/duplicate column/i.test(String(error.message || ''))) throw error;
+    }
+  }
   const now = new Date().toISOString();
   await env.DB.batch([
     env.DB.prepare('INSERT OR IGNORE INTO settings (key, value, updated_at) VALUES (?, ?, ?)')

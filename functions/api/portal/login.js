@@ -24,7 +24,7 @@ export async function onRequestPost({ request, env }) {
     if (!valid || client.status !== 'active') return json({ error: 'Correo o contraseña incorrectos.' }, 401);
     const session = await createSession(env, client.id);
     await db.prepare('UPDATE clients SET last_login_at=?,updated_at=? WHERE id=?').bind(nowIso(), nowIso(), client.id).run();
-    return json({ ok: true, client: { id: client.id, name: client.name, email: client.email, locale: client.locale } }, 200, { 'set-cookie': session.cookie });
+    return json({ ok: true, client: { id: client.id, name: client.name, email: client.email, locale: client.locale, must_change_password: Boolean(client.must_change_password) } }, 200, { 'set-cookie': session.cookie });
   } catch (error) {
     return json({ error: error.message || 'No se pudo iniciar sesión.' }, 400);
   }

@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS clients (
   password_hash TEXT NOT NULL, password_salt TEXT NOT NULL,
   locale TEXT NOT NULL DEFAULT 'es' CHECK (locale IN ('es','en')),
   status TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active','inactive')),
+  must_change_password INTEGER NOT NULL DEFAULT 1 CHECK (must_change_password IN (0,1)),
   last_login_at TEXT NOT NULL DEFAULT '', created_at TEXT NOT NULL, updated_at TEXT NOT NULL
 );
 CREATE UNIQUE INDEX IF NOT EXISTS idx_clients_email ON clients(email);
