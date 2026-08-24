@@ -732,7 +732,6 @@
     .system-explorer{background:rgba(255,255,255,.58);border:1px solid #d5d0c8;border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
     .format-tabs{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #d5d0c8}.format-tab{appearance:none;border:0;border-right:1px solid #d5d0c8;background:transparent;color:#85817b;padding:17px 10px;font:800 10px "Inter",sans-serif;letter-spacing:.04em;cursor:pointer;position:relative;transition:.25s ease}.format-tab:last-child{border-right:0}.format-tab::after{content:"";position:absolute;left:0;right:100%;bottom:-1px;height:2px;background:#111;transition:right .35s ease}.format-tab:hover,.format-tab:focus-visible,.format-tab.active{color:#111;background:#fff}.format-tab.active::after{right:0}
     .format-stage{flex:1;display:grid;grid-template-columns:.84fr 1.16fr;gap:28px;align-items:center;padding:32px;min-height:410px}.format-copy{align-self:center}.format-index{font:700 10px monospace;letter-spacing:.12em;color:#8b8780}.format-title{font-size:clamp(1.8rem,3vw,3.3rem);line-height:.96;letter-spacing:-.055em;margin:13px 0}.format-text{font-size:13px;line-height:1.65;color:#625f5a;max-width:330px}.format-specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.format-spec{border:1px solid #c9c3ba;border-radius:999px;padding:7px 9px;font:700 8px monospace;color:#74706a;background:rgba(255,255,255,.45)}
-    .edit-compare{max-width:330px;margin-top:18px;padding-top:14px;border-top:1px solid #d1ccc4}.edit-compare[hidden]{display:none}.edit-compare-head,.edit-compare-labels{display:flex;justify-content:space-between;align-items:center;gap:10px}.edit-compare-head{font:800 8px "Inter",sans-serif;color:#111}.edit-compare-output{font:800 7px monospace;color:#716d67}.edit-compare-labels{margin:9px 0 5px;font:750 6px monospace;color:#8b8780;letter-spacing:.08em}.edit-compare-slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:linear-gradient(90deg,#111 0 var(--compare-progress,100%),#d5d0c8 var(--compare-progress,100%) 100%);cursor:ew-resize;outline:none}.edit-compare-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border:3px solid #fff;border-radius:50%;background:#111;box-shadow:0 0 0 1px #111,0 4px 10px rgba(0,0,0,.18)}.edit-compare-slider::-moz-range-thumb{width:13px;height:13px;border:3px solid #fff;border-radius:50%;background:#111;box-shadow:0 0 0 1px #111}.edit-compare-slider:focus-visible{outline:2px solid #111;outline-offset:5px}.edit-compare-note{margin-top:7px;font-size:8px;line-height:1.4;color:#8b8780}
     .format-preview{height:350px;position:relative;display:grid;place-items:center}.format-scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:translateY(9px) scale(.98);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.75,.25,1);pointer-events:none}.format-scene.active{opacity:1;transform:none;pointer-events:auto}
     .phone-frame{width:132px;height:228px;border:2px solid #111;border-radius:20px;padding:9px;background:#f8f6f2;box-shadow:14px 16px 0 #d8d3cb;position:relative}.phone-screen{height:100%;border-radius:12px;background:#111;color:#fff;padding:13px 10px;display:flex;flex-direction:column;justify-content:flex-end}.phone-hook{font-size:17px;font-weight:900;line-height:.95;letter-spacing:-.04em}.phone-caption{height:4px;width:78%;background:#bbb;margin-top:10px;box-shadow:0 7px 0 #555,0 14px 0 #333}.phone-badge{position:absolute;right:-24px;top:33px;background:#111;color:#fff;border-radius:999px;padding:7px 9px;font:800 7px monospace}
     .short-bars{width:88%;display:grid;gap:9px}.short-bar{border:1px solid #c6c0b7;border-radius:9px;background:#f8f6f2;padding:15px 13px;display:flex;align-items:center;gap:11px}.short-bar::before{content:"";width:22px;height:22px;border-radius:50%;background:#111}.short-line{height:5px;background:#9d9890;border-radius:3px;flex:1}.short-bar:nth-child(2){transform:translateX(18px)}.short-bar:nth-child(3){transform:translateX(36px)}
@@ -753,19 +752,20 @@
     .phone-frame{width:clamp(170px,11vw,190px);height:auto;aspect-ratio:19/35;border:3px solid #151515;border-radius:38px;padding:6px;background:#252525;box-shadow:14px 18px 0 #d8d3cb,0 22px 46px rgba(0,0,0,.18);position:relative}
     .phone-frame::before{content:"";position:absolute;left:-5px;top:72px;width:4px;height:48px;border-radius:4px 0 0 4px;background:#1a1a1a;box-shadow:0 58px 0 #1a1a1a}
     .phone-frame::after{content:"";position:absolute;right:-5px;top:96px;width:4px;height:76px;border-radius:0 4px 4px 0;background:#1a1a1a}
-    .phone-screen{--edit-strength:1;height:100%;border-radius:34px;padding:18px 16px 27px;position:relative;overflow:hidden;background:linear-gradient(145deg,#8b8b8b 0 42%,#696969 42% 64%,#454545 64% 100%);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;isolation:isolate}
-    .phone-screen::before{content:"";position:absolute;inset:34% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.88));z-index:1;pointer-events:none}
-    .phone-motion{position:absolute;inset:-12%;z-index:0;background:linear-gradient(145deg,#f0a69a 0 35%,#e9dfcf 35% 48%,#50a3aa 49% 72%,#0c555d 73% 100%);transform:scale(1.04);opacity:var(--edit-strength);transition:opacity .25s ease;will-change:transform}.phone-screen.playing .phone-motion{animation:phonePreviewMotion 5.5s ease-in-out infinite alternate}@keyframes phonePreviewMotion{0%{transform:scale(1.04) translate3d(-3px,2px,0)}100%{transform:scale(1.16) translate3d(8px,-9px,0)}}
-    .dynamic-island{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:72px;height:21px;background:#050505;border-radius:999px;z-index:4;box-shadow:inset 0 0 0 1px rgba(255,255,255,.035)}
+    .phone-screen{height:100%;border-radius:34px;padding:0;position:relative;overflow:hidden;background:#080909;color:#fff;display:block;cursor:grab;isolation:isolate}.phone-screen:active{cursor:grabbing}
+    .dynamic-island{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:72px;height:21px;background:#050505;border-radius:999px;z-index:14;box-shadow:inset 0 0 0 1px rgba(255,255,255,.035)}
     .dynamic-island::after{content:"";position:absolute;width:5px;height:5px;border-radius:50%;right:10px;top:8px;background:#172935;box-shadow:0 0 0 1px #243a48}
-    .phone-status{position:absolute;left:15px;right:14px;top:14px;display:flex;justify-content:space-between;align-items:center;font:800 8px "Inter",sans-serif;z-index:3}.phone-signals{letter-spacing:1px;font-size:7px}
-    .phone-demo-hint{position:absolute;top:46px;left:50%;transform:translateX(-50%);z-index:3;white-space:nowrap;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(0,0,0,.22);padding:5px 7px;font:800 6px monospace;letter-spacing:.08em;backdrop-filter:blur(8px)}
-    .phone-copy-stage{position:relative;z-index:2;height:84px}.phone-raw-copy,.phone-reel-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;transition:opacity .25s ease,transform .25s ease}.phone-raw-copy{opacity:var(--raw-strength,0);transform:translateY(var(--raw-offset,5px))}.phone-raw-copy strong{font-size:14px;line-height:.95;letter-spacing:-.025em}.phone-raw-copy span{margin-top:7px;font:700 7px/1.3 "Inter",sans-serif;color:rgba(255,255,255,.68)}.phone-reel-copy{opacity:var(--edit-strength);transform:translateY(var(--edit-offset,0px))}.phone-hook{position:relative;font-size:17px;line-height:.94;max-width:100%;letter-spacing:-.03em;min-height:48px;display:flex;align-items:flex-end}.phone-caption{position:relative;width:100%;height:auto;min-height:27px;margin-top:9px;padding:6px 7px;border-radius:7px;background:rgba(0,0,0,.58);box-shadow:none;color:#fff;font:750 7px/1.25 "Inter",sans-serif;transition:opacity .2s ease,transform .2s ease}.phone-screen:not(.captions-on) .phone-caption{opacity:0;transform:translateY(4px)}
-    .phone-player{display:grid;grid-template-columns:22px minmax(0,1fr) 25px;align-items:center;gap:6px;margin-top:10px}.phone-control{appearance:none;width:22px;height:22px;border:1px solid rgba(255,255,255,.52);border-radius:50%;background:rgba(0,0,0,.32);color:#fff;display:grid;place-items:center;padding:0;font:900 7px "Inter",sans-serif;cursor:pointer;backdrop-filter:blur(8px);transition:.2s ease}.phone-control:hover,.phone-control:focus-visible{background:#fff;color:#111;transform:scale(1.06)}.phone-control.cc{width:25px;border-radius:7px}.phone-control.cc[aria-pressed="false"]{opacity:.48}.phone-progress{-webkit-appearance:none;appearance:none;width:100%;height:3px;border-radius:999px;background:linear-gradient(90deg,#fff 0 var(--phone-progress,0%),rgba(255,255,255,.3) var(--phone-progress,0%) 100%);cursor:pointer;outline:none}.phone-progress::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid rgba(0,0,0,.45)}.phone-progress::-moz-range-thumb{width:8px;height:8px;border-radius:50%;background:#fff;border:2px solid rgba(0,0,0,.45)}.phone-time{grid-column:1/-1;text-align:center;color:rgba(255,255,255,.7);font:700 6px monospace;margin-top:-2px}
-    .home-indicator{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:66px;height:4px;border-radius:999px;background:rgba(255,255,255,.88);z-index:3}
-    .phone-badge{right:-29px;top:72px;padding:9px 11px;font-size:8px;box-shadow:0 7px 18px rgba(0,0,0,.18)}
-    @media(max-width:650px){.core-idea{padding:22px;font-size:17px}.format-preview{height:285px}.edit-compare{margin-top:14px}.phone-frame{width:145px;border-radius:31px;padding:5px}.phone-screen{border-radius:25px;padding:14px 12px 22px}.dynamic-island{width:54px;height:16px;top:7px}.dynamic-island::after{width:4px;height:4px;right:7px;top:6px}.phone-status{left:11px;right:10px;top:10px;font-size:7px}.phone-demo-hint{top:36px;font-size:5px;padding:4px 6px}.phone-copy-stage{height:67px}.phone-raw-copy strong{font-size:11px}.phone-raw-copy span{font-size:5px}.phone-hook{font-size:13px;min-height:37px}.phone-caption{font-size:6px;min-height:23px;padding:5px}.phone-player{grid-template-columns:19px minmax(0,1fr) 22px;gap:4px;margin-top:7px}.phone-control{width:19px;height:19px;font-size:6px}.phone-control.cc{width:22px}.home-indicator{width:49px;height:3px;bottom:6px}.phone-badge{right:-23px;top:50px;padding:7px 9px;font-size:7px}.carousel-headline{font-size:19px}}
-    @media(prefers-reduced-motion:reduce){.system-core::before,.core-idea::after,.format-scene,.phone-motion{animation:none!important;transition:none!important}}
+    .phone-status{position:absolute;left:15px;right:14px;top:14px;display:flex;justify-content:space-between;align-items:center;font:800 8px "Inter",sans-serif;z-index:13;pointer-events:none}.phone-signals{letter-spacing:1px;font-size:7px}
+    .phone-feed-viewport{position:absolute;inset:0;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;outline:none}.phone-feed-viewport::-webkit-scrollbar{display:none}.feed-card{height:100%;min-height:100%;position:relative;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;isolation:isolate}.feed-card::after{content:"";position:absolute;inset:30% 0 0;z-index:1;background:linear-gradient(transparent,rgba(0,0,0,.86));pointer-events:none}.feed-card::before{content:"";position:absolute;z-index:0;transition:transform .8s ease,opacity .8s ease}.feed-card.active::before{transform:scale(1.06) rotate(2deg)}
+    .feed-card:nth-child(1){background:linear-gradient(145deg,#f0a69a 0 35%,#e9dfcf 35% 48%,#50a3aa 49% 72%,#0c555d 73% 100%)}.feed-card:nth-child(1)::before{width:170px;height:170px;border:1px solid rgba(255,255,255,.45);border-radius:50%;left:-42px;top:70px;box-shadow:0 0 0 28px rgba(255,255,255,.07),0 0 0 56px rgba(255,255,255,.035)}
+    .feed-card:nth-child(2){background:#111}.feed-card:nth-child(2)::before{inset:0;width:auto;height:auto;background-image:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px);background-size:22px 22px;opacity:.7}
+    .feed-card:nth-child(3){background:linear-gradient(155deg,#d9e0de 0 44%,#718e8c 44% 64%,#132f31 64%)}.feed-card:nth-child(3)::before{width:112px;height:180px;border:2px solid rgba(255,255,255,.52);border-radius:18px;right:-22px;top:58px;box-shadow:-25px 22px 0 rgba(255,255,255,.12)}
+    .feed-card:nth-child(4){background:linear-gradient(135deg,#e6d7c7 0 38%,#c87564 38% 58%,#171717 58%)}.feed-card:nth-child(4)::before{width:125px;height:125px;background:#111;border-radius:50%;left:-30px;top:90px;box-shadow:95px -34px 0 rgba(255,255,255,.17)}
+    .feed-count,.feed-swipe-hint{position:absolute;top:46px;z-index:12;border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(0,0,0,.25);padding:5px 7px;font:800 6px monospace;letter-spacing:.08em;backdrop-filter:blur(8px);pointer-events:none}.feed-count{left:13px}.feed-swipe-hint{right:12px}.feed-copy{position:absolute;left:14px;right:42px;bottom:27px;z-index:3;pointer-events:none}.feed-user{display:block;margin-bottom:7px;font:850 7px "Inter",sans-serif}.feed-title{display:block;font-size:18px;font-weight:900;line-height:.92;letter-spacing:-.04em}.feed-description{margin:7px 0 0;font-size:7px;line-height:1.35;color:rgba(255,255,255,.8)}.feed-tag{display:inline-block;margin-top:8px;border:1px solid rgba(255,255,255,.42);border-radius:999px;padding:4px 6px;font:750 5px monospace;letter-spacing:.06em}.feed-actions{position:absolute;right:9px;bottom:53px;z-index:5;display:grid;gap:8px}.feed-action{appearance:none;width:26px;height:26px;border:1px solid rgba(255,255,255,.48);border-radius:50%;background:rgba(0,0,0,.3);color:#fff;display:grid;place-items:center;padding:0;font:900 12px "Inter",sans-serif;cursor:pointer;backdrop-filter:blur(7px);transition:.2s ease}.feed-action:hover,.feed-action:focus-visible,.feed-action.active{background:#fff;color:#111;transform:scale(1.08)}
+    .home-indicator{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:66px;height:4px;border-radius:999px;background:rgba(255,255,255,.88);z-index:13;pointer-events:none}
+    .phone-badge{right:-29px;top:72px;padding:9px 11px;font-size:11px;line-height:1;box-shadow:0 7px 18px rgba(0,0,0,.18);appearance:none;border:0;cursor:pointer;transition:transform .2s ease,background .2s ease}.phone-badge:hover,.phone-badge:focus-visible{background:#343434;transform:translateY(3px)}
+    @media(max-width:650px){.core-idea{padding:22px;font-size:17px}.format-preview{height:285px}.phone-frame{width:145px;border-radius:31px;padding:5px}.phone-screen{border-radius:25px}.dynamic-island{width:54px;height:16px;top:7px}.dynamic-island::after{width:4px;height:4px;right:7px;top:6px}.phone-status{left:11px;right:10px;top:10px;font-size:7px}.feed-count,.feed-swipe-hint{top:36px;padding:4px 5px;font-size:5px}.feed-count{left:9px}.feed-swipe-hint{right:8px}.feed-copy{left:10px;right:35px;bottom:22px}.feed-user{font-size:6px;margin-bottom:5px}.feed-title{font-size:14px}.feed-description{font-size:6px}.feed-tag{font-size:4px;margin-top:6px}.feed-actions{right:7px;bottom:43px;gap:6px}.feed-action{width:22px;height:22px;font-size:10px}.home-indicator{width:49px;height:3px;bottom:6px}.phone-badge{right:-23px;top:50px;padding:7px 9px;font-size:9px}.carousel-headline{font-size:19px}}
+    @media(prefers-reduced-motion:reduce){.system-core::before,.core-idea::after,.format-scene,.feed-card::before{animation:none!important;transition:none!important}}
 
     /* WEBSITE CREATION — INDEPENDENT SECTOR */
     .web-sector{
@@ -1241,9 +1241,9 @@
 <button class="format-tab" type="button" role="tab" aria-selected="false" data-format="3" data-en="SQUARE" data-es="CUADRADO">CUADRADO</button>
 </div>
 <div class="format-stage">
-<div class="format-copy"><span class="format-index" id="format-index">01 / REEL</span><h3 class="format-title" id="format-title">El gancho abre la conversación.</h3><p class="format-text" id="format-text">Una versión ágil de la idea, estructurada para captar atención y comunicar el mensaje con claridad.</p><div class="format-specs" id="format-specs"><span class="format-spec">GANCHO</span><span class="format-spec">RITMO</span><span class="format-spec">SUBTÍTULOS</span></div><div class="edit-compare" id="edit-compare"><div class="edit-compare-head"><span data-en="EDIT COMPARISON" data-es="COMPARADOR DE EDICIÓN">COMPARADOR DE EDICIÓN</span><output class="edit-compare-output" id="edit-compare-output" for="edit-compare-slider">EDITADO</output></div><div class="edit-compare-labels"><span data-en="UNEDITED" data-es="SIN EDITAR">SIN EDITAR</span><span data-en="EDITED" data-es="EDITADO">EDITADO</span></div><input class="edit-compare-slider" id="edit-compare-slider" type="range" min="0" max="100" step="1" value="100" aria-label="Nivel de edición"/><p class="edit-compare-note" data-en="Drag to see how editing transforms the same footage." data-es="Arrastra para ver cómo la edición transforma el mismo material.">Arrastra para ver cómo la edición transforma el mismo material.</p></div><button class="format-next" id="format-next" type="button" aria-label="Siguiente formato">→</button></div>
+<div class="format-copy"><span class="format-index" id="format-index">01 / REEL</span><h3 class="format-title" id="format-title">El gancho abre la conversación.</h3><p class="format-text" id="format-text">Una versión ágil de la idea, estructurada para captar atención y comunicar el mensaje con claridad.</p><div class="format-specs" id="format-specs"><span class="format-spec">GANCHO</span><span class="format-spec">RITMO</span><span class="format-spec">SUBTÍTULOS</span></div><button class="format-next" id="format-next" type="button" aria-label="Siguiente formato">→</button></div>
 <div class="format-preview">
-<div class="format-scene active" data-format-view="0"><div class="phone-frame"><div class="phone-screen captions-on" id="phone-demo" role="group" aria-label="Reproductor de reel interactivo"><div class="phone-motion" aria-hidden="true"></div><div class="dynamic-island"></div><div class="phone-status"><span>9:41</span><span class="phone-signals">▮▮ ◒</span></div><span class="phone-demo-hint" data-en="INTERACTIVE REEL" data-es="REEL INTERACTIVO">REEL INTERACTIVO</span><div class="phone-copy-stage"><div class="phone-raw-copy"><strong data-en="SOURCE FOOTAGE." data-es="MATERIAL ORIGINAL.">MATERIAL ORIGINAL.</strong><span data-en="No pacing, captions or visual treatment." data-es="Sin ritmo, subtítulos ni tratamiento visual.">Sin ritmo, subtítulos ni tratamiento visual.</span></div><div class="phone-reel-copy"><div class="phone-hook" id="phone-hook">UNA IDEA.</div><div class="phone-caption" id="phone-caption">Cada corte construye el mensaje.</div></div></div><div class="phone-player"><button class="phone-control" id="phone-play" type="button" aria-label="Reproducir">▶</button><input class="phone-progress" id="phone-progress" type="range" min="0" max="100" step="1" value="0" aria-label="Progreso del reel"/><button class="phone-control cc" id="phone-captions" type="button" aria-pressed="true" aria-label="Desactivar subtítulos">CC</button><span class="phone-time" id="phone-time" aria-live="polite">00:00 / 00:12</span></div><div class="home-indicator"></div></div><span class="phone-badge">REEL</span></div></div>
+<div class="format-scene active" data-format-view="0"><div class="phone-frame"><div class="phone-screen"><div class="dynamic-island"></div><div class="phone-status"><span>9:41</span><span class="phone-signals">▮▮ ◒</span></div><span class="feed-count" id="phone-feed-count" aria-live="polite">01 / 04</span><span class="feed-swipe-hint" data-en="SWIPE" data-es="DESLIZA">DESLIZA</span><div class="phone-feed-viewport" id="phone-feed-viewport" role="region" tabindex="0" aria-label="Feed vertical interactivo"><article class="feed-card active" data-feed-card="0" aria-current="true"><div class="feed-copy"><span class="feed-user">@digitalforge__</span><strong class="feed-title" data-en="THE HOOK OPENS THE CONVERSATION." data-es="EL GANCHO ABRE LA CONVERSACIÓN.">EL GANCHO ABRE LA CONVERSACIÓN.</strong><p class="feed-description" data-en="Structure, pacing and clarity from the first second." data-es="Estructura, ritmo y claridad desde el primer segundo.">Estructura, ritmo y claridad desde el primer segundo.</p><span class="feed-tag" data-en="SHORT-FORM EDITING" data-es="EDICIÓN DE SHORTS">EDICIÓN DE SHORTS</span></div><div class="feed-actions"><button class="feed-action" type="button" data-feed-action="like" aria-pressed="false">♡</button><button class="feed-action" type="button" data-feed-action="save" aria-pressed="false">◇</button></div></article><article class="feed-card" data-feed-card="1"><div class="feed-copy"><span class="feed-user">@digitalforge__</span><strong class="feed-title" data-en="CAPTIONS ARE ALSO DESIGN." data-es="LOS SUBTÍTULOS TAMBIÉN SON DISEÑO.">LOS SUBTÍTULOS TAMBIÉN SON DISEÑO.</strong><p class="feed-description" data-en="Typography and motion that support the message." data-es="Tipografía y movimiento que acompañan el mensaje.">Tipografía y movimiento que acompañan el mensaje.</p><span class="feed-tag">MOTION GRAPHICS</span></div><div class="feed-actions"><button class="feed-action" type="button" data-feed-action="like" aria-pressed="false">♡</button><button class="feed-action" type="button" data-feed-action="save" aria-pressed="false">◇</button></div></article><article class="feed-card" data-feed-card="2"><div class="feed-copy"><span class="feed-user">@digitalforge__</span><strong class="feed-title" data-en="ONE IDEA. MULTIPLE FORMATS." data-es="UNA IDEA. VARIOS FORMATOS.">UNA IDEA. VARIOS FORMATOS.</strong><p class="feed-description" data-en="Vertical, horizontal and square versions." data-es="Versiones verticales, horizontales y cuadradas.">Versiones verticales, horizontales y cuadradas.</p><span class="feed-tag" data-en="ADAPTATION" data-es="ADAPTACIÓN">ADAPTACIÓN</span></div><div class="feed-actions"><button class="feed-action" type="button" data-feed-action="like" aria-pressed="false">♡</button><button class="feed-action" type="button" data-feed-action="save" aria-pressed="false">◇</button></div></article><article class="feed-card" data-feed-card="3"><div class="feed-copy"><span class="feed-user">@digitalforge__</span><strong class="feed-title" data-en="EVERY CUT HAS A PURPOSE." data-es="CADA CORTE TIENE UNA FUNCIÓN.">CADA CORTE TIENE UNA FUNCIÓN.</strong><p class="feed-description" data-en="An edit prepared to feel on-brand." data-es="Una edición preparada para sentirse de marca.">Una edición preparada para sentirse de marca.</p><span class="feed-tag" data-en="FINAL DELIVERY" data-es="ENTREGA FINAL">ENTREGA FINAL</span></div><div class="feed-actions"><button class="feed-action" type="button" data-feed-action="like" aria-pressed="false">♡</button><button class="feed-action" type="button" data-feed-action="save" aria-pressed="false">◇</button></div></article></div><div class="home-indicator"></div></div><button class="phone-badge" id="phone-feed-next" type="button" aria-label="Siguiente video">↓</button></div></div>
 <div class="format-scene" data-format-view="1"><div class="short-bars"><div class="short-bar"><div class="short-line"></div></div><div class="short-bar"><div class="short-line"></div></div><div class="short-bar"><div class="short-line"></div></div></div></div>
 <div class="format-scene" data-format-view="2"><div class="landscape-frame"><div class="landscape-screen"><span>16:9</span><strong data-en="HORIZONTAL VERSION" data-es="VERSIÓN HORIZONTAL">VERSIÓN HORIZONTAL</strong><div class="landscape-timeline"></div></div></div></div>
 <div class="format-scene" data-format-view="3"><div class="square-frame"><span>1:1</span><strong data-en="SQUARE VERSION" data-es="VERSIÓN CUADRADA">VERSIÓN CUADRADA</strong><div class="square-caption"></div></div></div>
@@ -1512,7 +1512,7 @@
       if(typeof renderProcess === "function"){ renderProcess(activeProcess, false); }
       if(typeof renderWebProcess === "function"){ renderWebProcess(activeWebProcess, false); }
       if(typeof renderFormat === "function"){ renderFormat(activeFormat, false); }
-      if(typeof refreshPhonePlayerLanguage === "function"){ refreshPhonePlayerLanguage(); }
+      if(typeof refreshPhoneFeedLanguage === "function"){ refreshPhoneFeedLanguage(); }
       if(typeof renderWebSector === "function"){ renderWebSector(activeWebSectorStage); }
       if(typeof refreshDemoLanguage === "function"){ refreshDemoLanguage(); }
       if(typeof updateSmartContact === "function"){ updateSmartContact(); }
@@ -1750,24 +1750,16 @@
     const formatText = document.getElementById("format-text");
     const formatSpecs = document.getElementById("format-specs");
     const formatNext = document.getElementById("format-next");
-    const editCompare=document.getElementById("edit-compare");
-    const editCompareSlider=document.getElementById("edit-compare-slider");
-    const editCompareOutput=document.getElementById("edit-compare-output");
-    const phoneDemo=document.getElementById("phone-demo");
-    const phoneHook=document.getElementById("phone-hook");
-    const phoneCaption=document.getElementById("phone-caption");
-    const phonePlay=document.getElementById("phone-play");
-    const phoneProgress=document.getElementById("phone-progress");
-    const phoneCaptions=document.getElementById("phone-captions");
-    const phoneTime=document.getElementById("phone-time");
+    const phoneFeedViewport=document.getElementById("phone-feed-viewport");
+    const phoneFeedCards=Array.from(document.querySelectorAll("[data-feed-card]"));
+    const phoneFeedNext=document.getElementById("phone-feed-next");
+    const phoneFeedCount=document.getElementById("phone-feed-count");
+    const phoneFeedActions=Array.from(document.querySelectorAll("[data-feed-action]"));
     let activeFormat = 0;
     let formatTimer;
-    let phonePlaybackTimer;
-    let phonePlayback=0;
-    let phonePlaying=false;
-    let phoneCaptionsOn=true;
+    let activePhoneFeed=0;
+    let phoneFeedScrollFrame;
     let phoneHasInteracted=false;
-    let editStrength=100;
     const formatContent = [
       {es:["01 / REEL","Una edición vertical y dinámica.","Adaptamos el material a 9:16 con estructura, ritmo, subtítulos y elementos visuales según el proyecto.",["9:16","RITMO","SUBTÍTULOS"]],en:["01 / REEL","A dynamic vertical edit.","We adapt the footage to 9:16 with structure, pacing, captions and visual elements for the project.",["9:16","PACE","CAPTIONS"]]},
       {es:["02 / SHORT","Una versión breve y directa.","Seleccionamos lo esencial del material y construimos un corte corto con un mensaje claro.",["SELECCIÓN","CORTES","CLARIDAD"]],en:["02 / SHORT","A concise and direct version.","We select what matters from the footage and build a short cut with a clear message.",["SELECTION","CUTS","CLARITY"]]},
@@ -1783,70 +1775,45 @@
       formatIndex.textContent=copy[0];formatTitle.textContent=copy[1];formatText.textContent=copy[2];
       formatSpecs.replaceChildren(...copy[3].map((label)=>{const chip=document.createElement("span");chip.className="format-spec";chip.textContent=label;return chip;}));
       formatNext.setAttribute("aria-label",lang==="en"?"Next format":"Siguiente formato");
-      editCompare.hidden=activeFormat!==0;
-      if(activeFormat!==0){setPhonePlaying(false);}
       if(restart){startFormatTimer();}
     }
     function startFormatTimer(){clearInterval(formatTimer);if(phoneHasInteracted){return;}if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){formatTimer=setInterval(()=>renderFormat(activeFormat+1,false),9000);}}
-    const phonePlayerCopy={
-      es:{group:"Reproductor de reel interactivo",play:"Reproducir reel",pause:"Pausar reel",replay:"Repetir reel",progress:"Progreso del reel",captionsOn:"Desactivar subtítulos",captionsOff:"Activar subtítulos",frames:[["UNA IDEA.","Cada corte construye el mensaje."],["UN MENSAJE.","El ritmo guía la atención."],["CLARO Y DIRECTO.","Los subtítulos mantienen la claridad."],["LISTO PARA PUBLICAR.","Una versión preparada para su formato."]]},
-      en:{group:"Interactive reel player",play:"Play reel",pause:"Pause reel",replay:"Replay reel",progress:"Reel progress",captionsOn:"Turn captions off",captionsOff:"Turn captions on",frames:[["ONE IDEA.","Every cut builds the message."],["ONE MESSAGE.","Pacing guides attention."],["CLEAR AND DIRECT.","Captions keep the message clear."],["READY TO PUBLISH.","A version prepared for its format."]]}
+    const phoneFeedCopy={
+      es:{feed:"Feed vertical interactivo de ejemplos de edición",next:"Siguiente video",like:"Marcar me gusta",unlike:"Quitar me gusta",save:"Guardar video",unsave:"Quitar de guardados"},
+      en:{feed:"Interactive vertical feed of editing examples",next:"Next video",like:"Like video",unlike:"Remove like",save:"Save video",unsave:"Remove saved video"}
     };
-    const editCompareCopy={es:{original:"SIN EDITAR",edited:"EDITADO",aria:"Nivel de edición del material"},en:{original:"UNEDITED",edited:"EDITED",aria:"Footage editing level"}};
-    function renderPhonePlayer(){
+    function engagePhoneFeed(){phoneHasInteracted=true;clearInterval(formatTimer);}
+    function updatePhoneFeed(index){
+      activePhoneFeed=(index+phoneFeedCards.length)%phoneFeedCards.length;
+      phoneFeedCards.forEach((card,i)=>{const active=i===activePhoneFeed;card.classList.toggle("active",active);active?card.setAttribute("aria-current","true"):card.removeAttribute("aria-current");});
+      phoneFeedCount.textContent=String(activePhoneFeed+1).padStart(2,"0")+" / "+String(phoneFeedCards.length).padStart(2,"0");
+    }
+    function goToPhoneFeed(index,smooth=true){
+      updatePhoneFeed(index);
+      const height=phoneFeedViewport.clientHeight;
+      if(height){phoneFeedViewport.scrollTo({top:activePhoneFeed*height,behavior:smooth&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches?"smooth":"auto"});}
+    }
+    function refreshPhoneFeedLanguage(){
       const lang=document.documentElement.lang==="en"?"en":"es";
-      const copy=phonePlayerCopy[lang];
-      const frame=phonePlayback>=100?3:phonePlayback>=67?2:phonePlayback>=34?1:0;
-      const elapsed=Math.round(phonePlayback*.12);
-      phoneHook.textContent=copy.frames[frame][0];
-      phoneCaption.textContent=copy.frames[frame][1];
-      phoneProgress.value=String(phonePlayback);
-      phoneProgress.style.setProperty("--phone-progress",phonePlayback+"%");
-      phoneTime.textContent="00:"+String(elapsed).padStart(2,"0")+" / 00:12";
-      phoneDemo.classList.toggle("playing",phonePlaying);
-      phoneDemo.classList.toggle("captions-on",phoneCaptionsOn);
-      phonePlay.textContent=phonePlaying?"Ⅱ":phonePlayback>=100?"↻":"▶";
-      phonePlay.setAttribute("aria-label",phonePlaying?copy.pause:phonePlayback>=100?copy.replay:copy.play);
-      phoneProgress.setAttribute("aria-label",copy.progress);
-      phoneCaptions.setAttribute("aria-pressed",String(phoneCaptionsOn));
-      phoneCaptions.setAttribute("aria-label",phoneCaptionsOn?copy.captionsOn:copy.captionsOff);
-      phoneDemo.setAttribute("aria-label",copy.group);
+      const copy=phoneFeedCopy[lang];
+      phoneFeedViewport.setAttribute("aria-label",copy.feed);
+      phoneFeedNext.setAttribute("aria-label",copy.next);
+      phoneFeedActions.forEach((button)=>{
+        const pressed=button.getAttribute("aria-pressed")==="true";
+        const like=button.dataset.feedAction==="like";
+        button.textContent=like?(pressed?"♥":"♡"):(pressed?"◆":"◇");
+        button.setAttribute("aria-label",like?(pressed?copy.unlike:copy.like):(pressed?copy.unsave:copy.save));
+      });
     }
-    function renderEditCompare(){
-      const lang=document.documentElement.lang==="en"?"en":"es";
-      const copy=editCompareCopy[lang];
-      const ratio=editStrength/100;
-      editCompareSlider.value=String(editStrength);
-      editCompareSlider.style.setProperty("--compare-progress",editStrength+"%");
-      editCompareSlider.setAttribute("aria-label",copy.aria);
-      editCompareOutput.textContent=editStrength===0?copy.original:editStrength===100?copy.edited:editStrength+"% "+copy.edited;
-      phoneDemo.style.setProperty("--edit-strength",String(ratio));
-      phoneDemo.style.setProperty("--raw-strength",String(1-ratio));
-      phoneDemo.style.setProperty("--raw-offset",(ratio*5).toFixed(2)+"px");
-      phoneDemo.style.setProperty("--edit-offset",((1-ratio)*5).toFixed(2)+"px");
-    }
-    function refreshPhonePlayerLanguage(){renderPhonePlayer();renderEditCompare();}
-    function setPhonePlaying(playing){
-      clearInterval(phonePlaybackTimer);
-      if(playing&&phonePlayback>=100){phonePlayback=0;}
-      phonePlaying=playing;
-      if(phonePlaying){
-        phoneHasInteracted=true;clearInterval(formatTimer);
-        phonePlaybackTimer=setInterval(()=>{
-          phonePlayback=Math.min(100,phonePlayback+1);
-          if(phonePlayback>=100){setPhonePlaying(false);return;}
-          renderPhonePlayer();
-        },120);
-      }
-      renderPhonePlayer();
-    }
-    phonePlay.addEventListener("click",(event)=>{event.stopPropagation();phoneHasInteracted=true;setPhonePlaying(!phonePlaying);});
-    phoneProgress.addEventListener("input",(event)=>{event.stopPropagation();phoneHasInteracted=true;clearInterval(formatTimer);phonePlayback=Number(phoneProgress.value);renderPhonePlayer();});
-    phoneCaptions.addEventListener("click",(event)=>{event.stopPropagation();phoneHasInteracted=true;clearInterval(formatTimer);phoneCaptionsOn=!phoneCaptionsOn;renderPhonePlayer();});
-    phoneDemo.addEventListener("click",(event)=>{if(event.target.closest("button,input")){return;}phoneHasInteracted=true;setPhonePlaying(!phonePlaying);});
-    editCompareSlider.addEventListener("input",()=>{phoneHasInteracted=true;clearInterval(formatTimer);editStrength=Number(editCompareSlider.value);renderEditCompare();});
-    renderPhonePlayer();
-    renderEditCompare();
+    phoneFeedViewport.addEventListener("scroll",()=>{cancelAnimationFrame(phoneFeedScrollFrame);phoneFeedScrollFrame=requestAnimationFrame(()=>{const height=phoneFeedViewport.clientHeight;if(height){updatePhoneFeed(Math.round(phoneFeedViewport.scrollTop/height));}});},{passive:true});
+    phoneFeedViewport.addEventListener("wheel",engagePhoneFeed,{passive:true});
+    phoneFeedViewport.addEventListener("pointerdown",engagePhoneFeed,{passive:true});
+    phoneFeedViewport.addEventListener("touchstart",engagePhoneFeed,{passive:true});
+    phoneFeedViewport.addEventListener("keydown",(event)=>{if(event.key==="ArrowDown"||event.key==="PageDown"){event.preventDefault();engagePhoneFeed();goToPhoneFeed(activePhoneFeed+1);}if(event.key==="ArrowUp"||event.key==="PageUp"){event.preventDefault();engagePhoneFeed();goToPhoneFeed(activePhoneFeed-1);}});
+    phoneFeedNext.addEventListener("click",()=>{engagePhoneFeed();goToPhoneFeed(activePhoneFeed+1);});
+    phoneFeedActions.forEach((button)=>button.addEventListener("click",(event)=>{event.stopPropagation();engagePhoneFeed();const pressed=button.getAttribute("aria-pressed")==="true";button.setAttribute("aria-pressed",String(!pressed));button.classList.toggle("active",!pressed);refreshPhoneFeedLanguage();}));
+    window.addEventListener("resize",()=>{const height=phoneFeedViewport.clientHeight;if(height){phoneFeedViewport.scrollTop=activePhoneFeed*height;}},{passive:true});
+    updatePhoneFeed(0);refreshPhoneFeedLanguage();
     formatTabs.forEach((tab)=>{tab.addEventListener("click",()=>renderFormat(Number(tab.dataset.format)));tab.addEventListener("mouseenter",()=>renderFormat(Number(tab.dataset.format),false));tab.addEventListener("keydown",(event)=>{if(event.key==="ArrowRight"){event.preventDefault();renderFormat(activeFormat+1);formatTabs[activeFormat].focus();}if(event.key==="ArrowLeft"){event.preventDefault();renderFormat(activeFormat-1);formatTabs[activeFormat].focus();}});});
     formatNext.addEventListener("click",()=>renderFormat(activeFormat+1));
     systemEngine.addEventListener("mouseenter",()=>clearInterval(formatTimer));
@@ -1994,7 +1961,6 @@
         clearInterval(webProcessTimer);
       }else{
         clearInterval(stageTimer);clearInterval(processTimer);clearInterval(formatTimer);
-        setPhonePlaying(false);
         startWebProcessTimer();
       }
       if(save){try{localStorage.setItem("digitalForgeServiceView",activeServiceView);}catch(e){}}
