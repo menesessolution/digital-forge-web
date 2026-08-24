@@ -15,6 +15,7 @@ export async function onRequestPost({ request, env }) {
     const name = cleanText(body.name, 180);
     const email = normalizeEmail(body.email);
     const locale = body.locale === 'en' ? 'en' : 'es';
+    const status = body.status === 'inactive' ? 'inactive' : 'active';
     if (!name || !email || !email.includes('@')) return json({ error: 'Nombre y correo válidos son requeridos.' }, 400);
     const credentials = await hashPassword(String(body.password || ''));
     const db = await ensureDatabase(env);
@@ -22,11 +23,11 @@ export async function onRequestPost({ request, env }) {
     const now = nowIso();
     await db.prepare(`INSERT INTO clients
       (id,name,email,password_hash,password_salt,locale,status,last_login_at,created_at,updated_at)
-      VALUES (?,?,?,?,?,?,'active','',?,?)`)
-      .bind(id,name,email,credentials.hash,credentials.salt,locale,now,now).run();
+      VALUES (?,?,?,?,?,?,?,'',?,?)`)
+      .bind(id,name,email,credentials.hash,credentials.salt,locale,status,now,now).run();
     return json({ ok: true, id }, 201);
   } catch (error) {
-    const duplicate = String(error.message || '').includes('UNIQUE');
+    const duplicate = /unique|idx_clients_email/i.test(String(error.message || ''));
     return json({ error: duplicate ? 'Ya existe un cliente con ese correo.' : (error.message || 'No se pudo crear el cliente.') }, 400);
   }
 }
@@ -53,7 +54,7 @@ export async function onRequestPatch({ request, env }) {
     await db.batch(statements);
     return json({ ok: true });
   } catch (error) {
-    const duplicate = String(error.message || '').includes('UNIQUE');
+    const duplicate = /unique|idx_clients_email/i.test(String(error.message || ''));
     return json({ error: duplicate ? 'Ya existe un cliente con ese correo.' : (error.message || 'No se pudo actualizar el cliente.') }, 400);
   }
 }
