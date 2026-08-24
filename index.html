@@ -365,58 +365,22 @@
     .process-head p{color:#d0d0d0;line-height:1.7}
     .process-head p.en{color:#838383;margin-top:8px}
 
-    .process-track{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:14px;
-      position:relative;
-    }
-
-    .process-track::before{
-      content:"";
-      position:absolute;
-      top:50px;
-      left:8%;
-      right:8%;
-      border-top:1px dashed #555;
-    }
-
-    .process-step{
-      position:relative;
-      z-index:2;
-      text-align:left;
-      padding:0 10px;
-    }
-
-    .process-symbol{
-      width:74px;height:74px;
-      margin-bottom:24px;
-      display:grid;
-      place-items:center;
-      border-radius:50%;
-      background:var(--black);
-      font-size:38px;
-      position:relative;
-    }
-
-    .process-step h3{
-      font-size:17px;
-      margin-bottom:5px;
-    }
-
-    .process-step h3 span{
-      display:block;
-      color:#8d8d8d;
-      font-weight:500;
-      margin-top:3px;
-    }
-
-    .process-step p{
-      font-size:12px;
-      line-height:1.6;
-      color:#c3c3c3;
-    }
-    .process-step p.en{color:#777;margin-top:7px}
+    .process-engine{border:1px solid #292929;border-radius:22px;overflow:hidden;background:linear-gradient(145deg,#101010,#080808);box-shadow:0 28px 70px rgba(0,0,0,.3)}
+    .process-nav{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid #292929}
+    .process-tab{appearance:none;border:0;border-right:1px solid #292929;background:transparent;color:#777;padding:18px 16px;text-align:left;cursor:pointer;transition:.3s ease;position:relative;font:inherit}
+    .process-tab:last-child{border-right:0}.process-tab::after{content:"";position:absolute;left:0;right:100%;bottom:-1px;height:2px;background:#f4f1ec;transition:right .35s ease}.process-tab:hover,.process-tab:focus-visible,.process-tab.active{color:#fff;background:rgba(255,255,255,.035)}.process-tab.active::after{right:0}
+    .process-number{display:block;font:700 9px monospace;color:#656565;margin-bottom:8px}.process-label{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    .process-panel{min-height:330px;display:grid;grid-template-columns:.82fr 1.18fr;gap:55px;align-items:center;padding:42px 48px;position:relative;overflow:hidden}
+    .process-panel::before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;right:9%;top:50%;transform:translateY(-50%);background:radial-gradient(circle,rgba(255,255,255,.07),transparent 67%);pointer-events:none}
+    .process-copy{position:relative;z-index:2}.process-status{font:700 10px monospace;color:#777;letter-spacing:.12em}.process-active-title{font-size:clamp(2rem,3.5vw,3.8rem);line-height:.95;letter-spacing:-.055em;margin:15px 0}.process-active-text{color:#aaa;line-height:1.65;max-width:430px;font-size:14px}.process-next{margin-top:28px;width:42px;height:42px;border-radius:50%;border:1px solid #555;background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer;transition:.25s ease}.process-next:hover{background:#fff;color:#111;transform:rotate(-12deg)}
+    .process-visual{height:235px;position:relative;z-index:2;display:grid;place-items:center}.process-scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:translateY(10px) scale(.98);transition:opacity .35s ease,transform .5s cubic-bezier(.2,.75,.25,1);pointer-events:none}.process-scene.active{opacity:1;transform:none}
+    .discovery-orbit{width:200px;height:200px;border:1px solid #454545;border-radius:50%;position:relative;animation:orbitSpin 12s linear infinite}.discovery-orbit::before,.discovery-orbit::after{content:"";position:absolute;border-radius:50%;background:#f4f1ec}.discovery-orbit::before{width:13px;height:13px;top:19px;left:29px}.discovery-orbit::after{width:8px;height:8px;right:16px;bottom:48px}.orbit-core{position:absolute;inset:49px;border:1px solid #777;border-radius:50%;display:grid;place-items:center;font:800 9px monospace;text-align:center}
+    @keyframes orbitSpin{to{transform:rotate(360deg)}}
+    .strategy-map{width:90%;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.map-card{border:1px solid #393939;border-radius:10px;padding:17px 13px;background:#111;font:700 9px monospace;color:#aaa}.map-card:first-child{grid-column:1/-1;color:#fff}.map-line{height:3px;background:#3d3d3d;border-radius:3px;margin-top:10px}.map-line::after{content:"";display:block;width:62%;height:100%;background:#bdbdbd}
+    .production-ui{width:92%;border:1px solid #393939;border-radius:12px;padding:15px}.production-screen{height:92px;border-radius:8px;background:linear-gradient(135deg,#343434,#111);position:relative;margin-bottom:14px}.production-screen::after{content:"EDIT";position:absolute;left:12px;bottom:10px;background:#eee;color:#111;padding:3px 7px;font:800 7px monospace}.production-track{height:8px;background:#252525;border-radius:3px;margin-top:6px;overflow:hidden}.production-track::after{content:"";display:block;height:100%;background:#999;border-radius:3px}.production-track:nth-child(2)::after{width:78%}.production-track:nth-child(3)::after{width:54%;margin-left:18%}.production-track:nth-child(4)::after{width:38%;margin-left:51%}
+    .adapt-grid{display:grid;grid-template-columns:repeat(2,115px);gap:10px}.adapt-item{border:1px solid #393939;border-radius:11px;padding:22px 10px;text-align:center;font:800 9px monospace;background:#101010}.adapt-item:nth-child(3){grid-column:1/-1;margin:0 34px}
+    .delivery-box{width:230px;height:150px;border:1px solid #4b4b4b;border-radius:14px;position:relative;display:grid;place-items:center;font:800 10px monospace}.delivery-box::before,.delivery-box::after{content:"";position:absolute;width:100%;height:100%;border:1px solid #292929;border-radius:14px;z-index:-1}.delivery-box::before{transform:translate(12px,12px)}.delivery-box::after{transform:translate(24px,24px)}.delivery-check{width:36px;height:36px;border:1px solid #777;border-radius:50%;display:grid;place-items:center;margin:0 auto 10px;font-size:17px}
+    @media(prefers-reduced-motion:reduce){.process-scene,.discovery-orbit{animation:none!important;transition:none!important}}
 
     /* WORK */
     .work-wrap{
@@ -761,8 +725,7 @@
       .hero{grid-template-columns:1fr;gap:30px}
       .hero-visual{min-height:500px}
       .services-grid{grid-template-columns:repeat(2,1fr)}
-      .process-track{grid-template-columns:repeat(2,1fr)}
-      .process-track::before{display:none}
+      .process-panel{grid-template-columns:1fr;gap:28px}.process-visual{height:220px}
       .work-wrap{grid-template-columns:1fr}
       .work-grid{grid-template-columns:repeat(2,1fr)}
       .metrics{grid-template-columns:repeat(2,1fr)}
@@ -781,12 +744,12 @@
       .trust-card{grid-template-columns:1fr auto}
       .avatars{display:none}
       .services-grid,
-      .process-track,
       .work-grid,
       .metrics,
       .footer-grid{grid-template-columns:1fr}
       .metric{border-right:none;border-bottom:1px solid #2b2b2b}
       .process-head{grid-template-columns:1fr}
+      .process-nav{display:flex;overflow-x:auto;scrollbar-width:none}.process-nav::-webkit-scrollbar{display:none}.process-tab{min-width:128px;padding:15px 13px}.process-panel{padding:30px 22px}.process-active-title{font-size:2.25rem}.process-visual{height:190px}.discovery-orbit{width:170px;height:170px}.adapt-grid{grid-template-columns:repeat(2,100px)}
     }
   
 
@@ -1019,36 +982,23 @@
 
 </div>
 </div>
-<div class="process-track">
-<div class="process-step reveal">
-<div class="process-symbol">◌</div>
-<h3 data-en="Discover" data-es="Descubrimos">Descubrimos</h3>
-<p data-en="We understand your brand, goals and audience." data-es="Entendemos tu marca, objetivos y audiencia.">Entendemos tu marca, objetivos y audiencia.</p>
-
+<div class="process-engine reveal" id="process-engine">
+<div class="process-nav" role="tablist" aria-label="Proceso Digital Forge">
+<button class="process-tab active" type="button" role="tab" aria-selected="true" data-process="0"><span class="process-number">01</span><span class="process-label" data-en="Discover" data-es="Descubrimos">Descubrimos</span></button>
+<button class="process-tab" type="button" role="tab" aria-selected="false" data-process="1"><span class="process-number">02</span><span class="process-label" data-en="Design" data-es="Diseñamos">Diseñamos</span></button>
+<button class="process-tab" type="button" role="tab" aria-selected="false" data-process="2"><span class="process-number">03</span><span class="process-label" data-en="Produce" data-es="Producimos">Producimos</span></button>
+<button class="process-tab" type="button" role="tab" aria-selected="false" data-process="3"><span class="process-number">04</span><span class="process-label" data-en="Adapt" data-es="Adaptamos">Adaptamos</span></button>
+<button class="process-tab" type="button" role="tab" aria-selected="false" data-process="4"><span class="process-number">05</span><span class="process-label" data-en="Deliver" data-es="Entregamos">Entregamos</span></button>
 </div>
-<div class="process-step reveal">
-<div class="process-symbol">✳</div>
-<h3 data-en="Plan" data-es="Planeamos">Planeamos</h3>
-<p data-en="We create the perfect strategy for you." data-es="Creamos la estrategia perfecta para ti.">Creamos la estrategia perfecta para ti.</p>
-
+<div class="process-panel">
+<div class="process-copy"><span class="process-status" id="process-status">ETAPA 01 / 05</span><h3 class="process-active-title" id="process-active-title">Entendemos antes de crear.</h3><p class="process-active-text" id="process-active-text">Conocemos tu marca, objetivos, audiencia y contenido base para encontrar la dirección correcta.</p><button class="process-next" id="process-next" type="button" aria-label="Siguiente etapa">→</button></div>
+<div class="process-visual" aria-hidden="true">
+<div class="process-scene active" data-process-view="0"><div class="discovery-orbit"><div class="orbit-core" data-en="BRAND\nAUDIENCE\nGOALS" data-es="MARCA\nAUDIENCIA\nOBJETIVOS">MARCA<br>AUDIENCIA<br>OBJETIVOS</div></div></div>
+<div class="process-scene" data-process-view="1"><div class="strategy-map"><div class="map-card"><span data-en="CONTENT DIRECTION" data-es="DIRECCIÓN DE CONTENIDO">DIRECCIÓN DE CONTENIDO</span><div class="map-line"></div></div><div class="map-card" data-en="TOPICS" data-es="TEMAS">TEMAS</div><div class="map-card" data-en="HOOKS" data-es="GANCHOS">GANCHOS</div><div class="map-card" data-en="FORMATS" data-es="FORMATOS">FORMATOS</div><div class="map-card" data-en="PLATFORMS" data-es="PLATAFORMAS">PLATAFORMAS</div></div></div>
+<div class="process-scene" data-process-view="2"><div class="production-ui"><div class="production-screen"></div><div class="production-track"></div><div class="production-track"></div><div class="production-track"></div></div></div>
+<div class="process-scene" data-process-view="3"><div class="adapt-grid"><div class="adapt-item">REEL</div><div class="adapt-item">SHORT</div><div class="adapt-item">CAROUSEL</div></div></div>
+<div class="process-scene" data-process-view="4"><div class="delivery-box"><div><div class="delivery-check">✓</div><span data-en="READY TO PUBLISH" data-es="LISTO PARA PUBLICAR">LISTO PARA PUBLICAR</span></div></div></div>
 </div>
-<div class="process-step reveal">
-<div class="process-symbol">◐</div>
-<h3 data-en="Create" data-es="Creamos">Creamos</h3>
-<p data-en="We produce content that connects." data-es="Producimos contenido que conecta.">Producimos contenido que conecta.</p>
-
-</div>
-<div class="process-step reveal">
-<div class="process-symbol">➤</div>
-<h3 data-en="Publish" data-es="Publicamos">Publicamos</h3>
-<p data-en="We take your content where it matters." data-es="Llevamos tu contenido a donde importa.">Llevamos tu contenido a donde importa.</p>
-
-</div>
-<div class="process-step reveal">
-<div class="process-symbol">◉</div>
-<h3 data-en="Optimize" data-es="Optimizamos">Optimizamos</h3>
-<p data-en="We analyze and improve for better results." data-es="Analizamos y mejoramos para más resultados.">Analizamos y mejoramos para más resultados.</p>
-
 </div>
 </div>
 </div>
@@ -1227,6 +1177,7 @@
 
       try{ localStorage.setItem("digitalForgeLanguage", selected); }catch(e){}
       if(typeof renderStage === "function"){ renderStage(activeStage, false); }
+      if(typeof renderProcess === "function"){ renderProcess(activeProcess, false); }
     }
 
     const engine = document.getElementById("content-engine");
@@ -1266,6 +1217,38 @@
     engine.addEventListener("pointermove",(event)=>{if(event.pointerType==="touch")return;const rect=engine.getBoundingClientRect();const x=((event.clientX-rect.left)/rect.width)*100;const y=((event.clientY-rect.top)/rect.height)*100;engine.style.setProperty("--cursor-x",x+"%");engine.style.setProperty("--cursor-y",y+"%");engine.style.setProperty("--parallax-x",((x-50)*.07)+"px");engine.style.setProperty("--parallax-y",((y-50)*.07)+"px");});
     engine.addEventListener("pointerleave",()=>{engine.style.setProperty("--parallax-x","0px");engine.style.setProperty("--parallax-y","0px");});
 
+    const processEngine = document.getElementById("process-engine");
+    const processTabs = Array.from(document.querySelectorAll(".process-tab"));
+    const processScenes = Array.from(document.querySelectorAll(".process-scene"));
+    const processStatus = document.getElementById("process-status");
+    const processTitle = document.getElementById("process-active-title");
+    const processText = document.getElementById("process-active-text");
+    const processNext = document.getElementById("process-next");
+    let activeProcess = 0;
+    let processTimer;
+    const processContent = [
+      {es:["ETAPA 01 / 05","Entendemos antes de crear.","Conocemos tu marca, objetivos, audiencia y contenido base para encontrar la dirección correcta."],en:["STAGE 01 / 05","We understand before creating.","We learn your brand, goals, audience and source content to find the right direction."]},
+      {es:["ETAPA 02 / 05","Convertimos contexto en dirección.","Diseñamos los temas, ganchos, formatos y plataformas que guiarán cada pieza."],en:["STAGE 02 / 05","We turn context into direction.","We design the topics, hooks, formats and platforms that will guide every piece."]},
+      {es:["ETAPA 03 / 05","La idea toma forma.","Trabajamos ritmo, cortes, audio, subtítulos y diseño para producir contenido que conecta."],en:["STAGE 03 / 05","The idea takes shape.","We shape pacing, cuts, audio, captions and design to produce content that connects."]},
+      {es:["ETAPA 04 / 05","Una idea habla varios idiomas.","Adaptamos el contenido al lenguaje natural de Reels, TikTok, Shorts y carruseles."],en:["STAGE 04 / 05","One idea speaks many languages.","We adapt content to the native language of Reels, TikTok, Shorts and carousels."]},
+      {es:["ETAPA 05 / 05","Todo listo para avanzar.","Entregamos el contenido organizado, consistente y preparado para publicar."],en:["STAGE 05 / 05","Everything ready to move forward.","We deliver organized, consistent content that is ready to publish."]}
+    ];
+    function renderProcess(index,restart=true){
+      activeProcess=(index+processContent.length)%processContent.length;
+      const lang=document.documentElement.lang==="en"?"en":"es";
+      const copy=processContent[activeProcess][lang];
+      processTabs.forEach((tab,i)=>{const active=i===activeProcess;tab.classList.toggle("active",active);tab.setAttribute("aria-selected",String(active));});
+      processScenes.forEach((scene,i)=>scene.classList.toggle("active",i===activeProcess));
+      processStatus.textContent=copy[0];processTitle.textContent=copy[1];processText.textContent=copy[2];
+      processNext.setAttribute("aria-label",lang==="en"?"Next stage":"Siguiente etapa");
+      if(restart){startProcessTimer();}
+    }
+    function startProcessTimer(){clearInterval(processTimer);if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){processTimer=setInterval(()=>renderProcess(activeProcess+1,false),5200);}}
+    processTabs.forEach((tab)=>{tab.addEventListener("click",()=>renderProcess(Number(tab.dataset.process)));tab.addEventListener("mouseenter",()=>renderProcess(Number(tab.dataset.process),false));tab.addEventListener("keydown",(event)=>{if(event.key==="ArrowRight"){event.preventDefault();renderProcess(activeProcess+1);processTabs[activeProcess].focus();}if(event.key==="ArrowLeft"){event.preventDefault();renderProcess(activeProcess-1);processTabs[activeProcess].focus();}});});
+    processNext.addEventListener("click",()=>renderProcess(activeProcess+1));
+    processEngine.addEventListener("mouseenter",()=>clearInterval(processTimer));
+    processEngine.addEventListener("mouseleave",startProcessTimer);
+
     let savedLanguage = "es";
     try{ savedLanguage = localStorage.getItem("digitalForgeLanguage") || "es"; }catch(e){}
     setLanguage(savedLanguage);
@@ -1274,6 +1257,7 @@
       button.addEventListener("click", ()=>setLanguage(button.dataset.lang));
     });
     startStageTimer();
+    startProcessTimer();
 </script>
 </body>
 </html>
