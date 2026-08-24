@@ -84,6 +84,39 @@
 
     .nav-links a{opacity:.82;transition:.2s}
     .nav-links a:hover{opacity:1}
+    .nav-links a.active{opacity:1;text-decoration:underline;text-underline-offset:6px}
+
+    .service-view-bar{
+      position:relative;
+      z-index:5;
+      width:max-content;
+      max-width:100%;
+      margin:4px auto 0;
+      padding:5px;
+      display:flex;
+      gap:5px;
+      border:1px solid rgba(255,255,255,.24);
+      border-radius:999px;
+      background:rgba(255,255,255,.055);
+      backdrop-filter:blur(14px);
+    }
+    .service-view-option{
+      appearance:none;
+      border:0;
+      border-radius:999px;
+      background:transparent;
+      color:#858585;
+      padding:12px 18px;
+      font:800 11px "Inter",sans-serif;
+      letter-spacing:.03em;
+      cursor:pointer;
+      transition:.25s ease;
+      white-space:nowrap;
+    }
+    .service-view-option:hover,.service-view-option:focus-visible{color:#fff}
+    .service-view-option.active{background:#f3f0eb;color:#111;box-shadow:0 8px 22px rgba(0,0,0,.2)}
+    [data-view-section][hidden]{display:none!important}
+    .top.web-view{min-height:auto;padding-bottom:22px}
 
     .pill{
       display:inline-flex;
@@ -912,6 +945,8 @@
       .nav{gap:12px}
       .language-switch{margin-left:auto}
       .lang-option{min-width:38px;padding:8px 10px}
+      .service-view-bar{width:100%}
+      .service-view-option{flex:1;padding:11px 9px;font-size:10px}
     }
 
     /* WHATSAPP */
@@ -965,13 +1000,17 @@
 </a>
 <ul class="nav-links">
 <li><a data-en="Home" data-es="Inicio" href="#home">Inicio</a></li>
-<li><a data-en="Video Editing" data-es="Edición de video" href="#services">Edición de video</a></li>
-<li><a data-en="Website Creation" data-es="Creación web" href="#web-creation">Creación web</a></li>
+<li><a class="service-view-link active" data-en="Video Editing" data-es="Edición de video" data-service-view-select="video" data-view-target="services" href="#services">Edición de video</a></li>
+<li><a class="service-view-link" data-en="Website Creation" data-es="Creación web" data-service-view-select="web" data-view-target="web-creation" href="#web-creation">Creación web</a></li>
 <li><a data-en="Contact" data-es="Contacto" href="#contact">Contacto</a></li>
 </ul>
 <div aria-label="Language selector" class="language-switch" role="group"><button aria-pressed="true" class="lang-option" data-lang="es" type="button">ES</button><button aria-pressed="false" class="lang-option" data-lang="en" type="button">EN</button></div><a class="pill light" data-en="Let's Talk →" data-es="Hablemos →" href="#contact">Hablemos →</a>
 </nav>
-<section class="hero">
+<div class="service-view-bar" role="tablist" aria-label="Selecciona el servicio">
+<button class="service-view-option active" type="button" role="tab" aria-selected="true" data-service-view-select="video" data-view-target="home" data-en="Video Editing" data-es="Edición de video">Edición de video</button>
+<button class="service-view-option" type="button" role="tab" aria-selected="false" data-service-view-select="web" data-view-target="web-creation" data-en="Website Creation" data-es="Creación web">Creación web</button>
+</div>
+<section class="hero" data-view-section="video">
 <div class="reveal">
 <div class="eyebrow">
 <span class="lang-badge" data-en="EN" data-es="ES">ES</span>
@@ -1023,7 +1062,7 @@
 </div>
 </header>
 <main>
-<section class="light section-pad" id="services">
+<section class="light section-pad" id="services" data-view-section="video">
 <div class="container">
 <div class="section-head reveal">
 <div>
@@ -1092,7 +1131,7 @@
 </div>
 </div>
 </section>
-<section class="dark section-pad" id="process">
+<section class="dark section-pad" id="process" data-view-section="video">
 <div class="container">
 <div class="process-head reveal">
 <div>
@@ -1125,7 +1164,7 @@
 </div>
 </div>
 </section>
-<section class="light section-pad" id="system">
+<section class="light section-pad" id="system" data-view-section="video">
 <div class="container">
 <div class="system-head reveal">
 <div>
@@ -1181,11 +1220,11 @@
 </div>
 </div>
 </section>
-<section class="web-sector section-pad" id="web-creation">
+<section class="web-sector section-pad" id="web-creation" data-view-section="web" hidden>
 <div class="container">
 <div class="web-sector-head reveal">
 <div>
-<div class="lang-badge" data-en="02 / WEBSITE CREATION" data-es="02 / CREACIÓN WEB" style="border-color:#8f9b99;display:inline-block">02 / CREACIÓN WEB</div>
+<div class="lang-badge" data-en="WEBSITE CREATION" data-es="CREACIÓN WEB" style="border-color:#8f9b99;display:inline-block">CREACIÓN WEB</div>
 <h2><b data-en="Websites" data-es="Páginas web">Páginas web</b> <span data-en="with their own structure." data-es="con estructura propia.">con estructura propia.</span></h2>
 </div>
 <p class="web-sector-intro" data-en="A completely separate service for creating landing pages, business websites and professional portfolios. Here the experience is about structure, navigation, responsive design and launch—not video formats." data-es="Un servicio completamente separado para crear landing pages, webs para empresas y portafolios profesionales. Aquí la experiencia habla de estructura, navegación, diseño adaptable y publicación; no de formatos de video.">Un servicio completamente separado para crear landing pages, webs para empresas y portafolios profesionales. Aquí la experiencia habla de estructura, navegación, diseño adaptable y publicación; no de formatos de video.</p>
@@ -1257,10 +1296,9 @@
 <div class="contact-builder-head reveal"><div><div class="lang-badge" data-en="LET'S START" data-es="EMPECEMOS" style="display:inline-block">EMPECEMOS</div><h2 data-en="Tell us about the project you need." data-es="Cuéntanos qué proyecto necesitas.">Cuéntanos qué proyecto necesitas.</h2></div><p data-en="Choose a few options and we will prepare your WhatsApp message. No long forms and no commitment." data-es="Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.">Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.</p></div>
 <div class="contact-builder reveal">
 <div class="contact-questions">
-<div class="contact-question"><h3 data-en="1. What do you need?" data-es="1. ¿Qué necesitas?">1. ¿Qué necesitas?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="project" data-choice="video" data-en="Video Editing" data-es="Edición de video">Edición de video</button><button class="choice-chip" type="button" data-choice-group="project" data-choice="web" data-en="Web Creation" data-es="Creación web">Creación web</button><button class="choice-chip" type="button" data-choice-group="project" data-choice="both" data-en="Both services" data-es="Ambos servicios">Ambos servicios</button></div></div>
-<div class="contact-question"><h3 data-en="2. Which service interests you most?" data-es="2. ¿Qué servicio te interesa más?">2. ¿Qué servicio te interesa más?</h3><div class="choice-row contact-service-panel" data-contact-services="video"><button class="choice-chip active" type="button" data-choice-group="service" data-choice="shorts" data-en="Shorts Editing" data-es="Edición de Shorts">Edición de Shorts</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="longform" data-en="Long-form Editing" data-es="Videos Largos">Videos Largos</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="captions" data-en="Captions &amp; Motion" data-es="Subtítulos y Motion">Subtítulos y Motion</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="repurpose" data-en="Content Repurposing" data-es="Reutilización de Contenido">Reutilización de Contenido</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="adaptations" data-en="Format Adaptations" data-es="Adaptación de Formatos">Adaptación de Formatos</button></div><div class="choice-row contact-service-panel" data-contact-services="web" hidden><button class="choice-chip" type="button" data-choice-group="service" data-choice="landing" data-en="Landing Page" data-es="Landing Page">Landing Page</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="businessweb" data-en="Business Website" data-es="Web para Empresa">Web para Empresa</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="portfolio" data-en="Professional Portfolio" data-es="Portafolio Profesional">Portafolio Profesional</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="responsive" data-en="Responsive Design" data-es="Diseño Adaptable">Diseño Adaptable</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="publishweb" data-en="Website Launch" data-es="Publicación Web">Publicación Web</button></div></div>
-<div class="contact-question"><h3 data-en="3. What type of project or brand is it for?" data-es="3. ¿Para qué tipo de proyecto o marca es?">3. ¿Para qué tipo de proyecto o marca es?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="content" data-choice="educational" data-en="Educational Project" data-es="Proyecto educativo">Proyecto educativo</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="personal" data-en="Personal Brand" data-es="Marca personal">Marca personal</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="business" data-en="Company or Business" data-es="Empresa o negocio">Empresa o negocio</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="unsure" data-en="Not sure yet" data-es="Aún no lo sé">Aún no lo sé</button></div></div>
-<div class="contact-question"><h3 data-en="4. What is the main need?" data-es="4. ¿Cuál es la necesidad principal?">4. ¿Cuál es la necesidad principal?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="goal" data-choice="quality" data-en="Improve quality" data-es="Mejorar la calidad">Mejorar la calidad</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="clarity" data-en="Present the brand clearly" data-es="Presentar la marca con claridad">Presentar la marca con claridad</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="adapt" data-en="Adapt to formats or devices" data-es="Adaptar a formatos o dispositivos">Adaptar a formatos o dispositivos</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="delivery" data-en="Prepare the final delivery" data-es="Preparar la entrega final">Preparar la entrega final</button></div></div>
+<div class="contact-question"><h3 data-en="1. Which service interests you most?" data-es="1. ¿Qué servicio te interesa más?">1. ¿Qué servicio te interesa más?</h3><div class="choice-row contact-service-panel" data-contact-services="video"><button class="choice-chip active" type="button" data-choice-group="service" data-choice="shorts" data-en="Shorts Editing" data-es="Edición de Shorts">Edición de Shorts</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="longform" data-en="Long-form Editing" data-es="Videos Largos">Videos Largos</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="captions" data-en="Captions &amp; Motion" data-es="Subtítulos y Motion">Subtítulos y Motion</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="repurpose" data-en="Content Repurposing" data-es="Reutilización de Contenido">Reutilización de Contenido</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="adaptations" data-en="Format Adaptations" data-es="Adaptación de Formatos">Adaptación de Formatos</button></div><div class="choice-row contact-service-panel" data-contact-services="web" hidden><button class="choice-chip" type="button" data-choice-group="service" data-choice="landing" data-en="Landing Page" data-es="Landing Page">Landing Page</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="businessweb" data-en="Business Website" data-es="Web para Empresa">Web para Empresa</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="portfolio" data-en="Professional Portfolio" data-es="Portafolio Profesional">Portafolio Profesional</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="responsive" data-en="Responsive Design" data-es="Diseño Adaptable">Diseño Adaptable</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="publishweb" data-en="Website Launch" data-es="Publicación Web">Publicación Web</button></div></div>
+<div class="contact-question"><h3 data-en="2. What type of project or brand is it for?" data-es="2. ¿Para qué tipo de proyecto o marca es?">2. ¿Para qué tipo de proyecto o marca es?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="content" data-choice="educational" data-en="Educational Project" data-es="Proyecto educativo">Proyecto educativo</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="personal" data-en="Personal Brand" data-es="Marca personal">Marca personal</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="business" data-en="Company or Business" data-es="Empresa o negocio">Empresa o negocio</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="unsure" data-en="Not sure yet" data-es="Aún no lo sé">Aún no lo sé</button></div></div>
+<div class="contact-question"><h3 data-en="3. What is the main need?" data-es="3. ¿Cuál es la necesidad principal?">3. ¿Cuál es la necesidad principal?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="goal" data-choice="quality" data-en="Improve quality" data-es="Mejorar la calidad">Mejorar la calidad</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="clarity" data-en="Present the brand clearly" data-es="Presentar la marca con claridad">Presentar la marca con claridad</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="adapt" data-en="Adapt to formats or devices" data-es="Adaptar a formatos o dispositivos">Adaptar a formatos o dispositivos</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="delivery" data-en="Prepare the final delivery" data-es="Preparar la entrega final">Preparar la entrega final</button></div></div>
 </div>
 <aside class="contact-summary"><div><span class="summary-label" data-en="YOUR MESSAGE" data-es="TU MENSAJE">TU MENSAJE</span><p class="summary-message" id="summary-message">Hola Digital Forge. Me interesa la edición de Shorts para contenido educativo y necesito mejorar la calidad de la edición.</p><div class="summary-selections"><div class="summary-selection"><span data-en="Service" data-es="Servicio">Servicio</span><strong id="summary-service">Edición de Shorts</strong></div><div class="summary-selection"><span data-en="Content" data-es="Contenido">Contenido</span><strong id="summary-content">Educativo</strong></div><div class="summary-selection"><span data-en="Goal" data-es="Necesidad">Necesidad</span><strong id="summary-goal">Mejorar la calidad</strong></div></div></div><a class="smart-whatsapp" id="smart-whatsapp" href="https://wa.me/19046854659" target="_blank" rel="noopener noreferrer"><span data-en="Continue on WhatsApp" data-es="Continuar en WhatsApp">Continuar en WhatsApp</span><span>→</span></a></aside>
 </div>
@@ -1287,8 +1325,8 @@
 <h3 data-en="Navigation" data-es="Navegación">Navegación</h3>
 <ul>
 <li><a data-en="Home" data-es="Inicio" href="#home">Inicio</a></li>
-<li><a data-en="Video Editing" data-es="Edición de video" href="#services">Edición de video</a></li>
-<li><a data-en="Website Creation" data-es="Creación web" href="#web-creation">Creación web</a></li>
+<li><a data-en="Video Editing" data-es="Edición de video" data-service-view-select="video" data-view-target="services" href="#services">Edición de video</a></li>
+<li><a data-en="Website Creation" data-es="Creación web" data-service-view-select="web" data-view-target="web-creation" href="#web-creation">Creación web</a></li>
 <li><a data-en="Contact" data-es="Contacto" href="#contact">Contacto</a></li>
 </ul>
 </div>
@@ -1619,16 +1657,47 @@
     choiceButtons.forEach((button)=>button.addEventListener("click",()=>selectSmartChoice(button.dataset.choiceGroup,button.dataset.choice)));
     serviceContactButtons.forEach((button)=>button.addEventListener("click",(event)=>{event.stopPropagation();const project=button.dataset.projectType||"video";selectSmartChoice("project",project);selectSmartChoice("service",button.dataset.selectService);smartContact.scrollIntoView({behavior:"smooth",block:"start"});}));
 
+    const serviceViewControls=Array.from(document.querySelectorAll("[data-service-view-select]"));
+    const serviceViewSections=Array.from(document.querySelectorAll("[data-view-section]"));
+    const topHeader=document.querySelector(".top");
+    let activeServiceView="video";
+    function setServiceView(view,save=true){
+      activeServiceView=view==="web"?"web":"video";
+      serviceViewSections.forEach((section)=>{section.hidden=section.dataset.viewSection!==activeServiceView;});
+      serviceViewControls.forEach((control)=>{
+        const active=control.dataset.serviceViewSelect===activeServiceView;
+        control.classList.toggle("active",active);
+        if(control.matches("button")){control.setAttribute("aria-selected",String(active));}
+        if(control.matches("a")){active?control.setAttribute("aria-current","page"):control.removeAttribute("aria-current");}
+      });
+      topHeader.classList.toggle("web-view",activeServiceView==="web");
+      selectSmartChoice("project",activeServiceView);
+      if(activeServiceView==="video"){
+        startStageTimer();startProcessTimer();startFormatTimer();
+      }else{
+        clearInterval(stageTimer);clearInterval(processTimer);clearInterval(formatTimer);
+      }
+      if(save){try{localStorage.setItem("digitalForgeServiceView",activeServiceView);}catch(e){}}
+    }
+    serviceViewControls.forEach((control)=>control.addEventListener("click",(event)=>{
+      event.preventDefault();
+      const view=control.dataset.serviceViewSelect;
+      const targetId=control.dataset.viewTarget||(view==="web"?"web-creation":"home");
+      setServiceView(view);
+      requestAnimationFrame(()=>document.getElementById(targetId)?.scrollIntoView({behavior:"smooth",block:"start"}));
+    }));
+
     let savedLanguage = "es";
     try{ savedLanguage = localStorage.getItem("digitalForgeLanguage") || "es"; }catch(e){}
     setLanguage(savedLanguage);
 
+    let savedServiceView="video";
+    try{savedServiceView=localStorage.getItem("digitalForgeServiceView")||"video";}catch(e){}
+    setServiceView(savedServiceView,false);
+
     languageButtons.forEach((button)=>{
       button.addEventListener("click", ()=>setLanguage(button.dataset.lang));
     });
-    startStageTimer();
-    startProcessTimer();
-    startFormatTimer();
 </script>
 </body>
 </html>
