@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Digital Forge - Edición de video para marcas, personas y empresas." name="description"/>
-<title>Digital Forge | Edición de video para marcas</title>
+<meta content="Digital Forge - Edición de video y creación de páginas web para marcas, personas y empresas." name="description"/>
+<title>Digital Forge | Edición de video y creación web</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
@@ -167,6 +167,7 @@
       gap:12px;
       margin-top:34px;
     }
+    .mode-switch{display:inline-flex;align-items:center;padding:4px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(255,255,255,.04);margin-bottom:24px}.mode-option{appearance:none;border:0;border-radius:999px;background:transparent;color:#888;padding:9px 13px;font:800 10px "Inter",sans-serif;letter-spacing:.04em;cursor:pointer;transition:.25s ease}.mode-option.active{background:#f3f0eb;color:#111}.mode-option:focus-visible{outline:2px solid #fff;outline-offset:2px}
 
     .hero-visual{
       position:relative;
@@ -228,6 +229,7 @@
     .edit-board{width:100%;border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:18px;background:rgba(0,0,0,.28)}
     .edit-preview{height:72px;border-radius:8px;background:linear-gradient(135deg,#343434,#111);margin-bottom:16px;position:relative;overflow:hidden}
     .edit-preview::after{content:"CAPTIONS";position:absolute;left:12px;bottom:9px;background:#f4f1ec;color:#111;padding:3px 6px;font:800 7px monospace}
+    .visual-card[data-mode="web"] .edit-preview::after{content:"LAYOUT"}
     .timeline{display:grid;gap:5px}.track{height:8px;border-radius:3px;background:#222;overflow:hidden}.clip{height:100%;border-radius:3px;background:#aaa}.track:nth-child(1) .clip{width:84%}.track:nth-child(2) .clip{width:62%;margin-left:14%}.track:nth-child(3) .clip{width:45%;margin-left:42%;background:#5f5f5f}
     .format-cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:300px}.format-chip{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:10px 14px;color:#bbb;font:700 9px monospace;animation:chipFloat 3.6s ease-in-out infinite}.format-chip:nth-child(2){animation-delay:-.8s}.format-chip:nth-child(3){animation-delay:-1.6s}.format-chip:nth-child(4){animation-delay:-2.4s}.format-chip:nth-child(5){animation-delay:-3.2s}
     @keyframes chipFloat{50%{transform:translateY(-6px);color:#fff;border-color:rgba(255,255,255,.42)}}
@@ -347,13 +349,14 @@
 
     .service p.en{color:#888;margin-top:8px}
     .service .mini-arrow{font-size:20px;margin-top:16px}
+    .service-category-switch{display:inline-flex;padding:4px;border:1px solid #c9c3ba;border-radius:999px;margin-bottom:24px}.service-category{appearance:none;border:0;border-radius:999px;background:transparent;color:#777;padding:11px 16px;font:800 10px "Inter",sans-serif;cursor:pointer}.service-category.active{background:#111;color:#fff}.service-panel[hidden]{display:none}
     .service:focus-visible{outline:2px solid #111;outline-offset:3px}
     .service.active{grid-column:span 2;background:#111;color:#fff;transform:none;box-shadow:0 22px 50px rgba(0,0,0,.16)}
     .service.active p{color:#bdbdbd}.service.active .mini-arrow{transform:rotate(90deg)}
     .service-details{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .38s ease,opacity .28s ease;margin-top:0}.service-details-inner{overflow:hidden}.service.active .service-details{grid-template-rows:1fr;opacity:1;margin-top:20px}
     .service-details ul{list-style:none;display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}.service-details li{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 9px;font:700 8px monospace;color:#d0d0d0}
     .service-contact{appearance:none;border:1px solid #fff;border-radius:999px;background:#fff;color:#111;padding:10px 13px;font:800 10px "Inter",sans-serif;cursor:pointer}
-    @media(max-width:700px){.service.active{grid-column:span 1}.service{min-height:250px}}
+    @media(max-width:700px){.service.active{grid-column:span 1}.service{min-height:250px}.mode-switch{display:flex;width:max-content;max-width:100%}.mode-option{padding:8px 10px;font-size:9px}.service-category-switch{display:flex;overflow-x:auto;max-width:100%}.service-category{white-space:nowrap}}
 
     /* PROCESS */
     .process-head{
@@ -912,11 +915,12 @@
 <div class="reveal">
 <div class="eyebrow">
 <span class="lang-badge" data-en="EN" data-es="ES">ES</span>
-<span class="eyebrow-text" data-en="Video editing built around your identity." data-es="Edición de video hecha para tu identidad.">Edición de video hecha para tu identidad.</span>
+<span class="eyebrow-text" id="hero-eyebrow">Edición de video hecha para tu identidad.</span>
 </div>
-<h1 data-en="Video editing that feels like your brand." data-es="Edición de video que se siente de marca.">Edición de video que se siente de marca.</h1>
+<div class="mode-switch" role="group" aria-label="Especialidad Digital Forge"><button class="mode-option active" type="button" data-mode="video" data-en="Video Editing" data-es="Edición de video">Edición de video</button><button class="mode-option" type="button" data-mode="web" data-en="Web Creation" data-es="Creación web">Creación web</button></div>
+<h1 id="hero-title">Edición de video que se siente de marca.</h1>
 <div class="hero-copy">
-<p data-en="We edit videos for brands, creators and companies, adapting every piece to its message, identity and platform." data-es="Editamos videos para marcas, personas y empresas, adaptando cada pieza a su mensaje, identidad y plataforma.">Editamos videos para marcas, personas y empresas, adaptando cada pieza a su mensaje, identidad y plataforma.</p>
+<p id="hero-description">Editamos videos para marcas, personas y empresas, adaptando cada pieza a su mensaje, identidad y plataforma.</p>
 
 </div>
 <div class="hero-actions">
@@ -973,12 +977,13 @@
 <h2 data-en="What we do" data-es="Lo que hacemos">Lo que hacemos</h2>
 </div>
 <div>
-<p data-en="Video editing services adapted to your material, message and delivery format." data-es="Servicios de edición de video adaptados a tu material, mensaje y formato de entrega.">Servicios de edición de video adaptados a tu material, mensaje y formato de entrega.</p>
+<p id="service-intro">Servicios de edición de video adaptados a tu material, mensaje y formato de entrega.</p>
 
 </div>
 <a class="pill" data-en="View All →" data-es="Ver todos →" href="#contact" style="border-color:#111">Ver todos →</a>
 </div>
-<div class="services-grid">
+<div class="service-category-switch" role="group" aria-label="Categoría de servicios"><button class="service-category active" type="button" data-service-category="video" data-en="Video Editing" data-es="Edición de video">Edición de video</button><button class="service-category" type="button" data-service-category="web" data-en="Web Creation" data-es="Creación web">Creación web</button></div>
+<div class="services-grid service-panel" id="video-service-panel" data-service-panel="video">
 <article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="shorts">
 <div class="service-icon">⚡</div>
 <div>
@@ -1025,6 +1030,13 @@
 </div>
 </article>
 </div>
+<div class="services-grid service-panel" id="web-service-panel" data-service-panel="web" hidden>
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="landing"><div class="service-icon">↗</div><div><h3 data-en="Landing Pages" data-es="Landing Pages">Landing Pages</h3><p data-en="Focused pages designed to present one offer, service or campaign clearly." data-es="Páginas enfocadas en presentar una oferta, servicio o campaña con claridad.">Páginas enfocadas en presentar una oferta, servicio o campaña con claridad.</p><div class="service-details"><div class="service-details-inner"><ul><li data-en="STRUCTURE" data-es="ESTRUCTURA">ESTRUCTURA</li><li data-en="DESIGN" data-es="DISEÑO">DISEÑO</li><li data-en="CONTACT" data-es="CONTACTO">CONTACTO</li></ul><button class="service-contact" type="button" data-select-service="landing" data-project-type="web" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div><div class="mini-arrow">→</div></div></article>
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="businessweb"><div class="service-icon">▦</div><div><h3 data-en="Business Websites" data-es="Webs para Empresas">Webs para Empresas</h3><p data-en="Clear websites that present your company, services and contact information." data-es="Sitios claros para presentar tu empresa, servicios e información de contacto.">Sitios claros para presentar tu empresa, servicios e información de contacto.</p><div class="service-details"><div class="service-details-inner"><ul><li data-en="PAGES" data-es="PÁGINAS">PÁGINAS</li><li data-en="SERVICES" data-es="SERVICIOS">SERVICIOS</li><li data-en="CONTACT" data-es="CONTACTO">CONTACTO</li></ul><button class="service-contact" type="button" data-select-service="businessweb" data-project-type="web" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div><div class="mini-arrow">→</div></div></article>
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="portfolio"><div class="service-icon">◫</div><div><h3 data-en="Professional Portfolios" data-es="Portafolios Profesionales">Portafolios Profesionales</h3><p data-en="A polished digital space to present your profile, services and selected work." data-es="Un espacio digital cuidado para presentar tu perfil, servicios y trabajos seleccionados.">Un espacio digital cuidado para presentar tu perfil, servicios y trabajos seleccionados.</p><div class="service-details"><div class="service-details-inner"><ul><li data-en="PROFILE" data-es="PERFIL">PERFIL</li><li data-en="PROJECTS" data-es="PROYECTOS">PROYECTOS</li><li data-en="CONTACT" data-es="CONTACTO">CONTACTO</li></ul><button class="service-contact" type="button" data-select-service="portfolio" data-project-type="web" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div><div class="mini-arrow">→</div></div></article>
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="responsive"><div class="service-icon">▣</div><div><h3 data-en="Responsive Web Design" data-es="Diseño Web Adaptable">Diseño Web Adaptable</h3><p data-en="Layouts prepared to work clearly across computers, tablets and phones." data-es="Diseños preparados para funcionar claramente en computadoras, tabletas y teléfonos.">Diseños preparados para funcionar claramente en computadoras, tabletas y teléfonos.</p><div class="service-details"><div class="service-details-inner"><ul><li>DESKTOP</li><li>TABLET</li><li>MOBILE</li></ul><button class="service-contact" type="button" data-select-service="responsive" data-project-type="web" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div><div class="mini-arrow">→</div></div></article>
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="publishweb"><div class="service-icon">◎</div><div><h3 data-en="Website Setup & Launch" data-es="Configuración y Publicación">Configuración y Publicación</h3><p data-en="Final setup and publication of the website using the agreed domain and hosting." data-es="Configuración final y publicación del sitio usando el dominio y alojamiento acordados.">Configuración final y publicación del sitio usando el dominio y alojamiento acordados.</p><div class="service-details"><div class="service-details-inner"><ul><li data-en="SETUP" data-es="CONFIGURACIÓN">CONFIGURACIÓN</li><li data-en="DOMAIN" data-es="DOMINIO">DOMINIO</li><li data-en="LAUNCH" data-es="PUBLICACIÓN">PUBLICACIÓN</li></ul><button class="service-contact" type="button" data-select-service="publishweb" data-project-type="web" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div><div class="mini-arrow">→</div></div></article>
+</div>
 </div>
 </section>
 <section class="dark section-pad" id="process">
@@ -1033,9 +1045,10 @@
 <div>
 <div class="lang-badge" data-en="PROCESS" data-es="PROCESO" style="display:inline-block">PROCESO</div>
 <h2 data-en="Our process" data-es="Nuestro proceso">Nuestro proceso</h2>
+<div class="mode-switch" role="group" aria-label="Proceso por especialidad" style="margin-top:22px;margin-bottom:0"><button class="mode-option active" type="button" data-mode="video" data-en="Video Editing" data-es="Edición de video">Edición de video</button><button class="mode-option" type="button" data-mode="web" data-en="Web Creation" data-es="Creación web">Creación web</button></div>
 </div>
 <div>
-<p data-en="A clear editing workflow from receiving your footage to delivering the final versions." data-es="Un flujo de edición claro desde que recibimos tu material hasta la entrega de las versiones finales.">Un flujo de edición claro desde que recibimos tu material hasta la entrega de las versiones finales.</p>
+<p id="process-intro">Un flujo de edición claro desde que recibimos tu material hasta la entrega de las versiones finales.</p>
 
 </div>
 </div>
@@ -1121,9 +1134,10 @@
 <div class="contact-builder-head reveal"><div><div class="lang-badge" data-en="LET'S START" data-es="EMPECEMOS" style="display:inline-block">EMPECEMOS</div><h2 data-en="Tell us about the video you need." data-es="Cuéntanos qué video necesitas.">Cuéntanos qué video necesitas.</h2></div><p data-en="Choose a few options and we will prepare your WhatsApp message. No long forms and no commitment." data-es="Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.">Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.</p></div>
 <div class="contact-builder reveal">
 <div class="contact-questions">
-<div class="contact-question"><h3 data-en="1. What editing service interests you?" data-es="1. ¿Qué servicio de edición te interesa?">1. ¿Qué servicio de edición te interesa?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="service" data-choice="shorts" data-en="Shorts Editing" data-es="Edición de Shorts">Edición de Shorts</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="longform" data-en="Long-form Editing" data-es="Videos Largos">Videos Largos</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="captions" data-en="Captions & Motion" data-es="Subtítulos y Motion">Subtítulos y Motion</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="repurpose" data-en="Content Repurposing" data-es="Reutilización de Contenido">Reutilización de Contenido</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="adaptations" data-en="Format Adaptations" data-es="Adaptación de Formatos">Adaptación de Formatos</button></div></div>
-<div class="contact-question"><h3 data-en="2. What type of content do you create?" data-es="2. ¿Qué tipo de contenido creas?">2. ¿Qué tipo de contenido creas?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="content" data-choice="educational" data-en="Educational" data-es="Educativo">Educativo</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="personal" data-en="Personal Brand" data-es="Marca personal">Marca personal</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="business" data-en="Product or Service" data-es="Producto o servicio">Producto o servicio</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="unsure" data-en="Not sure yet" data-es="Aún no lo sé">Aún no lo sé</button></div></div>
-<div class="contact-question"><h3 data-en="3. What do you need from the edit?" data-es="3. ¿Qué necesitas de la edición?">3. ¿Qué necesitas de la edición?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="goal" data-choice="quality" data-en="Improve quality" data-es="Mejorar la calidad">Mejorar la calidad</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="shortversions" data-en="Create shorter versions" data-es="Crear versiones cortas">Crear versiones cortas</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="captions" data-en="Add captions and graphics" data-es="Agregar subtítulos y gráficos">Agregar subtítulos y gráficos</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="formats" data-en="Adapt delivery formats" data-es="Adaptar formatos de entrega">Adaptar formatos de entrega</button></div></div>
+<div class="contact-question"><h3 data-en="1. What do you need?" data-es="1. ¿Qué necesitas?">1. ¿Qué necesitas?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="project" data-choice="video" data-en="Video Editing" data-es="Edición de video">Edición de video</button><button class="choice-chip" type="button" data-choice-group="project" data-choice="web" data-en="Web Creation" data-es="Creación web">Creación web</button><button class="choice-chip" type="button" data-choice-group="project" data-choice="both" data-en="Both services" data-es="Ambos servicios">Ambos servicios</button></div></div>
+<div class="contact-question"><h3 data-en="2. Which service interests you most?" data-es="2. ¿Qué servicio te interesa más?">2. ¿Qué servicio te interesa más?</h3><div class="choice-row contact-service-panel" data-contact-services="video"><button class="choice-chip active" type="button" data-choice-group="service" data-choice="shorts" data-en="Shorts Editing" data-es="Edición de Shorts">Edición de Shorts</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="longform" data-en="Long-form Editing" data-es="Videos Largos">Videos Largos</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="captions" data-en="Captions & Motion" data-es="Subtítulos y Motion">Subtítulos y Motion</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="repurpose" data-en="Content Repurposing" data-es="Reutilización de Contenido">Reutilización de Contenido</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="adaptations" data-en="Format Adaptations" data-es="Adaptación de Formatos">Adaptación de Formatos</button></div><div class="choice-row contact-service-panel" data-contact-services="web" hidden><button class="choice-chip" type="button" data-choice-group="service" data-choice="landing" data-en="Landing Page" data-es="Landing Page">Landing Page</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="businessweb" data-en="Business Website" data-es="Web para Empresa">Web para Empresa</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="portfolio" data-en="Professional Portfolio" data-es="Portafolio Profesional">Portafolio Profesional</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="responsive" data-en="Responsive Design" data-es="Diseño Adaptable">Diseño Adaptable</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="publishweb" data-en="Website Launch" data-es="Publicación Web">Publicación Web</button></div></div>
+<div class="contact-question"><h3 data-en="3. What type of project or brand is it for?" data-es="3. ¿Para qué tipo de proyecto o marca es?">3. ¿Para qué tipo de proyecto o marca es?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="content" data-choice="educational" data-en="Educational Project" data-es="Proyecto educativo">Proyecto educativo</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="personal" data-en="Personal Brand" data-es="Marca personal">Marca personal</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="business" data-en="Company or Business" data-es="Empresa o negocio">Empresa o negocio</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="unsure" data-en="Not sure yet" data-es="Aún no lo sé">Aún no lo sé</button></div></div>
+<div class="contact-question"><h3 data-en="4. What is the main need?" data-es="4. ¿Cuál es la necesidad principal?">4. ¿Cuál es la necesidad principal?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="goal" data-choice="quality" data-en="Improve quality" data-es="Mejorar la calidad">Mejorar la calidad</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="clarity" data-en="Present the brand clearly" data-es="Presentar la marca con claridad">Presentar la marca con claridad</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="adapt" data-en="Adapt to formats or devices" data-es="Adaptar a formatos o dispositivos">Adaptar a formatos o dispositivos</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="delivery" data-en="Prepare the final delivery" data-es="Preparar la entrega final">Preparar la entrega final</button></div></div>
 </div>
 <aside class="contact-summary"><div><span class="summary-label" data-en="YOUR MESSAGE" data-es="TU MENSAJE">TU MENSAJE</span><p class="summary-message" id="summary-message">Hola Digital Forge. Me interesa la edición de Shorts para contenido educativo y necesito mejorar la calidad de la edición.</p><div class="summary-selections"><div class="summary-selection"><span data-en="Service" data-es="Servicio">Servicio</span><strong id="summary-service">Edición de Shorts</strong></div><div class="summary-selection"><span data-en="Content" data-es="Contenido">Contenido</span><strong id="summary-content">Educativo</strong></div><div class="summary-selection"><span data-en="Goal" data-es="Necesidad">Necesidad</span><strong id="summary-goal">Mejorar la calidad</strong></div></div></div><a class="smart-whatsapp" id="smart-whatsapp" href="https://wa.me/19046854659" target="_blank" rel="noopener noreferrer"><span data-en="Continue on WhatsApp" data-es="Continuar en WhatsApp">Continuar en WhatsApp</span><span>→</span></a></aside>
 </div>
@@ -1135,7 +1149,7 @@
 <div class="footer-grid">
 <div class="footer-brand">
 <img alt="Digital Forge" src="logo.png"/>
-<p data-en="We edit videos for brands, creators and companies, adapting each project to its identity and format." data-es="Editamos videos para marcas, personas y empresas, adaptando cada proyecto a su identidad y formato.">Editamos videos para marcas, personas y empresas, adaptando cada proyecto a su identidad y formato.</p>
+<p data-en="We create video edits and websites for brands, creators and companies, adapting each project to its identity and format." data-es="Creamos ediciones de video y páginas web para marcas, personas y empresas, adaptando cada proyecto a su identidad y formato.">Creamos ediciones de video y páginas web para marcas, personas y empresas, adaptando cada proyecto a su identidad y formato.</p>
 
 </div>
 <div class="footer-col">
@@ -1208,8 +1222,8 @@
       const whatsappLink = document.getElementById("whatsapp-link");
       const whatsappFooter = document.getElementById("whatsapp-footer");
       const whatsappMessage = selected === "en"
-        ? "Hello Digital Forge, I'd like information about your video editing services."
-        : "Hola Digital Forge, quiero información sobre sus servicios de edición de video.";
+        ? "Hello Digital Forge, I'd like information about your video editing and web creation services."
+        : "Hola Digital Forge, quiero información sobre sus servicios de edición de video y creación web.";
       const whatsappUrl = "https://wa.me/19046854659?text=" + encodeURIComponent(whatsappMessage);
 
       if(whatsappLink){
@@ -1225,11 +1239,11 @@
       if(whatsappFooter){ whatsappFooter.href = whatsappUrl; }
 
       if(selected === "en"){
-        document.title = "Digital Forge | Video editing for brands";
-        document.querySelector('meta[name="description"]').setAttribute("content", "Digital Forge - Video editing for brands, creators and companies.");
+        document.title = "Digital Forge | Video editing and web creation";
+        document.querySelector('meta[name="description"]').setAttribute("content", "Digital Forge - Video editing and website creation for brands, creators and companies.");
       }else{
-        document.title = "Digital Forge | Edición de video para marcas";
-        document.querySelector('meta[name="description"]').setAttribute("content", "Digital Forge - Edición de video para marcas, personas y empresas.");
+        document.title = "Digital Forge | Edición de video y creación web";
+        document.querySelector('meta[name="description"]').setAttribute("content", "Digital Forge - Edición de video y creación de páginas web para marcas, personas y empresas.");
       }
 
       try{ localStorage.setItem("digitalForgeLanguage", selected); }catch(e){}
@@ -1237,6 +1251,7 @@
       if(typeof renderProcess === "function"){ renderProcess(activeProcess, false); }
       if(typeof renderFormat === "function"){ renderFormat(activeFormat, false); }
       if(typeof updateSmartContact === "function"){ updateSmartContact(); }
+      if(typeof renderMode === "function"){ renderMode(activeMode, false); }
     }
 
     const engine = document.getElementById("content-engine");
@@ -1248,16 +1263,23 @@
     const stageDescription = document.getElementById("stage-description");
     const trustTitle = document.querySelector(".trust-copy strong");
     const trustSubtitle = document.querySelector(".trust-copy span");
+    let activeMode="video";
     let activeStage = 0;
     let stageTimer;
-    const stageContent = [
+    const stageContentByMode = {video:[
       {es:["01 / SELECCIÓN","Encontramos los momentos clave.","Revisamos el material y seleccionamos lo que mejor comunica tu mensaje.","SELECCIÓN CON INTENCIÓN","PARA MARCAS, PERSONAS Y EMPRESAS"],en:["01 / SELECTION","We find the key moments.","We review the footage and select what communicates your message most clearly.","PURPOSEFUL SELECTION","FOR BRANDS, CREATORS AND COMPANIES"]},
       {es:["02 / EDICIÓN","Cada corte tiene una función.","Trabajamos estructura, ritmo, audio y continuidad para construir una pieza clara.","EDICIÓN QUE SE SIENTE DE MARCA","ESTRUCTURA, RITMO Y CLARIDAD"],en:["02 / EDITING","Every cut has a purpose.","We shape structure, pacing, audio and continuity to build a clear piece.","EDITING THAT FEELS ON-BRAND","STRUCTURE, PACE AND CLARITY"]},
       {es:["03 / DISEÑO","El mensaje también se ve.","Añadimos subtítulos, textos animados y elementos gráficos cuando el proyecto los necesita.","DISEÑO DENTRO DE LA EDICIÓN","SUBTÍTULOS, TEXTO Y GRÁFICOS"],en:["03 / VISUALS","The message is also visual.","We add captions, animated text and graphic elements when the project needs them.","VISUALS WITHIN THE EDIT","CAPTIONS, TEXT AND GRAPHICS"]},
       {es:["04 / ENTREGA","Cada versión en su formato.","Preparamos los archivos finales según la orientación, plataforma y especificaciones acordadas.","VERSIONES LISTAS PARA ENTREGAR","VERTICAL, HORIZONTAL Y CUADRADO"],en:["04 / DELIVERY","Every version in its format.","We prepare final files for the agreed orientation, platform and specifications.","VERSIONS READY FOR DELIVERY","VERTICAL, HORIZONTAL AND SQUARE"]}
-    ];
+    ],web:[
+      {es:["01 / OBJETIVO","Definimos para qué existe la web.","Aclaramos qué debe comunicar, a quién se dirige y cuál será su acción principal.","UNA WEB CON UN OBJETIVO CLARO","PARA MARCAS, PERSONAS Y EMPRESAS"],en:["01 / PURPOSE","We define why the website exists.","We clarify what it should communicate, who it is for and its primary action.","A WEBSITE WITH A CLEAR PURPOSE","FOR BRANDS, CREATORS AND COMPANIES"]},
+      {es:["02 / ESTRUCTURA","Organizamos páginas y contenido.","Construimos un recorrido claro para presentar la marca, los servicios y el contacto.","ESTRUCTURA ANTES DEL DISEÑO","PÁGINAS, CONTENIDO Y NAVEGACIÓN"],en:["02 / STRUCTURE","We organize pages and content.","We build a clear journey to present the brand, services and contact information.","STRUCTURE BEFORE DESIGN","PAGES, CONTENT AND NAVIGATION"]},
+      {es:["03 / DISEÑO","La identidad toma forma digital.","Definimos jerarquías, tipografía, colores y componentes adaptados a cada pantalla.","DISEÑO WEB QUE SE SIENTE DE MARCA","DESKTOP, TABLET Y MÓVIL"],en:["03 / DESIGN","The identity takes digital form.","We define hierarchy, typography, colors and components for every screen.","WEB DESIGN THAT FEELS ON-BRAND","DESKTOP, TABLET AND MOBILE"]},
+      {es:["04 / PUBLICACIÓN","Preparamos la web para salir.","Revisamos la adaptación, conectamos el dominio acordado y publicamos la versión final.","UNA WEB LISTA PARA COMPARTIR","CONFIGURADA Y PUBLICADA"],en:["04 / LAUNCH","We prepare the website to go live.","We review responsiveness, connect the agreed domain and publish the final version.","A WEBSITE READY TO SHARE","CONFIGURED AND PUBLISHED"]}
+    ]};
 
     function renderStage(index, restart=true){
+      const stageContent=stageContentByMode[activeMode];
       activeStage = (index + stageContent.length) % stageContent.length;
       const lang = document.documentElement.lang === "en" ? "en" : "es";
       const copy = stageContent[activeStage][lang];
@@ -1285,14 +1307,21 @@
     const processNext = document.getElementById("process-next");
     let activeProcess = 0;
     let processTimer;
-    const processContent = [
+    const processContentByMode = {video:[
       {es:["ETAPA 01 / 05","Recibimos tu material.","Reunimos los archivos, referencias e indicaciones necesarias para comenzar la edición."],en:["STAGE 01 / 05","We receive your footage.","We gather the files, references and instructions needed to begin the edit."]},
       {es:["ETAPA 02 / 05","Organizamos el proyecto.","Ordenamos clips, audio, referencias y formatos para trabajar con claridad."],en:["STAGE 02 / 05","We organize the project.","We arrange clips, audio, references and formats so the edit starts clearly."]},
       {es:["ETAPA 03 / 05","Construimos la edición.","Trabajamos estructura, cortes, ritmo, audio, subtítulos y elementos visuales."],en:["STAGE 03 / 05","We build the edit.","We shape structure, cuts, pacing, audio, captions and visual elements."]},
       {es:["ETAPA 04 / 05","Revisamos contigo.","Compartimos la versión y aplicamos los comentarios y cambios acordados."],en:["STAGE 04 / 05","We review it with you.","We share the version and apply the agreed comments and changes."]},
       {es:["ETAPA 05 / 05","Entregamos las versiones finales.","Preparamos los archivos en los formatos y orientaciones definidos para el proyecto."],en:["STAGE 05 / 05","We deliver the final versions.","We prepare the files in the formats and orientations defined for the project."]}
-    ];
+    ],web:[
+      {es:["ETAPA 01 / 05","Definimos el objetivo.","Aclaramos la finalidad de la web, su audiencia, contenido y acción principal."],en:["STAGE 01 / 05","We define the purpose.","We clarify the website's purpose, audience, content and primary action."]},
+      {es:["ETAPA 02 / 05","Estructuramos el sitio.","Organizamos páginas, secciones y navegación antes de comenzar el diseño."],en:["STAGE 02 / 05","We structure the site.","We organize pages, sections and navigation before design begins."]},
+      {es:["ETAPA 03 / 05","Diseñamos la experiencia.","Aplicamos identidad visual, jerarquía y componentes adaptados a cada pantalla."],en:["STAGE 03 / 05","We design the experience.","We apply visual identity, hierarchy and components adapted to every screen."]},
+      {es:["ETAPA 04 / 05","Construimos y revisamos.","Desarrollamos la página, revisamos su funcionamiento y aplicamos los cambios acordados."],en:["STAGE 04 / 05","We build and review.","We develop the website, review its behavior and apply the agreed changes."]},
+      {es:["ETAPA 05 / 05","Publicamos la web.","Realizamos la configuración final y publicamos usando el dominio y alojamiento acordados."],en:["STAGE 05 / 05","We launch the website.","We complete the final setup and publish using the agreed domain and hosting."]}
+    ]};
     function renderProcess(index,restart=true){
+      const processContent=processContentByMode[activeMode];
       activeProcess=(index+processContent.length)%processContent.length;
       const lang=document.documentElement.lang==="en"?"en":"es";
       const copy=processContent[activeProcess][lang];
@@ -1307,6 +1336,45 @@
     processNext.addEventListener("click",()=>renderProcess(activeProcess+1));
     processEngine.addEventListener("mouseenter",()=>clearInterval(processTimer));
     processEngine.addEventListener("mouseleave",startProcessTimer);
+
+    const modeButtons=Array.from(document.querySelectorAll(".mode-option"));
+    const serviceCategoryButtons=Array.from(document.querySelectorAll(".service-category"));
+    const servicePanels=Array.from(document.querySelectorAll("[data-service-panel]"));
+    const heroEyebrow=document.getElementById("hero-eyebrow");
+    const heroTitle=document.getElementById("hero-title");
+    const heroDescription=document.getElementById("hero-description");
+    const processIntro=document.getElementById("process-intro");
+    const serviceIntro=document.getElementById("service-intro");
+    const processLabels=Array.from(document.querySelectorAll(".process-label"));
+    const flowNodes=Array.from(document.querySelectorAll(".strategy-flow .flow-node"));
+    const heroFormatChips=Array.from(document.querySelectorAll(".stage-art .format-chip"));
+    const sourcePiece=document.querySelector(".stage-art .source-piece");
+    const resultPieces=Array.from(document.querySelectorAll(".stage-art .result-piece"));
+    const orbitCore=document.querySelector(".orbit-core");
+    const processMapCards=Array.from(document.querySelectorAll(".strategy-map .map-card"));
+    const processAdaptItems=Array.from(document.querySelectorAll(".adapt-item"));
+    const deliveryLabel=document.querySelector(".delivery-box span");
+    const modeCopy={
+      video:{es:{eyebrow:"Edición de video hecha para tu identidad.",title:"Edición de video que se siente de marca.",description:"Editamos videos para marcas, personas y empresas, adaptando cada pieza a su mensaje, identidad y plataforma.",serviceIntro:"Servicios de edición de video adaptados a tu material, mensaje y formato de entrega.",tabs:["Selección","Edición","Diseño","Entrega"],processIntro:"Un flujo de edición claro desde que recibimos tu material hasta la entrega de las versiones finales.",processLabels:["Recibimos","Organizamos","Editamos","Revisamos","Entregamos"],flow:["MATERIAL","MOMENTOS","SECUENCIA","FORMATO"],chips:["SUBTÍTULOS","TÍTULOS","GRÁFICOS","TRANSICIONES","ESTILO DE MARCA"],source:"VIDEO EDITADO",results:["VERTICAL 9:16","HORIZONTAL 16:9","SUBTÍTULOS","ENTREGA FINAL"],orbit:"MATERIAL · BRIEF · REFERENCIAS",map:["PROYECTO DE EDICIÓN","CLIPS","AUDIO","REFERENCIAS","FORMATOS"],review:["VERSIÓN 01","COMENTARIOS","CAMBIOS"],delivery:"LISTO PARA ENTREGAR"},en:{eyebrow:"Video editing built around your identity.",title:"Video editing that feels like your brand.",description:"We edit videos for brands, creators and companies, adapting every piece to its message, identity and platform.",serviceIntro:"Video editing services adapted to your footage, message and delivery format.",tabs:["Selection","Editing","Visuals","Delivery"],processIntro:"A clear editing workflow from receiving your footage to delivering the final versions.",processLabels:["Receive","Organize","Edit","Review","Deliver"],flow:["SOURCE","MOMENTS","SEQUENCE","FORMAT"],chips:["CAPTIONS","TITLES","GRAPHICS","TRANSITIONS","BRAND STYLE"],source:"EDITED VIDEO",results:["VERTICAL 9:16","HORIZONTAL 16:9","CAPTIONS","FINAL DELIVERY"],orbit:"FOOTAGE · BRIEF · REFERENCES",map:["EDITING PROJECT","CLIPS","AUDIO","REFERENCES","FORMATS"],review:["VERSION 01","COMMENTS","CHANGES"],delivery:"READY TO DELIVER"}},
+      web:{es:{eyebrow:"Páginas web hechas para tu identidad.",title:"Experiencias digitales que se sienten de marca.",description:"Creamos landing pages, webs para empresas y portafolios adaptados a computadoras, tabletas y teléfonos.",serviceIntro:"Landing pages, webs empresariales y portafolios con diseño adaptable y publicación acordada.",tabs:["Objetivo","Estructura","Diseño","Publicación"],processIntro:"Un proceso web claro desde la definición del objetivo hasta la publicación de la página.",processLabels:["Definimos","Estructuramos","Diseñamos","Construimos","Publicamos"],flow:["OBJETIVO","PÁGINAS","CONTENIDO","RECORRIDO"],chips:["DESKTOP","TABLET","MÓVIL","RÁPIDA","CLARA"],source:"SITIO WEB",results:["RESPONSIVE","ACCESIBLE","CONECTADO","PUBLICADO"],orbit:"OBJETIVO · CONTENIDO · REFERENCIAS",map:["ESTRUCTURA WEB","PÁGINAS","SECCIONES","NAVEGACIÓN","CONTENIDO"],review:["DISEÑO","REVISIÓN","CAMBIOS"],delivery:"WEB PUBLICADA"},en:{eyebrow:"Websites built around your identity.",title:"Digital experiences that feel like your brand.",description:"We create landing pages, business websites and portfolios adapted to computers, tablets and phones.",serviceIntro:"Landing pages, business websites and portfolios with responsive design and agreed launch setup.",tabs:["Purpose","Structure","Design","Launch"],processIntro:"A clear web process from defining the purpose to publishing the website.",processLabels:["Define","Structure","Design","Build","Launch"],flow:["PURPOSE","PAGES","CONTENT","JOURNEY"],chips:["DESKTOP","TABLET","MOBILE","FAST","CLEAR"],source:"WEBSITE",results:["RESPONSIVE","ACCESSIBLE","CONNECTED","PUBLISHED"],orbit:"PURPOSE · CONTENT · REFERENCES",map:["SITE STRUCTURE","PAGES","SECTIONS","NAVIGATION","CONTENT"],review:["DESIGN","REVIEW","CHANGES"],delivery:"WEBSITE LIVE"}}
+    };
+    function renderMode(mode,restart=true){
+      activeMode=mode==="web"?"web":"video";
+      const lang=document.documentElement.lang==="en"?"en":"es";
+      const copy=modeCopy[activeMode][lang];
+      modeButtons.forEach((button)=>{const active=button.dataset.mode===activeMode;button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active));});
+      serviceCategoryButtons.forEach((button)=>{const active=button.dataset.serviceCategory===activeMode;button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active));});
+      servicePanels.forEach((panel)=>panel.hidden=panel.dataset.servicePanel!==activeMode);
+      engine.dataset.mode=activeMode;
+      heroEyebrow.textContent=copy.eyebrow;heroTitle.textContent=copy.title;heroDescription.textContent=copy.description;serviceIntro.textContent=copy.serviceIntro;processIntro.textContent=copy.processIntro;
+      stageTabs.forEach((tab,i)=>tab.textContent=copy.tabs[i]);processLabels.forEach((label,i)=>label.textContent=copy.processLabels[i]);
+      flowNodes.forEach((node,i)=>node.textContent=copy.flow[i]);heroFormatChips.forEach((chip,i)=>chip.textContent=copy.chips[i]);sourcePiece.textContent=copy.source;resultPieces.forEach((piece,i)=>piece.textContent=copy.results[i]);
+      orbitCore.textContent=copy.orbit;processMapCards.forEach((card,i)=>{const target=card.querySelector("span")||card;target.textContent=copy.map[i];});processAdaptItems.forEach((item,i)=>item.textContent=copy.review[i]);deliveryLabel.textContent=copy.delivery;
+      if(restart){activeStage=0;activeProcess=0;startStageTimer();startProcessTimer();}
+      renderStage(activeStage,false);renderProcess(activeProcess,false);
+    }
+    modeButtons.forEach((button)=>button.addEventListener("click",()=>renderMode(button.dataset.mode)));
+    serviceCategoryButtons.forEach((button)=>button.addEventListener("click",()=>renderMode(button.dataset.serviceCategory)));
 
     const systemEngine = document.getElementById("system-engine");
     const formatTabs = Array.from(document.querySelectorAll(".format-tab"));
@@ -1354,24 +1422,26 @@
 
     const smartContact = document.getElementById("contact");
     const choiceButtons = Array.from(document.querySelectorAll("[data-choice-group]"));
+    const contactServicePanels=Array.from(document.querySelectorAll("[data-contact-services]"));
     const serviceContactButtons = Array.from(document.querySelectorAll("[data-select-service]"));
     const summaryMessage = document.getElementById("summary-message");
     const summaryService = document.getElementById("summary-service");
     const summaryContent = document.getElementById("summary-content");
     const summaryGoal = document.getElementById("summary-goal");
     const smartWhatsapp = document.getElementById("smart-whatsapp");
-    const smartSelections={service:"shorts",content:"educational",goal:"quality"};
+    const smartSelections={project:"video",service:"shorts",content:"educational",goal:"quality"};
     const smartLabels={
-      service:{shorts:{es:"Edición de Shorts",en:"Shorts Editing"},longform:{es:"Edición de Videos Largos",en:"Long-form Video Editing"},captions:{es:"Subtítulos y Motion Graphics",en:"Captions and Motion Graphics"},repurpose:{es:"Reutilización de Contenido",en:"Content Repurposing"},adaptations:{es:"Adaptación de Formatos",en:"Format Adaptations"}},
-      content:{educational:{es:"contenido educativo",en:"educational content"},personal:{es:"una marca personal",en:"a personal brand"},business:{es:"un producto o servicio",en:"a product or service"},unsure:{es:"contenido que aún estoy definiendo",en:"content I am still defining"}},
-      goal:{quality:{es:"mejorar la calidad de la edición",en:"improve the editing quality"},shortversions:{es:"crear versiones más cortas",en:"create shorter versions"},captions:{es:"agregar subtítulos y gráficos",en:"add captions and graphics"},formats:{es:"adaptar los formatos de entrega",en:"adapt the delivery formats"}}
+      service:{shorts:{es:"Edición de Shorts",en:"Shorts Editing"},longform:{es:"Edición de Videos Largos",en:"Long-form Video Editing"},captions:{es:"Subtítulos y Motion Graphics",en:"Captions and Motion Graphics"},repurpose:{es:"Reutilización de Contenido",en:"Content Repurposing"},adaptations:{es:"Adaptación de Formatos",en:"Format Adaptations"},landing:{es:"Landing Page",en:"Landing Page"},businessweb:{es:"Web para Empresa",en:"Business Website"},portfolio:{es:"Portafolio Profesional",en:"Professional Portfolio"},responsive:{es:"Diseño Web Adaptable",en:"Responsive Web Design"},publishweb:{es:"Configuración y Publicación Web",en:"Website Setup and Launch"}},
+      content:{educational:{es:"un proyecto educativo",en:"an educational project"},personal:{es:"una marca personal",en:"a personal brand"},business:{es:"una empresa o negocio",en:"a company or business"},unsure:{es:"un proyecto que aún estoy definiendo",en:"a project I am still defining"}},
+      goal:{quality:{es:"mejorar la calidad",en:"improve the quality"},clarity:{es:"presentar la marca con claridad",en:"present the brand clearly"},adapt:{es:"adaptar el proyecto a formatos o dispositivos",en:"adapt the project to formats or devices"},delivery:{es:"preparar la entrega final",en:"prepare the final delivery"}}
     };
     function updateSmartContact(){
       const lang=document.documentElement.lang==="en"?"en":"es";
       const service=smartLabels.service[smartSelections.service][lang];
       const content=smartLabels.content[smartSelections.content][lang];
       const goal=smartLabels.goal[smartSelections.goal][lang];
-      const message=lang==="en"?`Hello Digital Forge. I'm interested in ${service} for ${content}, and I need to ${goal}.`:`Hola Digital Forge. Me interesa ${service} para ${content} y necesito ${goal}.`;
+      const both=smartSelections.project==="both";
+      const message=lang==="en"?(both?`Hello Digital Forge. I'm interested in both video editing and web creation, especially ${service}, for ${content}. I need to ${goal}.`:`Hello Digital Forge. I'm interested in ${service} for ${content}, and I need to ${goal}.`):(both?`Hola Digital Forge. Me interesan la edición de video y la creación web, especialmente ${service}, para ${content}. Necesito ${goal}.`:`Hola Digital Forge. Me interesa ${service} para ${content} y necesito ${goal}.`);
       summaryMessage.textContent=message;
       summaryService.textContent=service;
       summaryContent.textContent=content.charAt(0).toUpperCase()+content.slice(1);
@@ -1381,10 +1451,16 @@
     function selectSmartChoice(group,value){
       smartSelections[group]=value;
       choiceButtons.filter((button)=>button.dataset.choiceGroup===group).forEach((button)=>button.classList.toggle("active",button.dataset.choice===value));
+      if(group==="project"){
+        contactServicePanels.forEach((panel)=>panel.hidden=value!=="both"&&panel.dataset.contactServices!==value);
+        if(value==="web"&&!['landing','businessweb','portfolio','responsive','publishweb'].includes(smartSelections.service)){smartSelections.service="landing";}
+        if(value==="video"&&!['shorts','longform','captions','repurpose','adaptations'].includes(smartSelections.service)){smartSelections.service="shorts";}
+        choiceButtons.filter((button)=>button.dataset.choiceGroup==="service").forEach((button)=>button.classList.toggle("active",button.dataset.choice===smartSelections.service));
+      }
       updateSmartContact();
     }
     choiceButtons.forEach((button)=>button.addEventListener("click",()=>selectSmartChoice(button.dataset.choiceGroup,button.dataset.choice)));
-    serviceContactButtons.forEach((button)=>button.addEventListener("click",(event)=>{event.stopPropagation();selectSmartChoice("service",button.dataset.selectService);smartContact.scrollIntoView({behavior:"smooth",block:"start"});}));
+    serviceContactButtons.forEach((button)=>button.addEventListener("click",(event)=>{event.stopPropagation();const project=button.dataset.projectType||"video";selectSmartChoice("project",project);selectSmartChoice("service",button.dataset.selectService);smartContact.scrollIntoView({behavior:"smooth",block:"start"});}));
 
     let savedLanguage = "es";
     try{ savedLanguage = localStorage.getItem("digitalForgeLanguage") || "es"; }catch(e){}
