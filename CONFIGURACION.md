@@ -1,6 +1,6 @@
-# Activación de Digital Forge CMS + CRM
+# Activación de Digital Forge CMS + CRM + Portal del Cliente
 
-La página pública seguirá funcionando al subir los archivos. Para activar el guardado de leads y el panel privado, completa estos pasos en Cloudflare.
+La página pública seguirá funcionando al subir los archivos. Para activar el guardado de leads, el panel y el portal privado, completa estos pasos en Cloudflare.
 
 ## 1. Crear la base de datos
 
@@ -39,6 +39,28 @@ Entra en `/admin/` y abre **Configuración**:
 
 - Pega tu enlace de Calendly cuando lo tengas.
 - PayPal ya está configurado como `https://www.paypal.com/paypalme/MariaRios810`.
+
+## 6. Activar el Portal del Cliente
+
+Las nuevas tablas se crean automáticamente la primera vez que el panel llama a la base de datos. También puedes ejecutar `migrations/002_client_portal.sql` en la consola de `digital-forge-db`.
+
+El portal estará disponible en `/portal/`. Desde `/admin/`:
+
+1. Abre **Portal / Clientes** y crea la cuenta del cliente.
+2. Usa una contraseña temporal de al menos 12 caracteres y compártela de forma privada.
+3. Abre **Portal / Proyectos** y asigna un proyecto al cliente.
+
+## 7. Almacenamiento privado de archivos
+
+Para subir versiones de video y entregas finales:
+
+1. En Cloudflare abre **R2 Object Storage → Create bucket**.
+2. Usa el nombre `digital-forge-files`.
+3. En el proyecto `digitalforgecreative`, ve a **Settings → Bindings → Add → R2 bucket**.
+4. En **Variable name** escribe exactamente `FILES`.
+5. Selecciona `digital-forge-files`, guarda y crea un nuevo despliegue.
+
+Los archivos no se publican directamente. La web verifica qué cliente inició sesión antes de servir cada video o descarga. La subida desde el panel admite archivos de hasta 95 MB en esta primera versión.
 
 ## Publicación
 
