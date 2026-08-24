@@ -178,7 +178,7 @@
 
     .visual-card{
       width:90%;
-      height:420px;
+      height:440px;
       border:1px solid rgba(255,255,255,.25);
       border-radius:20px;
       overflow:hidden;
@@ -187,6 +187,12 @@
         linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.01)),
         radial-gradient(circle at 30% 20%, #2b2b2b, #090909 60%);
       box-shadow:0 30px 80px rgba(0,0,0,.5);
+      isolation:isolate;
+      --cursor-x:50%;
+      --cursor-y:42%;
+      --parallax-x:0px;
+      --parallax-y:0px;
+      transition:border-color .35s ease,box-shadow .35s ease,transform .18s ease-out;
     }
 
     .visual-card::before{
@@ -196,24 +202,37 @@
       background:
         linear-gradient(90deg, transparent 0 15%, rgba(255,255,255,.035) 15% 16%, transparent 16% 55%, rgba(255,255,255,.03) 55% 56%, transparent 56%),
         linear-gradient(0deg, transparent 0 30%, rgba(255,255,255,.03) 30% 31%, transparent 31%);
+      z-index:-2;
+      transform:translate(var(--parallax-x),var(--parallax-y)) scale(1.05);
+      transition:transform .18s ease-out;
     }
-
-    .visual-message{
-      position:absolute;
-      left:34px;
-      top:34px;
-      font-family:monospace;
-      font-weight:700;
-      font-size:18px;
-      line-height:1.55;
-      z-index:2;
-    }
-
-    .visual-message span{
-      display:block;
-      color:#8d8d8d;
-      margin-top:14px;
-    }
+    .visual-card::after{content:"";position:absolute;inset:-30%;z-index:-1;pointer-events:none;background:radial-gradient(circle 180px at var(--cursor-x) var(--cursor-y),rgba(255,255,255,.14),transparent 72%);opacity:.75;transition:opacity .3s ease}
+    .visual-card:hover{border-color:rgba(255,255,255,.45);box-shadow:0 38px 95px rgba(0,0,0,.62)}
+    .visual-shell{position:absolute;inset:0;padding:28px 30px 92px;display:flex;flex-direction:column;z-index:2}
+    .visual-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;position:relative}
+    .visual-tab{appearance:none;border:0;border-bottom:1px solid rgba(255,255,255,.16);background:transparent;color:#6f6f6f;text-align:left;padding:0 0 12px;font:700 10px/1.2 "Inter",sans-serif;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;transition:.25s ease;position:relative}
+    .visual-tab::after{content:"";position:absolute;left:0;right:100%;bottom:-1px;height:1px;background:#fff;transition:right .35s ease}
+    .visual-tab:hover,.visual-tab:focus-visible,.visual-tab.active{color:#fff}
+    .visual-tab.active::after{right:0}
+    .visual-stage{flex:1;display:grid;grid-template-columns:.78fr 1.22fr;gap:24px;align-items:center;min-height:0;transform:translate(var(--parallax-x),var(--parallax-y));transition:transform .18s ease-out}
+    .stage-copy{align-self:center}
+    .stage-kicker{display:block;color:#848484;font:700 10px/1.2 monospace;letter-spacing:.12em;margin-bottom:12px}
+    .stage-title{font-size:clamp(1.65rem,2.7vw,2.5rem);line-height:.95;letter-spacing:-.055em;max-width:260px}
+    .stage-description{color:#a7a7a7;font-size:11px;line-height:1.55;max-width:250px;margin-top:14px}
+    .stage-art{height:210px;position:relative;display:grid;place-items:center}
+    .stage-view{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:translateY(8px) scale(.98);pointer-events:none;transition:opacity .35s ease,transform .45s cubic-bezier(.2,.75,.25,1)}
+    .stage-view.active{opacity:1;transform:none}
+    .strategy-flow{display:flex;align-items:center;gap:6px;width:100%}
+    .flow-node{flex:1;border:1px solid rgba(255,255,255,.19);border-radius:10px;padding:18px 8px;text-align:center;background:rgba(255,255,255,.035);font:700 9px/1.2 monospace;letter-spacing:.06em}
+    .flow-arrow{color:#777;font-size:12px}
+    .edit-board{width:100%;border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:18px;background:rgba(0,0,0,.28)}
+    .edit-preview{height:72px;border-radius:8px;background:linear-gradient(135deg,#343434,#111);margin-bottom:16px;position:relative;overflow:hidden}
+    .edit-preview::after{content:"CAPTIONS";position:absolute;left:12px;bottom:9px;background:#f4f1ec;color:#111;padding:3px 6px;font:800 7px monospace}
+    .timeline{display:grid;gap:5px}.track{height:8px;border-radius:3px;background:#222;overflow:hidden}.clip{height:100%;border-radius:3px;background:#aaa}.track:nth-child(1) .clip{width:84%}.track:nth-child(2) .clip{width:62%;margin-left:14%}.track:nth-child(3) .clip{width:45%;margin-left:42%;background:#5f5f5f}
+    .format-cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:300px}.format-chip{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:10px 14px;color:#bbb;font:700 9px monospace;animation:chipFloat 3.6s ease-in-out infinite}.format-chip:nth-child(2){animation-delay:-.8s}.format-chip:nth-child(3){animation-delay:-1.6s}.format-chip:nth-child(4){animation-delay:-2.4s}.format-chip:nth-child(5){animation-delay:-3.2s}
+    @keyframes chipFloat{50%{transform:translateY(-6px);color:#fff;border-color:rgba(255,255,255,.42)}}
+    .results-system{width:100%;display:grid;grid-template-columns:.8fr auto 1.2fr;align-items:center;gap:12px}.source-piece{aspect-ratio:1;border:1px solid rgba(255,255,255,.3);border-radius:50%;display:grid;place-items:center;text-align:center;white-space:pre-line;font:700 9px/1.3 monospace}.result-stack{display:grid;gap:7px}.result-piece{border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:9px 10px;background:rgba(255,255,255,.035);font:700 8px monospace;color:#bbb}.system-arrow{color:#888}
+    @media(prefers-reduced-motion:reduce){.visual-card,.visual-card::before,.visual-stage,.stage-view,.format-chip{animation:none!important;transition:none!important}}
 
     .trust-card{
       position:absolute;
@@ -249,7 +268,9 @@
       width:38px;height:38px;border-radius:50%;
       border:1px solid #666;
       display:grid;place-items:center;
+      color:#fff;background:transparent;cursor:pointer;font:inherit;transition:.25s ease;
     }
+    .arrow-dot:hover{background:#fff;color:#111;transform:rotate(-12deg)}
 
     /* SHARED */
     section.light{background:var(--white);color:var(--ink)}
@@ -756,6 +777,7 @@
       .hero h1{font-size:3.5rem}
       .hero-visual{min-height:400px}
       .visual-card{width:100%;height:330px}
+      .visual-shell{padding:20px 18px 82px}.visual-tabs{gap:4px}.visual-tab{font-size:8px;letter-spacing:.04em}.visual-stage{grid-template-columns:.82fr 1.18fr;gap:12px}.stage-title{font-size:1.35rem}.stage-description{font-size:9px}.stage-art{height:160px}.flow-node{padding:12px 3px;font-size:7px}.format-chip{padding:8px 9px;font-size:7px}.edit-board{padding:11px}.edit-preview{height:54px}.results-system{gap:6px}.source-piece{font-size:7px}.result-piece{font-size:7px;padding:7px}
       .trust-card{grid-template-columns:1fr auto}
       .avatars{display:none}
       .services-grid,
@@ -883,11 +905,27 @@
 </div>
 </div>
 <div class="hero-visual reveal">
-<div class="visual-card">
-<div class="visual-message" data-en="STRATEGY. EDITING.
-CREATIVITY. RESULTS." data-es="ESTRATEGIA. EDICIÓN.
-CREATIVIDAD. RESULTADOS.">ESTRATEGIA. EDICIÓN.
-CREATIVIDAD. RESULTADOS.</div>
+<div class="visual-card" id="content-engine">
+<div class="visual-shell">
+<div class="visual-tabs" role="tablist" aria-label="Content engine">
+<button class="visual-tab active" type="button" role="tab" aria-selected="true" data-stage="0" data-en="Strategy" data-es="Estrategia">Estrategia</button>
+<button class="visual-tab" type="button" role="tab" aria-selected="false" data-stage="1" data-en="Editing" data-es="Edición">Edición</button>
+<button class="visual-tab" type="button" role="tab" aria-selected="false" data-stage="2" data-en="Creativity" data-es="Creatividad">Creatividad</button>
+<button class="visual-tab" type="button" role="tab" aria-selected="false" data-stage="3" data-en="Results" data-es="Resultados">Resultados</button>
+</div>
+<div class="visual-stage">
+<div class="stage-copy">
+<span class="stage-kicker" id="stage-kicker">01 / ESTRATEGIA</span>
+<h2 class="stage-title" id="stage-title">De la idea al sistema.</h2>
+<p class="stage-description" id="stage-description">Definimos el ángulo, el gancho y el formato antes de editar.</p>
+</div>
+<div class="stage-art" aria-hidden="true">
+<div class="stage-view active" data-view="0"><div class="strategy-flow"><div class="flow-node" data-en="IDEA" data-es="IDEA">IDEA</div><span class="flow-arrow">→</span><div class="flow-node" data-en="HOOK" data-es="GANCHO">GANCHO</div><span class="flow-arrow">→</span><div class="flow-node" data-en="FORMAT" data-es="FORMATO">FORMATO</div><span class="flow-arrow">→</span><div class="flow-node" data-en="PLATFORM" data-es="PLATAFORMA">PLATAFORMA</div></div></div>
+<div class="stage-view" data-view="1"><div class="edit-board"><div class="edit-preview"></div><div class="timeline"><div class="track"><div class="clip"></div></div><div class="track"><div class="clip"></div></div><div class="track"><div class="clip"></div></div></div></div></div>
+<div class="stage-view" data-view="2"><div class="format-cloud"><span class="format-chip">REEL</span><span class="format-chip">TIKTOK</span><span class="format-chip">SHORT</span><span class="format-chip">CAROUSEL</span><span class="format-chip">CAPTION</span></div></div>
+<div class="stage-view" data-view="3"><div class="results-system"><div class="source-piece" data-en="LONG-FORM\nCONTENT" data-es="CONTENIDO\nLARGO">CONTENIDO<br>LARGO</div><span class="system-arrow">→</span><div class="result-stack"><div class="result-piece">SHORT VIDEO</div><div class="result-piece">CAROUSEL</div><div class="result-piece">CAPTION</div><div class="result-piece">CONTENT SYSTEM</div></div></div></div>
+</div>
+</div>
 </div>
 <div class="trust-card">
 <div class="avatars">
@@ -900,7 +938,7 @@ CREATIVIDAD. RESULTADOS.</div>
 <strong data-en="WE CREATE CONTENT THAT FEELS ON-BRAND" data-es="CREAMOS CONTENIDO QUE SE SIENTE DE MARCA">CREAMOS CONTENIDO QUE SE SIENTE DE MARCA</strong>
 <span data-en="BUILT FOR YOUR BRAND" data-es="HECHO PARA TU IDENTIDAD">HECHO PARA TU IDENTIDAD</span>
 </div>
-<div class="arrow-dot">→</div>
+<button class="arrow-dot" id="stage-next" type="button" aria-label="Siguiente etapa">→</button>
 </div>
 </div>
 </section>
@@ -1188,7 +1226,45 @@ CREATIVIDAD. RESULTADOS.</div>
       }
 
       try{ localStorage.setItem("digitalForgeLanguage", selected); }catch(e){}
+      if(typeof renderStage === "function"){ renderStage(activeStage, false); }
     }
+
+    const engine = document.getElementById("content-engine");
+    const stageTabs = Array.from(document.querySelectorAll(".visual-tab"));
+    const stageViews = Array.from(document.querySelectorAll(".stage-view"));
+    const nextStageButton = document.getElementById("stage-next");
+    const stageKicker = document.getElementById("stage-kicker");
+    const stageTitle = document.getElementById("stage-title");
+    const stageDescription = document.getElementById("stage-description");
+    const trustTitle = document.querySelector(".trust-copy strong");
+    const trustSubtitle = document.querySelector(".trust-copy span");
+    let activeStage = 0;
+    let stageTimer;
+    const stageContent = [
+      {es:["01 / ESTRATEGIA","De la idea al sistema.","Definimos el ángulo, el gancho y el formato antes de editar.","PENSADO ANTES DE PUBLICAR","HECHO PARA TU IDENTIDAD"],en:["01 / STRATEGY","From idea to system.","We define the angle, hook and format before editing.","BUILT BEFORE IT IS PUBLISHED","MADE FOR YOUR IDENTITY"]},
+      {es:["02 / EDICIÓN","Cada segundo cuenta.","Ritmo, cortes, audio y subtítulos diseñados para mantener la atención.","EDICIÓN QUE SE SIENTE DE MARCA","RITMO, CLARIDAD Y RETENCIÓN"],en:["02 / EDITING","Every second counts.","Pacing, cuts, audio and captions designed to hold attention.","EDITING THAT FEELS ON-BRAND","PACE, CLARITY AND RETENTION"]},
+      {es:["03 / CREATIVIDAD","Una idea. Más formatos.","Adaptamos cada concepto al lenguaje natural de cada plataforma.","CREATIVIDAD LISTA PARA CADA CANAL","UNA IDENTIDAD, MÚLTIPLES FORMATOS"],en:["03 / CREATIVITY","One idea. More formats.","We adapt every concept to the native language of each platform.","CREATIVITY READY FOR EVERY CHANNEL","ONE IDENTITY, MULTIPLE FORMATS"]},
+      {es:["04 / RESULTADOS","Contenido que trabaja unido.","Una pieza larga se convierte en un sistema de contenido consistente.","UN SISTEMA, NO PIEZAS AISLADAS","CREADO PARA CRECER CONTIGO"],en:["04 / RESULTS","Content that works together.","One long-form piece becomes a consistent content system.","A SYSTEM, NOT ISOLATED PIECES","BUILT TO GROW WITH YOU"]}
+    ];
+
+    function renderStage(index, restart=true){
+      activeStage = (index + stageContent.length) % stageContent.length;
+      const lang = document.documentElement.lang === "en" ? "en" : "es";
+      const copy = stageContent[activeStage][lang];
+      stageTabs.forEach((tab,i)=>{const active=i===activeStage;tab.classList.toggle("active",active);tab.setAttribute("aria-selected",String(active));});
+      stageViews.forEach((view,i)=>view.classList.toggle("active",i===activeStage));
+      stageKicker.textContent=copy[0];stageTitle.textContent=copy[1];stageDescription.textContent=copy[2];
+      trustTitle.textContent=copy[3];trustSubtitle.textContent=copy[4];
+      nextStageButton.setAttribute("aria-label",lang==="en"?"Next stage":"Siguiente etapa");
+      if(restart){startStageTimer();}
+    }
+    function startStageTimer(){clearInterval(stageTimer);if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){stageTimer=setInterval(()=>renderStage(activeStage+1,false),4800);}}
+    stageTabs.forEach((tab)=>{const activate=()=>renderStage(Number(tab.dataset.stage));tab.addEventListener("click",activate);tab.addEventListener("mouseenter",activate);});
+    nextStageButton.addEventListener("click",()=>renderStage(activeStage+1));
+    engine.addEventListener("mouseenter",()=>clearInterval(stageTimer));
+    engine.addEventListener("mouseleave",startStageTimer);
+    engine.addEventListener("pointermove",(event)=>{if(event.pointerType==="touch")return;const rect=engine.getBoundingClientRect();const x=((event.clientX-rect.left)/rect.width)*100;const y=((event.clientY-rect.top)/rect.height)*100;engine.style.setProperty("--cursor-x",x+"%");engine.style.setProperty("--cursor-y",y+"%");engine.style.setProperty("--parallax-x",((x-50)*.07)+"px");engine.style.setProperty("--parallax-y",((y-50)*.07)+"px");});
+    engine.addEventListener("pointerleave",()=>{engine.style.setProperty("--parallax-x","0px");engine.style.setProperty("--parallax-y","0px");});
 
     let savedLanguage = "es";
     try{ savedLanguage = localStorage.getItem("digitalForgeLanguage") || "es"; }catch(e){}
@@ -1197,6 +1273,7 @@ CREATIVIDAD. RESULTADOS.</div>
     languageButtons.forEach((button)=>{
       button.addEventListener("click", ()=>setLanguage(button.dataset.lang));
     });
+    startStageTimer();
 </script>
 </body>
 </html>
