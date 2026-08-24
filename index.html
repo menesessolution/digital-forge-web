@@ -870,6 +870,20 @@
     }
     .metric span.en{color:#777;margin-top:4px}
 
+    /* INTERACTIVE FAQ */
+    .faq-section{background:#f2efea;color:#111;border-top:1px solid #d0cbc3}
+    .faq-head{display:grid;grid-template-columns:1fr .72fr;gap:70px;align-items:end;margin-bottom:42px}
+    .faq-head h2{font-size:clamp(3rem,5.4vw,5.8rem);line-height:.92;letter-spacing:-.06em;margin-top:16px;max-width:820px}
+    .faq-head p{color:#5e5a55;font-size:15px;line-height:1.75;max-width:540px}
+    .faq-list{border-top:1px solid #bdb7ae}
+    .faq-item{border-bottom:1px solid #bdb7ae;transition:background .25s ease}
+    .faq-item:hover,.faq-item.active{background:rgba(255,255,255,.52)}
+    .faq-question{appearance:none;width:100%;border:0;background:transparent;color:#111;padding:23px 18px;display:grid;grid-template-columns:38px 1fr 42px;gap:15px;align-items:center;text-align:left;font:inherit;cursor:pointer}
+    .faq-number{font:700 9px monospace;color:#89847d}.faq-question-text{font-size:clamp(1rem,1.6vw,1.35rem);font-weight:850;letter-spacing:-.025em}.faq-toggle{width:34px;height:34px;border:1px solid #aaa49b;border-radius:50%;display:grid;place-items:center;font-size:18px;transition:.3s ease}.faq-item.active .faq-toggle{background:#111;color:#fff;border-color:#111;transform:rotate(45deg)}
+    .faq-answer{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .38s ease,opacity .28s ease}.faq-answer-inner{overflow:hidden}.faq-answer p{max-width:820px;margin:0 18px 0 71px;padding:0 0 0;color:#5f5a54;font-size:14px;line-height:1.75}.faq-item.active .faq-answer{grid-template-rows:1fr;opacity:1}.faq-item.active .faq-answer p{padding-bottom:24px}
+    @media(max-width:800px){.faq-head{grid-template-columns:1fr;gap:24px}.faq-question{grid-template-columns:28px 1fr 36px;padding:20px 8px}.faq-answer p{margin-left:51px;margin-right:8px}}
+    @media(prefers-reduced-motion:reduce){.faq-item,.faq-toggle,.faq-answer{transition:none!important}}
+
     /* SMART CONTACT */
     .smart-contact{background:#080808;color:#fff;padding:100px 0}
     .contact-builder-head{display:grid;grid-template-columns:1fr .8fr;gap:60px;align-items:end;margin-bottom:46px}.contact-builder-head h2{font-size:clamp(3rem,5.5vw,5.8rem);line-height:.92;letter-spacing:-.06em;margin-top:16px}.contact-builder-head p{color:#aaa;line-height:1.7;max-width:520px}
@@ -1355,6 +1369,21 @@
 </div>
 </div>
 </section>
+<section class="faq-section section-pad" id="faq">
+<div class="container">
+<div class="faq-head reveal">
+<div><div class="lang-badge" id="faq-badge" style="border-color:#aaa49b;display:inline-block">PREGUNTAS FRECUENTES</div><h2 id="faq-title">Preguntas sobre edición de video.</h2></div>
+<p id="faq-intro">Resolvemos las dudas principales antes de comenzar un proyecto de edición.</p>
+</div>
+<div class="faq-list reveal" id="faq-list">
+<article class="faq-item active"><button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-answer-0" data-faq="0"><span class="faq-number">01</span><span class="faq-question-text">¿Qué material debo enviar?</span><span class="faq-toggle">+</span></button><div class="faq-answer" id="faq-answer-0"><div class="faq-answer-inner"><p>Necesitamos los archivos originales, referencias, indicaciones y el objetivo principal del video.</p></div></div></article>
+<article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1" data-faq="1"><span class="faq-number">02</span><span class="faq-question-text">¿Pueden adaptar el video a diferentes formatos?</span><span class="faq-toggle">+</span></button><div class="faq-answer" id="faq-answer-1"><div class="faq-answer-inner"><p>Podemos preparar versiones verticales, horizontales o cuadradas según las necesidades acordadas para el proyecto.</p></div></div></article>
+<article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2" data-faq="2"><span class="faq-number">03</span><span class="faq-question-text">¿Cómo funcionan las revisiones?</span><span class="faq-toggle">+</span></button><div class="faq-answer" id="faq-answer-2"><div class="faq-answer-inner"><p>Compartimos una versión para revisión y aplicamos los comentarios y cambios que se hayan acordado.</p></div></div></article>
+<article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3" data-faq="3"><span class="faq-number">04</span><span class="faq-question-text">¿Cómo se entregan los archivos finales?</span><span class="faq-toggle">+</span></button><div class="faq-answer" id="faq-answer-3"><div class="faq-answer-inner"><p>Entregamos las versiones finales en las orientaciones y formatos definidos para el proyecto.</p></div></div></article>
+<article class="faq-item"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4" data-faq="4"><span class="faq-number">05</span><span class="faq-question-text">¿Cómo solicito una cotización?</span><span class="faq-toggle">+</span></button><div class="faq-answer" id="faq-answer-4"><div class="faq-answer-inner"><p>Puedes usar el formulario de esta página para preparar un mensaje y continuar la conversación por WhatsApp.</p></div></div></article>
+</div>
+</div>
+</section>
 <section class="smart-contact" id="contact">
 <div class="container">
 <div class="contact-builder-head reveal"><div><div class="lang-badge" data-en="LET'S START" data-es="EMPECEMOS" style="display:inline-block">EMPECEMOS</div><h2 id="contact-view-title" data-en="Tell us about the video you need." data-es="Cuéntanos qué video necesitas.">Cuéntanos qué video necesitas.</h2></div><p id="contact-view-intro" data-en="Choose a few editing options and we will prepare your WhatsApp message. No long forms and no commitment." data-es="Selecciona algunas opciones de edición y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.">Selecciona algunas opciones de edición y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.</p></div>
@@ -1479,6 +1508,7 @@
       if(typeof renderWebSector === "function"){ renderWebSector(activeWebSectorStage); }
       if(typeof updateSmartContact === "function"){ updateSmartContact(); }
       if(typeof refreshServiceViewContact === "function"){ refreshServiceViewContact(); }
+      if(typeof renderFaq === "function"){ renderFaq(); }
       document.querySelectorAll(".mini-arrow").forEach((arrow)=>arrow.dataset.label=selected==="en"?"EXPLORE":"EXPLORAR");
     }
 
@@ -1773,6 +1803,53 @@
       video:{es:{title:"Cuéntanos qué video necesitas.",intro:"Selecciona algunas opciones de edición y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.",goals:{quality:"Mejorar la edición",clarity:"Comunicar con claridad",adapt:"Adaptar a formatos",delivery:"Preparar la entrega"}},en:{title:"Tell us about the video you need.",intro:"Choose a few editing options and we will prepare your WhatsApp message. No long forms and no commitment.",goals:{quality:"Improve the edit",clarity:"Communicate clearly",adapt:"Adapt to formats",delivery:"Prepare delivery"}}},
       web:{es:{title:"Cuéntanos qué página web necesitas.",intro:"Selecciona algunas opciones de creación web y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.",goals:{quality:"Definir la estructura",clarity:"Presentar la marca",adapt:"Adaptar a dispositivos",delivery:"Publicar la web"}},en:{title:"Tell us about the website you need.",intro:"Choose a few website options and we will prepare your WhatsApp message. No long forms and no commitment.",goals:{quality:"Define the structure",clarity:"Present the brand",adapt:"Adapt to devices",delivery:"Launch the website"}}}
     };
+    const faqBadge=document.getElementById("faq-badge");
+    const faqTitle=document.getElementById("faq-title");
+    const faqIntro=document.getElementById("faq-intro");
+    const faqItems=Array.from(document.querySelectorAll(".faq-item"));
+    const faqButtons=Array.from(document.querySelectorAll(".faq-question"));
+    let activeFaq=0;
+    const faqContent={
+      video:{
+        es:{badge:"PREGUNTAS FRECUENTES",title:"Preguntas sobre edición de video.",intro:"Resolvemos las dudas principales antes de comenzar un proyecto de edición.",items:[
+          ["¿Qué material debo enviar?","Necesitamos los archivos originales, referencias, indicaciones y el objetivo principal del video."],
+          ["¿Pueden adaptar el video a diferentes formatos?","Podemos preparar versiones verticales, horizontales o cuadradas según las necesidades acordadas para el proyecto."],
+          ["¿Cómo funcionan las revisiones?","Compartimos una versión para revisión y aplicamos los comentarios y cambios que se hayan acordado."],
+          ["¿Cómo se entregan los archivos finales?","Entregamos las versiones finales en las orientaciones y formatos definidos para el proyecto."],
+          ["¿Cómo solicito una cotización?","Puedes usar el formulario de esta página para preparar un mensaje y continuar la conversación por WhatsApp."]
+        ]},
+        en:{badge:"FREQUENTLY ASKED QUESTIONS",title:"Questions about video editing.",intro:"We answer the main questions before starting an editing project.",items:[
+          ["What footage should I send?","We need the original files, references, instructions and the video's main purpose."],
+          ["Can you adapt the video to different formats?","We can prepare vertical, horizontal or square versions according to the agreed project needs."],
+          ["How do revisions work?","We share a version for review and apply the comments and changes that were agreed upon."],
+          ["How are the final files delivered?","We deliver the final versions in the orientations and formats defined for the project."],
+          ["How do I request a quote?","Use the form on this page to prepare a message and continue the conversation on WhatsApp."]
+        ]}
+      },
+      web:{
+        es:{badge:"PREGUNTAS FRECUENTES",title:"Preguntas sobre creación web.",intro:"Lo esencial antes de comenzar el diseño y la construcción de una página.",items:[
+          ["¿Qué información debo enviar para comenzar?","Necesitamos el objetivo de la web, información de la marca, textos disponibles, servicios, datos de contacto y referencias visuales."],
+          ["¿Qué tipos de páginas web crean?","Creamos landing pages, webs para empresas y portafolios profesionales según las necesidades del proyecto."],
+          ["¿La página funciona en celulares y computadoras?","Diseñamos la experiencia para que se adapte claramente a computadoras, tabletas y teléfonos."],
+          ["¿Cómo funcionan el dominio y el alojamiento?","La configuración final se realiza usando el dominio y el alojamiento acordados antes de comenzar el proyecto."],
+          ["¿Cómo se revisa y publica la página?","Compartimos la web para revisión, aplicamos los cambios acordados y preparamos la publicación de la versión final."]
+        ]},
+        en:{badge:"FREQUENTLY ASKED QUESTIONS",title:"Questions about website creation.",intro:"The essentials before starting the design and build of a website.",items:[
+          ["What information should I send to get started?","We need the website's purpose, brand information, available copy, services, contact details and visual references."],
+          ["What types of websites do you create?","We create landing pages, business websites and professional portfolios according to the project's needs."],
+          ["Will the website work on phones and computers?","We design the experience to adapt clearly across computers, tablets and phones."],
+          ["How do domain and hosting work?","The final setup uses the domain and hosting agreed upon before the project begins."],
+          ["How is the website reviewed and launched?","We share the website for review, apply the agreed changes and prepare the final version for launch."]
+        ]}
+      }
+    };
+    function renderFaq(){
+      const lang=document.documentElement.lang==="en"?"en":"es";
+      const copy=faqContent[activeServiceView][lang];
+      faqBadge.textContent=copy.badge;faqTitle.textContent=copy.title;faqIntro.textContent=copy.intro;
+      faqItems.forEach((item,index)=>{const open=index===activeFaq;const button=item.querySelector(".faq-question");item.classList.toggle("active",open);button.setAttribute("aria-expanded",String(open));item.querySelector(".faq-question-text").textContent=copy.items[index][0];item.querySelector(".faq-answer p").textContent=copy.items[index][1];});
+    }
+    faqButtons.forEach((button)=>button.addEventListener("click",()=>{const index=Number(button.dataset.faq);activeFaq=activeFaq===index?-1:index;renderFaq();}));
     function refreshServiceViewContact(){
       const lang=document.documentElement.lang==="en"?"en":"es";
       const copy=contactViewCopy[activeServiceView][lang];
@@ -1781,6 +1858,8 @@
     }
     function setServiceView(view,save=true){
       activeServiceView=view==="web"?"web":"video";
+      activeFaq=0;
+      renderFaq();
       serviceViewSections.forEach((section)=>{section.hidden=section.dataset.viewSection!==activeServiceView;});
       serviceViewControls.forEach((control)=>{
         const active=control.dataset.serviceViewSelect===activeServiceView;
