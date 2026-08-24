@@ -1,0 +1,11 @@
+name = "digital-forge-web"
+compatibility_date = "2026-08-24"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "digital-forge-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# Configure these as encrypted secrets in Cloudflare, never directly in this file:
+# ADMIN_TOKEN, RESEND_API_KEY, EMAIL_FROM, EMAIL_TO
