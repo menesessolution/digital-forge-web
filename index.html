@@ -309,6 +309,8 @@
       justify-content:space-between;
       background:rgba(255,255,255,.45);
       transition:.28s;
+      cursor:pointer;
+      overflow:hidden;
     }
 
     .service:hover{
@@ -345,6 +347,13 @@
 
     .service p.en{color:#888;margin-top:8px}
     .service .mini-arrow{font-size:20px;margin-top:16px}
+    .service:focus-visible{outline:2px solid #111;outline-offset:3px}
+    .service.active{grid-column:span 2;background:#111;color:#fff;transform:none;box-shadow:0 22px 50px rgba(0,0,0,.16)}
+    .service.active p{color:#bdbdbd}.service.active .mini-arrow{transform:rotate(90deg)}
+    .service-details{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .38s ease,opacity .28s ease;margin-top:0}.service-details-inner{overflow:hidden}.service.active .service-details{grid-template-rows:1fr;opacity:1;margin-top:20px}
+    .service-details ul{list-style:none;display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}.service-details li{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 9px;font:700 8px monospace;color:#d0d0d0}
+    .service-contact{appearance:none;border:1px solid #fff;border-radius:999px;background:#fff;color:#111;padding:10px 13px;font:800 10px "Inter",sans-serif;cursor:pointer}
+    @media(max-width:700px){.service.active{grid-column:span 1}.service{min-height:250px}}
 
     /* PROCESS */
     .process-head{
@@ -731,6 +740,14 @@
     }
     .metric span.en{color:#777;margin-top:4px}
 
+    /* SMART CONTACT */
+    .smart-contact{background:#080808;color:#fff;padding:100px 0}
+    .contact-builder-head{display:grid;grid-template-columns:1fr .8fr;gap:60px;align-items:end;margin-bottom:46px}.contact-builder-head h2{font-size:clamp(3rem,5.5vw,5.8rem);line-height:.92;letter-spacing:-.06em;margin-top:16px}.contact-builder-head p{color:#aaa;line-height:1.7;max-width:520px}
+    .contact-builder{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;align-items:stretch}.contact-questions,.contact-summary{border:1px solid #2d2d2d;border-radius:20px;background:#101010;padding:30px}.contact-question{padding:0 0 25px;margin-bottom:25px;border-bottom:1px solid #292929}.contact-question:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}.contact-question h3{font-size:13px;margin-bottom:14px}.choice-row{display:flex;flex-wrap:wrap;gap:8px}.choice-chip{appearance:none;border:1px solid #383838;border-radius:999px;background:transparent;color:#8e8e8e;padding:10px 13px;font:700 10px "Inter",sans-serif;cursor:pointer;transition:.22s ease}.choice-chip:hover,.choice-chip:focus-visible,.choice-chip.active{background:#f4f1ec;border-color:#f4f1ec;color:#111}
+    .contact-summary{display:flex;flex-direction:column;justify-content:space-between;background:#f4f1ec;color:#111}.summary-label{font:700 9px monospace;letter-spacing:.12em;color:#777}.summary-message{font-size:clamp(1.45rem,2.3vw,2.4rem);line-height:1.05;letter-spacing:-.045em;margin:24px 0 36px}.summary-selections{display:grid;gap:8px;margin-bottom:26px}.summary-selection{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #cac4bc;padding-top:9px;font-size:10px}.summary-selection span:first-child{color:#777}.smart-whatsapp{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#111;color:#fff;border-radius:999px;padding:15px 18px;font-size:12px;font-weight:800;transition:.25s ease}.smart-whatsapp:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+    @media(max-width:900px){.contact-builder-head,.contact-builder{grid-template-columns:1fr}.contact-builder-head{gap:24px}.contact-summary{min-height:390px}}
+    @media(max-width:600px){.smart-contact{padding:75px 0}.contact-questions,.contact-summary{padding:22px}.choice-row{display:grid;grid-template-columns:1fr 1fr}.choice-chip{text-align:left}.summary-message{font-size:1.65rem}}
+
     /* FOOTER */
     footer{
       background:var(--white);
@@ -960,48 +977,48 @@
 <a class="pill" data-en="View All →" data-es="Ver todos →" href="#contact" style="border-color:#111">Ver todos →</a>
 </div>
 <div class="services-grid">
-<article class="service reveal">
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="shorts">
 <div class="service-icon">⚡</div>
 <div>
 <h3 data-en="Shorts Editing" data-es="Edición de Shorts">Edición de Shorts</h3>
 <p data-en="Short videos that capture attention and make an impact." data-es="Videos cortos que capturan atención y generan impacto.">Videos cortos que capturan atención y generan impacto.</p>
-
+<div class="service-details"><div class="service-details-inner"><ul><li data-en="PACING" data-es="RITMO">RITMO</li><li data-en="CAPTIONS" data-es="SUBTÍTULOS">SUBTÍTULOS</li><li data-en="FORMATS" data-es="FORMATOS">FORMATOS</li></ul><button class="service-contact" type="button" data-select-service="shorts" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div>
 <div class="mini-arrow">→</div>
 </div>
 </article>
-<article class="service reveal">
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="strategy">
 <div class="service-icon">◎</div>
 <div>
 <h3 data-en="Content Strategy" data-es="Estrategia de Contenido">Estrategia de Contenido</h3>
 <p data-en="Custom plans to grow your audience." data-es="Planes personalizados para hacer crecer tu audiencia.">Planes personalizados para hacer crecer tu audiencia.</p>
-
+<div class="service-details"><div class="service-details-inner"><ul><li data-en="TOPICS" data-es="TEMAS">TEMAS</li><li data-en="HOOKS" data-es="GANCHOS">GANCHOS</li><li data-en="PLANNING" data-es="PLANIFICACIÓN">PLANIFICACIÓN</li></ul><button class="service-contact" type="button" data-select-service="strategy" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div>
 <div class="mini-arrow">→</div>
 </div>
 </article>
-<article class="service reveal">
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="social">
 <div class="service-icon">◉</div>
 <div>
 <h3 data-en="Social Media Management" data-es="Gestión de Redes">Gestión de Redes</h3>
 <p data-en="We manage your socials so you can focus on your business." data-es="Manejamos tus redes para que te enfoques en tu negocio.">Manejamos tus redes para que te enfoques en tu negocio.</p>
-
+<div class="service-details"><div class="service-details-inner"><ul><li data-en="ORGANIZATION" data-es="ORGANIZACIÓN">ORGANIZACIÓN</li><li data-en="PUBLISHING" data-es="PUBLICACIÓN">PUBLICACIÓN</li><li data-en="CONSISTENCY" data-es="CONSISTENCIA">CONSISTENCIA</li></ul><button class="service-contact" type="button" data-select-service="social" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div>
 <div class="mini-arrow">→</div>
 </div>
 </article>
-<article class="service reveal">
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="ads">
 <div class="service-icon">▥</div>
 <div>
 <h3 data-en="Paid Advertising" data-es="Publicidad Digital">Publicidad Digital</h3>
 <p data-en="Campaigns that convert and deliver results." data-es="Campañas que convierten y generan resultados.">Campañas que convierten y generan resultados.</p>
-
+<div class="service-details"><div class="service-details-inner"><ul><li data-en="CREATIVE" data-es="CREATIVIDAD">CREATIVIDAD</li><li data-en="CAMPAIGNS" data-es="CAMPAÑAS">CAMPAÑAS</li><li data-en="OPTIMIZATION" data-es="OPTIMIZACIÓN">OPTIMIZACIÓN</li></ul><button class="service-contact" type="button" data-select-service="ads" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div>
 <div class="mini-arrow">→</div>
 </div>
 </article>
-<article class="service reveal">
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="design">
 <div class="service-icon">✥</div>
 <div>
 <h3 data-en="Visual Design" data-es="Diseño Visual">Diseño Visual</h3>
 <p data-en="Designs that communicate, connect and sell." data-es="Diseños que comunican, conectan y venden.">Diseños que comunican, conectan y venden.</p>
-
+<div class="service-details"><div class="service-details-inner"><ul><li data-en="IDENTITY" data-es="IDENTIDAD">IDENTIDAD</li><li data-en="SOCIAL ASSETS" data-es="PIEZAS PARA REDES">PIEZAS PARA REDES</li><li data-en="CONSISTENCY" data-es="CONSISTENCIA">CONSISTENCIA</li></ul><button class="service-contact" type="button" data-select-service="design" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div>
 <div class="mini-arrow">→</div>
 </div>
 </article>
@@ -1097,8 +1114,21 @@
 </div>
 </div>
 </section>
+<section class="smart-contact" id="contact">
+<div class="container">
+<div class="contact-builder-head reveal"><div><div class="lang-badge" data-en="LET'S START" data-es="EMPECEMOS" style="display:inline-block">EMPECEMOS</div><h2 data-en="Tell us what your brand needs." data-es="Cuéntanos qué necesita tu marca.">Cuéntanos qué necesita tu marca.</h2></div><p data-en="Choose a few options and we will prepare your WhatsApp message. No long forms and no commitment." data-es="Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.">Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.</p></div>
+<div class="contact-builder reveal">
+<div class="contact-questions">
+<div class="contact-question"><h3 data-en="1. What service interests you?" data-es="1. ¿Qué servicio te interesa?">1. ¿Qué servicio te interesa?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="service" data-choice="shorts" data-en="Shorts Editing" data-es="Edición de Shorts">Edición de Shorts</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="strategy" data-en="Content Strategy" data-es="Estrategia de Contenido">Estrategia de Contenido</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="social" data-en="Social Media" data-es="Gestión de Redes">Gestión de Redes</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="ads" data-en="Paid Advertising" data-es="Publicidad Digital">Publicidad Digital</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="design" data-en="Visual Design" data-es="Diseño Visual">Diseño Visual</button></div></div>
+<div class="contact-question"><h3 data-en="2. What type of content do you create?" data-es="2. ¿Qué tipo de contenido creas?">2. ¿Qué tipo de contenido creas?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="content" data-choice="educational" data-en="Educational" data-es="Educativo">Educativo</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="personal" data-en="Personal Brand" data-es="Marca personal">Marca personal</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="business" data-en="Product or Service" data-es="Producto o servicio">Producto o servicio</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="unsure" data-en="Not sure yet" data-es="Aún no lo sé">Aún no lo sé</button></div></div>
+<div class="contact-question"><h3 data-en="3. What is your main goal?" data-es="3. ¿Cuál es tu objetivo principal?">3. ¿Cuál es tu objetivo principal?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="goal" data-choice="consistency" data-en="Post consistently" data-es="Publicar con consistencia">Publicar con consistencia</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="quality" data-en="Improve quality" data-es="Mejorar la calidad">Mejorar la calidad</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="repurpose" data-en="Repurpose content" data-es="Reutilizar contenido">Reutilizar contenido</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="platforms" data-en="Grow across platforms" data-es="Crecer en plataformas">Crecer en plataformas</button></div></div>
+</div>
+<aside class="contact-summary"><div><span class="summary-label" data-en="YOUR MESSAGE" data-es="TU MENSAJE">TU MENSAJE</span><p class="summary-message" id="summary-message">Hola Digital Forge. Me interesa la edición de Shorts para contenido educativo y quiero publicar con más consistencia.</p><div class="summary-selections"><div class="summary-selection"><span data-en="Service" data-es="Servicio">Servicio</span><strong id="summary-service">Edición de Shorts</strong></div><div class="summary-selection"><span data-en="Content" data-es="Contenido">Contenido</span><strong id="summary-content">Educativo</strong></div><div class="summary-selection"><span data-en="Goal" data-es="Objetivo">Objetivo</span><strong id="summary-goal">Publicar con consistencia</strong></div></div></div><a class="smart-whatsapp" id="smart-whatsapp" href="https://wa.me/19046854659" target="_blank" rel="noopener noreferrer"><span data-en="Continue on WhatsApp" data-es="Continuar en WhatsApp">Continuar en WhatsApp</span><span>→</span></a></aside>
+</div>
+</div>
+</section>
 </main>
-<footer id="contact">
+<footer id="contact-footer">
 <div class="container">
 <div class="footer-grid">
 <div class="footer-brand">
@@ -1204,6 +1234,7 @@
       if(typeof renderStage === "function"){ renderStage(activeStage, false); }
       if(typeof renderProcess === "function"){ renderProcess(activeProcess, false); }
       if(typeof renderFormat === "function"){ renderFormat(activeFormat, false); }
+      if(typeof updateSmartContact === "function"){ updateSmartContact(); }
     }
 
     const engine = document.getElementById("content-engine");
@@ -1307,6 +1338,51 @@
     formatNext.addEventListener("click",()=>renderFormat(activeFormat+1));
     systemEngine.addEventListener("mouseenter",()=>clearInterval(formatTimer));
     systemEngine.addEventListener("mouseleave",startFormatTimer);
+
+    const serviceCards = Array.from(document.querySelectorAll("[data-service-card]"));
+    function toggleServiceCard(card){
+      const opening=!card.classList.contains("active");
+      serviceCards.forEach((item)=>{item.classList.remove("active");item.setAttribute("aria-expanded","false");});
+      if(opening){card.classList.add("active");card.setAttribute("aria-expanded","true");}
+    }
+    serviceCards.forEach((card)=>{
+      card.addEventListener("click",()=>toggleServiceCard(card));
+      card.addEventListener("keydown",(event)=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();toggleServiceCard(card);}});
+    });
+
+    const smartContact = document.getElementById("contact");
+    const choiceButtons = Array.from(document.querySelectorAll("[data-choice-group]"));
+    const serviceContactButtons = Array.from(document.querySelectorAll("[data-select-service]"));
+    const summaryMessage = document.getElementById("summary-message");
+    const summaryService = document.getElementById("summary-service");
+    const summaryContent = document.getElementById("summary-content");
+    const summaryGoal = document.getElementById("summary-goal");
+    const smartWhatsapp = document.getElementById("smart-whatsapp");
+    const smartSelections={service:"shorts",content:"educational",goal:"consistency"};
+    const smartLabels={
+      service:{shorts:{es:"Edición de Shorts",en:"Shorts Editing"},strategy:{es:"Estrategia de Contenido",en:"Content Strategy"},social:{es:"Gestión de Redes",en:"Social Media Management"},ads:{es:"Publicidad Digital",en:"Paid Advertising"},design:{es:"Diseño Visual",en:"Visual Design"}},
+      content:{educational:{es:"contenido educativo",en:"educational content"},personal:{es:"una marca personal",en:"a personal brand"},business:{es:"un producto o servicio",en:"a product or service"},unsure:{es:"contenido que aún estoy definiendo",en:"content I am still defining"}},
+      goal:{consistency:{es:"publicar con más consistencia",en:"publish more consistently"},quality:{es:"mejorar la calidad de mi contenido",en:"improve my content quality"},repurpose:{es:"reutilizar mejor mi contenido",en:"repurpose my content more effectively"},platforms:{es:"crecer en diferentes plataformas",en:"grow across different platforms"}}
+    };
+    function updateSmartContact(){
+      const lang=document.documentElement.lang==="en"?"en":"es";
+      const service=smartLabels.service[smartSelections.service][lang];
+      const content=smartLabels.content[smartSelections.content][lang];
+      const goal=smartLabels.goal[smartSelections.goal][lang];
+      const message=lang==="en"?`Hello Digital Forge. I'm interested in ${service} for ${content}, and my goal is to ${goal}.`:`Hola Digital Forge. Me interesa ${service} para ${content} y quiero ${goal}.`;
+      summaryMessage.textContent=message;
+      summaryService.textContent=service;
+      summaryContent.textContent=content.charAt(0).toUpperCase()+content.slice(1);
+      summaryGoal.textContent=goal.charAt(0).toUpperCase()+goal.slice(1);
+      smartWhatsapp.href="https://wa.me/19046854659?text="+encodeURIComponent(message);
+    }
+    function selectSmartChoice(group,value){
+      smartSelections[group]=value;
+      choiceButtons.filter((button)=>button.dataset.choiceGroup===group).forEach((button)=>button.classList.toggle("active",button.dataset.choice===value));
+      updateSmartContact();
+    }
+    choiceButtons.forEach((button)=>button.addEventListener("click",()=>selectSmartChoice(button.dataset.choiceGroup,button.dataset.choice)));
+    serviceContactButtons.forEach((button)=>button.addEventListener("click",(event)=>{event.stopPropagation();selectSmartChoice("service",button.dataset.selectService);smartContact.scrollIntoView({behavior:"smooth",block:"start"});}));
 
     let savedLanguage = "es";
     try{ savedLanguage = localStorage.getItem("digitalForgeLanguage") || "es"; }catch(e){}
