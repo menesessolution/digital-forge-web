@@ -167,8 +167,6 @@
       gap:12px;
       margin-top:34px;
     }
-    .mode-switch{display:inline-flex;align-items:center;padding:4px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(255,255,255,.04);margin-bottom:24px}.mode-option{appearance:none;border:0;border-radius:999px;background:transparent;color:#888;padding:9px 13px;font:800 10px "Inter",sans-serif;letter-spacing:.04em;cursor:pointer;transition:.25s ease}.mode-option.active{background:#f3f0eb;color:#111}.mode-option:focus-visible{outline:2px solid #fff;outline-offset:2px}
-
     .hero-visual{
       position:relative;
       min-height:560px;
@@ -234,16 +232,7 @@
     .format-cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:300px}.format-chip{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:10px 14px;color:#bbb;font:700 9px monospace;animation:chipFloat 3.6s ease-in-out infinite}.format-chip:nth-child(2){animation-delay:-.8s}.format-chip:nth-child(3){animation-delay:-1.6s}.format-chip:nth-child(4){animation-delay:-2.4s}.format-chip:nth-child(5){animation-delay:-3.2s}
     @keyframes chipFloat{50%{transform:translateY(-6px);color:#fff;border-color:rgba(255,255,255,.42)}}
     .results-system{width:100%;display:grid;grid-template-columns:.8fr auto 1.2fr;align-items:center;gap:12px}.source-piece{aspect-ratio:1;border:1px solid rgba(255,255,255,.3);border-radius:50%;display:grid;place-items:center;text-align:center;white-space:pre-line;font:700 9px/1.3 monospace}.result-stack{display:grid;gap:7px}.result-piece{border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:9px 10px;background:rgba(255,255,255,.035);font:700 8px monospace;color:#bbb}.system-arrow{color:#888}
-    .web-builder{position:absolute;inset:0 0 76px;display:none;flex-direction:column;background:#ece8e2;color:#111;z-index:3}.visual-card[data-mode="web"] .visual-shell{display:none}.visual-card[data-mode="web"] .web-builder{display:flex}.visual-card[data-mode="web"]::after{opacity:0}
-    .web-browser-bar{height:48px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:0 15px;border-bottom:1px solid #cbc5bd;background:#f8f6f2}.browser-dots{display:flex;gap:5px}.browser-dots span{width:7px;height:7px;border-radius:50%;background:#9d9890}.browser-address{justify-self:center;border:1px solid #d0cac2;border-radius:999px;background:#fff;padding:6px 18px;font:700 8px monospace;color:#777}.browser-live{font:800 7px monospace;color:#4e6a54}
-    .web-builder-body{flex:1;display:grid;grid-template-columns:128px 1fr;min-height:0}.web-sitemap{padding:17px 12px;border-right:1px solid #cbc5bd;background:#e2ddd6}.web-sitemap-label{display:block;font:700 8px monospace;color:#858078;margin-bottom:12px}.web-step{appearance:none;width:100%;border:0;border-radius:8px;background:transparent;color:#777;text-align:left;padding:10px 9px;font:700 8px "Inter",sans-serif;cursor:pointer;transition:.22s ease;display:flex;gap:8px;align-items:center}.web-step span{font:700 7px monospace;color:#aaa}.web-step.active,.web-step:hover{background:#111;color:#fff}.web-step.active span{color:#888}
-    .web-workspace{position:relative;padding:18px;overflow:hidden;background-image:radial-gradient(#c7c1b8 .7px,transparent .7px);background-size:12px 12px}.web-stage-copy{position:absolute;left:22px;top:20px;z-index:3;max-width:180px}.web-stage-copy span{font:700 8px monospace;color:#777}.web-stage-copy h3{font-size:21px;line-height:.95;letter-spacing:-.05em;margin:8px 0}.web-stage-copy p{font-size:9px;line-height:1.45;color:#777}
-    .site-preview{position:absolute;width:58%;height:77%;right:18px;top:16px;border:1px solid #a9a39b;border-radius:10px;background:#fff;box-shadow:10px 12px 0 rgba(0,0,0,.08);overflow:hidden;transition:.45s cubic-bezier(.2,.75,.25,1)}.site-preview-nav{height:28px;border-bottom:1px solid #ddd8d0;display:flex;align-items:center;justify-content:space-between;padding:0 10px}.site-logo{width:38px;height:5px;background:#111;border-radius:2px}.site-links{display:flex;gap:5px}.site-links i{display:block;width:20px;height:3px;background:#bbb6ae;border-radius:2px}.site-preview-hero{height:115px;padding:18px 14px;background:#111;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}.site-kicker{width:36px;height:4px;background:#777;margin-bottom:9px}.site-headline{font-size:19px;line-height:.88;letter-spacing:-.06em;width:82%}.site-cta{width:48px;height:12px;border-radius:999px;background:#fff;margin-top:11px}.site-preview-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:9px}.site-mini-card{height:46px;border:1px solid #d5d0c8;border-radius:6px;background:#f5f2ed}
-    .web-builder[data-web-stage="0"] .site-preview *{color:transparent!important}.web-builder[data-web-stage="0"] .site-preview-hero{background:#f7f4ef;border-bottom:1px dashed #aaa}.web-builder[data-web-stage="0"] .site-logo,.web-builder[data-web-stage="0"] .site-links i,.web-builder[data-web-stage="0"] .site-kicker,.web-builder[data-web-stage="0"] .site-cta{background:#d0cac2}.web-builder[data-web-stage="0"] .site-headline{height:25px;border:1px dashed #aaa}
-    .mobile-site-preview{position:absolute;right:8px;bottom:4px;width:74px;height:130px;border:2px solid #111;border-radius:13px;background:#fff;padding:5px;opacity:0;transform:translateY(12px);transition:.4s ease;box-shadow:7px 8px 0 rgba(0,0,0,.12)}.mobile-site-preview::before{content:"";display:block;height:50px;border-radius:7px;background:#111;margin-bottom:6px}.mobile-site-preview::after{content:"";display:block;height:4px;background:#aaa;box-shadow:0 9px 0 #d0cac2,0 18px 0 #d0cac2}.web-builder[data-web-stage="2"] .site-preview{width:51%;transform:translateX(-28px) scale(.92)}.web-builder[data-web-stage="2"] .mobile-site-preview{opacity:1;transform:none}
-    .publish-state{position:absolute;right:28px;top:50%;transform:translateY(-50%) scale(.96);width:220px;border-radius:13px;background:#111;color:#fff;padding:20px;opacity:0;transition:.4s ease;box-shadow:12px 14px 0 rgba(0,0,0,.12)}.publish-check{width:30px;height:30px;border:1px solid #777;border-radius:50%;display:grid;place-items:center;margin-bottom:25px}.publish-state strong{display:block;font-size:19px;line-height:.95}.publish-state span{display:block;color:#888;font:700 8px monospace;margin-top:8px}.web-builder[data-web-stage="3"] .site-preview{opacity:.18;transform:scale(.93)}.web-builder[data-web-stage="3"] .publish-state{opacity:1;transform:translateY(-50%) scale(1)}
-    @media(max-width:700px){.web-builder{inset:0 0 72px}.web-browser-bar{height:40px;padding:0 9px}.browser-address{padding:5px 9px}.web-builder-body{grid-template-columns:1fr}.web-sitemap{display:flex;overflow-x:auto;padding:8px;border-right:0;border-bottom:1px solid #cbc5bd}.web-sitemap-label{display:none}.web-step{min-width:88px;padding:7px}.web-workspace{padding:10px}.web-stage-copy{left:13px;top:12px;max-width:118px}.web-stage-copy h3{font-size:16px}.web-stage-copy p{display:none}.site-preview{width:57%;height:72%;right:8px;top:10px}.site-preview-hero{height:76px;padding:10px}.site-headline{font-size:13px}.site-preview-cards{padding:5px}.site-mini-card{height:28px}.mobile-site-preview{width:56px;height:100px}.publish-state{width:160px;right:12px;padding:14px}.publish-state strong{font-size:15px}}
-    @media(prefers-reduced-motion:reduce){.visual-card,.visual-card::before,.visual-stage,.stage-view,.format-chip,.site-preview,.mobile-site-preview,.publish-state{animation:none!important;transition:none!important}}
+    @media(prefers-reduced-motion:reduce){.visual-card,.visual-card::before,.visual-stage,.stage-view,.format-chip{animation:none!important;transition:none!important}}
 
     .trust-card{
       position:absolute;
@@ -349,14 +338,14 @@
 
     .service p.en{color:#888;margin-top:8px}
     .service .mini-arrow{font-size:20px;margin-top:16px}
-    .service-category-switch{display:inline-flex;padding:4px;border:1px solid #c9c3ba;border-radius:999px;margin-bottom:24px}.service-category{appearance:none;border:0;border-radius:999px;background:transparent;color:#777;padding:11px 16px;font:800 10px "Inter",sans-serif;cursor:pointer}.service-category.active{background:#111;color:#fff}.service-panel[hidden]{display:none}
+    .service-panel[hidden]{display:none}
     .service:focus-visible{outline:2px solid #111;outline-offset:3px}
     .service.active{grid-column:span 2;background:#111;color:#fff;transform:none;box-shadow:0 22px 50px rgba(0,0,0,.16)}
     .service.active p{color:#bdbdbd}.service.active .mini-arrow{transform:rotate(90deg)}
     .service-details{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .38s ease,opacity .28s ease;margin-top:0}.service-details-inner{overflow:hidden}.service.active .service-details{grid-template-rows:1fr;opacity:1;margin-top:20px}
     .service-details ul{list-style:none;display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}.service-details li{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 9px;font:700 8px monospace;color:#d0d0d0}
     .service-contact{appearance:none;border:1px solid #fff;border-radius:999px;background:#fff;color:#111;padding:10px 13px;font:800 10px "Inter",sans-serif;cursor:pointer}
-    @media(max-width:700px){.service.active{grid-column:span 1}.service{min-height:250px}.mode-switch{display:flex;width:max-content;max-width:100%}.mode-option{padding:8px 10px;font-size:9px}.service-category-switch{display:flex;overflow-x:auto;max-width:100%}.service-category{white-space:nowrap}}
+    @media(max-width:700px){.service.active{grid-column:span 1}.service{min-height:250px}}
 
     /* PROCESS */
     .process-head{
@@ -715,6 +704,78 @@
     @media(max-width:650px){.core-idea{padding:22px;font-size:17px}.phone-hook{font-size:12px}.carousel-headline{font-size:19px}}
     @media(prefers-reduced-motion:reduce){.system-core::before,.core-idea::after,.format-scene{animation:none!important;transition:none!important}}
 
+    /* WEBSITE CREATION — INDEPENDENT SECTOR */
+    .web-sector{
+      position:relative;
+      overflow:hidden;
+      background:#dfe5e5;
+      color:#111;
+      border-top:1px solid #b9c2c1;
+      border-bottom:1px solid #b9c2c1;
+    }
+    .web-sector::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(17,17,17,.045) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(17,17,17,.045) 1px,transparent 1px);
+      background-size:32px 32px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 78%);
+    }
+    .web-sector .container{position:relative;z-index:1}
+    .web-sector-head{display:grid;grid-template-columns:1.05fr .7fr;gap:70px;align-items:end;margin-bottom:48px}
+    .web-sector-head h2{font-size:clamp(3.3rem,6vw,6.5rem);line-height:.9;letter-spacing:-.065em;margin-top:17px;max-width:840px}
+    .web-sector-head h2 span{display:block;color:#687575}
+    .web-sector-intro{font-size:15px;line-height:1.75;color:#465050;max-width:570px}
+    .web-studio{display:grid;grid-template-columns:.62fr 1.38fr;min-height:570px;border:1px solid #aeb9b8;border-radius:26px;overflow:hidden;background:rgba(247,249,248,.7);box-shadow:0 30px 80px rgba(35,49,49,.13)}
+    .web-studio-copy{background:#0b1010;color:#fff;padding:35px 30px;display:flex;flex-direction:column;min-width:0}
+    .web-studio-label{font:700 9px monospace;letter-spacing:.14em;color:#758181;margin-bottom:26px}
+    .web-sector-steps{display:grid;gap:7px}
+    .web-sector-step{appearance:none;border:1px solid #293131;border-radius:12px;background:transparent;color:#7f8989;padding:15px 14px;text-align:left;display:grid;grid-template-columns:25px 1fr;gap:9px;align-items:center;font:800 10px "Inter",sans-serif;cursor:pointer;transition:.25s ease}
+    .web-sector-step span{font:700 8px monospace;color:#596262}
+    .web-sector-step:hover,.web-sector-step:focus-visible,.web-sector-step.active{background:#f3f6f5;border-color:#f3f6f5;color:#111;transform:translateX(4px)}
+    .web-sector-step.active span{color:#748080}
+    .web-active-copy{margin-top:auto;padding-top:35px}
+    .web-active-index{font:700 9px monospace;letter-spacing:.12em;color:#6d7777}
+    .web-active-title{font-size:clamp(1.9rem,3.2vw,3.2rem);line-height:.94;letter-spacing:-.055em;margin:13px 0 12px}
+    .web-active-text{color:#9ca6a5;font-size:12px;line-height:1.65;max-width:330px}
+    .web-sector-next{width:42px;height:42px;border:1px solid #4d5757;border-radius:50%;background:transparent;color:#fff;display:grid;place-items:center;margin-top:22px;cursor:pointer;transition:.25s ease}
+    .web-sector-next:hover{background:#fff;color:#111;transform:rotate(-12deg)}
+    .macbook-zone{position:relative;display:grid;place-items:center;padding:48px 44px 62px;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.94),rgba(236,241,240,.62) 58%,rgba(202,213,212,.5));overflow:hidden}
+    .macbook-zone::before{content:"WEB / DESIGN / BUILD / LAUNCH";position:absolute;right:-50px;top:50%;transform:rotate(90deg) translateY(-50%);font:700 9px monospace;letter-spacing:.18em;color:#8d9998}
+    .macbook{width:min(680px,92%);position:relative;filter:drop-shadow(0 28px 25px rgba(31,42,42,.22));transition:transform .3s ease}
+    .macbook-zone:hover .macbook{transform:translateY(-4px)}
+    .macbook-screen-shell{position:relative;aspect-ratio:16/10;border:10px solid #151919;border-bottom-width:14px;border-radius:18px 18px 8px 8px;background:#151919;overflow:hidden}
+    .macbook-camera{position:absolute;z-index:5;top:4px;left:50%;width:4px;height:4px;transform:translateX(-50%);border-radius:50%;background:#334242;box-shadow:0 0 0 2px #0b0d0d}
+    .macbook-display{height:100%;border-radius:8px 8px 3px 3px;background:#f5f5f2;overflow:hidden;position:relative}
+    .macbook-browser{height:34px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:0 12px;background:#e9ecea;border-bottom:1px solid #ced4d2}
+    .macbook-dots{display:flex;gap:5px}.macbook-dots i{width:7px;height:7px;border-radius:50%;background:#84908f}.macbook-address{justify-self:center;width:min(260px,58%);border:1px solid #c6cecc;border-radius:999px;background:#fff;text-align:center;padding:5px 10px;font:700 7px monospace;color:#707b7a}.macbook-status{font:800 7px monospace;color:#58715f}
+    .macbook-workspace{position:relative;height:calc(100% - 34px);overflow:hidden;background:#f7f7f4}
+    .macbook-base{height:15px;width:112%;margin-left:-6%;border-radius:2px 2px 18px 18px;background:linear-gradient(#c6ccca,#8e9695 70%,#747c7b);position:relative}
+    .macbook-base::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:15%;height:5px;background:#6f7776;border-radius:0 0 6px 6px}
+    .web-brief-board,.web-page-preview,.web-responsive-preview,.web-launch-state{position:absolute;inset:0;transition:opacity .42s ease,transform .5s cubic-bezier(.2,.75,.25,1);opacity:0;pointer-events:none}
+    .web-brief-board{padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:11px;background-image:radial-gradient(#c1c9c7 .8px,transparent .8px);background-size:14px 14px}
+    .brief-card{border:1px solid #c5cecc;border-radius:10px;background:rgba(255,255,255,.92);padding:15px;box-shadow:5px 6px 0 rgba(61,75,74,.06)}
+    .brief-card:first-child{grid-column:1/-1;background:#111;color:#fff}.brief-card span{display:block;font:700 7px monospace;color:#7b8785;margin-bottom:9px}.brief-card strong{font-size:15px;line-height:1}.brief-card i{display:block;height:4px;border-radius:3px;background:#c0c9c7;margin-top:7px}.brief-card:first-child i{background:#465150}
+    .web-page-preview{background:#fff;overflow:hidden}
+    .demo-nav{height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid #dde1df}.demo-logo{font-size:9px;font-weight:900;letter-spacing:-.02em}.demo-links{display:flex;gap:13px}.demo-links i{display:block;width:30px;height:4px;border-radius:2px;background:#aeb7b5}.demo-hero{height:150px;background:#111;color:#fff;padding:28px 26px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}.demo-hero::after{content:"";position:absolute;width:150px;height:150px;border:1px solid #3d4544;border-radius:50%;right:25px;top:-43px;box-shadow:0 0 0 24px rgba(255,255,255,.015),0 0 0 48px rgba(255,255,255,.009)}.demo-kicker{font:700 7px monospace;letter-spacing:.12em;color:#7f8a88;margin-bottom:8px}.demo-hero strong{font-size:27px;line-height:.87;letter-spacing:-.06em;max-width:280px;position:relative;z-index:1}.demo-cta{width:74px;height:18px;border-radius:999px;background:#dfe5e5;margin-top:14px}.demo-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:12px}.demo-card{height:62px;border:1px solid #d2d8d6;border-radius:8px;background:#f2f4f2;padding:10px}.demo-card::before{content:"";display:block;width:45%;height:5px;border-radius:3px;background:#111;margin-bottom:18px}.demo-card::after{content:"";display:block;width:84%;height:4px;border-radius:2px;background:#b4bdbb;box-shadow:0 8px 0 #d0d6d4}
+    .web-responsive-preview{display:flex;align-items:center;justify-content:center;gap:12px;background:#eef2f1;padding:28px}
+    .responsive-device{border:4px solid #111;background:#fff;overflow:hidden;box-shadow:8px 10px 0 rgba(44,57,56,.13)}.responsive-device::before{content:"";display:block;height:40%;background:#111}.responsive-device::after{content:"";display:block;height:5px;background:#8e9997;margin:12px 8px;box-shadow:0 12px 0 #ced5d3,0 24px 0 #ced5d3}.responsive-desktop{width:58%;height:70%;border-radius:8px}.responsive-tablet{width:21%;height:62%;border-radius:9px}.responsive-phone{width:12%;height:50%;border-radius:10px}
+    .web-launch-state{display:grid;place-items:center;background:rgba(245,247,246,.96);text-align:center}.launch-card{border:1px solid #bdc8c5;border-radius:14px;background:#fff;padding:24px 30px;box-shadow:12px 14px 0 rgba(47,61,60,.1)}.launch-check{width:40px;height:40px;margin:0 auto 17px;border-radius:50%;background:#111;color:#fff;display:grid;place-items:center}.launch-card strong{display:block;font-size:23px;line-height:.92;letter-spacing:-.045em}.launch-card span{display:block;font:700 8px monospace;color:#71807d;margin-top:11px}
+    .macbook[data-web-view="0"] .web-brief-board,.macbook[data-web-view="1"] .web-page-preview,.macbook[data-web-view="2"] .web-page-preview,.macbook[data-web-view="3"] .web-responsive-preview,.macbook[data-web-view="4"] .web-launch-state{opacity:1;transform:none}
+    .macbook[data-web-view="1"] .web-page-preview{filter:grayscale(1)}
+    .macbook[data-web-view="1"] .demo-nav,.macbook[data-web-view="1"] .demo-hero,.macbook[data-web-view="1"] .demo-card{background:#f7f7f4;color:transparent;border-style:dashed;border-color:#8f9997}
+    .macbook[data-web-view="1"] .demo-logo,.macbook[data-web-view="1"] .demo-kicker,.macbook[data-web-view="1"] .demo-hero strong{color:transparent;background:#c6cecc;border-radius:3px}.macbook[data-web-view="1"] .demo-hero strong{height:32px;width:55%}.macbook[data-web-view="1"] .demo-cta{background:#c6cecc}
+    .web-services-block{margin-top:80px;padding-top:52px;border-top:1px solid #aeb9b8}
+    .web-services-head{display:grid;grid-template-columns:1fr .7fr;gap:50px;align-items:end;margin-bottom:32px}.web-services-head h3{font-size:clamp(2.4rem,4.6vw,4.8rem);line-height:.94;letter-spacing:-.055em}.web-services-head p{color:#52605f;line-height:1.7;max-width:520px}
+    .web-sector .service{background:rgba(250,251,250,.82);border-color:#b8c2c0}.web-sector .service:hover{background:#fff}.web-sector .service.active{background:#111;color:#fff}.web-sector .service.active p{color:#bdbdbd}
+    .web-sector-points{display:grid;grid-template-columns:repeat(4,1fr);margin-top:20px;border-top:1px solid #aeb9b8;border-bottom:1px solid #aeb9b8}.web-sector-point{padding:21px 18px;border-right:1px solid #aeb9b8}.web-sector-point:last-child{border-right:0}.web-sector-point strong{display:block;font-size:12px;margin-bottom:5px}.web-sector-point span{display:block;font-size:10px;color:#6d7977}
+    @media(max-width:1000px){.web-sector-head,.web-services-head{grid-template-columns:1fr;gap:24px}.web-studio{grid-template-columns:1fr}.web-studio-copy{min-height:420px}.web-sector-steps{grid-template-columns:repeat(5,1fr)}.web-sector-step{grid-template-columns:1fr;text-align:center}.web-sector-step span{display:none}.web-active-copy{margin-top:32px}.macbook-zone{min-height:500px}.web-sector-points{grid-template-columns:1fr 1fr}.web-sector-point:nth-child(2){border-right:0}}
+    @media(max-width:650px){.web-sector-head h2{font-size:3.5rem}.web-studio{border-radius:18px}.web-studio-copy{padding:25px 20px;min-height:440px}.web-sector-steps{display:flex;overflow-x:auto;scrollbar-width:none}.web-sector-steps::-webkit-scrollbar{display:none}.web-sector-step{min-width:112px}.macbook-zone{padding:40px 12px 52px;min-height:340px}.macbook{width:98%}.macbook-screen-shell{border-width:6px;border-bottom-width:9px;border-radius:12px 12px 5px 5px}.macbook-browser{height:27px;padding:0 7px}.macbook-status{display:none}.macbook-workspace{height:calc(100% - 27px)}.web-brief-board{padding:13px;gap:6px}.brief-card{padding:8px}.brief-card strong{font-size:10px}.demo-nav{height:27px;padding:0 9px}.demo-links{gap:5px}.demo-links i{width:15px;height:3px}.demo-hero{height:92px;padding:13px}.demo-hero strong{font-size:17px;max-width:180px}.demo-cta{height:10px;width:46px;margin-top:8px}.demo-cards{padding:6px;gap:4px}.demo-card{height:36px;padding:5px}.demo-card::before{margin-bottom:8px}.responsive-device::after{margin:6px 4px}.launch-card{padding:15px}.launch-card strong{font-size:16px}.web-sector-points{grid-template-columns:1fr}.web-sector-point{border-right:0;border-bottom:1px solid #aeb9b8}.web-sector-point:last-child{border-bottom:0}}
+    @media(prefers-reduced-motion:reduce){.macbook,.web-brief-board,.web-page-preview,.web-responsive-preview,.web-launch-state,.web-sector-step{transition:none!important}}
+
     /* METRICS */
     .metrics{
       margin-top:22px;
@@ -904,9 +965,8 @@
 </a>
 <ul class="nav-links">
 <li><a data-en="Home" data-es="Inicio" href="#home">Inicio</a></li>
-<li><a data-en="Services" data-es="Servicios" href="#services">Servicios</a></li>
-<li><a data-en="Process" data-es="Proceso" href="#process">Proceso</a></li>
-<li><a data-en="System" data-es="Sistema" href="#system">Sistema</a></li>
+<li><a data-en="Video Editing" data-es="Edición de video" href="#services">Edición de video</a></li>
+<li><a data-en="Website Creation" data-es="Creación web" href="#web-creation">Creación web</a></li>
 <li><a data-en="Contact" data-es="Contacto" href="#contact">Contacto</a></li>
 </ul>
 <div aria-label="Language selector" class="language-switch" role="group"><button aria-pressed="true" class="lang-option" data-lang="es" type="button">ES</button><button aria-pressed="false" class="lang-option" data-lang="en" type="button">EN</button></div><a class="pill light" data-en="Let's Talk →" data-es="Hablemos →" href="#contact">Hablemos →</a>
@@ -915,12 +975,11 @@
 <div class="reveal">
 <div class="eyebrow">
 <span class="lang-badge" data-en="EN" data-es="ES">ES</span>
-<span class="eyebrow-text" id="hero-eyebrow">Edición de video hecha para tu identidad.</span>
+<span class="eyebrow-text" id="hero-eyebrow" data-en="Video editing built around your identity." data-es="Edición de video hecha para tu identidad.">Edición de video hecha para tu identidad.</span>
 </div>
-<div class="mode-switch" role="group" aria-label="Especialidad Digital Forge"><button class="mode-option active" type="button" data-mode="video" data-en="Video Editing" data-es="Edición de video">Edición de video</button><button class="mode-option" type="button" data-mode="web" data-en="Web Creation" data-es="Creación web">Creación web</button></div>
-<h1 id="hero-title">Edición de video que se siente de marca.</h1>
+<h1 id="hero-title" data-en="Video editing that feels like your brand." data-es="Edición de video que se siente de marca.">Edición de video que se siente de marca.</h1>
 <div class="hero-copy">
-<p id="hero-description">Editamos videos para marcas, personas y empresas, adaptando cada pieza a su mensaje, identidad y plataforma.</p>
+<p id="hero-description" data-en="We edit videos for brands, creators and companies, adapting every piece to its message, identity and platform." data-es="Editamos videos para marcas, personas y empresas, adaptando cada pieza a su mensaje, identidad y plataforma.">Editamos videos para marcas, personas y empresas, adaptando cada pieza a su mensaje, identidad y plataforma.</p>
 
 </div>
 <div class="hero-actions">
@@ -947,15 +1006,8 @@
 <div class="stage-view active" data-view="0"><div class="strategy-flow"><div class="flow-node" data-en="SOURCE" data-es="MATERIAL">MATERIAL</div><span class="flow-arrow">→</span><div class="flow-node" data-en="MOMENTS" data-es="MOMENTOS">MOMENTOS</div><span class="flow-arrow">→</span><div class="flow-node" data-en="SEQUENCE" data-es="SECUENCIA">SECUENCIA</div><span class="flow-arrow">→</span><div class="flow-node" data-en="FORMAT" data-es="FORMATO">FORMATO</div></div></div>
 <div class="stage-view" data-view="1"><div class="edit-board"><div class="edit-preview"></div><div class="timeline"><div class="track"><div class="clip"></div></div><div class="track"><div class="clip"></div></div><div class="track"><div class="clip"></div></div></div></div></div>
 <div class="stage-view" data-view="2"><div class="format-cloud"><span class="format-chip" data-en="CAPTIONS" data-es="SUBTÍTULOS">SUBTÍTULOS</span><span class="format-chip" data-en="TITLES" data-es="TÍTULOS">TÍTULOS</span><span class="format-chip" data-en="GRAPHICS" data-es="GRÁFICOS">GRÁFICOS</span><span class="format-chip" data-en="TRANSITIONS" data-es="TRANSICIONES">TRANSICIONES</span><span class="format-chip" data-en="BRAND STYLE" data-es="ESTILO DE MARCA">ESTILO DE MARCA</span></div></div>
-<div class="stage-view" data-view="3"><div class="results-system"><div class="source-piece" data-en="EDITED VIDEO" data-es="VIDEO EDITADO">VIDEO EDITADO</div><span class="system-arrow">→</span><div class="result-stack"><div class="result-piece">VERTICAL 9:16</div><div class="result-piece">HORIZONTAL 16:9</div><div class="result-piece">CAPTIONS</div><div class="result-piece">FINAL DELIVERY</div></div></div></div>
+<div class="stage-view" data-view="3"><div class="results-system"><div class="source-piece" data-en="EDITED VIDEO" data-es="VIDEO EDITADO">VIDEO EDITADO</div><span class="system-arrow">→</span><div class="result-stack"><div class="result-piece">VERTICAL 9:16</div><div class="result-piece">HORIZONTAL 16:9</div><div class="result-piece" data-en="CAPTIONS" data-es="SUBTÍTULOS">SUBTÍTULOS</div><div class="result-piece" data-en="FINAL DELIVERY" data-es="ENTREGA FINAL">ENTREGA FINAL</div></div></div></div>
 </div>
-</div>
-</div>
-<div class="web-builder" id="web-builder" data-web-stage="0">
-<div class="web-browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-address">digitalforge.site</div><div class="browser-live" data-en="● PREVIEW" data-es="● VISTA PREVIA">● VISTA PREVIA</div></div>
-<div class="web-builder-body">
-<aside class="web-sitemap"><span class="web-sitemap-label" data-en="WEB PROJECT" data-es="PROYECTO WEB">PROYECTO WEB</span><button class="web-step active" type="button" data-web-step="0"><span>01</span><strong data-en="Structure" data-es="Estructura">Estructura</strong></button><button class="web-step" type="button" data-web-step="1"><span>02</span><strong data-en="Design" data-es="Diseño">Diseño</strong></button><button class="web-step" type="button" data-web-step="2"><span>03</span><strong data-en="Responsive" data-es="Responsive">Responsive</strong></button><button class="web-step" type="button" data-web-step="3"><span>04</span><strong data-en="Launch" data-es="Publicación">Publicación</strong></button></aside>
-<div class="web-workspace"><div class="web-stage-copy"><span id="web-stage-kicker">01 / ESTRUCTURA</span><h3 id="web-stage-title">Organizamos la experiencia.</h3><p id="web-stage-description">Definimos páginas, secciones y el recorrido principal antes de diseñar.</p></div><div class="site-preview"><div class="site-preview-nav"><span class="site-logo"></span><span class="site-links"><i></i><i></i><i></i></span></div><div class="site-preview-hero"><span class="site-kicker"></span><strong class="site-headline" data-en="A WEBSITE THAT FEELS ON-BRAND" data-es="UNA WEB QUE SE SIENTE DE MARCA">UNA WEB QUE SE SIENTE DE MARCA</strong><span class="site-cta"></span></div><div class="site-preview-cards"><span class="site-mini-card"></span><span class="site-mini-card"></span><span class="site-mini-card"></span></div></div><div class="mobile-site-preview"></div><div class="publish-state"><div class="publish-check">✓</div><strong data-en="WEBSITE READY TO SHARE" data-es="WEB LISTA PARA COMPARTIR">WEB LISTA PARA COMPARTIR</strong><span>digitalforge.site → LIVE</span></div></div>
 </div>
 </div>
 <div class="trust-card">
@@ -966,6 +1018,7 @@
 <button class="arrow-dot" id="stage-next" type="button" aria-label="Siguiente etapa">→</button>
 </div>
 </div>
+</div>
 </section>
 </div>
 </header>
@@ -974,16 +1027,15 @@
 <div class="container">
 <div class="section-head reveal">
 <div>
-<div class="lang-badge" data-en="SERVICES" data-es="SERVICIOS" style="border-color:#bbb;display:inline-block">SERVICIOS</div>
-<h2 data-en="What we do" data-es="Lo que hacemos">Lo que hacemos</h2>
+<div class="lang-badge" data-en="VIDEO EDITING" data-es="EDICIÓN DE VIDEO" style="border-color:#bbb;display:inline-block">EDICIÓN DE VIDEO</div>
+<h2 data-en="Video editing services" data-es="Servicios de edición">Servicios de edición</h2>
 </div>
 <div>
-<p id="service-intro">Servicios de edición de video adaptados a tu material, mensaje y formato de entrega.</p>
+<p id="service-intro" data-en="Video editing services adapted to your footage, message and delivery format." data-es="Servicios de edición de video adaptados a tu material, mensaje y formato de entrega.">Servicios de edición de video adaptados a tu material, mensaje y formato de entrega.</p>
 
 </div>
 <a class="pill" data-en="View All →" data-es="Ver todos →" href="#contact" style="border-color:#111">Ver todos →</a>
 </div>
-<div class="service-category-switch" role="group" aria-label="Categoría de servicios"><button class="service-category active" type="button" data-service-category="video" data-en="Video Editing" data-es="Edición de video">Edición de video</button><button class="service-category" type="button" data-service-category="web" data-en="Web Creation" data-es="Creación web">Creación web</button></div>
 <div class="services-grid service-panel" id="video-service-panel" data-service-panel="video">
 <article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="shorts">
 <div class="service-icon">⚡</div>
@@ -1006,7 +1058,7 @@
 <article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="captions">
 <div class="service-icon">◉</div>
 <div>
-<h3 data-en="Captions & Motion Graphics" data-es="Subtítulos y Motion Graphics">Subtítulos y Motion Graphics</h3>
+<h3 data-en="Captions &amp; Motion Graphics" data-es="Subtítulos y Motion Graphics">Subtítulos y Motion Graphics</h3>
 <p data-en="Captions, animated text and visual elements that support the message." data-es="Subtítulos, textos animados y elementos visuales que acompañan el mensaje.">Subtítulos, textos animados y elementos visuales que acompañan el mensaje.</p>
 <div class="service-details"><div class="service-details-inner"><ul><li data-en="CAPTIONS" data-es="SUBTÍTULOS">SUBTÍTULOS</li><li data-en="ANIMATION" data-es="ANIMACIÓN">ANIMACIÓN</li><li data-en="VISUALS" data-es="GRÁFICOS">GRÁFICOS</li></ul><button class="service-contact" type="button" data-select-service="captions" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div>
 <div class="mini-arrow">→</div>
@@ -1036,7 +1088,7 @@
 <article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="businessweb"><div class="service-icon">▦</div><div><h3 data-en="Business Websites" data-es="Webs para Empresas">Webs para Empresas</h3><p data-en="Clear websites that present your company, services and contact information." data-es="Sitios claros para presentar tu empresa, servicios e información de contacto.">Sitios claros para presentar tu empresa, servicios e información de contacto.</p><div class="service-details"><div class="service-details-inner"><ul><li data-en="PAGES" data-es="PÁGINAS">PÁGINAS</li><li data-en="SERVICES" data-es="SERVICIOS">SERVICIOS</li><li data-en="CONTACT" data-es="CONTACTO">CONTACTO</li></ul><button class="service-contact" type="button" data-select-service="businessweb" data-project-type="web" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div><div class="mini-arrow">→</div></div></article>
 <article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="portfolio"><div class="service-icon">◫</div><div><h3 data-en="Professional Portfolios" data-es="Portafolios Profesionales">Portafolios Profesionales</h3><p data-en="A polished digital space to present your profile, services and selected work." data-es="Un espacio digital cuidado para presentar tu perfil, servicios y trabajos seleccionados.">Un espacio digital cuidado para presentar tu perfil, servicios y trabajos seleccionados.</p><div class="service-details"><div class="service-details-inner"><ul><li data-en="PROFILE" data-es="PERFIL">PERFIL</li><li data-en="PROJECTS" data-es="PROYECTOS">PROYECTOS</li><li data-en="CONTACT" data-es="CONTACTO">CONTACTO</li></ul><button class="service-contact" type="button" data-select-service="portfolio" data-project-type="web" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div><div class="mini-arrow">→</div></div></article>
 <article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="responsive"><div class="service-icon">▣</div><div><h3 data-en="Responsive Web Design" data-es="Diseño Web Adaptable">Diseño Web Adaptable</h3><p data-en="Layouts prepared to work clearly across computers, tablets and phones." data-es="Diseños preparados para funcionar claramente en computadoras, tabletas y teléfonos.">Diseños preparados para funcionar claramente en computadoras, tabletas y teléfonos.</p><div class="service-details"><div class="service-details-inner"><ul><li>DESKTOP</li><li>TABLET</li><li>MOBILE</li></ul><button class="service-contact" type="button" data-select-service="responsive" data-project-type="web" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div><div class="mini-arrow">→</div></div></article>
-<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="publishweb"><div class="service-icon">◎</div><div><h3 data-en="Website Setup & Launch" data-es="Configuración y Publicación">Configuración y Publicación</h3><p data-en="Final setup and publication of the website using the agreed domain and hosting." data-es="Configuración final y publicación del sitio usando el dominio y alojamiento acordados.">Configuración final y publicación del sitio usando el dominio y alojamiento acordados.</p><div class="service-details"><div class="service-details-inner"><ul><li data-en="SETUP" data-es="CONFIGURACIÓN">CONFIGURACIÓN</li><li data-en="DOMAIN" data-es="DOMINIO">DOMINIO</li><li data-en="LAUNCH" data-es="PUBLICACIÓN">PUBLICACIÓN</li></ul><button class="service-contact" type="button" data-select-service="publishweb" data-project-type="web" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div><div class="mini-arrow">→</div></div></article>
+<article class="service reveal" role="button" tabindex="0" aria-expanded="false" data-service-card="publishweb"><div class="service-icon">◎</div><div><h3 data-en="Website Setup &amp; Launch" data-es="Configuración y Publicación">Configuración y Publicación</h3><p data-en="Final setup and publication of the website using the agreed domain and hosting." data-es="Configuración final y publicación del sitio usando el dominio y alojamiento acordados.">Configuración final y publicación del sitio usando el dominio y alojamiento acordados.</p><div class="service-details"><div class="service-details-inner"><ul><li data-en="SETUP" data-es="CONFIGURACIÓN">CONFIGURACIÓN</li><li data-en="DOMAIN" data-es="DOMINIO">DOMINIO</li><li data-en="LAUNCH" data-es="PUBLICACIÓN">PUBLICACIÓN</li></ul><button class="service-contact" type="button" data-select-service="publishweb" data-project-type="web" data-en="Ask about this service →" data-es="Consultar este servicio →">Consultar este servicio →</button></div></div><div class="mini-arrow">→</div></div></article>
 </div>
 </div>
 </section>
@@ -1044,12 +1096,11 @@
 <div class="container">
 <div class="process-head reveal">
 <div>
-<div class="lang-badge" data-en="PROCESS" data-es="PROCESO" style="display:inline-block">PROCESO</div>
-<h2 data-en="Our process" data-es="Nuestro proceso">Nuestro proceso</h2>
-<div class="mode-switch" role="group" aria-label="Proceso por especialidad" style="margin-top:22px;margin-bottom:0"><button class="mode-option active" type="button" data-mode="video" data-en="Video Editing" data-es="Edición de video">Edición de video</button><button class="mode-option" type="button" data-mode="web" data-en="Web Creation" data-es="Creación web">Creación web</button></div>
+<div class="lang-badge" data-en="VIDEO PROCESS" data-es="PROCESO DE EDICIÓN" style="display:inline-block">PROCESO DE EDICIÓN</div>
+<h2 data-en="Our editing process" data-es="Nuestro proceso de edición">Nuestro proceso de edición</h2>
 </div>
 <div>
-<p id="process-intro">Un flujo de edición claro desde que recibimos tu material hasta la entrega de las versiones finales.</p>
+<p id="process-intro" data-en="A clear editing workflow from receiving your footage to delivering the final versions." data-es="Un flujo de edición claro desde que recibimos tu material hasta la entrega de las versiones finales.">Un flujo de edición claro desde que recibimos tu material hasta la entrega de las versiones finales.</p>
 
 </div>
 </div>
@@ -1068,7 +1119,7 @@
 <div class="process-scene" data-process-view="1"><div class="strategy-map"><div class="map-card"><span data-en="EDITING PROJECT" data-es="PROYECTO DE EDICIÓN">PROYECTO DE EDICIÓN</span><div class="map-line"></div></div><div class="map-card" data-en="CLIPS" data-es="CLIPS">CLIPS</div><div class="map-card" data-en="AUDIO" data-es="AUDIO">AUDIO</div><div class="map-card" data-en="REFERENCES" data-es="REFERENCIAS">REFERENCIAS</div><div class="map-card" data-en="FORMATS" data-es="FORMATOS">FORMATOS</div></div></div>
 <div class="process-scene" data-process-view="2"><div class="production-ui"><div class="production-screen"></div><div class="production-track"></div><div class="production-track"></div><div class="production-track"></div></div></div>
 <div class="process-scene" data-process-view="3"><div class="adapt-grid"><div class="adapt-item" data-en="VERSION 01" data-es="VERSIÓN 01">VERSIÓN 01</div><div class="adapt-item" data-en="COMMENTS" data-es="COMENTARIOS">COMENTARIOS</div><div class="adapt-item" data-en="CHANGES" data-es="CAMBIOS">CAMBIOS</div></div></div>
-<div class="process-scene" data-process-view="4"><div class="delivery-box"><div><div class="delivery-check">✓</div><span data-en="READY TO PUBLISH" data-es="LISTO PARA PUBLICAR">LISTO PARA PUBLICAR</span></div></div></div>
+<div class="process-scene" data-process-view="4"><div class="delivery-box"><div><div class="delivery-check">✓</div><span data-en="READY TO DELIVER" data-es="LISTO PARA ENTREGAR">LISTO PARA ENTREGAR</span></div></div></div>
 </div>
 </div>
 </div>
@@ -1078,7 +1129,7 @@
 <div class="container">
 <div class="system-head reveal">
 <div>
-<div class="lang-badge" data-en="SYSTEM" data-es="SISTEMA" style="border-color:#bbb;display:inline-block">SISTEMA</div>
+<div class="lang-badge" data-en="VIDEO FORMATS" data-es="FORMATOS DE VIDEO" style="border-color:#bbb;display:inline-block">FORMATOS DE VIDEO</div>
 <h2 data-en="One recording. Many versions." data-es="Una grabación. Muchas versiones.">Una grabación. Muchas versiones.</h2>
 </div>
 <div class="system-copy">
@@ -1130,13 +1181,84 @@
 </div>
 </div>
 </section>
+<section class="web-sector section-pad" id="web-creation">
+<div class="container">
+<div class="web-sector-head reveal">
+<div>
+<div class="lang-badge" data-en="02 / WEBSITE CREATION" data-es="02 / CREACIÓN WEB" style="border-color:#8f9b99;display:inline-block">02 / CREACIÓN WEB</div>
+<h2><b data-en="Websites" data-es="Páginas web">Páginas web</b> <span data-en="with their own structure." data-es="con estructura propia.">con estructura propia.</span></h2>
+</div>
+<p class="web-sector-intro" data-en="A completely separate service for creating landing pages, business websites and professional portfolios. Here the experience is about structure, navigation, responsive design and launch—not video formats." data-es="Un servicio completamente separado para crear landing pages, webs para empresas y portafolios profesionales. Aquí la experiencia habla de estructura, navegación, diseño adaptable y publicación; no de formatos de video.">Un servicio completamente separado para crear landing pages, webs para empresas y portafolios profesionales. Aquí la experiencia habla de estructura, navegación, diseño adaptable y publicación; no de formatos de video.</p>
+</div>
+
+<div class="web-studio reveal" id="web-sector-engine">
+<div class="web-studio-copy">
+<span class="web-studio-label" data-en="INTERACTIVE WEB PROJECT" data-es="PROYECTO WEB INTERACTIVO">PROYECTO WEB INTERACTIVO</span>
+<div class="web-sector-steps" role="tablist" aria-label="Proceso de creación web">
+<button class="web-sector-step active" type="button" role="tab" aria-selected="true" data-web-sector-step="0"><span>01</span><strong data-en="PURPOSE" data-es="OBJETIVO">OBJETIVO</strong></button>
+<button class="web-sector-step" type="button" role="tab" aria-selected="false" data-web-sector-step="1"><span>02</span><strong data-en="STRUCTURE" data-es="ESTRUCTURA">ESTRUCTURA</strong></button>
+<button class="web-sector-step" type="button" role="tab" aria-selected="false" data-web-sector-step="2"><span>03</span><strong data-en="DESIGN" data-es="DISEÑO">DISEÑO</strong></button>
+<button class="web-sector-step" type="button" role="tab" aria-selected="false" data-web-sector-step="3"><span>04</span><strong data-en="RESPONSIVE" data-es="RESPONSIVE">RESPONSIVE</strong></button>
+<button class="web-sector-step" type="button" role="tab" aria-selected="false" data-web-sector-step="4"><span>05</span><strong data-en="LAUNCH" data-es="PUBLICACIÓN">PUBLICACIÓN</strong></button>
+</div>
+<div class="web-active-copy">
+<span class="web-active-index" id="web-active-index">ETAPA 01 / 05</span>
+<h3 class="web-active-title" id="web-active-title">Definimos el objetivo.</h3>
+<p class="web-active-text" id="web-active-text">Aclaramos qué debe comunicar la página, a quién se dirige y cuál será su acción principal.</p>
+<button class="web-sector-next" id="web-sector-next" type="button" aria-label="Siguiente etapa web">→</button>
+</div>
+</div>
+
+<div class="macbook-zone">
+<div class="macbook" id="macbook-preview" data-web-view="0" aria-label="Simulación interactiva de una página web en una MacBook">
+<div class="macbook-screen-shell">
+<span class="macbook-camera"></span>
+<div class="macbook-display">
+<div class="macbook-browser"><span class="macbook-dots"><i></i><i></i><i></i></span><span class="macbook-address">yourbrand.com</span><span class="macbook-status" data-en="● PREVIEW" data-es="● VISTA PREVIA">● VISTA PREVIA</span></div>
+<div class="macbook-workspace">
+<div class="web-brief-board">
+<div class="brief-card"><span data-en="WEBSITE PURPOSE" data-es="OBJETIVO DE LA WEB">OBJETIVO DE LA WEB</span><strong data-en="Present the brand clearly." data-es="Presentar la marca con claridad.">Presentar la marca con claridad.</strong><i></i><i></i></div>
+<div class="brief-card"><span data-en="AUDIENCE" data-es="AUDIENCIA">AUDIENCIA</span><strong data-en="Who is it for?" data-es="¿A quién se dirige?">¿A quién se dirige?</strong><i></i></div>
+<div class="brief-card"><span data-en="MAIN ACTION" data-es="ACCIÓN PRINCIPAL">ACCIÓN PRINCIPAL</span><strong data-en="Contact or inquire" data-es="Contactar o consultar">Contactar o consultar</strong><i></i></div>
+</div>
+<div class="web-page-preview">
+<div class="demo-nav"><span class="demo-logo">YOUR BRAND</span><span class="demo-links"><i></i><i></i><i></i></span></div>
+<div class="demo-hero"><span class="demo-kicker" data-en="WEBSITE EXPERIENCE" data-es="EXPERIENCIA WEB">EXPERIENCIA WEB</span><strong data-en="A website that feels like your brand." data-es="Una web que se siente de marca.">Una web que se siente de marca.</strong><span class="demo-cta"></span></div>
+<div class="demo-cards"><span class="demo-card"></span><span class="demo-card"></span><span class="demo-card"></span></div>
+</div>
+<div class="web-responsive-preview"><span class="responsive-device responsive-desktop"></span><span class="responsive-device responsive-tablet"></span><span class="responsive-device responsive-phone"></span></div>
+<div class="web-launch-state"><div class="launch-card"><div class="launch-check">✓</div><strong data-en="WEBSITE READY TO SHARE" data-es="WEB LISTA PARA COMPARTIR">WEB LISTA PARA COMPARTIR</strong><span>yourbrand.com → LIVE</span></div></div>
+</div>
+</div>
+</div>
+<div class="macbook-base"></div>
+</div>
+</div>
+</div>
+
+<div class="web-services-block reveal">
+<div class="web-services-head">
+<h3 data-en="Website creation services" data-es="Servicios de creación web">Servicios de creación web</h3>
+<p data-en="Choose the type of website you need. Every option belongs only to the web creation area and follows its own design and launch process." data-es="Elige el tipo de página que necesitas. Todas estas opciones pertenecen únicamente al área de creación web y siguen su propio proceso de diseño y publicación.">Elige el tipo de página que necesitas. Todas estas opciones pertenecen únicamente al área de creación web y siguen su propio proceso de diseño y publicación.</p>
+</div>
+<div id="web-services-mount"></div>
+</div>
+
+<div class="web-sector-points reveal">
+<div class="web-sector-point"><strong data-en="CLEAR STRUCTURE" data-es="ESTRUCTURA CLARA">ESTRUCTURA CLARA</strong><span data-en="Pages and sections with purpose" data-es="Páginas y secciones con propósito">Páginas y secciones con propósito</span></div>
+<div class="web-sector-point"><strong data-en="ON-BRAND DESIGN" data-es="DISEÑO DE MARCA">DISEÑO DE MARCA</strong><span data-en="A coherent visual identity" data-es="Una identidad visual coherente">Una identidad visual coherente</span></div>
+<div class="web-sector-point"><strong data-en="RESPONSIVE" data-es="DISEÑO ADAPTABLE">DISEÑO ADAPTABLE</strong><span data-en="Desktop, tablet and mobile" data-es="Computadora, tableta y móvil">Computadora, tableta y móvil</span></div>
+<div class="web-sector-point"><strong data-en="READY TO SHARE" data-es="LISTA PARA COMPARTIR">LISTA PARA COMPARTIR</strong><span data-en="Final setup and agreed launch" data-es="Configuración final y publicación acordada">Configuración final y publicación acordada</span></div>
+</div>
+</div>
+</section>
 <section class="smart-contact" id="contact">
 <div class="container">
-<div class="contact-builder-head reveal"><div><div class="lang-badge" data-en="LET'S START" data-es="EMPECEMOS" style="display:inline-block">EMPECEMOS</div><h2 data-en="Tell us about the video you need." data-es="Cuéntanos qué video necesitas.">Cuéntanos qué video necesitas.</h2></div><p data-en="Choose a few options and we will prepare your WhatsApp message. No long forms and no commitment." data-es="Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.">Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.</p></div>
+<div class="contact-builder-head reveal"><div><div class="lang-badge" data-en="LET'S START" data-es="EMPECEMOS" style="display:inline-block">EMPECEMOS</div><h2 data-en="Tell us about the project you need." data-es="Cuéntanos qué proyecto necesitas.">Cuéntanos qué proyecto necesitas.</h2></div><p data-en="Choose a few options and we will prepare your WhatsApp message. No long forms and no commitment." data-es="Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.">Selecciona algunas opciones y prepararemos tu mensaje de WhatsApp. Sin formularios largos y sin compromiso.</p></div>
 <div class="contact-builder reveal">
 <div class="contact-questions">
 <div class="contact-question"><h3 data-en="1. What do you need?" data-es="1. ¿Qué necesitas?">1. ¿Qué necesitas?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="project" data-choice="video" data-en="Video Editing" data-es="Edición de video">Edición de video</button><button class="choice-chip" type="button" data-choice-group="project" data-choice="web" data-en="Web Creation" data-es="Creación web">Creación web</button><button class="choice-chip" type="button" data-choice-group="project" data-choice="both" data-en="Both services" data-es="Ambos servicios">Ambos servicios</button></div></div>
-<div class="contact-question"><h3 data-en="2. Which service interests you most?" data-es="2. ¿Qué servicio te interesa más?">2. ¿Qué servicio te interesa más?</h3><div class="choice-row contact-service-panel" data-contact-services="video"><button class="choice-chip active" type="button" data-choice-group="service" data-choice="shorts" data-en="Shorts Editing" data-es="Edición de Shorts">Edición de Shorts</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="longform" data-en="Long-form Editing" data-es="Videos Largos">Videos Largos</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="captions" data-en="Captions & Motion" data-es="Subtítulos y Motion">Subtítulos y Motion</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="repurpose" data-en="Content Repurposing" data-es="Reutilización de Contenido">Reutilización de Contenido</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="adaptations" data-en="Format Adaptations" data-es="Adaptación de Formatos">Adaptación de Formatos</button></div><div class="choice-row contact-service-panel" data-contact-services="web" hidden><button class="choice-chip" type="button" data-choice-group="service" data-choice="landing" data-en="Landing Page" data-es="Landing Page">Landing Page</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="businessweb" data-en="Business Website" data-es="Web para Empresa">Web para Empresa</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="portfolio" data-en="Professional Portfolio" data-es="Portafolio Profesional">Portafolio Profesional</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="responsive" data-en="Responsive Design" data-es="Diseño Adaptable">Diseño Adaptable</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="publishweb" data-en="Website Launch" data-es="Publicación Web">Publicación Web</button></div></div>
+<div class="contact-question"><h3 data-en="2. Which service interests you most?" data-es="2. ¿Qué servicio te interesa más?">2. ¿Qué servicio te interesa más?</h3><div class="choice-row contact-service-panel" data-contact-services="video"><button class="choice-chip active" type="button" data-choice-group="service" data-choice="shorts" data-en="Shorts Editing" data-es="Edición de Shorts">Edición de Shorts</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="longform" data-en="Long-form Editing" data-es="Videos Largos">Videos Largos</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="captions" data-en="Captions &amp; Motion" data-es="Subtítulos y Motion">Subtítulos y Motion</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="repurpose" data-en="Content Repurposing" data-es="Reutilización de Contenido">Reutilización de Contenido</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="adaptations" data-en="Format Adaptations" data-es="Adaptación de Formatos">Adaptación de Formatos</button></div><div class="choice-row contact-service-panel" data-contact-services="web" hidden><button class="choice-chip" type="button" data-choice-group="service" data-choice="landing" data-en="Landing Page" data-es="Landing Page">Landing Page</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="businessweb" data-en="Business Website" data-es="Web para Empresa">Web para Empresa</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="portfolio" data-en="Professional Portfolio" data-es="Portafolio Profesional">Portafolio Profesional</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="responsive" data-en="Responsive Design" data-es="Diseño Adaptable">Diseño Adaptable</button><button class="choice-chip" type="button" data-choice-group="service" data-choice="publishweb" data-en="Website Launch" data-es="Publicación Web">Publicación Web</button></div></div>
 <div class="contact-question"><h3 data-en="3. What type of project or brand is it for?" data-es="3. ¿Para qué tipo de proyecto o marca es?">3. ¿Para qué tipo de proyecto o marca es?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="content" data-choice="educational" data-en="Educational Project" data-es="Proyecto educativo">Proyecto educativo</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="personal" data-en="Personal Brand" data-es="Marca personal">Marca personal</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="business" data-en="Company or Business" data-es="Empresa o negocio">Empresa o negocio</button><button class="choice-chip" type="button" data-choice-group="content" data-choice="unsure" data-en="Not sure yet" data-es="Aún no lo sé">Aún no lo sé</button></div></div>
 <div class="contact-question"><h3 data-en="4. What is the main need?" data-es="4. ¿Cuál es la necesidad principal?">4. ¿Cuál es la necesidad principal?</h3><div class="choice-row"><button class="choice-chip active" type="button" data-choice-group="goal" data-choice="quality" data-en="Improve quality" data-es="Mejorar la calidad">Mejorar la calidad</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="clarity" data-en="Present the brand clearly" data-es="Presentar la marca con claridad">Presentar la marca con claridad</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="adapt" data-en="Adapt to formats or devices" data-es="Adaptar a formatos o dispositivos">Adaptar a formatos o dispositivos</button><button class="choice-chip" type="button" data-choice-group="goal" data-choice="delivery" data-en="Prepare the final delivery" data-es="Preparar la entrega final">Preparar la entrega final</button></div></div>
 </div>
@@ -1165,9 +1287,9 @@
 <h3 data-en="Navigation" data-es="Navegación">Navegación</h3>
 <ul>
 <li><a data-en="Home" data-es="Inicio" href="#home">Inicio</a></li>
-<li><a data-en="Services" data-es="Servicios" href="#services">Servicios</a></li>
-<li><a data-en="Process" data-es="Proceso" href="#process">Proceso</a></li>
-<li><a data-en="System" data-es="Sistema" href="#system">Sistema</a></li>
+<li><a data-en="Video Editing" data-es="Edición de video" href="#services">Edición de video</a></li>
+<li><a data-en="Website Creation" data-es="Creación web" href="#web-creation">Creación web</a></li>
+<li><a data-en="Contact" data-es="Contacto" href="#contact">Contacto</a></li>
 </ul>
 </div>
 </div>
@@ -1251,8 +1373,8 @@
       if(typeof renderStage === "function"){ renderStage(activeStage, false); }
       if(typeof renderProcess === "function"){ renderProcess(activeProcess, false); }
       if(typeof renderFormat === "function"){ renderFormat(activeFormat, false); }
+      if(typeof renderWebSector === "function"){ renderWebSector(activeWebSectorStage); }
       if(typeof updateSmartContact === "function"){ updateSmartContact(); }
-      if(typeof renderMode === "function"){ renderMode(activeMode, false); }
     }
 
     const engine = document.getElementById("content-engine");
@@ -1264,11 +1386,6 @@
     const stageDescription = document.getElementById("stage-description");
     const trustTitle = document.querySelector(".trust-copy strong");
     const trustSubtitle = document.querySelector(".trust-copy span");
-    const webBuilder=document.getElementById("web-builder");
-    const webSteps=Array.from(document.querySelectorAll(".web-step"));
-    const webStageKicker=document.getElementById("web-stage-kicker");
-    const webStageTitle=document.getElementById("web-stage-title");
-    const webStageDescription=document.getElementById("web-stage-description");
     let activeMode="video";
     let activeStage = 0;
     let stageTimer;
@@ -1293,15 +1410,11 @@
       stageViews.forEach((view,i)=>view.classList.toggle("active",i===activeStage));
       stageKicker.textContent=copy[0];stageTitle.textContent=copy[1];stageDescription.textContent=copy[2];
       trustTitle.textContent=copy[3];trustSubtitle.textContent=copy[4];
-      const webCopy=stageContentByMode.web[activeStage][lang];
-      webBuilder.dataset.webStage=String(activeStage);webStageKicker.textContent=webCopy[0];webStageTitle.textContent=webCopy[1];webStageDescription.textContent=webCopy[2];
-      webSteps.forEach((step,i)=>{const active=i===activeStage;step.classList.toggle("active",active);step.setAttribute("aria-pressed",String(active));});
       nextStageButton.setAttribute("aria-label",lang==="en"?"Next stage":"Siguiente etapa");
       if(restart){startStageTimer();}
     }
     function startStageTimer(){clearInterval(stageTimer);if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){stageTimer=setInterval(()=>renderStage(activeStage+1,false),8000);}}
     stageTabs.forEach((tab)=>{const activate=()=>renderStage(Number(tab.dataset.stage));tab.addEventListener("click",activate);tab.addEventListener("mouseenter",activate);});
-    webSteps.forEach((step)=>{step.addEventListener("click",()=>renderStage(Number(step.dataset.webStep)));step.addEventListener("mouseenter",()=>renderStage(Number(step.dataset.webStep),false));});
     nextStageButton.addEventListener("click",()=>renderStage(activeStage+1));
     engine.addEventListener("mouseenter",()=>clearInterval(stageTimer));
     engine.addEventListener("mouseleave",startStageTimer);
@@ -1341,7 +1454,7 @@
       processNext.setAttribute("aria-label",lang==="en"?"Next stage":"Siguiente etapa");
       if(restart){startProcessTimer();}
     }
-    function startProcessTimer(){clearInterval(processTimer);if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){processTimer=setInterval(()=>renderProcess(activeProcess+1,false),5200);}}
+    function startProcessTimer(){clearInterval(processTimer);if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){processTimer=setInterval(()=>renderProcess(activeProcess+1,false),9000);}}
     processTabs.forEach((tab)=>{tab.addEventListener("click",()=>renderProcess(Number(tab.dataset.process)));tab.addEventListener("mouseenter",()=>renderProcess(Number(tab.dataset.process),false));tab.addEventListener("keydown",(event)=>{if(event.key==="ArrowRight"){event.preventDefault();renderProcess(activeProcess+1);processTabs[activeProcess].focus();}if(event.key==="ArrowLeft"){event.preventDefault();renderProcess(activeProcess-1);processTabs[activeProcess].focus();}});});
     processNext.addEventListener("click",()=>renderProcess(activeProcess+1));
     processEngine.addEventListener("mouseenter",()=>clearInterval(processTimer));
@@ -1386,6 +1499,39 @@
     }
     modeButtons.forEach((button)=>button.addEventListener("click",()=>renderMode(button.dataset.mode)));
     serviceCategoryButtons.forEach((button)=>button.addEventListener("click",()=>renderMode(button.dataset.serviceCategory)));
+
+    const webServicesMount=document.getElementById("web-services-mount");
+    const webServicePanel=document.getElementById("web-service-panel");
+    if(webServicesMount&&webServicePanel){
+      webServicesMount.appendChild(webServicePanel);
+      webServicePanel.hidden=false;
+    }
+
+    const webSectorSteps=Array.from(document.querySelectorAll(".web-sector-step"));
+    const macbookPreview=document.getElementById("macbook-preview");
+    const webActiveIndex=document.getElementById("web-active-index");
+    const webActiveTitle=document.getElementById("web-active-title");
+    const webActiveText=document.getElementById("web-active-text");
+    const webSectorNext=document.getElementById("web-sector-next");
+    let activeWebSectorStage=0;
+    const webSectorContent=[
+      {es:["ETAPA 01 / 05","Definimos el objetivo.","Aclaramos qué debe comunicar la página, a quién se dirige y cuál será su acción principal."],en:["STAGE 01 / 05","We define the purpose.","We clarify what the website should communicate, who it is for and its primary action."]},
+      {es:["ETAPA 02 / 05","Organizamos la estructura.","Definimos páginas, secciones, contenido y navegación antes de comenzar el diseño."],en:["STAGE 02 / 05","We organize the structure.","We define pages, sections, content and navigation before design begins."]},
+      {es:["ETAPA 03 / 05","Diseñamos la experiencia.","La identidad toma forma con jerarquías, tipografía, colores y componentes propios de la web."],en:["STAGE 03 / 05","We design the experience.","The identity takes shape through hierarchy, typography, color and web-specific components."]},
+      {es:["ETAPA 04 / 05","Adaptamos cada pantalla.","Revisamos la experiencia en computadora, tableta y teléfono para que el sitio se entienda claramente."],en:["STAGE 04 / 05","We adapt every screen.","We review the experience on desktop, tablet and mobile so the website remains clear."]},
+      {es:["ETAPA 05 / 05","Preparamos la publicación.","Realizamos la configuración final y publicamos usando el dominio y alojamiento acordados."],en:["STAGE 05 / 05","We prepare the launch.","We complete the final setup and publish using the agreed domain and hosting."]}
+    ];
+    function renderWebSector(index){
+      activeWebSectorStage=(index+webSectorContent.length)%webSectorContent.length;
+      const lang=document.documentElement.lang==="en"?"en":"es";
+      const copy=webSectorContent[activeWebSectorStage][lang];
+      webSectorSteps.forEach((step,i)=>{const active=i===activeWebSectorStage;step.classList.toggle("active",active);step.setAttribute("aria-selected",String(active));});
+      macbookPreview.dataset.webView=String(activeWebSectorStage);
+      webActiveIndex.textContent=copy[0];webActiveTitle.textContent=copy[1];webActiveText.textContent=copy[2];
+      webSectorNext.setAttribute("aria-label",lang==="en"?"Next website stage":"Siguiente etapa web");
+    }
+    webSectorSteps.forEach((step)=>{const activate=()=>renderWebSector(Number(step.dataset.webSectorStep));step.addEventListener("click",activate);step.addEventListener("mouseenter",activate);step.addEventListener("keydown",(event)=>{if(event.key==="ArrowRight"){event.preventDefault();renderWebSector(activeWebSectorStage+1);webSectorSteps[activeWebSectorStage].focus();}if(event.key==="ArrowLeft"){event.preventDefault();renderWebSector(activeWebSectorStage-1);webSectorSteps[activeWebSectorStage].focus();}});});
+    webSectorNext.addEventListener("click",()=>renderWebSector(activeWebSectorStage+1));
 
     const systemEngine = document.getElementById("system-engine");
     const formatTabs = Array.from(document.querySelectorAll(".format-tab"));
