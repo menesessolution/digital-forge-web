@@ -679,7 +679,14 @@
     @media(max-width:1000px){.content-system.system-interactive{grid-template-columns:1fr}.system-core{min-height:330px}.format-stage{min-height:350px}}
     @media(max-width:650px){.content-system.system-interactive{padding:10px}.system-core{min-height:300px;padding:22px}.core-idea{width:145px;height:145px;font-size:18px}.format-tabs{display:flex;overflow-x:auto;scrollbar-width:none}.format-tabs::-webkit-scrollbar{display:none}.format-tab{min-width:100px}.format-stage{grid-template-columns:1fr;padding:25px 18px;gap:18px}.format-preview{height:235px}.format-title{font-size:2.15rem}}
     .format-next{width:40px;height:40px;border:1px solid #aaa49b;border-radius:50%;background:transparent;color:#111;display:grid;place-items:center;margin-top:22px;cursor:pointer;transition:.25s ease}.format-next:hover{background:#111;color:#fff;transform:rotate(-12deg)}
-    .core-idea,.phone-hook,.carousel-headline{white-space:pre-line}
+    .phone-screen,.carousel-page{overflow:hidden}
+    .source-piece,.orbit-core,.core-idea,.phone-hook,.carousel-headline{white-space:normal;overflow-wrap:break-word;word-break:normal}
+    .source-piece{padding:8px;line-height:1.2}
+    .orbit-core{padding:13px;line-height:1.45}
+    .core-idea{padding:28px;font-size:19px;line-height:1.02}
+    .phone-hook{font-size:13px;line-height:.98;max-width:100%;letter-spacing:-.025em}
+    .carousel-headline{font-size:20px;line-height:.95;max-width:130px}
+    @media(max-width:650px){.core-idea{padding:22px;font-size:17px}.phone-hook{font-size:12px}.carousel-headline{font-size:19px}}
     @media(prefers-reduced-motion:reduce){.system-core::before,.core-idea::after,.format-scene{animation:none!important;transition:none!important}}
 
     /* METRICS */
@@ -906,7 +913,7 @@
 <div class="stage-view active" data-view="0"><div class="strategy-flow"><div class="flow-node" data-en="IDEA" data-es="IDEA">IDEA</div><span class="flow-arrow">→</span><div class="flow-node" data-en="HOOK" data-es="GANCHO">GANCHO</div><span class="flow-arrow">→</span><div class="flow-node" data-en="FORMAT" data-es="FORMATO">FORMATO</div><span class="flow-arrow">→</span><div class="flow-node" data-en="PLATFORM" data-es="PLATAFORMA">PLATAFORMA</div></div></div>
 <div class="stage-view" data-view="1"><div class="edit-board"><div class="edit-preview"></div><div class="timeline"><div class="track"><div class="clip"></div></div><div class="track"><div class="clip"></div></div><div class="track"><div class="clip"></div></div></div></div></div>
 <div class="stage-view" data-view="2"><div class="format-cloud"><span class="format-chip">REEL</span><span class="format-chip">TIKTOK</span><span class="format-chip">SHORT</span><span class="format-chip">CAROUSEL</span><span class="format-chip">CAPTION</span></div></div>
-<div class="stage-view" data-view="3"><div class="results-system"><div class="source-piece" data-en="LONG-FORM\nCONTENT" data-es="CONTENIDO\nLARGO">CONTENIDO<br>LARGO</div><span class="system-arrow">→</span><div class="result-stack"><div class="result-piece">SHORT VIDEO</div><div class="result-piece">CAROUSEL</div><div class="result-piece">CAPTION</div><div class="result-piece">CONTENT SYSTEM</div></div></div></div>
+<div class="stage-view" data-view="3"><div class="results-system"><div class="source-piece" data-en="LONG-FORM CONTENT" data-es="CONTENIDO LARGO">CONTENIDO LARGO</div><span class="system-arrow">→</span><div class="result-stack"><div class="result-piece">SHORT VIDEO</div><div class="result-piece">CAROUSEL</div><div class="result-piece">CAPTION</div><div class="result-piece">CONTENT SYSTEM</div></div></div></div>
 </div>
 </div>
 </div>
@@ -1013,7 +1020,7 @@
 <div class="process-panel">
 <div class="process-copy"><span class="process-status" id="process-status">ETAPA 01 / 05</span><h3 class="process-active-title" id="process-active-title">Entendemos antes de crear.</h3><p class="process-active-text" id="process-active-text">Conocemos tu marca, objetivos, audiencia y contenido base para encontrar la dirección correcta.</p><button class="process-next" id="process-next" type="button" aria-label="Siguiente etapa">→</button></div>
 <div class="process-visual" aria-hidden="true">
-<div class="process-scene active" data-process-view="0"><div class="discovery-orbit"><div class="orbit-core" data-en="BRAND\nAUDIENCE\nGOALS" data-es="MARCA\nAUDIENCIA\nOBJETIVOS">MARCA<br>AUDIENCIA<br>OBJETIVOS</div></div></div>
+<div class="process-scene active" data-process-view="0"><div class="discovery-orbit"><div class="orbit-core" data-en="BRAND · AUDIENCE · GOALS" data-es="MARCA · AUDIENCIA · OBJETIVOS">MARCA · AUDIENCIA · OBJETIVOS</div></div></div>
 <div class="process-scene" data-process-view="1"><div class="strategy-map"><div class="map-card"><span data-en="CONTENT DIRECTION" data-es="DIRECCIÓN DE CONTENIDO">DIRECCIÓN DE CONTENIDO</span><div class="map-line"></div></div><div class="map-card" data-en="TOPICS" data-es="TEMAS">TEMAS</div><div class="map-card" data-en="HOOKS" data-es="GANCHOS">GANCHOS</div><div class="map-card" data-en="FORMATS" data-es="FORMATOS">FORMATOS</div><div class="map-card" data-en="PLATFORMS" data-es="PLATAFORMAS">PLATAFORMAS</div></div></div>
 <div class="process-scene" data-process-view="2"><div class="production-ui"><div class="production-screen"></div><div class="production-track"></div><div class="production-track"></div><div class="production-track"></div></div></div>
 <div class="process-scene" data-process-view="3"><div class="adapt-grid"><div class="adapt-item">REEL</div><div class="adapt-item">SHORT</div><div class="adapt-item">CAROUSEL</div></div></div>
@@ -1038,7 +1045,7 @@
 <div class="content-system system-interactive reveal" id="system-engine">
 <div class="system-core">
 <span class="core-label" data-en="YOUR STARTING POINT" data-es="TU PUNTO DE PARTIDA">TU PUNTO DE PARTIDA</span>
-<div class="core-idea" data-en="ONE\nCORE\nIDEA" data-es="UNA\nIDEA\nPRINCIPAL">UNA<br>IDEA<br>PRINCIPAL</div>
+<div class="core-idea" data-en="ONE CORE IDEA" data-es="UNA IDEA PRINCIPAL">UNA IDEA PRINCIPAL</div>
 <span class="core-hint" data-en="Move through each format to see how the same idea adapts without losing its identity." data-es="Explora cada formato para ver cómo una misma idea se adapta sin perder su identidad.">Explora cada formato para ver cómo una misma idea se adapta sin perder su identidad.</span>
 </div>
 <div class="system-explorer">
@@ -1051,9 +1058,9 @@
 <div class="format-stage">
 <div class="format-copy"><span class="format-index" id="format-index">01 / REEL</span><h3 class="format-title" id="format-title">El gancho abre la conversación.</h3><p class="format-text" id="format-text">Una versión ágil de la idea, estructurada para captar atención y comunicar el mensaje con claridad.</p><div class="format-specs" id="format-specs"><span class="format-spec">GANCHO</span><span class="format-spec">RITMO</span><span class="format-spec">SUBTÍTULOS</span></div><button class="format-next" id="format-next" type="button" aria-label="Siguiente formato">→</button></div>
 <div class="format-preview" aria-hidden="true">
-<div class="format-scene active" data-format-view="0"><div class="phone-frame"><div class="phone-screen"><div class="phone-hook" data-en="ONE IDEA.\nONE CLEAR\nMESSAGE." data-es="UNA IDEA.\nUN MENSAJE\nCLARO.">UNA IDEA.<br>UN MENSAJE<br>CLARO.</div><div class="phone-caption"></div></div><span class="phone-badge">REEL</span></div></div>
+<div class="format-scene active" data-format-view="0"><div class="phone-frame"><div class="phone-screen"><div class="phone-hook" data-en="ONE IDEA. ONE CLEAR MESSAGE." data-es="UNA IDEA. UN MENSAJE CLARO.">UNA IDEA. UN MENSAJE CLARO.</div><div class="phone-caption"></div></div><span class="phone-badge">REEL</span></div></div>
 <div class="format-scene" data-format-view="1"><div class="short-bars"><div class="short-bar"><div class="short-line"></div></div><div class="short-bar"><div class="short-line"></div></div><div class="short-bar"><div class="short-line"></div></div></div></div>
-<div class="format-scene" data-format-view="2"><div class="carousel-stack"><div class="carousel-page"></div><div class="carousel-page"></div><div class="carousel-page"><span class="carousel-number">01 / 05</span><strong class="carousel-headline" data-en="SWIPE THE\nIDEA FORWARD" data-es="DESLIZA\nLA IDEA">DESLIZA<br>LA IDEA</strong><span class="carousel-arrow">→</span></div></div></div>
+<div class="format-scene" data-format-view="2"><div class="carousel-stack"><div class="carousel-page"></div><div class="carousel-page"></div><div class="carousel-page"><span class="carousel-number">01 / 05</span><strong class="carousel-headline" data-en="SWIPE THE IDEA FORWARD" data-es="DESLIZA LA IDEA">DESLIZA LA IDEA</strong><span class="carousel-arrow">→</span></div></div></div>
 <div class="format-scene" data-format-view="3"><div class="caption-sheet"><div class="caption-top"><span class="caption-avatar"></span><span class="caption-name"></span></div><div class="caption-line"></div><div class="caption-line"></div><div class="caption-line"></div><span class="caption-cta" data-en="CONTINUE THE CONVERSATION →" data-es="CONTINÚA LA CONVERSACIÓN →">CONTINÚA LA CONVERSACIÓN →</span></div></div>
 </div>
 </div>
@@ -1284,7 +1291,7 @@
       formatNext.setAttribute("aria-label",lang==="en"?"Next format":"Siguiente formato");
       if(restart){startFormatTimer();}
     }
-    function startFormatTimer(){clearInterval(formatTimer);if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){formatTimer=setInterval(()=>renderFormat(activeFormat+1,false),5000);}}
+    function startFormatTimer(){clearInterval(formatTimer);if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){formatTimer=setInterval(()=>renderFormat(activeFormat+1,false),9000);}}
     formatTabs.forEach((tab)=>{tab.addEventListener("click",()=>renderFormat(Number(tab.dataset.format)));tab.addEventListener("mouseenter",()=>renderFormat(Number(tab.dataset.format),false));tab.addEventListener("keydown",(event)=>{if(event.key==="ArrowRight"){event.preventDefault();renderFormat(activeFormat+1);formatTabs[activeFormat].focus();}if(event.key==="ArrowLeft"){event.preventDefault();renderFormat(activeFormat-1);formatTabs[activeFormat].focus();}});});
     formatNext.addEventListener("click",()=>renderFormat(activeFormat+1));
     systemEngine.addEventListener("mouseenter",()=>clearInterval(formatTimer));
