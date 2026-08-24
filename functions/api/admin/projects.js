@@ -1,18 +1,24 @@
 import { cleanText, ensureDatabase, json, makeId, nowIso } from '../../lib/db.js';
 
 const statuses = new Set(['briefing','editing','review','approved','delivered','archived']);
+const paymentStatuses = new Set(['not_required','pending','paid']);
+const currencies = new Set(['USD','EUR','GBP','CAD']);
 
 function normalize(body) {
   const clientId = cleanText(body.client_id, 100);
   const title = cleanText(body.title, 240);
   const status = statuses.has(body.status) ? body.status : 'briefing';
   const progress = Math.max(0, Math.min(100, Math.trunc(Number(body.progress) || 0)));
+  const paymentAmountCents = Math.max(0, Math.min(100000000, Math.round(Number(body.payment_amount || 0) * 100)));
+  const paymentStatus = paymentStatuses.has(body.payment_status) ? body.payment_status : (paymentAmountCents ? 'pending' : 'not_required');
+  const paymentCurrency = currencies.has(body.payment_currency) ? body.payment_currency : 'USD';
   if (!clientId || !title) throw new Error('Cliente y título son requeridos.');
   return {
     clientId, title, status, progress,
     service: cleanText(body.service || 'Edición de video', 180),
     dueDate: cleanText(body.due_date, 20),
     description: cleanText(body.description, 5000),
+    paymentAmountCents, paymentStatus, paymentCurrency,
   };
 }
 
@@ -35,8 +41,8 @@ export async function onRequestPost({ request, env }) {
     const now = nowIso();
     await db.batch([
       db.prepare(`INSERT INTO projects
-        (id,client_id,title,service,status,progress,due_date,description,created_at,updated_at)
-        VALUES (?,?,?,?,?,?,?,?,?,?)`).bind(id,item.clientId,item.title,item.service,item.status,item.progress,item.dueDate,item.description,now,now),
+        (id,client_id,title,service,status,progress,due_date,description,payment_amount_cents,payment_currency,payment_status,created_at,updated_at)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`).bind(id,item.clientId,item.title,item.service,item.status,item.progress,item.dueDate,item.description,item.paymentAmountCents,item.paymentCurrency,item.paymentStatus,now,now),
       db.prepare('INSERT INTO project_events (project_id,kind,detail,created_at) VALUES (?,?,?,?)')
         .bind(id,'project_created','Proyecto creado',now),
     ]);
@@ -54,8 +60,8 @@ export async function onRequestPatch({ request, env }) {
     if (!id) return json({ error: 'Proyecto no válido.' }, 400);
     const db = await ensureDatabase(env);
     const now = nowIso();
-    const result = await db.prepare(`UPDATE projects SET client_id=?,title=?,service=?,status=?,progress=?,due_date=?,description=?,updated_at=? WHERE id=?`)
-      .bind(item.clientId,item.title,item.service,item.status,item.progress,item.dueDate,item.description,now,id).run();
+    const result = await db.prepare(`UPDATE projects SET client_id=?,title=?,service=?,status=?,progress=?,due_date=?,description=?,payment_amount_cents=?,payment_currency=?,payment_status=?,updated_at=? WHERE id=?`)
+      .bind(item.clientId,item.title,item.service,item.status,item.progress,item.dueDate,item.description,item.paymentAmountCents,item.paymentCurrency,item.paymentStatus,now,id).run();
     if (!result.meta?.changes) return json({ error: 'Proyecto no encontrado.' }, 404);
     await db.prepare('INSERT INTO project_events (project_id,kind,detail,created_at) VALUES (?,?,?,?)')
       .bind(id,'project_updated',`Estado: ${item.status} · ${item.progress}%`,now).run();

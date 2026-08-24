@@ -9,7 +9,7 @@ export async function onRequestGet({ env }) {
     db.prepare("SELECT COUNT(*) AS value FROM events WHERE created_at >= datetime('now','-30 day')"),
     db.prepare("SELECT COUNT(*) AS value FROM events WHERE name = 'page_view' AND created_at >= datetime('now','-30 day')"),
     db.prepare("SELECT COUNT(*) AS value FROM events WHERE name = 'whatsapp_click' AND created_at >= datetime('now','-30 day')"),
-    db.prepare("SELECT COUNT(*) AS value FROM events WHERE name = 'paypal_click' AND created_at >= datetime('now','-30 day')"),
+    db.prepare("SELECT COUNT(*) AS value FROM events WHERE name IN ('paypal_click','paypal_project_click') AND created_at >= datetime('now','-30 day')"),
     db.prepare("SELECT COUNT(*) AS value FROM clients WHERE status = 'active'"),
     db.prepare("SELECT COUNT(*) AS value FROM projects WHERE status NOT IN ('delivered','archived')"),
   ]);

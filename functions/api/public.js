@@ -9,7 +9,7 @@ export async function onRequestGet({ env }) {
         FROM content_items WHERE status = 'published'
         ORDER BY featured DESC, sort_order ASC, created_at DESC`),
       db.prepare(`SELECT key,value FROM settings
-        WHERE key IN ('paypal_url','calendly_url','contact_email')`),
+        WHERE key IN ('paypal_url','calendly_url','booking_url','contact_email')`),
     ]);
     return json({
       content: content.results || [],

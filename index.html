@@ -1055,6 +1055,9 @@
     @media(max-width:900px){.dynamic-head{grid-template-columns:1fr;gap:20px}.dynamic-grid{grid-template-columns:1fr 1fr}.conversion-strip{grid-template-columns:1fr}.testimonial-grid{grid-template-columns:1fr}}
     @media(max-width:600px){.dynamic-grid{grid-template-columns:1fr}.dynamic-group-head{display:block}.dynamic-group-head span{display:block;margin-top:8px}.conversion-strip{padding:26px 21px}.conversion-actions{display:grid}.lead-fields{grid-template-columns:1fr}.lead-field.full{grid-column:auto}}
 
+  .assistant-launch{position:fixed;right:24px;bottom:92px;z-index:90;width:54px;height:54px;border:1px solid #3a3a3a;border-radius:50%;background:#f4f1ec;color:#111;font:900 18px Arial;cursor:pointer;box-shadow:0 14px 40px rgba(0,0,0,.28)}
+  .assistant-panel{position:fixed;right:24px;bottom:156px;z-index:95;width:min(390px,calc(100vw - 28px));height:min(590px,calc(100vh - 190px));display:grid;grid-template-rows:auto 1fr auto;border:1px solid #383838;border-radius:23px;background:#0d0d0d;color:#fff;box-shadow:0 28px 80px rgba(0,0,0,.5);overflow:hidden;transform:translateY(18px) scale(.97);opacity:0;pointer-events:none;transition:.25s ease}
+  .assistant-panel.open{transform:none;opacity:1;pointer-events:auto}.assistant-head{display:flex;align-items:center;justify-content:space-between;padding:17px;border-bottom:1px solid #292929}.assistant-head strong{display:block;font-size:13px}.assistant-head span{display:block;margin-top:4px;color:#888;font:700 8px monospace;letter-spacing:.1em}.assistant-close{border:0;background:transparent;color:#fff;font-size:22px;cursor:pointer}.assistant-messages{overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px}.assistant-message{max-width:86%;border:1px solid #303030;border-radius:15px;padding:11px 13px;background:#171717;font-size:11px;line-height:1.55;white-space:pre-wrap}.assistant-message.user{align-self:flex-end;background:#f2efea;color:#111;border-color:#f2efea}.assistant-message.thinking{color:#888}.assistant-form{display:grid;grid-template-columns:1fr auto;gap:8px;padding:14px;border-top:1px solid #292929}.assistant-form input{min-width:0;border:1px solid #343434;border-radius:999px;background:#111;color:#fff;padding:13px 15px;font:600 11px Arial;outline:none}.assistant-form button{border:0;border-radius:999px;background:#f2efea;color:#111;padding:0 16px;font-weight:900;cursor:pointer}.assistant-links{display:flex;gap:7px;padding:0 14px 14px}.assistant-links a{flex:1;text-align:center;border:1px solid #343434;border-radius:999px;color:#fff;text-decoration:none;padding:10px;font-size:9px;font-weight:800}.assistant-links a[hidden]{display:none}@media(max-width:650px){.assistant-launch{right:14px;bottom:86px}.assistant-panel{right:14px;bottom:150px;height:min(560px,calc(100vh - 170px))}}
 </style>
 </head>
 <body>
@@ -1465,6 +1468,13 @@
 <span class="admin-footer-link"> · </span><a class="admin-footer-link" href="/portal/" rel="nofollow" data-en="Client access" data-es="Acceso de clientes">Acceso de clientes</a>
 </div>
 </footer>
+
+<button class="assistant-launch" id="assistant-launch" type="button" aria-label="Abrir asistente de Digital Forge" aria-expanded="false">✦</button>
+<aside class="assistant-panel" id="assistant-panel" aria-label="Asistente de Digital Forge" aria-hidden="true">
+  <div class="assistant-head"><div><strong id="assistant-title">Asistente Digital Forge</strong><span id="assistant-mode">ORIENTACIÓN INMEDIATA</span></div><button class="assistant-close" id="assistant-close" type="button" aria-label="Cerrar asistente">×</button></div>
+  <div class="assistant-messages" id="assistant-messages" aria-live="polite"></div>
+  <div><div class="assistant-links"><a id="assistant-whatsapp" href="https://wa.me/19046854659" target="_blank" rel="noopener noreferrer">WhatsApp →</a><a id="assistant-booking" href="#" target="_blank" rel="noopener noreferrer" hidden>Agendar reunión →</a></div><form class="assistant-form" id="assistant-form"><input id="assistant-input" maxlength="700" autocomplete="off" placeholder="Cuéntame qué necesitas…" aria-label="Mensaje para el asistente" required><button type="submit" aria-label="Enviar mensaje">→</button></form></div>
+</aside>
 
 <a
   aria-label="Abrir WhatsApp de Digital Forge"
@@ -2108,6 +2118,7 @@
       requestAnimationFrame(()=>document.getElementById(targetId)?.scrollIntoView({behavior:"smooth",block:"start"}));
     }));
 
+    const $=(selector,root=document)=>root.querySelector(selector);
     const dynamicBusiness=document.getElementById("dynamic-business");
     const dynamicGroups={portfolio:document.getElementById("portfolio-group"),case_study:document.getElementById("cases-group"),testimonial:document.getElementById("testimonials-group"),pricing:document.getElementById("pricing-group")};
     const dynamicGrids={portfolio:document.getElementById("portfolio-grid"),case_study:document.getElementById("cases-grid"),testimonial:document.getElementById("testimonials-grid"),pricing:document.getElementById("pricing-grid")};
@@ -2139,7 +2150,7 @@
       let visibleCount=0;
       Object.entries(dynamicGroups).forEach(([type,group])=>{const items=dynamicBusinessState.content.filter((item)=>item.type===type);const grid=dynamicGrids[type];grid.replaceChildren(...items.map((item)=>makeDynamicCard(item,lang)));group.hidden=!items.length;visibleCount+=items.length;});
       const paypal=safePublicUrl(dynamicBusinessState.settings.paypal_url)||"https://www.paypal.com/paypalme/MariaRios810";paypalCta.href=paypal;paypalFooter.href=paypal;
-      const calendly=safePublicUrl(dynamicBusinessState.settings.calendly_url);calendlyCta.hidden=!calendly;if(calendly){calendlyCta.href=calendly;}
+      const calendly=safePublicUrl(dynamicBusinessState.settings.booking_url||dynamicBusinessState.settings.calendly_url);calendlyCta.hidden=!calendly;if(calendly){calendlyCta.href=calendly;}syncAssistantBooking();
       dynamicBusiness.hidden=visibleCount===0;
     }
     async function loadDynamicBusiness(){
@@ -2165,6 +2176,14 @@
       }catch(error){leadStatus.classList.add("error");leadStatus.textContent=error.message||(lang==="en"?"We could not save the request.":"No pudimos guardar la solicitud.");}
       finally{leadSubmit.disabled=false;}
     });
+    const assistantLaunch=document.getElementById("assistant-launch");const assistantPanel=document.getElementById("assistant-panel");const assistantClose=document.getElementById("assistant-close");const assistantMessages=document.getElementById("assistant-messages");const assistantForm=document.getElementById("assistant-form");const assistantInput=document.getElementById("assistant-input");const assistantWhatsapp=document.getElementById("assistant-whatsapp");const assistantBooking=document.getElementById("assistant-booking");const assistantMode=document.getElementById("assistant-mode");const assistantConversation=[];
+    function syncAssistantBooking(){if(!assistantBooking)return;const url=safePublicUrl(dynamicBusinessState.settings.booking_url||dynamicBusinessState.settings.calendly_url);assistantBooking.hidden=!url;if(url)assistantBooking.href=url;}
+    function assistantCopy(){const en=document.documentElement.lang==="en";return en?{hello:"Hi! I’m Digital Forge’s assistant. Are you looking for video editing or website creation?",placeholder:"Tell me what you need…",mode:"IMMEDIATE GUIDANCE",booking:"Schedule meeting →",error:"I couldn’t respond right now. You can continue on WhatsApp."}:{hello:"¡Hola! Soy el asistente de Digital Forge. ¿Buscas edición de video o creación de una página web?",placeholder:"Cuéntame qué necesitas…",mode:"ORIENTACIÓN INMEDIATA",booking:"Agendar reunión →",error:"No pude responder en este momento. Puedes continuar por WhatsApp."}}
+    function addAssistantMessage(role,text,extra=""){const message=document.createElement("div");message.className=`assistant-message ${role} ${extra}`.trim();message.textContent=text;assistantMessages.append(message);assistantMessages.scrollTop=assistantMessages.scrollHeight;return message}
+    function openAssistant(){const copy=assistantCopy();assistantPanel.classList.add("open");assistantPanel.setAttribute("aria-hidden","false");assistantLaunch.setAttribute("aria-expanded","true");assistantInput.placeholder=copy.placeholder;assistantMode.textContent=copy.mode;assistantBooking.textContent=copy.booking;if(!assistantConversation.length){assistantConversation.push({role:"assistant",content:copy.hello});addAssistantMessage("assistant",copy.hello)}syncAssistantBooking();assistantInput.focus();trackEvent("assistant_open")}
+    function closeAssistant(){assistantPanel.classList.remove("open");assistantPanel.setAttribute("aria-hidden","true");assistantLaunch.setAttribute("aria-expanded","false")}
+    assistantLaunch.addEventListener("click",()=>assistantPanel.classList.contains("open")?closeAssistant():openAssistant());assistantClose.addEventListener("click",closeAssistant);document.addEventListener("keydown",(event)=>{if(event.key==="Escape")closeAssistant()});
+    assistantForm.addEventListener("submit",async(event)=>{event.preventDefault();const message=assistantInput.value.trim();if(!message)return;assistantInput.value="";const previous=assistantConversation.slice(-8);assistantConversation.push({role:"user",content:message});addAssistantMessage("user",message);const thinking=addAssistantMessage("assistant",document.documentElement.lang==="en"?"Thinking…":"Pensando…","thinking");$('button',assistantForm).disabled=true;try{if(location.protocol==="file:")throw new Error("offline");const response=await fetch("/api/assistant",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({message,history:previous,locale:document.documentElement.lang})});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||"error");thinking.remove();assistantConversation.push({role:"assistant",content:data.reply});addAssistantMessage("assistant",data.reply);assistantMode.textContent=data.mode==="ai"?"AI / DIGITAL FORGE":assistantCopy().mode;const summary=assistantConversation.filter((item)=>item.role==="user").map((item)=>item.content).join(" · ");assistantWhatsapp.href=`https://wa.me/19046854659?text=${encodeURIComponent((document.documentElement.lang==="en"?"Hello Digital Forge. I spoke with the website assistant: ":"Hola Digital Forge. Hablé con el asistente de la web: ")+summary)}`;trackEvent("assistant_message",{mode:data.mode})}catch(error){thinking.textContent=assistantCopy().error}finally{$('button',assistantForm).disabled=false;assistantInput.focus()}});
     trackEvent("page_view",{referrer:document.referrer||"direct"});
     loadDynamicBusiness();
 

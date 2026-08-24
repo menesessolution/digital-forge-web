@@ -61,6 +61,9 @@ CREATE TABLE IF NOT EXISTS projects (
   status TEXT NOT NULL DEFAULT 'briefing' CHECK (status IN ('briefing','editing','review','approved','delivered','archived')),
   progress INTEGER NOT NULL DEFAULT 0 CHECK (progress >= 0 AND progress <= 100),
   due_date TEXT NOT NULL DEFAULT '', description TEXT NOT NULL DEFAULT '',
+  payment_amount_cents INTEGER NOT NULL DEFAULT 0,
+  payment_currency TEXT NOT NULL DEFAULT 'USD',
+  payment_status TEXT NOT NULL DEFAULT 'not_required',
   created_at TEXT NOT NULL, updated_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_projects_client_status ON projects(client_id, status, updated_at DESC);
@@ -88,4 +91,9 @@ CREATE TABLE IF NOT EXISTS project_events (
   kind TEXT NOT NULL, detail TEXT NOT NULL DEFAULT '', created_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_project_events_project_created ON project_events(project_id, created_at DESC);
+
+CREATE TABLE IF NOT EXISTS assistant_requests (
+  id INTEGER PRIMARY KEY AUTOINCREMENT, ip_hash TEXT NOT NULL, created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_assistant_requests_ip_created ON assistant_requests(ip_hash, created_at DESC);
 PRAGMA optimize;

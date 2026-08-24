@@ -95,6 +95,9 @@ const schemaStatements = [
     progress INTEGER NOT NULL DEFAULT 0 CHECK (progress >= 0 AND progress <= 100),
     due_date TEXT NOT NULL DEFAULT '',
     description TEXT NOT NULL DEFAULT '',
+    payment_amount_cents INTEGER NOT NULL DEFAULT 0,
+    payment_currency TEXT NOT NULL DEFAULT 'USD',
+    payment_status TEXT NOT NULL DEFAULT 'not_required',
     created_at TEXT NOT NULL,
     updated_at TEXT NOT NULL
   )`,
@@ -134,6 +137,12 @@ const schemaStatements = [
     created_at TEXT NOT NULL
   )`,
   `CREATE INDEX IF NOT EXISTS idx_project_events_project_created ON project_events(project_id, created_at DESC)`,
+  `CREATE TABLE IF NOT EXISTS assistant_requests (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ip_hash TEXT NOT NULL,
+    created_at INTEGER NOT NULL
+  )`,
+  `CREATE INDEX IF NOT EXISTS idx_assistant_requests_ip_created ON assistant_requests(ip_hash, created_at DESC)`,
 ];
 
 let initialized = false;
@@ -142,12 +151,21 @@ export async function ensureDatabase(env) {
   if (!env.DB) throw new Error('D1 binding DB is not configured');
   if (initialized) return env.DB;
   await env.DB.batch(schemaStatements.map((sql) => env.DB.prepare(sql)));
+  const projectColumns = await env.DB.prepare('PRAGMA table_info(projects)').all();
+  const existingProjectColumns = new Set((projectColumns.results || []).map((column) => column.name));
+  const projectMigrations = [];
+  if (!existingProjectColumns.has('payment_amount_cents')) projectMigrations.push(env.DB.prepare("ALTER TABLE projects ADD COLUMN payment_amount_cents INTEGER NOT NULL DEFAULT 0"));
+  if (!existingProjectColumns.has('payment_currency')) projectMigrations.push(env.DB.prepare("ALTER TABLE projects ADD COLUMN payment_currency TEXT NOT NULL DEFAULT 'USD'"));
+  if (!existingProjectColumns.has('payment_status')) projectMigrations.push(env.DB.prepare("ALTER TABLE projects ADD COLUMN payment_status TEXT NOT NULL DEFAULT 'not_required'"));
+  if (projectMigrations.length) await env.DB.batch(projectMigrations);
   const now = new Date().toISOString();
   await env.DB.batch([
     env.DB.prepare('INSERT OR IGNORE INTO settings (key, value, updated_at) VALUES (?, ?, ?)')
       .bind('paypal_url', 'https://www.paypal.com/paypalme/MariaRios810', now),
     env.DB.prepare('INSERT OR IGNORE INTO settings (key, value, updated_at) VALUES (?, ?, ?)')
       .bind('calendly_url', '', now),
+    env.DB.prepare('INSERT OR IGNORE INTO settings (key, value, updated_at) VALUES (?, ?, ?)')
+      .bind('booking_url', '', now),
     env.DB.prepare('INSERT OR IGNORE INTO settings (key, value, updated_at) VALUES (?, ?, ?)')
       .bind('contact_email', 'digitalforge.team@outlook.com', now),
   ]);

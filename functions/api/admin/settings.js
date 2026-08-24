@@ -1,6 +1,6 @@
 import { cleanText, ensureDatabase, json, nowIso } from '../../lib/db.js';
 
-const allowedKeys = new Set(['paypal_url','calendly_url','contact_email']);
+const allowedKeys = new Set(['paypal_url','calendly_url','booking_url','contact_email']);
 
 export async function onRequestGet({ env }) {
   const db = await ensureDatabase(env);

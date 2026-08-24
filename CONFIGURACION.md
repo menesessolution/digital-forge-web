@@ -33,14 +33,27 @@ El proyecto está preparado para Resend. Añade como secretos o variables:
 
 Si todavía no configuras estos datos, los leads se guardarán normalmente en el CRM, pero no se enviará el email automático.
 
-## 5. Calendly y PayPal
+## 5. Outlook / Microsoft Bookings y PayPal
 
 Entra en `/admin/` y abre **Configuración**:
 
-- Pega tu enlace de Calendly cuando lo tengas.
+- Pega el enlace público de tu página de Microsoft Bookings cuando lo tengas.
 - PayPal ya está configurado como `https://www.paypal.com/paypalme/MariaRios810`.
 
-## 6. Activar el Portal del Cliente
+En cada proyecto puedes definir un pago único, su moneda y marcarlo como pendiente o pagado. PayPal.Me abre el monto acordado, pero la confirmación se marca manualmente en el panel después de verificar el pago.
+
+## 6. Activar el asistente con IA (opcional)
+
+El asistente funciona desde el primer momento con orientación guiada. Para activar respuestas generadas con IA:
+
+1. En **Settings → Variables and Secrets**, crea un secreto llamado `OPENAI_API_KEY`.
+2. Pega una clave de la API de OpenAI y guárdala como secreto para Production.
+3. Opcionalmente crea `OPENAI_MODEL` con el valor `gpt-5.6-luna`.
+4. Crea un nuevo despliegue.
+
+La clave permanece en el servidor y nunca se incluye en `index.html`.
+
+## 7. Activar el Portal del Cliente
 
 Las nuevas tablas se crean automáticamente la primera vez que el panel llama a la base de datos. También puedes ejecutar `migrations/002_client_portal.sql` en la consola de `digital-forge-db`.
 
@@ -50,7 +63,7 @@ El portal estará disponible en `/portal/`. Desde `/admin/`:
 2. Usa una contraseña temporal de al menos 12 caracteres y compártela de forma privada.
 3. Abre **Portal / Proyectos** y asigna un proyecto al cliente.
 
-## 7. Almacenamiento privado de archivos
+## 8. Almacenamiento privado de archivos
 
 Para subir versiones de video y entregas finales:
 
