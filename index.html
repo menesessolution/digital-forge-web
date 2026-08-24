@@ -686,6 +686,17 @@
     .core-idea{padding:28px;font-size:19px;line-height:1.02}
     .phone-hook{font-size:13px;line-height:.98;max-width:100%;letter-spacing:-.025em}
     .carousel-headline{font-size:20px;line-height:.95;max-width:130px}
+    .phone-frame{width:146px;height:252px;border:2px solid #151515;border-radius:30px;padding:5px;background:#252525;box-shadow:11px 14px 0 #d8d3cb,0 18px 38px rgba(0,0,0,.16);position:relative}
+    .phone-frame::before{content:"";position:absolute;left:-4px;top:51px;width:3px;height:42px;border-radius:3px 0 0 3px;background:#1a1a1a;box-shadow:0 51px 0 #1a1a1a}
+    .phone-frame::after{content:"";position:absolute;right:-4px;top:70px;width:3px;height:58px;border-radius:0 3px 3px 0;background:#1a1a1a}
+    .phone-screen{height:100%;border-radius:24px;padding:14px 12px 20px;position:relative;overflow:hidden;background:linear-gradient(145deg,#f0a69a 0 35%,#e9dfcf 35% 48%,#50a3aa 49% 72%,#0c555d 73% 100%);color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+    .phone-screen::before{content:"";position:absolute;inset:38% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.82));z-index:0}
+    .dynamic-island{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:53px;height:15px;background:#050505;border-radius:999px;z-index:4;box-shadow:inset 0 0 0 1px rgba(255,255,255,.035)}
+    .dynamic-island::after{content:"";position:absolute;width:4px;height:4px;border-radius:50%;right:7px;top:5px;background:#172935;box-shadow:0 0 0 1px #243a48}
+    .phone-status{position:absolute;left:11px;right:10px;top:10px;display:flex;justify-content:space-between;align-items:center;font:800 7px "Inter",sans-serif;z-index:3}.phone-signals{letter-spacing:1px;font-size:6px}
+    .phone-hook,.phone-caption{position:relative;z-index:2}.phone-hook{font-size:13px;line-height:.96;max-width:100%;letter-spacing:-.025em}.phone-caption{background:#ddd;box-shadow:0 7px 0 rgba(255,255,255,.42),0 14px 0 rgba(255,255,255,.2)}
+    .home-indicator{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);width:48px;height:3px;border-radius:999px;background:rgba(255,255,255,.88);z-index:3}
+    .phone-badge{right:-23px;top:48px;box-shadow:0 7px 18px rgba(0,0,0,.18)}
     @media(max-width:650px){.core-idea{padding:22px;font-size:17px}.phone-hook{font-size:12px}.carousel-headline{font-size:19px}}
     @media(prefers-reduced-motion:reduce){.system-core::before,.core-idea::after,.format-scene{animation:none!important;transition:none!important}}
 
@@ -1058,7 +1069,7 @@
 <div class="format-stage">
 <div class="format-copy"><span class="format-index" id="format-index">01 / REEL</span><h3 class="format-title" id="format-title">El gancho abre la conversación.</h3><p class="format-text" id="format-text">Una versión ágil de la idea, estructurada para captar atención y comunicar el mensaje con claridad.</p><div class="format-specs" id="format-specs"><span class="format-spec">GANCHO</span><span class="format-spec">RITMO</span><span class="format-spec">SUBTÍTULOS</span></div><button class="format-next" id="format-next" type="button" aria-label="Siguiente formato">→</button></div>
 <div class="format-preview" aria-hidden="true">
-<div class="format-scene active" data-format-view="0"><div class="phone-frame"><div class="phone-screen"><div class="phone-hook" data-en="ONE IDEA. ONE CLEAR MESSAGE." data-es="UNA IDEA. UN MENSAJE CLARO.">UNA IDEA. UN MENSAJE CLARO.</div><div class="phone-caption"></div></div><span class="phone-badge">REEL</span></div></div>
+<div class="format-scene active" data-format-view="0"><div class="phone-frame"><div class="phone-screen"><div class="dynamic-island"></div><div class="phone-status"><span>9:41</span><span class="phone-signals">▮▮ ◒</span></div><div class="phone-hook" data-en="ONE IDEA. ONE CLEAR MESSAGE." data-es="UNA IDEA. UN MENSAJE CLARO.">UNA IDEA. UN MENSAJE CLARO.</div><div class="phone-caption"></div><div class="home-indicator"></div></div><span class="phone-badge">REEL</span></div></div>
 <div class="format-scene" data-format-view="1"><div class="short-bars"><div class="short-bar"><div class="short-line"></div></div><div class="short-bar"><div class="short-line"></div></div><div class="short-bar"><div class="short-line"></div></div></div></div>
 <div class="format-scene" data-format-view="2"><div class="carousel-stack"><div class="carousel-page"></div><div class="carousel-page"></div><div class="carousel-page"><span class="carousel-number">01 / 05</span><strong class="carousel-headline" data-en="SWIPE THE IDEA FORWARD" data-es="DESLIZA LA IDEA">DESLIZA LA IDEA</strong><span class="carousel-arrow">→</span></div></div></div>
 <div class="format-scene" data-format-view="3"><div class="caption-sheet"><div class="caption-top"><span class="caption-avatar"></span><span class="caption-name"></span></div><div class="caption-line"></div><div class="caption-line"></div><div class="caption-line"></div><span class="caption-cta" data-en="CONTINUE THE CONVERSATION →" data-es="CONTINÚA LA CONVERSACIÓN →">CONTINÚA LA CONVERSACIÓN →</span></div></div>
