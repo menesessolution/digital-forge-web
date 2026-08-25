@@ -83,7 +83,8 @@ CREATE INDEX IF NOT EXISTS idx_versions_project_created ON project_versions(proj
 CREATE TABLE IF NOT EXISTS project_comments (
   id TEXT PRIMARY KEY, project_id TEXT NOT NULL, version_id TEXT NOT NULL DEFAULT '',
   client_id TEXT NOT NULL DEFAULT '', author_role TEXT NOT NULL CHECK (author_role IN ('admin','client')),
-  author_name TEXT NOT NULL, message TEXT NOT NULL, created_at TEXT NOT NULL
+  author_name TEXT NOT NULL, message TEXT NOT NULL,
+  time_seconds INTEGER NOT NULL DEFAULT -1, created_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_comments_project_created ON project_comments(project_id, created_at ASC);
 

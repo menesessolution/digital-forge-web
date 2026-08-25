@@ -127,6 +127,7 @@ const schemaStatements = [
     author_role TEXT NOT NULL CHECK (author_role IN ('admin','client')),
     author_name TEXT NOT NULL,
     message TEXT NOT NULL,
+    time_seconds INTEGER NOT NULL DEFAULT -1,
     created_at TEXT NOT NULL
   )`,
   `CREATE INDEX IF NOT EXISTS idx_comments_project_created ON project_comments(project_id, created_at ASC)`,
@@ -164,6 +165,15 @@ export async function ensureDatabase(env) {
   if (!existingClientColumns.has('must_change_password')) {
     try {
       await env.DB.prepare('ALTER TABLE clients ADD COLUMN must_change_password INTEGER NOT NULL DEFAULT 1 CHECK (must_change_password IN (0,1))').run();
+    } catch (error) {
+      if (!/duplicate column/i.test(String(error.message || ''))) throw error;
+    }
+  }
+  const commentColumns = await env.DB.prepare('PRAGMA table_info(project_comments)').all();
+  const existingCommentColumns = new Set((commentColumns.results || []).map((column) => column.name));
+  if (!existingCommentColumns.has('time_seconds')) {
+    try {
+      await env.DB.prepare('ALTER TABLE project_comments ADD COLUMN time_seconds INTEGER NOT NULL DEFAULT -1').run();
     } catch (error) {
       if (!/duplicate column/i.test(String(error.message || ''))) throw error;
     }
