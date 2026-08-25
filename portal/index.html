@@ -21,6 +21,9 @@
   <style>
     .install-button[hidden],.install-dashboard[hidden]{display:none!important}.install-note{margin:9px 0 0!important;text-align:center;color:#6f746f!important;font-size:10px!important}.install-help-button{margin-top:8px!important;background:transparent!important;color:#b9bdb9!important;border:0!important;text-decoration:underline;text-underline-offset:4px}.welcome-side{max-width:430px}.welcome-side p{margin:0}.welcome-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.welcome-actions .button{margin:0}.install-dialog{width:min(calc(100% - 28px),620px);max-height:min(90vh,760px);border:1px solid #3b3d3b;border-radius:26px;background:#111211;color:#fff;padding:0;box-shadow:0 35px 100px rgba(0,0,0,.72);overflow:auto}.install-dialog::backdrop{background:rgba(0,0,0,.76);backdrop-filter:blur(10px)}.install-dialog-in{padding:30px}.install-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:20px}.install-dialog-head img{width:62px;height:62px;object-fit:contain}.install-close{width:40px;height:40px;border:1px solid #383a38;border-radius:50%;background:#171817;color:#fff;font-size:20px;cursor:pointer}.install-dialog h2{font-size:clamp(2.5rem,10vw,4.4rem);line-height:.86;letter-spacing:-.065em;margin:24px 0 12px}.install-dialog>div>p{color:#919691;font-size:12px;line-height:1.65}.install-platforms{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.install-platform{border:1px solid #2d2f2d;border-radius:17px;background:#0c0d0c;padding:18px}.install-platform h3{font-size:15px;margin:0 0 4px}.install-platform>span{color:#747974;font-size:10px}.install-steps{list-style:none;counter-reset:install;margin:16px 0 0;padding:0}.install-steps li{counter-increment:install;display:grid;grid-template-columns:28px 1fr;align-items:start;gap:9px;padding:10px 0;color:#d8dbd8;font-size:11px;line-height:1.5}.install-steps li::before{content:counter(install);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#f5f2ed;color:#111;font-size:10px;font-weight:900}.install-done{width:100%;margin-top:18px}@media(display-mode:standalone){.install-button,.install-dashboard{display:none!important}}@media(max-width:560px){.install-platforms{grid-template-columns:1fr}.install-dialog-in{padding:24px}.welcome-actions{display:grid}}
   </style>
+  <style>
+    .install-steps li{grid-template-columns:28px minmax(0,1fr)}.install-steps li>span{display:block;min-width:0;overflow-wrap:anywhere}.install-steps strong{display:inline;font-weight:850;color:#fff}.install-close:focus{outline:none;box-shadow:0 0 0 1px #6b6f6b}@media(max-width:560px){.install-dialog{width:calc(100% - 20px);max-height:calc(100dvh - 28px);border-radius:22px}.install-dialog-in{padding:20px}.install-dialog-head img{width:52px;height:52px}.install-close{width:38px;height:38px;flex:0 0 auto}.install-dialog h2{font-size:clamp(2.75rem,13vw,3.7rem);line-height:.88;margin:18px 0 10px}.install-dialog>div>p{font-size:11px;line-height:1.6}.install-platforms{margin-top:18px;gap:9px}.install-platform{padding:16px}.install-steps{margin-top:12px}.install-steps li{padding:8px 0;font-size:11px;line-height:1.55}.install-done{margin-top:14px}}
+  </style>
 </head>
 <body>
   <section class="login" id="login">
@@ -47,8 +50,8 @@
       <h2>Instálala<br>en tu teléfono.</h2>
       <p>No necesitas buscarla en App Store ni Play Store. El portal se instala directamente desde el navegador y se abre como una app.</p>
       <div class="install-platforms">
-        <section class="install-platform"><h3>iPhone o iPad</h3><span>Usa Safari</span><ol class="install-steps"><li>Toca el botón <strong>Compartir</strong> de Safari.</li><li>Selecciona <strong>Añadir a pantalla de inicio</strong>.</li><li>Activa <strong>Abrir como app</strong> y toca Añadir.</li></ol></section>
-        <section class="install-platform"><h3>Android</h3><span>Usa Google Chrome</span><ol class="install-steps"><li>Toca <strong>Instalar Digital Forge</strong> en el portal.</li><li>Si no aparece, abre el menú de los <strong>tres puntos</strong>.</li><li>Selecciona <strong>Instalar aplicación</strong> o Añadir a pantalla principal.</li></ol></section>
+        <section class="install-platform"><h3>iPhone o iPad</h3><span>Usa Safari</span><ol class="install-steps"><li><span>Toca el botón <strong>Compartir</strong> de Safari.</span></li><li><span>Selecciona <strong>Añadir a pantalla de inicio</strong>.</span></li><li><span>Activa <strong>Abrir como app</strong> y toca Añadir.</span></li></ol></section>
+        <section class="install-platform"><h3>Android</h3><span>Usa Google Chrome</span><ol class="install-steps"><li><span>Toca <strong>Instalar Digital Forge</strong> en el portal.</span></li><li><span>Si no aparece, abre el menú de los <strong>tres puntos</strong>.</span></li><li><span>Selecciona <strong>Instalar aplicación</strong> o Añadir a pantalla principal.</span></li></ol></section>
       </div>
       <button class="button install-done" id="install-done" type="button">Entendido →</button>
     </div>
@@ -98,19 +101,21 @@
       const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
       const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(/macintosh/i.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
       const showInstall=()=>{if(!standalone){installButton.hidden=false;installNote.hidden=false;dashboardButton.hidden=false}};
+      const openInstallGuide=()=>{installDialog.showModal();requestAnimationFrame(()=>{installDialog.scrollTop=0})};
       if('serviceWorker' in navigator&&location.protocol!=='file:')window.addEventListener('load',()=>navigator.serviceWorker.register('/service-worker.js').catch(()=>{}));
       if(isIOS&&!standalone)showInstall();
       window.addEventListener('beforeinstallprompt',(event)=>{event.preventDefault();installPrompt=event;showInstall()});
       installButton.addEventListener('click',async()=>{
         if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;return}
-        installDialog.showModal();
+        openInstallGuide();
       });
       dashboardButton.addEventListener('click',()=>installButton.click());
-      helpButtons.forEach((button)=>button.addEventListener('click',()=>installDialog.showModal()));
+      helpButtons.forEach((button)=>button.addEventListener('click',openInstallGuide));
       const closeDialog=()=>installDialog.close();
       document.getElementById('install-close').addEventListener('click',closeDialog);
       document.getElementById('install-done').addEventListener('click',closeDialog);
       installDialog.addEventListener('click',(event)=>{if(event.target===installDialog)closeDialog()});
+      installDialog.addEventListener('close',()=>{installDialog.scrollTop=0});
       window.addEventListener('appinstalled',()=>{installButton.hidden=true;installNote.hidden=true;dashboardButton.hidden=true;installPrompt=null});
     })();
   </script>
