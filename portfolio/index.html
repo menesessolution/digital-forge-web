@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Portafolio de video | Digital Forge</title>
+  <meta name="description" content="Portafolio de edición de video vertical de Digital Forge: trabajos seleccionados en formato 9:16 para Shorts, Reels y TikTok.">
+  <meta name="theme-color" content="#080808">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://digitalforgecreative.pages.dev/portfolio/">
+  <link rel="icon" href="../logo-header.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:dark;
+      --bg:#080808;
+      --panel:#111;
+      --panel-2:#171717;
+      --line:#292929;
+      --text:#f5f2ed;
+      --muted:#99948e;
+      --paper:#f3f0ea;
+      --ink:#111;
+      --accent:#d9b8ad;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{background:var(--bg);color:var(--text);font-family:"Inter",Arial,sans-serif;min-width:320px;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(1440px,calc(100% - 48px));margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:60;background:rgba(8,8,8,.86);border-bottom:1px solid rgba(255,255,255,.11);backdrop-filter:blur(18px)}
+    .nav{min-height:92px;display:flex;align-items:center;gap:18px}
+    .brand{display:flex;align-items:center;margin-right:auto}
+    .brand img{width:auto;height:66px;display:block}
+    .nav-link,.language-switch,.header-cta{display:inline-flex;align-items:center;justify-content:center;border:1px solid #353535;border-radius:999px;height:44px}
+    .nav-link{padding:0 17px;font-size:11px;font-weight:800}
+    .nav-link:hover,.nav-link:focus-visible{border-color:#777}
+    .language-switch{padding:4px;height:46px}
+    .language-switch button{appearance:none;border:0;background:transparent;color:#888;border-radius:999px;min-width:43px;height:36px;font-weight:850;font-size:11px;cursor:pointer}
+    .language-switch button.active{background:var(--paper);color:var(--ink)}
+    .header-cta{background:var(--paper);color:var(--ink);border-color:var(--paper);padding:0 20px;font-size:11px;font-weight:900}
+    .hero{position:relative;min-height:700px;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(320px,.82fr);gap:60px;align-items:end;padding:100px 0 74px;overflow:hidden}
+    .hero::before{content:"";position:absolute;width:800px;height:800px;border:1px solid #1c1c1c;border-radius:50%;left:-390px;top:-220px;box-shadow:0 0 0 70px rgba(255,255,255,.012),0 0 0 140px rgba(255,255,255,.008);pointer-events:none}
+    .hero-copy,.hero-side{position:relative;z-index:1}
+    .kicker{font:800 10px/1.4 monospace;letter-spacing:.16em;color:#8f8a84;text-transform:uppercase}
+    .hero h1{font-size:clamp(4.3rem,9.4vw,9.4rem);line-height:.78;letter-spacing:-.085em;max-width:1000px;margin-top:24px}
+    .hero h1 b,.hero h1 span{display:block}.hero h1 b{color:var(--text);font-weight:900}.hero h1 span{color:#817d78}
+    .hero-side{border-top:1px solid #373737;padding-top:25px;margin-bottom:5px}
+    .hero-side p{font-size:clamp(1rem,1.5vw,1.32rem);line-height:1.6;color:#b2ada7;max-width:520px}
+    .format-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+    .format-tag{border:1px solid #343434;border-radius:999px;padding:10px 13px;font:800 9px monospace;letter-spacing:.08em;color:#b4afa9}
+    .scroll-link{display:inline-flex;align-items:center;gap:10px;margin-top:31px;font-size:11px;font-weight:850}
+    .scroll-link i{width:42px;height:42px;display:grid;place-items:center;border:1px solid #414141;border-radius:50%;font-style:normal}
+    .portfolio{background:var(--paper);color:var(--ink);padding:92px 0 110px}
+    .section-head{display:grid;grid-template-columns:1fr .72fr;gap:60px;align-items:end;border-top:1px solid #c9c4bc;padding-top:28px;margin-bottom:46px}
+    .section-head h2{font-size:clamp(3rem,6.2vw,6.4rem);line-height:.86;letter-spacing:-.07em;max-width:760px}
+    .section-head p{color:#5f5a54;line-height:1.7;max-width:520px}
+    .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .work-card{position:relative;min-width:0;border:1px solid #cbc5bc;border-radius:24px;background:#e7e2da;overflow:hidden;box-shadow:0 18px 36px rgba(31,24,19,.06);transition:transform .28s ease,box-shadow .28s ease}
+    .work-card:hover{transform:translateY(-5px);box-shadow:0 25px 50px rgba(31,24,19,.12)}
+    .video-wrap{position:relative;aspect-ratio:9/16;background:#0d0d0d;overflow:hidden}
+    .video-wrap video{width:100%;height:100%;display:block;object-fit:cover;background:#0d0d0d}
+    .video-wrap::after{content:"";position:absolute;inset:auto 0 0;height:33%;background:linear-gradient(transparent,rgba(0,0,0,.72));pointer-events:none}
+    .video-index{position:absolute;z-index:3;left:14px;top:14px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(8,8,8,.54);backdrop-filter:blur(10px);color:#fff;padding:8px 10px;font:800 8px monospace;letter-spacing:.09em}
+    .play-button{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);width:62px;height:62px;border:1px solid rgba(255,255,255,.48);border-radius:50%;background:rgba(8,8,8,.62);backdrop-filter:blur(10px);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:17px;padding-left:3px;transition:.2s ease}
+    .play-button:hover,.play-button:focus-visible{background:#fff;color:#111;transform:translate(-50%,-50%) scale(1.06)}
+    .work-card.playing .play-button{opacity:0;transform:translate(-50%,-50%) scale(.86)}
+    .work-card.playing .video-wrap:hover .play-button,.work-card.playing .play-button:focus-visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
+    .sound-button{position:absolute;z-index:4;right:14px;bottom:14px;appearance:none;border:1px solid rgba(255,255,255,.3);border-radius:999px;background:rgba(8,8,8,.62);backdrop-filter:blur(10px);color:#fff;padding:9px 11px;font-size:9px;font-weight:850;cursor:pointer}
+    .work-meta{padding:19px 20px 22px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:18px}
+    .work-meta span{display:block;color:#7b756e;font:800 8px monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+    .work-meta h3{font-size:clamp(1.25rem,1.8vw,1.65rem);line-height:1;letter-spacing:-.045em}
+    .work-meta strong{font:800 9px monospace;color:#6f6963}
+    .horizontal-cta{margin-top:90px;background:#0a0a0a;color:#fff;border-radius:28px;padding:48px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;overflow:hidden}
+    .horizontal-cta::after{content:"16:9";position:absolute;right:26%;top:50%;transform:translateY(-50%);font-size:130px;font-weight:900;letter-spacing:-.08em;color:rgba(255,255,255,.035);pointer-events:none}
+    .horizontal-cta h2{font-size:clamp(2.5rem,5vw,5rem);line-height:.88;letter-spacing:-.065em;max-width:800px;position:relative;z-index:1}
+    .horizontal-cta p{color:#96918b;line-height:1.6;margin-top:18px;max-width:610px;position:relative;z-index:1}
+    .cta-button{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 23px;border-radius:999px;background:#f4f1ec;color:#111;font-size:12px;font-weight:900;white-space:nowrap;position:relative;z-index:1}
+    .footer{padding:44px 0 calc(44px + env(safe-area-inset-bottom));border-top:1px solid #252525}
+    .footer-inner{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+    .footer-brand{display:flex;align-items:center;gap:17px}
+    .footer-brand img{height:54px;width:auto}
+    .footer-brand strong{display:block;font-size:14px}
+    .footer-brand span{display:block;color:#777;font-size:10px;margin-top:5px}
+    .footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:9px}
+    .footer-links a{border:1px solid #333;border-radius:999px;padding:11px 14px;font-size:10px;font-weight:800}
+    .whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:50;display:flex;align-items:center;gap:9px;background:#f4f1ec;color:#111;border-radius:999px;padding:14px 17px;font-size:11px;font-weight:900;box-shadow:0 16px 40px rgba(0,0,0,.32)}
+    .whatsapp-float::before{content:"◉";font-size:13px}
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr;min-height:auto;padding:90px 0 70px}.hero-side{max-width:680px}.section-head{grid-template-columns:1fr;gap:25px}.gallery{grid-template-columns:repeat(2,1fr)}.horizontal-cta{grid-template-columns:1fr}.cta-button{width:max-content}
+    }
+    @media(max-width:650px){
+      .container{width:min(100% - 28px,1440px)}.nav{min-height:78px;gap:9px}.brand img{height:52px}.nav-link{display:none}.header-cta{display:none}.language-switch{height:42px}.language-switch button{height:32px;min-width:39px}.hero{padding:66px 0 54px}.hero h1{font-size:clamp(4rem,21vw,6.1rem);line-height:.79}.hero-side p{font-size:15px}.portfolio{padding:68px 0 80px}.section-head{margin-bottom:28px}.section-head h2{font-size:3.5rem}.gallery{grid-template-columns:1fr;gap:14px}.work-card{display:grid;grid-template-columns:minmax(0,1fr) 116px;border-radius:20px}.video-wrap{grid-column:1/-1}.work-meta{grid-column:1/-1}.horizontal-cta{margin-top:56px;padding:32px 23px;border-radius:22px}.horizontal-cta::after{right:-24px;font-size:100px}.cta-button{width:100%;min-height:54px}.footer-inner{grid-template-columns:1fr}.footer-links{justify-content:flex-start}.whatsapp-float{right:14px;bottom:14px;padding:13px 15px}.whatsapp-float span{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.work-card,.play-button{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="../" aria-label="Digital Forge — Inicio"><img src="../logo-header.png" alt="Digital Forge"></a>
+      <a class="nav-link" href="../" data-es="Volver al sitio" data-en="Back to site">Volver al sitio</a>
+      <div class="language-switch" role="group" aria-label="Selector de idioma">
+        <button class="active" type="button" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="header-cta" href="https://wa.me/19046854659?text=Hola%20Digital%20Forge%2C%20quisiera%20cotizar%20una%20edici%C3%B3n%20de%20video." target="_blank" rel="noopener noreferrer" data-whatsapp-general data-es="Hablemos →" data-en="Let's talk →">Hablemos →</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div class="hero-copy">
+        <p class="kicker" data-es="Digital Forge / Portafolio de video" data-en="Digital Forge / Video portfolio">Digital Forge / Portafolio de video</p>
+        <h1><b data-es="Edición que" data-en="Editing">Edición que</b><span data-es="se puede ver." data-en="you can see.">se puede ver.</span></h1>
+      </div>
+      <div class="hero-side">
+        <p data-es="Una selección de trabajos verticales creados para comunicar con ritmo, claridad e identidad en cada pantalla." data-en="A selection of vertical work created to communicate with rhythm, clarity and identity on every screen.">Una selección de trabajos verticales creados para comunicar con ritmo, claridad e identidad en cada pantalla.</p>
+        <div class="format-tags" aria-label="Formatos"><span class="format-tag">9:16</span><span class="format-tag">SHORTS</span><span class="format-tag">REELS</span><span class="format-tag">TIKTOK</span></div>
+        <a class="scroll-link" href="#trabajos"><i>↓</i><span data-es="Ver trabajos" data-en="View work">Ver trabajos</span></a>
+      </div>
+    </section>
+
+    <section class="portfolio" id="trabajos">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="kicker" data-es="Selección / Formato 9:16" data-en="Selection / 9:16 format">Selección / Formato 9:16</p><h2 data-es="Nuestros trabajos." data-en="Our work.">Nuestros trabajos.</h2></div>
+          <p data-es="Toca cualquier video para reproducirlo. Puedes activar el sonido cuando quieras; los demás se pausarán automáticamente." data-en="Tap any video to play it. You can turn on sound whenever you like; the others will pause automatically.">Toca cualquier video para reproducirlo. Puedes activar el sonido cuando quieras; los demás se pausarán automáticamente.</p>
+        </div>
+
+        <div class="gallery">
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">01 / 09</span><video muted loop playsinline preload="metadata" src="media/short-01.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 01" data-en="Selected work 01">Trabajo seleccionado 01</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">02 / 09</span><video muted loop playsinline preload="metadata" src="media/short-02.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 02" data-en="Selected work 02">Trabajo seleccionado 02</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">03 / 09</span><video muted loop playsinline preload="metadata" src="media/short-03.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 03" data-en="Selected work 03">Trabajo seleccionado 03</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">04 / 09</span><video muted loop playsinline preload="metadata" src="media/short-04.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 04" data-en="Selected work 04">Trabajo seleccionado 04</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">05 / 09</span><video muted loop playsinline preload="metadata" src="media/short-05.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 05" data-en="Selected work 05">Trabajo seleccionado 05</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">06 / 09</span><video muted loop playsinline preload="metadata" src="media/short-06.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 06" data-en="Selected work 06">Trabajo seleccionado 06</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">07 / 09</span><video muted loop playsinline preload="metadata" src="media/short-07.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 07" data-en="Selected work 07">Trabajo seleccionado 07</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">08 / 09</span><video muted loop playsinline preload="metadata" src="media/short-08.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 08" data-en="Selected work 08">Trabajo seleccionado 08</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">09 / 09</span><video muted loop playsinline preload="metadata" src="media/short-09.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 09" data-en="Selected work 09">Trabajo seleccionado 09</h3></div><strong>9:16</strong></div></article>
+        </div>
+
+        <aside class="horizontal-cta">
+          <div><p class="kicker" data-es="Ejemplos bajo solicitud" data-en="Examples on request">Ejemplos bajo solicitud</p><h2 data-es="¿Necesitas ejemplos de videos horizontales?" data-en="Need horizontal video examples?">¿Necesitas ejemplos de videos horizontales?</h2><p data-es="No los publicamos en este portafolio. Escríbenos por WhatsApp y te compartimos ejemplos según el tipo de proyecto que necesitas." data-en="We do not publish them in this portfolio. Message us on WhatsApp and we will share examples based on the type of project you need.">No los publicamos en este portafolio. Escríbenos por WhatsApp y te compartimos ejemplos según el tipo de proyecto que necesitas.</p></div>
+          <a class="cta-button" data-horizontal-cta href="https://wa.me/19046854659?text=Hola%20Digital%20Forge%2C%20quisiera%20ver%20ejemplos%20de%20videos%20horizontales." target="_blank" rel="noopener noreferrer" data-es="Solicitarlos por WhatsApp →" data-en="Request via WhatsApp →">Solicitarlos por WhatsApp →</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><img src="../logo-header.png" alt="Digital Forge"><div><strong>Digital Forge</strong><span data-es="Edición de video y creación web" data-en="Video editing and web creation">Edición de video y creación web</span></div></div>
+      <div class="footer-links"><a href="../" data-es="Sitio principal" data-en="Main site">Sitio principal</a><a href="https://www.instagram.com/digitalforge__/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://wa.me/19046854659" target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/19046854659?text=Hola%20Digital%20Forge%2C%20vi%20su%20portafolio%20y%20quisiera%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer" data-whatsapp-general><span data-es="Hablemos por WhatsApp" data-en="Let's talk on WhatsApp">Hablemos por WhatsApp</span></a>
+
+  <script>
+    (() => {
+      const cards = [...document.querySelectorAll('[data-work-card]')];
+      const languageButtons = [...document.querySelectorAll('[data-lang]')];
+      let language = localStorage.getItem('df-language') === 'en' ? 'en' : 'es';
+
+      const pauseOthers = (current) => {
+        cards.forEach((card) => {
+          if (card === current) return;
+          const video = card.querySelector('video');
+          video.pause();
+          video.muted = true;
+          card.classList.remove('playing');
+        });
+      };
+
+      const setLanguage = (nextLanguage) => {
+        language = nextLanguage;
+        document.documentElement.lang = language;
+        localStorage.setItem('df-language', language);
+        document.querySelectorAll('[data-es][data-en]').forEach((element) => {
+          element.textContent = element.dataset[language];
+        });
+        languageButtons.forEach((button) => {
+          const active = button.dataset.lang === language;
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+        const horizontal = document.querySelector('[data-horizontal-cta]');
+        const generalLinks = document.querySelectorAll('[data-whatsapp-general]');
+        horizontal.href = language === 'es'
+          ? 'https://wa.me/19046854659?text=Hola%20Digital%20Forge%2C%20quisiera%20ver%20ejemplos%20de%20videos%20horizontales.'
+          : 'https://wa.me/19046854659?text=Hello%20Digital%20Forge%2C%20I%20would%20like%20to%20see%20horizontal%20video%20examples.';
+        generalLinks.forEach((link) => {
+          link.href = language === 'es'
+            ? 'https://wa.me/19046854659?text=Hola%20Digital%20Forge%2C%20vi%20su%20portafolio%20y%20quisiera%20hablar%20sobre%20un%20proyecto.'
+            : 'https://wa.me/19046854659?text=Hello%20Digital%20Forge%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.';
+        });
+        cards.forEach((card) => updateCardState(card));
+      };
+
+      const updateCardState = (card) => {
+        const video = card.querySelector('video');
+        const playButton = card.querySelector('.play-button');
+        const soundButton = card.querySelector('.sound-button');
+        const playing = !video.paused;
+        card.classList.toggle('playing', playing);
+        playButton.textContent = playing ? '❚❚' : '▶';
+        playButton.setAttribute('aria-label', language === 'es' ? (playing ? 'Pausar video' : 'Reproducir video') : (playing ? 'Pause video' : 'Play video'));
+        soundButton.textContent = language === 'es' ? (video.muted ? 'Sonido' : 'Silenciar') : (video.muted ? 'Sound' : 'Mute');
+        soundButton.setAttribute('aria-label', language === 'es' ? (video.muted ? 'Activar sonido' : 'Silenciar video') : (video.muted ? 'Turn sound on' : 'Mute video'));
+      };
+
+      cards.forEach((card) => {
+        const video = card.querySelector('video');
+        const playButton = card.querySelector('.play-button');
+        const soundButton = card.querySelector('.sound-button');
+        const togglePlayback = async () => {
+          if (video.paused) {
+            pauseOthers(card);
+            try { await video.play(); } catch (_) {}
+          } else {
+            video.pause();
+          }
+          updateCardState(card);
+        };
+        playButton.addEventListener('click', togglePlayback);
+        video.addEventListener('click', togglePlayback);
+        soundButton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          if (video.muted) {
+            pauseOthers(card);
+            video.muted = false;
+            video.play().catch(() => {});
+          } else {
+            video.muted = true;
+          }
+          updateCardState(card);
+        });
+        video.addEventListener('play', () => updateCardState(card));
+        video.addEventListener('pause', () => updateCardState(card));
+        video.addEventListener('loadedmetadata', () => {
+          if (video.currentTime < .05) video.currentTime = .1;
+        }, { once:true });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && entry.intersectionRatio < .2) {
+            const card = entry.target;
+            const video = card.querySelector('video');
+            if (!video.paused) video.pause();
+          }
+        });
+      }, { threshold:[0,.2,.65] });
+      cards.forEach((card) => observer.observe(card));
+      languageButtons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+      setLanguage(language);
+    })();
+  </script>
+</body>
+</html>
