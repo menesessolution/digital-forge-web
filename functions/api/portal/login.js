@@ -23,7 +23,12 @@ export async function onRequestPost({ request, env }) {
     ]);
     if (!valid || client.status !== 'active') return json({ error: 'Correo o contraseña incorrectos.' }, 401);
     const session = await createSession(env, client.id);
-    await db.prepare('UPDATE clients SET last_login_at=?,updated_at=? WHERE id=?').bind(nowIso(), nowIso(), client.id).run();
+    const loginAt = nowIso();
+    await db.batch([
+      db.prepare('UPDATE clients SET last_login_at=?,updated_at=? WHERE id=?').bind(loginAt, loginAt, client.id),
+      db.prepare('INSERT INTO events (name,path,locale,meta,created_at) VALUES (?,?,?,?,?)')
+        .bind('portal_login', '/portal/', client.locale === 'en' ? 'en' : 'es', JSON.stringify({ client_id: client.id, client_name: client.name }), loginAt),
+    ]);
     return json({ ok: true, client: { id: client.id, name: client.name, email: client.email, locale: client.locale, must_change_password: Boolean(client.must_change_password) } }, 200, { 'set-cookie': session.cookie });
   } catch (error) {
     return json({ error: error.message || 'No se pudo iniciar sesión.' }, 400);
