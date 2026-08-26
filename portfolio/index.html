@@ -168,6 +168,15 @@
       const languageButtons = [...document.querySelectorAll('[data-lang]')];
       let language = localStorage.getItem('df-language') === 'en' ? 'en' : 'es';
 
+      if (location.protocol !== 'file:') {
+        fetch('/api/track', {
+          method:'POST',
+          headers:{'content-type':'application/json'},
+          body:JSON.stringify({name:'portfolio_view',path:'/portfolio/',locale:document.documentElement.lang,meta:{referrer:document.referrer || 'direct'}}),
+          keepalive:true,
+        }).catch(() => {});
+      }
+
       const ensureVideoLoaded = (video) => {
         if (!video.hasAttribute('src') && video.dataset.src) {
           video.src = video.dataset.src;

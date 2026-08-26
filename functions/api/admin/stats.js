@@ -2,12 +2,13 @@ import { ensureDatabase, json } from '../../lib/db.js';
 
 export async function onRequestGet({ env }) {
   const db = await ensureDatabase(env);
-  const [leads, active, content, events, pageViews, portalLogins, whatsapp, paypal, instagram, clients, projects] = await db.batch([
+  const [leads, active, content, events, pageViews, portfolioViews, portalLogins, whatsapp, paypal, instagram, clients, projects] = await db.batch([
     db.prepare('SELECT COUNT(*) AS value FROM leads'),
     db.prepare("SELECT COUNT(*) AS value FROM leads WHERE stage IN ('proposal','active')"),
     db.prepare("SELECT COUNT(*) AS value FROM content_items WHERE status = 'published'"),
     db.prepare("SELECT COUNT(*) AS value FROM events WHERE created_at >= datetime('now','-30 day')"),
     db.prepare("SELECT COUNT(*) AS value FROM events WHERE name = 'page_view' AND created_at >= datetime('now','-30 day')"),
+    db.prepare("SELECT COUNT(*) AS value FROM events WHERE name = 'portfolio_view' AND created_at >= datetime('now','-30 day')"),
     db.prepare("SELECT COUNT(*) AS value FROM events WHERE name = 'portal_login' AND created_at >= datetime('now','-30 day')"),
     db.prepare("SELECT COUNT(*) AS value FROM events WHERE name = 'whatsapp_click' AND created_at >= datetime('now','-30 day')"),
     db.prepare("SELECT COUNT(*) AS value FROM events WHERE name IN ('paypal_click','paypal_project_click') AND created_at >= datetime('now','-30 day')"),
@@ -21,6 +22,7 @@ export async function onRequestGet({ env }) {
     publishedContent: content.results?.[0]?.value || 0,
     events30d: events.results?.[0]?.value || 0,
     pageViews30d: pageViews.results?.[0]?.value || 0,
+    portfolioViews30d: portfolioViews.results?.[0]?.value || 0,
     portalLogins30d: portalLogins.results?.[0]?.value || 0,
     whatsappClicks30d: whatsapp.results?.[0]?.value || 0,
     paypalClicks30d: paypal.results?.[0]?.value || 0,
