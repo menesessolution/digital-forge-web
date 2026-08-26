@@ -42,14 +42,14 @@
     .language-switch button{appearance:none;border:0;background:transparent;color:#888;border-radius:999px;min-width:43px;height:36px;font-weight:850;font-size:11px;cursor:pointer}
     .language-switch button.active{background:var(--paper);color:var(--ink)}
     .header-cta{background:var(--paper);color:var(--ink);border-color:var(--paper);padding:0 20px;font-size:11px;font-weight:900}
-    .hero{position:relative;min-height:700px;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(320px,.82fr);gap:60px;align-items:end;padding:100px 0 74px;overflow:hidden}
-    .hero::before{content:"";position:absolute;width:800px;height:800px;border:1px solid #1c1c1c;border-radius:50%;left:-390px;top:-220px;box-shadow:0 0 0 70px rgba(255,255,255,.012),0 0 0 140px rgba(255,255,255,.008);pointer-events:none}
+    .hero{position:relative;min-height:min(680px,calc(100vh - 92px));display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.72fr);gap:clamp(44px,7vw,110px);align-items:center;padding:72px 0 78px;overflow:hidden}
+    .hero::before{content:"";position:absolute;width:690px;height:690px;border:1px solid #1c1c1c;border-radius:50%;left:-370px;top:-255px;box-shadow:0 0 0 62px rgba(255,255,255,.012),0 0 0 124px rgba(255,255,255,.008);pointer-events:none}
     .hero-copy,.hero-side{position:relative;z-index:1}
     .kicker{font:800 10px/1.4 monospace;letter-spacing:.16em;color:#8f8a84;text-transform:uppercase}
-    .hero h1{font-size:clamp(4.3rem,9.4vw,9.4rem);line-height:.78;letter-spacing:-.085em;max-width:1000px;margin-top:24px}
+    .hero h1{font-size:clamp(4.1rem,7.55vw,7.8rem);line-height:.82;letter-spacing:-.075em;max-width:920px;margin-top:22px}
     .hero h1 b,.hero h1 span{display:block}.hero h1 b{color:var(--text);font-weight:900}.hero h1 span{color:#817d78}
-    .hero-side{border-top:1px solid #373737;padding-top:25px;margin-bottom:5px}
-    .hero-side p{font-size:clamp(1rem,1.5vw,1.32rem);line-height:1.6;color:#b2ada7;max-width:520px}
+    .hero-side{border-top:1px solid #373737;padding-top:24px}
+    .hero-side p{font-size:clamp(.98rem,1.28vw,1.18rem);line-height:1.62;color:#b2ada7;max-width:520px}
     .format-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
     .format-tag{border:1px solid #343434;border-radius:999px;padding:10px 13px;font:800 9px monospace;letter-spacing:.08em;color:#b4afa9}
     .scroll-link{display:inline-flex;align-items:center;gap:10px;margin-top:31px;font-size:11px;font-weight:850}
@@ -58,6 +58,7 @@
     .section-head{display:grid;grid-template-columns:1fr .72fr;gap:60px;align-items:end;border-top:1px solid #c9c4bc;padding-top:28px;margin-bottom:46px}
     .section-head h2{font-size:clamp(3rem,6.2vw,6.4rem);line-height:.86;letter-spacing:-.07em;max-width:760px}
     .section-head p{color:#5f5a54;line-height:1.7;max-width:520px}
+    .mobile-swipe-hint{display:none;color:#746e67;font:800 9px monospace;letter-spacing:.08em;text-transform:uppercase;margin:-11px 0 22px}
     .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
     .work-card{position:relative;min-width:0;border:1px solid #cbc5bc;border-radius:24px;background:#e7e2da;overflow:hidden;box-shadow:0 18px 36px rgba(31,24,19,.06);transition:transform .28s ease,box-shadow .28s ease}
     .work-card:hover{transform:translateY(-5px);box-shadow:0 25px 50px rgba(31,24,19,.12)}
@@ -90,10 +91,10 @@
     .whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:50;display:flex;align-items:center;gap:9px;background:#f4f1ec;color:#111;border-radius:999px;padding:14px 17px;font-size:11px;font-weight:900;box-shadow:0 16px 40px rgba(0,0,0,.32)}
     .whatsapp-float::before{content:"◉";font-size:13px}
     @media(max-width:980px){
-      .hero{grid-template-columns:1fr;min-height:auto;padding:90px 0 70px}.hero-side{max-width:680px}.section-head{grid-template-columns:1fr;gap:25px}.gallery{grid-template-columns:repeat(2,1fr)}.horizontal-cta{grid-template-columns:1fr}.cta-button{width:max-content}
+      .hero{grid-template-columns:1fr;gap:42px;min-height:auto;padding:74px 0 68px}.hero h1{max-width:780px}.hero-side{max-width:680px}.section-head{grid-template-columns:1fr;gap:25px}.gallery{grid-template-columns:repeat(2,1fr)}.horizontal-cta{grid-template-columns:1fr}.cta-button{width:max-content}
     }
     @media(max-width:650px){
-      .container{width:min(100% - 28px,1440px)}.nav{min-height:78px;gap:9px}.brand img{height:52px}.nav-link{display:none}.header-cta{display:none}.language-switch{height:42px}.language-switch button{height:32px;min-width:39px}.hero{padding:66px 0 54px}.hero h1{font-size:clamp(4rem,21vw,6.1rem);line-height:.79}.hero-side p{font-size:15px}.portfolio{padding:68px 0 80px}.section-head{margin-bottom:28px}.section-head h2{font-size:3.5rem}.gallery{grid-template-columns:1fr;gap:14px}.work-card{display:grid;grid-template-columns:minmax(0,1fr) 116px;border-radius:20px}.video-wrap{grid-column:1/-1}.work-meta{grid-column:1/-1}.horizontal-cta{margin-top:56px;padding:32px 23px;border-radius:22px}.horizontal-cta::after{right:-24px;font-size:100px}.cta-button{width:100%;min-height:54px}.footer-inner{grid-template-columns:1fr}.footer-links{justify-content:flex-start}.whatsapp-float{right:14px;bottom:14px;padding:13px 15px}.whatsapp-float span{display:none}
+      .container{width:min(100% - 28px,1440px)}.nav{min-height:76px;gap:9px}.brand img{height:52px}.nav-link{display:none}.header-cta{display:none}.language-switch{height:42px}.language-switch button{height:32px;min-width:39px}.hero{gap:34px;padding:54px 0 52px}.hero::before{width:430px;height:430px;left:-260px;top:-210px}.hero h1{font-size:clamp(3.25rem,16vw,4.8rem);line-height:.84;letter-spacing:-.07em}.hero-side{padding-top:20px}.hero-side p{font-size:14px}.format-tags{margin-top:20px}.scroll-link{margin-top:23px}.portfolio{padding:62px 0 76px}.section-head{margin-bottom:25px}.section-head h2{font-size:3.2rem}.mobile-swipe-hint{display:block}.gallery{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:0;padding:0 14px 18px 0;margin-right:-14px;scrollbar-width:none}.gallery::-webkit-scrollbar{display:none}.work-card{flex:0 0 min(82vw,360px);scroll-snap-align:start;border-radius:20px}.work-card:hover{transform:none}.horizontal-cta{margin-top:48px;padding:32px 23px;border-radius:22px}.horizontal-cta::after{right:-24px;font-size:100px}.cta-button{width:100%;min-height:54px}.footer-inner{grid-template-columns:1fr}.footer-links{justify-content:flex-start}.whatsapp-float{right:14px;bottom:14px;padding:13px 15px}.whatsapp-float span{display:none}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.work-card,.play-button{transition:none!important}}
   </style>
@@ -130,17 +131,18 @@
           <div><p class="kicker" data-es="Selección / Formato 9:16" data-en="Selection / 9:16 format">Selección / Formato 9:16</p><h2 data-es="Nuestros trabajos." data-en="Our work.">Nuestros trabajos.</h2></div>
           <p data-es="Toca cualquier video para reproducirlo. Puedes activar el sonido cuando quieras; los demás se pausarán automáticamente." data-en="Tap any video to play it. You can turn on sound whenever you like; the others will pause automatically.">Toca cualquier video para reproducirlo. Puedes activar el sonido cuando quieras; los demás se pausarán automáticamente.</p>
         </div>
+        <p class="mobile-swipe-hint" data-es="Desliza para explorar →" data-en="Swipe to explore →">Desliza para explorar →</p>
 
         <div class="gallery">
           <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">01 / 09</span><video muted loop playsinline preload="metadata" src="media/short-01.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 01" data-en="Selected work 01">Trabajo seleccionado 01</h3></div><strong>9:16</strong></div></article>
           <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">02 / 09</span><video muted loop playsinline preload="metadata" src="media/short-02.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 02" data-en="Selected work 02">Trabajo seleccionado 02</h3></div><strong>9:16</strong></div></article>
           <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">03 / 09</span><video muted loop playsinline preload="metadata" src="media/short-03.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 03" data-en="Selected work 03">Trabajo seleccionado 03</h3></div><strong>9:16</strong></div></article>
-          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">04 / 09</span><video muted loop playsinline preload="metadata" src="media/short-04.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 04" data-en="Selected work 04">Trabajo seleccionado 04</h3></div><strong>9:16</strong></div></article>
-          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">05 / 09</span><video muted loop playsinline preload="metadata" src="media/short-05.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 05" data-en="Selected work 05">Trabajo seleccionado 05</h3></div><strong>9:16</strong></div></article>
-          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">06 / 09</span><video muted loop playsinline preload="metadata" src="media/short-06.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 06" data-en="Selected work 06">Trabajo seleccionado 06</h3></div><strong>9:16</strong></div></article>
-          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">07 / 09</span><video muted loop playsinline preload="metadata" src="media/short-07.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 07" data-en="Selected work 07">Trabajo seleccionado 07</h3></div><strong>9:16</strong></div></article>
-          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">08 / 09</span><video muted loop playsinline preload="metadata" src="media/short-08.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 08" data-en="Selected work 08">Trabajo seleccionado 08</h3></div><strong>9:16</strong></div></article>
-          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">09 / 09</span><video muted loop playsinline preload="metadata" src="media/short-09.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 09" data-en="Selected work 09">Trabajo seleccionado 09</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">04 / 09</span><video muted loop playsinline preload="none" data-src="media/short-04.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 04" data-en="Selected work 04">Trabajo seleccionado 04</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">05 / 09</span><video muted loop playsinline preload="none" data-src="media/short-05.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 05" data-en="Selected work 05">Trabajo seleccionado 05</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">06 / 09</span><video muted loop playsinline preload="none" data-src="media/short-06.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 06" data-en="Selected work 06">Trabajo seleccionado 06</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">07 / 09</span><video muted loop playsinline preload="none" data-src="media/short-07.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 07" data-en="Selected work 07">Trabajo seleccionado 07</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">08 / 09</span><video muted loop playsinline preload="none" data-src="media/short-08.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 08" data-en="Selected work 08">Trabajo seleccionado 08</h3></div><strong>9:16</strong></div></article>
+          <article class="work-card" data-work-card><div class="video-wrap"><span class="video-index">09 / 09</span><video muted loop playsinline preload="none" data-src="media/short-09.mp4#t=0.1"></video><button class="play-button" type="button" aria-label="Reproducir video">▶</button><button class="sound-button" type="button" aria-label="Activar sonido" data-es="Sonido" data-en="Sound">Sonido</button></div><div class="work-meta"><div><span data-es="Edición vertical" data-en="Vertical editing">Edición vertical</span><h3 data-es="Trabajo seleccionado 09" data-en="Selected work 09">Trabajo seleccionado 09</h3></div><strong>9:16</strong></div></article>
         </div>
 
         <aside class="horizontal-cta">
@@ -165,6 +167,28 @@
       const cards = [...document.querySelectorAll('[data-work-card]')];
       const languageButtons = [...document.querySelectorAll('[data-lang]')];
       let language = localStorage.getItem('df-language') === 'en' ? 'en' : 'es';
+
+      const ensureVideoLoaded = (video) => {
+        if (!video.hasAttribute('src') && video.dataset.src) {
+          video.src = video.dataset.src;
+          video.removeAttribute('data-src');
+          video.load();
+        }
+      };
+
+      const lazyVideos = cards.map((card) => card.querySelector('video')).filter((video) => video.dataset.src);
+      if ('IntersectionObserver' in window) {
+        const videoLoader = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            ensureVideoLoaded(entry.target);
+            videoLoader.unobserve(entry.target);
+          });
+        }, { rootMargin:'500px' });
+        lazyVideos.forEach((video) => videoLoader.observe(video));
+      } else {
+        lazyVideos.forEach(ensureVideoLoaded);
+      }
 
       const pauseOthers = (current) => {
         cards.forEach((card) => {
@@ -218,6 +242,7 @@
         const playButton = card.querySelector('.play-button');
         const soundButton = card.querySelector('.sound-button');
         const togglePlayback = async () => {
+          ensureVideoLoaded(video);
           if (video.paused) {
             pauseOthers(card);
             try { await video.play(); } catch (_) {}
@@ -230,6 +255,7 @@
         video.addEventListener('click', togglePlayback);
         soundButton.addEventListener('click', (event) => {
           event.stopPropagation();
+          ensureVideoLoaded(video);
           if (video.muted) {
             pauseOthers(card);
             video.muted = false;
