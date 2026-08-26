@@ -17,11 +17,15 @@ La página pública seguirá funcionando al subir los archivos. Para activar el 
 4. Selecciona `digital-forge-db` y guarda.
 5. Vuelve a desplegar el proyecto.
 
-## 3. Proteger el panel
+## 3. Activar las dos cuentas privadas del CRM
 
 1. En **Settings → Variables and Secrets**, crea un secreto llamado `ADMIN_TOKEN`.
 2. Usa una clave larga y única. No la escribas dentro de ningún archivo.
-3. El panel estará disponible en `/admin/` y te pedirá esa clave.
+3. Abre `/admin/`. En la primera visita aparecerá la activación privada.
+4. Introduce `ADMIN_TOKEN` una sola vez y crea las dos cuentas con correos y contraseñas diferentes.
+5. Después de la activación, cada persona iniciará sesión con su propio correo y contraseña.
+
+El panel puede instalarse desde Safari o Chrome con el botón **Instalar app**. Se abre como **Digital Forge CRM** y mantiene una sesión privada durante 30 días. `ADMIN_TOKEN` no se guarda en el navegador ni se usa para el acceso diario.
 
 ## 4. Activar el correo automático (opcional hasta tener la cuenta)
 

@@ -2,6 +2,7 @@ const CACHE_NAME = "digital-forge-shell-v1";
 const APP_SHELL = [
   "/offline.html",
   "/manifest.webmanifest",
+  "/admin/manifest.webmanifest",
   "/logo-header.png",
   "/icons/icon-180.png",
   "/icons/icon-192.png",

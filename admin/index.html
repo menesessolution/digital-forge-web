@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <title>Digital Forge | Panel</title>
+  <meta name="theme-color" content="#090909">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Forge CRM">
+  <link rel="manifest" href="/admin/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/icon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,21 +22,45 @@
     .upload-zone{grid-column:1/-1;position:relative;min-height:190px;border:1px dashed #4a4d4a;border-radius:18px;background:linear-gradient(145deg,#0b0d0b,#141714);display:grid;place-items:center;padding:28px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}.upload-zone:hover,.upload-zone:focus-visible,.upload-zone.dragging{border-color:var(--green);background:linear-gradient(145deg,#101711,#18221a);transform:translateY(-1px);outline:none}.upload-zone.has-file{border-style:solid;border-color:#42664c}.upload-zone.uploading{pointer-events:none;opacity:.72}.upload-zone input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}.upload-icon{width:52px;height:52px;border:1px solid #3e433e;border-radius:50%;display:grid;place-items:center;margin:0 auto 15px;font-size:24px;color:#dce8df}.upload-zone strong{display:block;font-size:16px}.upload-zone p{color:#858a85;font-size:11px;line-height:1.55;margin:8px 0 0}.upload-file{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:17px;border:1px solid #355b40;border-radius:12px;background:#0b160e;padding:11px 13px;text-align:left}.upload-file[hidden]{display:none}.upload-file span,.upload-file small{display:block}.upload-file span{font-size:11px;font-weight:800;overflow-wrap:anywhere}.upload-file small{color:#83a98d;font-size:9px;margin-top:4px}.large-file-note{grid-column:1/-1;display:flex;gap:11px;align-items:flex-start;border:1px solid #343a35;border-radius:13px;background:#101310;padding:13px 14px;color:#9ca39d;font-size:10px;line-height:1.6}.large-file-note strong{display:block;color:#eef2ee;font-size:10px;margin-bottom:2px}.large-file-note-icon{flex:0 0 auto;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:#202620;color:#c8dccd;font-weight:900}.upload-status{min-height:18px;margin:10px 0 0;color:#8f948f;font-size:10px}.upload-status.success{color:#aee0bb}.upload-status.error{color:#f0a19a}.upload-actions{align-items:center;justify-content:space-between;flex-wrap:wrap}.upload-actions .button{min-width:190px}.upload-progress{height:7px}.upload-progress span{background:linear-gradient(90deg,#75b487,var(--green))}@media(max-width:560px){.upload-zone{min-height:165px;padding:21px}.upload-actions .button{width:100%}}
     .comment-reference{display:inline-flex!important;align-items:center;width:max-content;border:1px solid #3b443d;border-radius:999px;background:#172019;color:#b9dcc2!important;padding:5px 8px;margin-top:8px!important;font:800 8px ui-monospace,monospace;letter-spacing:.05em}
   </style>
+  <style>
+    .login-card.setup-card{width:min(94vw,760px)}
+    .setup-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+    .setup-person{border:1px solid #303030;border-radius:16px;padding:17px;background:#0b0b0b}
+    .setup-person h2{font-size:18px;letter-spacing:-.03em;margin:0 0 14px}
+    .setup-person .field+.field{margin-top:11px}
+    .setup-note{border:1px solid #3a433c;border-radius:12px;background:#111612;color:#aeb9b0;padding:12px;font-size:10px;line-height:1.6;margin-top:15px}
+    .admin-identity{display:flex;align-items:center;gap:9px;color:#aaa;font-size:10px;font-weight:700}
+    @media(max-width:680px){.setup-grid{grid-template-columns:1fr}.login{padding:22px 0}.login-card.setup-card{padding:23px}.admin-identity{display:none}}
+  </style>
 </head>
 <body>
   <section class="login" id="login">
-    <form class="login-card" id="login-form">
+    <form class="login-card" id="login-form" hidden>
       <span class="eyebrow">DIGITAL FORGE / PRIVATE</span>
-      <h1>Panel de control.</h1>
-      <p>Administra contactos, portafolio, casos, testimonios y precios desde un solo lugar.</p>
-      <div class="field"><label for="token">Clave administrativa</label><input id="token" type="password" autocomplete="current-password" required></div>
-      <button class="button" type="submit">Entrar al panel →</button>
+      <h1>Digital Forge CRM.</h1>
+      <p>Acceso privado para el equipo de Digital Forge.</p>
+      <div class="field"><label for="admin-email">Correo</label><input id="admin-email" type="email" autocomplete="username" required></div>
+      <div class="field" style="margin-top:12px"><label for="admin-password">Contraseña</label><input id="admin-password" type="password" autocomplete="current-password" required></div>
+      <button class="button" type="submit">Iniciar sesión →</button>
       <p class="error" id="login-error"></p>
+    </form>
+    <form class="login-card setup-card" id="setup-form" hidden>
+      <span class="eyebrow">DIGITAL FORGE / ACTIVACIÓN PRIVADA</span>
+      <h1>Activen sus dos cuentas.</h1>
+      <p>Este paso se realiza una sola vez. Usa la clave administrativa anterior para confirmar que eres el propietario.</p>
+      <div class="field"><label for="bootstrap-token">Clave administrativa anterior</label><input id="bootstrap-token" type="password" autocomplete="off" required></div>
+      <div class="setup-grid">
+        <div class="setup-person"><h2>Cuenta 1 · Dirección</h2><div class="field"><label for="owner-name">Nombre</label><input id="owner-name" autocomplete="name" required></div><div class="field"><label for="owner-email">Correo</label><input id="owner-email" type="email" autocomplete="email" required></div><div class="field"><label for="owner-password">Contraseña nueva</label><input id="owner-password" type="password" minlength="12" maxlength="200" autocomplete="new-password" required></div></div>
+        <div class="setup-person"><h2>Cuenta 2 · Operaciones</h2><div class="field"><label for="operations-name">Nombre</label><input id="operations-name" autocomplete="name" required></div><div class="field"><label for="operations-email">Correo</label><input id="operations-email" type="email" autocomplete="email" required></div><div class="field"><label for="operations-password">Contraseña nueva</label><input id="operations-password" type="password" minlength="12" maxlength="200" autocomplete="new-password" required></div></div>
+      </div>
+      <div class="setup-note">Por seguridad, usa una contraseña diferente para cada persona. Las contraseñas quedan protegidas y nunca se guardan como texto visible.</div>
+      <button class="button" type="submit">Activar CRM privado →</button>
+      <p class="error" id="setup-error"></p>
     </form>
   </section>
 
   <div class="app" id="app" hidden>
-    <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><img src="../logo-header.png" alt="Digital Forge"><strong>CMS + CRM</strong></a><div class="top-actions"><a class="button dark" href="/" target="_blank">Ver sitio</a><button class="button dark" id="logout" type="button">Salir</button></div></div></header>
+    <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><img src="../logo-header.png" alt="Digital Forge"><strong>CMS + CRM</strong></a><div class="top-actions"><span class="admin-identity" id="admin-identity"></span><button class="button dark" id="install-admin" type="button">Instalar app</button><a class="button dark" href="/" target="_blank">Ver sitio</a><button class="button dark" id="logout" type="button">Salir</button></div></div></header>
     <main class="shell dashboard">
       <div class="dashboard-head"><div><span class="eyebrow">DATOS REALES / CONTROL CENTRAL</span><h1>Digital Forge.</h1></div><p>Los números de este panel provienen de la base de datos. Aquí puedes administrar el contenido y dar seguimiento a cada solicitud.</p></div>
       <div class="stats"><article class="stat"><span>LEADS TOTALES</span><strong id="stat-leads">—</strong></article><article class="stat"><span>PROYECTOS CRM</span><strong id="stat-active">—</strong></article><article class="stat"><span>CLIENTES PORTAL</span><strong id="stat-clients">—</strong></article><article class="stat"><span>PROYECTOS PORTAL</span><strong id="stat-projects">—</strong></article><article class="stat"><span>CONTENIDO PUBLICADO</span><strong id="stat-content">—</strong></article><article class="stat"><span>EVENTOS / 30 DÍAS</span><strong id="stat-events">—</strong></article><article class="stat"><span>VISITAS / 30 DÍAS</span><strong id="stat-views">—</strong></article><article class="stat"><span>CLICS WHATSAPP</span><strong id="stat-whatsapp">—</strong></article><article class="stat"><span>CLICS PAYPAL</span><strong id="stat-paypal">—</strong></article><article class="stat"><span>CLICS INSTAGRAM</span><strong id="stat-instagram">—</strong></article></div>
@@ -102,13 +132,16 @@
   <div class="status" id="status" role="status"></div>
   <script>
     const $=(selector,root=document)=>root.querySelector(selector);const $$=(selector,root=document)=>Array.from(root.querySelectorAll(selector));
-    const state={token:sessionStorage.getItem('df_admin_token')||'',leads:[],content:[],editing:null,clients:[],projects:[],editingClient:null,editingProject:null,projectDetail:null,uploadFile:null};
+    const state={admin:null,leads:[],content:[],editing:null,clients:[],projects:[],editingClient:null,editingProject:null,projectDetail:null,uploadFile:null};
     const escapeHtml=(value)=>String(value??'').replace(/[&<>'"]/g,(character)=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
     function notify(message){const element=$('#status');element.textContent=message;element.classList.add('show');setTimeout(()=>element.classList.remove('show'),2400)}
-    async function api(path,options={}){const headers={'authorization':`Bearer ${state.token}`,...options.headers};if(!(options.body instanceof FormData))headers['content-type']='application/json';const response=await fetch(path,{...options,headers});const data=await response.json().catch(()=>({}));if(response.status===401){logout();throw new Error('La clave no es válida.')}if(!response.ok)throw new Error(data.error||'No se pudo completar la acción');return data}
-    async function login(token){state.token=token;await api('/api/admin/stats');sessionStorage.setItem('df_admin_token',token);$('#login').hidden=true;$('#app').hidden=false;await loadAll()}
-    function logout(){sessionStorage.removeItem('df_admin_token');state.token='';$('#app').hidden=true;$('#login').hidden=false;$('#token').value=''}
-    $('#login-form').addEventListener('submit',async(event)=>{event.preventDefault();$('#login-error').textContent='';try{await login($('#token').value)}catch(error){$('#login-error').textContent=error.message}});$('#logout').addEventListener('click',logout);
+    async function api(path,options={}){const headers={...options.headers};if(options.body&&!(options.body instanceof FormData))headers['content-type']='application/json';const response=await fetch(path,{credentials:'same-origin',...options,headers});const data=await response.json().catch(()=>({}));if(response.status===401&&!path.includes('/auth/')){showLogin();throw new Error('Tu sesión terminó. Vuelve a iniciar sesión.')}if(!response.ok)throw new Error(data.error||'No se pudo completar la acción');return data}
+    async function showApp(admin){state.admin=admin;$('#admin-identity').textContent=admin?.name||'';$('#login').hidden=true;$('#app').hidden=false;await loadAll()}
+    function showLogin(){state.admin=null;$('#app').hidden=true;$('#login').hidden=false;$('#setup-form').hidden=true;$('#login-form').hidden=false;$('#admin-password').value=''}
+    async function login(email,password){const data=await api('/api/admin/auth/login',{method:'POST',body:JSON.stringify({email,password})});await showApp(data.admin)}
+    async function logout(){try{await api('/api/admin/auth/logout',{method:'POST'})}catch{}showLogin()}
+    $('#login-form').addEventListener('submit',async(event)=>{event.preventDefault();$('#login-error').textContent='';try{await login($('#admin-email').value,$('#admin-password').value)}catch(error){$('#login-error').textContent=error.message}});$('#logout').addEventListener('click',logout);
+    $('#setup-form').addEventListener('submit',async(event)=>{event.preventDefault();$('#setup-error').textContent='';const accounts=[{name:$('#owner-name').value,email:$('#owner-email').value,password:$('#owner-password').value},{name:$('#operations-name').value,email:$('#operations-email').value,password:$('#operations-password').value}];try{const data=await api('/api/admin/auth/setup',{method:'POST',body:JSON.stringify({bootstrap_token:$('#bootstrap-token').value,accounts})});$('#setup-form').reset();await showApp(data.admin)}catch(error){$('#setup-error').textContent=error.message}});
     async function loadStats(){const data=await api('/api/admin/stats');$('#stat-leads').textContent=data.totalLeads;$('#stat-active').textContent=data.activeLeads;$('#stat-clients').textContent=data.activeClients;$('#stat-projects').textContent=data.portalProjects;$('#stat-content').textContent=data.publishedContent;$('#stat-events').textContent=data.events30d;$('#stat-views').textContent=data.pageViews30d;$('#stat-whatsapp').textContent=data.whatsappClicks30d;$('#stat-paypal').textContent=data.paypalClicks30d;$('#stat-instagram').textContent=data.instagramClicks30d}
     const stageLabels={new:'Nuevo',contacted:'Contactado',proposal:'Propuesta',active:'Activo',completed:'Finalizado',archived:'Archivado'};
     async function loadLeads(){const params=new URLSearchParams();if($('#lead-filter').value)params.set('stage',$('#lead-filter').value);if($('#lead-search').value.trim())params.set('q',$('#lead-search').value.trim());const data=await api('/api/admin/leads?'+params);state.leads=data.leads;renderLeads()}
@@ -159,7 +192,7 @@
     function updateUploadDestination(){const project=state.projects.find((item)=>item.id===state.editingProject);$('#upload-destination').textContent=project?`Se publicará para ${project.client_name} en “${project.title}”.`:''}
     function resetUpload(message='Selecciona un video para continuar.',type=''){state.uploadFile=null;$('#version-file').value='';$('#upload-zone').classList.remove('dragging','has-file','uploading');$('#upload-file').hidden=true;$('#upload-file-name').textContent='';$('#upload-file-meta').textContent='';$('#upload-version').disabled=true;$('#upload-version').textContent='Subir y mostrar al cliente →';$('#upload-bar').style.width='0';setUploadStatus(message,type);updateUploadDestination()}
     function selectUploadFile(file){if(!file)return;const extension=file.name.split('.').pop().toLowerCase();const allowed=file.type.startsWith('video/')||['mp4','mov','m4v','webm'].includes(extension);if(!allowed){resetUpload('Selecciona un archivo de video MP4, MOV o WebM.','error');return}if(!file.size||file.size>MAX_UPLOAD_BYTES){resetUpload('Este video supera 95 MB. Súbelo a Google Drive y envía al cliente el enlace privado por correo.','error');return}state.uploadFile=file;$('#upload-zone').classList.add('has-file');$('#upload-file').hidden=false;$('#upload-file-name').textContent=file.name;$('#upload-file-meta').textContent=`${formatBytes(file.size)} · listo para subir`;$('#upload-version').disabled=false;if(!$('#version-title').value.trim())$('#version-title').value=file.name.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ');setUploadStatus('Video listo. Pulsa el botón para publicarlo en el portal.','success')}
-    function uploadVersion(form,onProgress){return new Promise((resolve,reject)=>{const request=new XMLHttpRequest();request.open('POST','/api/admin/files');request.setRequestHeader('authorization',`Bearer ${state.token}`);request.upload.addEventListener('progress',(event)=>{if(event.lengthComputable)onProgress(Math.round(event.loaded/event.total*100))});request.addEventListener('load',()=>{let data={};try{data=JSON.parse(request.responseText||'{}')}catch{}if(request.status===401){logout();reject(new Error('La clave no es válida.'));return}if(request.status<200||request.status>=300){reject(new Error(data.error||'No se pudo subir el video.'));return}resolve(data)});request.addEventListener('error',()=>reject(new Error('Se perdió la conexión durante la carga.')));request.send(form)})}
+    function uploadVersion(form,onProgress){return new Promise((resolve,reject)=>{const request=new XMLHttpRequest();request.open('POST','/api/admin/files');request.withCredentials=true;request.upload.addEventListener('progress',(event)=>{if(event.lengthComputable)onProgress(Math.round(event.loaded/event.total*100))});request.addEventListener('load',()=>{let data={};try{data=JSON.parse(request.responseText||'{}')}catch{}if(request.status===401){showLogin();reject(new Error('Tu sesión terminó. Vuelve a iniciar sesión.'));return}if(request.status<200||request.status>=300){reject(new Error(data.error||'No se pudo subir el video.'));return}resolve(data)});request.addEventListener('error',()=>reject(new Error('Se perdió la conexión durante la carga.')));request.send(form)})}
     const uploadZone=$('#upload-zone');
     $('#version-file').addEventListener('change',(event)=>selectUploadFile(event.target.files[0]));
     uploadZone.addEventListener('keydown',(event)=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();$('#version-file').click()}});
@@ -172,7 +205,9 @@
     $('#admin-comment-form').addEventListener('submit',async(event)=>{event.preventDefault();if(!state.editingProject)return;await api('/api/admin/comments',{method:'POST',body:JSON.stringify({project_id:state.editingProject,message:$('#admin-comment').value})});$('#admin-comment').value='';notify('Comentario enviado');await loadProjectDetail()});
     $$('.tab').forEach((button)=>button.addEventListener('click',()=>{$$('.tab').forEach((item)=>item.classList.toggle('active',item===button));$$('[data-panel]').forEach((panel)=>panel.hidden=panel.dataset.panel!==button.dataset.tab)}));
     async function loadAll(){try{await Promise.all([loadStats(),loadLeads(),loadContent(),loadSettings(),loadClients(),loadProjects()])}catch(error){notify(error.message)}}
-    if(state.token)login(state.token).catch(()=>logout());
+    let installPrompt=null;window.addEventListener('beforeinstallprompt',(event)=>{event.preventDefault();installPrompt=event});$('#install-admin').addEventListener('click',async()=>{if(window.matchMedia('(display-mode: standalone)').matches||navigator.standalone){notify('La app ya está instalada');return}if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;return}alert('En iPhone: abre esta página en Safari, toca Compartir y elige “Añadir a pantalla de inicio”.')});
+    if('serviceWorker' in navigator)navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+    (async()=>{try{const status=await api('/api/admin/auth/status');if(status.setupRequired){$('#login').hidden=false;$('#login-form').hidden=true;$('#setup-form').hidden=false;return}const session=await api('/api/admin/auth/session');await showApp(session.admin)}catch{showLogin()}})();
   </script>
 </body>
 </html>
