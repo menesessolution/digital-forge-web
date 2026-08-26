@@ -34,6 +34,17 @@
   </style>
   <style>
     .tab-short{display:none}
+    .metric-groups{display:grid;grid-template-columns:1.35fr .8fr .9fr;gap:10px;margin-bottom:18px}
+    .metric-group{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:18px;min-width:0}
+    .metric-group-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+    .metric-group-head strong{font-size:13px;letter-spacing:-.02em}
+    .metric-group-head span{color:#717171;font:700 8px ui-monospace,monospace;letter-spacing:.09em}
+    .metric-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    .metric-group.activity .metric-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .metric-item{border:1px solid #292929;border-radius:13px;background:#0c0c0c;padding:13px;min-width:0}
+    .metric-item span{display:block;min-height:20px;color:#717171;font:700 7px/1.35 ui-monospace,monospace;letter-spacing:.07em}
+    .metric-item strong{display:block;margin-top:8px;font-size:27px;line-height:1}
+    .metric-scroll-hint{display:none}
     @media(max-width:600px){
       html{background:#090909;scroll-padding-bottom:88px}
       body{overflow-x:hidden;padding-bottom:calc(76px + env(safe-area-inset-bottom));-webkit-tap-highlight-color:transparent}
@@ -48,14 +59,19 @@
       .top-actions a.button{display:none}
       #logout{background:#171717}
       .dashboard{padding:22px 0 24px}
-      .dashboard-head{margin-bottom:19px}
+      .dashboard-head{margin-bottom:16px}
       .dashboard-head .eyebrow{font-size:8px}
-      .dashboard-head h1{font-size:2.75rem;line-height:.9;margin-top:10px}
+      .dashboard-head h1{font-size:2.45rem;line-height:.94;margin-top:9px}
       .dashboard-head p{font-size:11px;line-height:1.55;margin:14px 0 0;max-width:34ch}
-      .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:16px}
-      .stat{min-height:91px;border-radius:15px;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
-      .stat span{font-size:7px;line-height:1.35;letter-spacing:.07em;min-height:19px}
-      .stat strong{font-size:27px;line-height:1;margin-top:8px}
+      .metric-groups{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:88%;gap:9px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:inline mandatory;scrollbar-width:none;margin:0 -14px 5px;padding:0 14px 4px}
+      .metric-groups::-webkit-scrollbar{display:none}
+      .metric-group{scroll-snap-align:start;border-radius:16px;padding:15px;min-height:170px}
+      .metric-group-head{margin-bottom:12px}
+      .metric-list,.metric-group.activity .metric-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+      .metric-item{border-radius:11px;padding:11px 9px}
+      .metric-item span{font-size:6px;min-height:18px}
+      .metric-item strong{font-size:23px;margin-top:7px}
+      .metric-scroll-hint{display:flex;align-items:center;justify-content:space-between;color:#6f6f6f;font:700 8px ui-monospace,monospace;letter-spacing:.07em;margin:7px 1px 15px}
       .tabs{position:fixed;z-index:50;left:0;right:0;bottom:0;margin:0;padding:8px 8px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);gap:5px;border-top:1px solid #303030;background:rgba(12,12,12,.96);backdrop-filter:blur(18px);box-shadow:0 -12px 30px rgba(0,0,0,.35)}
       .tab{min-width:0;min-height:48px;border:0;border-radius:12px;padding:7px 3px;color:#878787;font-size:9px;line-height:1.1}
       .tab.active{background:#f2efea;color:#111}
@@ -155,8 +171,13 @@
   <div class="app" id="app" hidden>
     <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><img src="../logo-header.png" alt="Digital Forge"><strong>CMS + CRM</strong></a><div class="top-actions"><span class="admin-identity" id="admin-identity"></span><button class="button dark" id="install-admin" type="button">Instalar</button><a class="button dark" href="/" target="_blank">Ver sitio</a><button class="button dark" id="logout" type="button">Salir</button></div></div></header>
     <main class="shell dashboard">
-      <div class="dashboard-head"><div><span class="eyebrow">DATOS REALES / CONTROL CENTRAL</span><h1>Digital Forge.</h1></div><p>Los números de este panel provienen de la base de datos. Aquí puedes administrar el contenido y dar seguimiento a cada solicitud.</p></div>
-      <div class="stats"><article class="stat"><span>LEADS TOTALES</span><strong id="stat-leads">—</strong></article><article class="stat"><span>PROYECTOS CRM</span><strong id="stat-active">—</strong></article><article class="stat"><span>CLIENTES PORTAL</span><strong id="stat-clients">—</strong></article><article class="stat"><span>PROYECTOS PORTAL</span><strong id="stat-projects">—</strong></article><article class="stat"><span>CONTENIDO PUBLICADO</span><strong id="stat-content">—</strong></article><article class="stat"><span>EVENTOS / 30 DÍAS</span><strong id="stat-events">—</strong></article><article class="stat"><span>VISITAS / 30 DÍAS</span><strong id="stat-views">—</strong></article><article class="stat"><span>CLICS WHATSAPP</span><strong id="stat-whatsapp">—</strong></article><article class="stat"><span>CLICS PAYPAL</span><strong id="stat-paypal">—</strong></article><article class="stat"><span>CLICS INSTAGRAM</span><strong id="stat-instagram">—</strong></article></div>
+      <div class="dashboard-head"><div><span class="eyebrow" id="dashboard-kicker">PANEL PRIVADO / DIGITAL FORGE</span><h1 id="dashboard-greeting">Bienvenido.</h1></div><p id="dashboard-summary">Aquí tienes el estado del negocio y las herramientas para continuar el trabajo.</p></div>
+      <div class="metric-groups" aria-label="Resumen de Digital Forge">
+        <article class="metric-group"><div class="metric-group-head"><strong>Trabajo</strong><span>OPERACIÓN</span></div><div class="metric-list"><div class="metric-item"><span>LEADS</span><strong id="stat-leads">—</strong></div><div class="metric-item"><span>PROYECTOS CRM</span><strong id="stat-active">—</strong></div><div class="metric-item"><span>CLIENTES</span><strong id="stat-clients">—</strong></div><div class="metric-item"><span>PROYECTOS PORTAL</span><strong id="stat-projects">—</strong></div><div class="metric-item"><span>CONTENIDO</span><strong id="stat-content">—</strong></div></div></article>
+        <article class="metric-group activity"><div class="metric-group-head"><strong>Actividad</strong><span>30 DÍAS</span></div><div class="metric-list"><div class="metric-item"><span>EVENTOS</span><strong id="stat-events">—</strong></div><div class="metric-item"><span>VISITAS</span><strong id="stat-views">—</strong></div></div></article>
+        <article class="metric-group"><div class="metric-group-head"><strong>Contactos</strong><span>30 DÍAS</span></div><div class="metric-list"><div class="metric-item"><span>WHATSAPP</span><strong id="stat-whatsapp">—</strong></div><div class="metric-item"><span>PAYPAL</span><strong id="stat-paypal">—</strong></div><div class="metric-item"><span>INSTAGRAM</span><strong id="stat-instagram">—</strong></div></div></article>
+      </div>
+      <div class="metric-scroll-hint" aria-hidden="true"><span>RESUMEN AGRUPADO</span><span>DESLIZA →</span></div>
       <nav class="tabs" aria-label="Secciones del panel"><button class="tab active" data-tab="leads" type="button"><span class="tab-full">CRM / Leads</span><span class="tab-short">Leads</span></button><button class="tab" data-tab="clients" type="button"><span class="tab-full">Portal / Clientes</span><span class="tab-short">Clientes</span></button><button class="tab" data-tab="projects" type="button"><span class="tab-full">Portal / Proyectos</span><span class="tab-short">Proyectos</span></button><button class="tab" data-tab="content" type="button"><span class="tab-full">CMS / Contenido</span><span class="tab-short">Contenido</span></button><button class="tab" data-tab="settings" type="button"><span class="tab-full">Configuración</span><span class="tab-short">Ajustes</span></button></nav>
 
       <section class="panel" data-panel="leads">
@@ -229,7 +250,9 @@
     const escapeHtml=(value)=>String(value??'').replace(/[&<>'"]/g,(character)=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
     function notify(message){const element=$('#status');element.textContent=message;element.classList.add('show');setTimeout(()=>element.classList.remove('show'),2400)}
     async function api(path,options={}){const headers={...options.headers};if(options.body&&!(options.body instanceof FormData))headers['content-type']='application/json';const response=await fetch(path,{credentials:'same-origin',...options,headers});const data=await response.json().catch(()=>({}));if(response.status===401&&!path.includes('/auth/')){showLogin();throw new Error('Tu sesión terminó. Vuelve a iniciar sesión.')}if(!response.ok)throw new Error(data.error||'No se pudo completar la acción');return data}
-    async function showApp(admin){state.admin=admin;$('#admin-identity').textContent=admin?.name||'';$('#login').hidden=true;$('#app').hidden=false;await loadAll()}
+    function preferredAdminName(admin){const fullName=String(admin?.name||'').trim();if(/paula/i.test(fullName))return'Paula';if(/emerson/i.test(fullName))return'Emerson';return fullName.split(/\s+/)[0]||'equipo'}
+    function personalizeDashboard(admin){const hour=new Date().getHours();const greeting=hour<12?'Buenos días':hour<19?'Buenas tardes':'Buenas noches';const name=preferredAdminName(admin);$('#dashboard-greeting').textContent=`${greeting}, ${name}.`;$('#dashboard-summary').textContent=name==='Paula'?'Aquí tienes las operaciones, clientes y entregas de Digital Forge en un solo lugar.':'Aquí tienes las oportunidades, proyectos y actividad de Digital Forge en un solo lugar.'}
+    async function showApp(admin){state.admin=admin;$('#admin-identity').textContent=admin?.name||'';personalizeDashboard(admin);$('#login').hidden=true;$('#app').hidden=false;await loadAll()}
     function showLogin(){state.admin=null;$('#app').hidden=true;$('#login').hidden=false;$('#setup-form').hidden=true;$('#login-form').hidden=false;$('#admin-password').value=''}
     async function login(email,password){const data=await api('/api/admin/auth/login',{method:'POST',body:JSON.stringify({email,password})});await showApp(data.admin)}
     async function logout(){try{await api('/api/admin/auth/logout',{method:'POST'})}catch{}showLogin()}
