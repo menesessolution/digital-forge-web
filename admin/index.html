@@ -32,6 +32,99 @@
     .admin-identity{display:flex;align-items:center;gap:9px;color:#aaa;font-size:10px;font-weight:700}
     @media(max-width:680px){.setup-grid{grid-template-columns:1fr}.login{padding:22px 0}.login-card.setup-card{padding:23px}.admin-identity{display:none}}
   </style>
+  <style>
+    .tab-short{display:none}
+    @media(max-width:600px){
+      html{background:#090909;scroll-padding-bottom:88px}
+      body{overflow-x:hidden;padding-bottom:calc(76px + env(safe-area-inset-bottom));-webkit-tap-highlight-color:transparent}
+      .shell{width:calc(100% - 28px)}
+      .topbar{z-index:40}
+      .topbar-inner{height:62px;gap:10px}
+      .brand{gap:7px;min-width:0}
+      .brand img{height:41px;max-width:68px;object-fit:contain}
+      .brand strong{display:block;font-size:10px;white-space:nowrap}
+      .top-actions{align-items:center;gap:6px}
+      .top-actions .button{min-height:38px;padding:9px 12px;font-size:10px}
+      .top-actions a.button{display:none}
+      #logout{background:#171717}
+      .dashboard{padding:22px 0 24px}
+      .dashboard-head{margin-bottom:19px}
+      .dashboard-head .eyebrow{font-size:8px}
+      .dashboard-head h1{font-size:2.75rem;line-height:.9;margin-top:10px}
+      .dashboard-head p{font-size:11px;line-height:1.55;margin:14px 0 0;max-width:34ch}
+      .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:16px}
+      .stat{min-height:91px;border-radius:15px;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+      .stat span{font-size:7px;line-height:1.35;letter-spacing:.07em;min-height:19px}
+      .stat strong{font-size:27px;line-height:1;margin-top:8px}
+      .tabs{position:fixed;z-index:50;left:0;right:0;bottom:0;margin:0;padding:8px 8px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);gap:5px;border-top:1px solid #303030;background:rgba(12,12,12,.96);backdrop-filter:blur(18px);box-shadow:0 -12px 30px rgba(0,0,0,.35)}
+      .tab{min-width:0;min-height:48px;border:0;border-radius:12px;padding:7px 3px;color:#878787;font-size:9px;line-height:1.1}
+      .tab.active{background:#f2efea;color:#111}
+      .tab-full{display:none}
+      .tab-short{display:block}
+      .panel{border-radius:18px}
+      .panel-head{padding:16px;gap:13px}
+      .panel-head h2{font-size:17px;margin:0}
+      .panel-head .hint{margin:8px 0 0}
+      .panel-head>.button{width:100%;min-height:44px}
+      .toolbar{display:grid;grid-template-columns:1fr 112px;width:100%}
+      .toolbar input,.toolbar select{min-width:0;width:100%;min-height:43px;border-radius:11px;font-size:16px;padding:10px 12px}
+      .toolbar .button{grid-column:1/-1;min-height:42px}
+      .button{min-height:44px;font-size:11px;touch-action:manipulation}
+      .field{gap:6px}
+      .field label{font-size:10px}
+      .field input,.field textarea,.field select{min-height:46px;border-radius:11px;padding:12px;font-size:16px}
+      .field textarea{min-height:104px}
+      .form-actions{display:grid;grid-template-columns:1fr;gap:8px}
+      .form-actions .button{width:100%}
+      .settings,.editor,.portal-editor{padding:16px}
+      .content-list,.portal-list{max-height:210px}
+      .content-row,.portal-row{padding:14px}
+      .empty{padding:28px 18px;font-size:12px;line-height:1.55}
+      .subpanel{border-radius:14px;margin-top:16px}
+      .subpanel-head{padding:14px;align-items:flex-start;gap:10px}
+      .subpanel-head .badge{flex:0 0 auto}
+      .version-row{display:grid;gap:10px}
+      .upload-zone{min-height:154px;border-radius:14px;padding:18px 14px}
+      .upload-icon{width:44px;height:44px;margin-bottom:11px}
+      .upload-zone strong{font-size:14px}
+      .upload-zone p{font-size:10px}
+      .large-file-note{font-size:10px;padding:12px}
+      .status{right:14px;left:14px;bottom:calc(76px + env(safe-area-inset-bottom));text-align:center}
+      .login{padding:18px 0;align-items:center}
+      .login-card,.login-card.setup-card{width:calc(100% - 28px);padding:26px 22px;border-radius:21px}
+      .login h1{font-size:2.55rem;line-height:.95}
+      .login p{font-size:13px}
+      .setup-person{padding:14px}
+      .setup-person h2{font-size:16px}
+      .credential-value{gap:9px}
+      .credential-value .button{width:100%}
+      .table-wrap{overflow:visible}
+      table{display:block;min-width:0;width:100%}
+      thead{display:none}
+      tbody{display:grid;gap:10px;padding:12px}
+      tbody tr{display:block;border:1px solid #2d2d2d;border-radius:15px;background:#0c0c0c;padding:14px}
+      tbody td{display:block;width:100%;padding:0 0 12px;border:0;font-size:12px;overflow-wrap:anywhere}
+      tbody td:last-child{padding-bottom:0}
+      tbody td::before{display:block;margin-bottom:6px;color:#707070;font:700 7px ui-monospace,monospace;letter-spacing:.09em}
+      tbody td:nth-child(1)::before{content:'CONTACTO'}
+      tbody td:nth-child(2)::before{content:'SERVICIO'}
+      tbody td:nth-child(3)::before{content:'MENSAJE'}
+      tbody td:nth-child(4)::before{content:'ESTADO'}
+      tbody td:nth-child(5)::before{content:'NOTAS'}
+      tbody td:nth-child(6)::before{content:'FECHA'}
+      .stage,.notes{width:100%;font-size:14px}
+      .stage{min-height:42px;border-radius:10px;padding:10px}
+      .notes{min-height:76px;padding:10px}
+      tbody td .button{width:100%;margin-top:7px}
+    }
+    @media(max-width:360px){
+      .shell{width:calc(100% - 20px)}
+      .brand strong{display:none}
+      .dashboard-head h1{font-size:2.4rem}
+      .stat{padding:12px}
+      .tab{font-size:8px}
+    }
+  </style>
 </head>
 <body>
   <section class="login" id="login">
@@ -60,11 +153,11 @@
   </section>
 
   <div class="app" id="app" hidden>
-    <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><img src="../logo-header.png" alt="Digital Forge"><strong>CMS + CRM</strong></a><div class="top-actions"><span class="admin-identity" id="admin-identity"></span><button class="button dark" id="install-admin" type="button">Instalar app</button><a class="button dark" href="/" target="_blank">Ver sitio</a><button class="button dark" id="logout" type="button">Salir</button></div></div></header>
+    <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><img src="../logo-header.png" alt="Digital Forge"><strong>CMS + CRM</strong></a><div class="top-actions"><span class="admin-identity" id="admin-identity"></span><button class="button dark" id="install-admin" type="button">Instalar</button><a class="button dark" href="/" target="_blank">Ver sitio</a><button class="button dark" id="logout" type="button">Salir</button></div></div></header>
     <main class="shell dashboard">
       <div class="dashboard-head"><div><span class="eyebrow">DATOS REALES / CONTROL CENTRAL</span><h1>Digital Forge.</h1></div><p>Los números de este panel provienen de la base de datos. Aquí puedes administrar el contenido y dar seguimiento a cada solicitud.</p></div>
       <div class="stats"><article class="stat"><span>LEADS TOTALES</span><strong id="stat-leads">—</strong></article><article class="stat"><span>PROYECTOS CRM</span><strong id="stat-active">—</strong></article><article class="stat"><span>CLIENTES PORTAL</span><strong id="stat-clients">—</strong></article><article class="stat"><span>PROYECTOS PORTAL</span><strong id="stat-projects">—</strong></article><article class="stat"><span>CONTENIDO PUBLICADO</span><strong id="stat-content">—</strong></article><article class="stat"><span>EVENTOS / 30 DÍAS</span><strong id="stat-events">—</strong></article><article class="stat"><span>VISITAS / 30 DÍAS</span><strong id="stat-views">—</strong></article><article class="stat"><span>CLICS WHATSAPP</span><strong id="stat-whatsapp">—</strong></article><article class="stat"><span>CLICS PAYPAL</span><strong id="stat-paypal">—</strong></article><article class="stat"><span>CLICS INSTAGRAM</span><strong id="stat-instagram">—</strong></article></div>
-      <nav class="tabs" aria-label="Secciones del panel"><button class="tab active" data-tab="leads" type="button">CRM / Leads</button><button class="tab" data-tab="clients" type="button">Portal / Clientes</button><button class="tab" data-tab="projects" type="button">Portal / Proyectos</button><button class="tab" data-tab="content" type="button">CMS / Contenido</button><button class="tab" data-tab="settings" type="button">Configuración</button></nav>
+      <nav class="tabs" aria-label="Secciones del panel"><button class="tab active" data-tab="leads" type="button"><span class="tab-full">CRM / Leads</span><span class="tab-short">Leads</span></button><button class="tab" data-tab="clients" type="button"><span class="tab-full">Portal / Clientes</span><span class="tab-short">Clientes</span></button><button class="tab" data-tab="projects" type="button"><span class="tab-full">Portal / Proyectos</span><span class="tab-short">Proyectos</span></button><button class="tab" data-tab="content" type="button"><span class="tab-full">CMS / Contenido</span><span class="tab-short">Contenido</span></button><button class="tab" data-tab="settings" type="button"><span class="tab-full">Configuración</span><span class="tab-short">Ajustes</span></button></nav>
 
       <section class="panel" data-panel="leads">
         <div class="panel-head"><h2>Contactos y proyectos</h2><div class="toolbar"><input id="lead-search" type="search" placeholder="Buscar"><select id="lead-filter"><option value="">Todos</option><option value="new">Nuevo</option><option value="contacted">Contactado</option><option value="proposal">Propuesta</option><option value="active">Activo</option><option value="completed">Finalizado</option><option value="archived">Archivado</option></select><button class="button dark" id="export-leads" type="button">Exportar CSV</button></div></div>
