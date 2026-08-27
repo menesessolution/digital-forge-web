@@ -18,6 +18,8 @@ export async function onRequestGet({ request, env }) {
       paypal_url: paypalSetting.results?.[0]?.value || 'https://www.paypal.com/paypalme/MariaRios810',
       nu_key: '@MHW032',
       arq_key: '$digitalforge',
+      binance_url: 'https://www.binance.com/activity/referral-entry/CPA?ref=CPA_00UVUP2RO1',
+      binance_referral_code: 'CPA_00UVUP2RO1',
     });
   } catch (error) {
     return json({ error: 'No se pudo validar el enlace privado.' }, 400);
