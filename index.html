@@ -115,6 +115,8 @@
     }
     .mobile-login:hover,.mobile-login:focus-visible{background:#f3f0eb;color:#111}
 
+    .mobile-primary-nav{display:none}
+
     .service-view-bar{
       position:relative;
       z-index:5;
@@ -960,6 +962,36 @@
       .nav-links{display:none}
       .mobile-login{display:inline-flex}
       .nav .pill{display:none}
+      .mobile-primary-nav{
+        position:relative;
+        z-index:5;
+        display:grid;
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        gap:7px;
+        padding:0 0 20px;
+      }
+      .mobile-primary-nav a{
+        min-height:42px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:9px 7px;
+        border:1px solid rgba(255,255,255,.2);
+        border-radius:12px;
+        background:rgba(255,255,255,.045);
+        color:#b8b8b8;
+        font-size:9px;
+        font-weight:850;
+        line-height:1.15;
+        text-align:center;
+        transition:.2s ease;
+      }
+      .mobile-primary-nav a:hover,.mobile-primary-nav a:focus-visible,.mobile-primary-nav a.active{
+        background:#f3f0eb;
+        border-color:#f3f0eb;
+        color:#111;
+      }
+      .mobile-primary-nav .portfolio-link{color:#fff;border-color:rgba(255,255,255,.42)}
       .hero{grid-template-columns:1fr;gap:30px}
       .hero-visual{min-height:500px}
       .services-grid{grid-template-columns:repeat(2,1fr)}
@@ -984,6 +1016,7 @@
       .work-grid,
       .metrics,
       .footer-grid{grid-template-columns:1fr}
+      .footer-nav{display:none}
       .metric{border-right:none;border-bottom:1px solid #2b2b2b}
       .process-head{grid-template-columns:1fr}
       .process-nav{display:flex;overflow-x:auto;scrollbar-width:none}.process-nav::-webkit-scrollbar{display:none}.process-tab{min-width:128px;padding:15px 13px}.process-panel{padding:30px 22px}.process-active-title{font-size:2.25rem}.process-visual{height:190px}.discovery-orbit{width:170px;height:170px}.adapt-grid{grid-template-columns:repeat(2,100px)}
@@ -1101,6 +1134,14 @@
 </ul>
 <div aria-label="Language selector" class="language-switch" role="group"><button aria-pressed="true" class="lang-option" data-lang="es" type="button">ES</button><button aria-pressed="false" class="lang-option" data-lang="en" type="button">EN</button></div><a class="mobile-login" data-en="Sign in" data-es="Iniciar sesión" href="/portal/" rel="nofollow">Iniciar sesión</a><a class="pill light" data-en="Let's Talk →" data-es="Hablemos →" href="#contact">Hablemos →</a>
 </nav>
+<div class="mobile-primary-nav" aria-label="Navegación principal móvil">
+<a data-en="Home" data-es="Inicio" href="#home">Inicio</a>
+<a class="portfolio-link" data-en="Portfolio" data-es="Portafolio" href="/portfolio/">Portafolio</a>
+<a data-en="Contact" data-es="Contacto" href="#contact">Contacto</a>
+<a class="service-view-link active" data-en="Video Editing" data-es="Edición" data-service-view-select="video" data-view-target="services" href="#services">Edición</a>
+<a class="service-view-link" data-en="Web Creation" data-es="Web" data-service-view-select="web" data-view-target="web-creation" href="#web-creation">Web</a>
+<a data-en="Client portal" data-es="Portal" href="/portal/" rel="nofollow">Portal</a>
+</div>
 <div class="service-view-bar" role="tablist" aria-label="Selecciona el servicio">
 <button class="service-view-option active" type="button" role="tab" aria-selected="true" data-service-view-select="video" data-view-target="home" data-en="Video Editing" data-es="Edición de video">Edición de video</button>
 <button class="service-view-option" type="button" role="tab" aria-selected="false" data-service-view-select="web" data-view-target="web-creation" data-en="Website Creation" data-es="Creación web">Creación web</button>
@@ -1477,7 +1518,7 @@
 <li><a href="https://www.paypal.com/paypalme/MariaRios810" id="paypal-footer" rel="noopener noreferrer" target="_blank" data-track="paypal_click" data-en="Pay Digital Forge" data-es="Pagar a Digital Forge">Pagar a Digital Forge</a></li>
 </ul>
 </div>
-<div class="footer-col">
+<div class="footer-col footer-nav">
 <h3 data-en="Navigation" data-es="Navegación">Navegación</h3>
 <ul>
 <li><a data-en="Home" data-es="Inicio" href="#home">Inicio</a></li>
