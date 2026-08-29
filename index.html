@@ -991,7 +991,6 @@
         border-color:#f3f0eb;
         color:#111;
       }
-      .mobile-primary-nav .portfolio-link{color:#fff;border-color:rgba(255,255,255,.42)}
       .hero{grid-template-columns:1fr;gap:30px}
       .hero-visual{min-height:500px}
       .services-grid{grid-template-columns:repeat(2,1fr)}
@@ -1128,7 +1127,6 @@
 <li><a data-en="Home" data-es="Inicio" href="#home">Inicio</a></li>
 <li><a class="service-view-link active" data-en="Video Editing" data-es="Edición de video" data-service-view-select="video" data-view-target="services" href="#services">Edición de video</a></li>
 <li><a class="service-view-link" data-en="Website Creation" data-es="Creación web" data-service-view-select="web" data-view-target="web-creation" href="#web-creation">Creación web</a></li>
-<li><a data-en="Portfolio" data-es="Portafolio" href="/portfolio/">Portafolio</a></li>
 <li><a data-en="Contact" data-es="Contacto" href="#contact">Contacto</a></li>
 <li><a data-en="Sign in" data-es="Iniciar sesión" href="/portal/" rel="nofollow">Iniciar sesión</a></li>
 </ul>
@@ -1136,7 +1134,6 @@
 </nav>
 <div class="mobile-primary-nav" aria-label="Navegación principal móvil">
 <a data-en="Home" data-es="Inicio" href="#home">Inicio</a>
-<a class="portfolio-link" data-en="Portfolio" data-es="Portafolio" href="/portfolio/">Portafolio</a>
 <a data-en="Contact" data-es="Contacto" href="#contact">Contacto</a>
 <a class="service-view-link active" data-en="Video Editing" data-es="Edición" data-service-view-select="video" data-view-target="services" href="#services">Edición</a>
 <a class="service-view-link" data-en="Web Creation" data-es="Web" data-service-view-select="web" data-view-target="web-creation" href="#web-creation">Web</a>
@@ -1464,7 +1461,6 @@
 <section class="dynamic-business section-pad" id="dynamic-business" hidden>
 <div class="container">
 <div class="dynamic-head reveal"><div><div class="lang-badge" data-en="SELECTED WORK" data-es="TRABAJO SELECCIONADO" style="display:inline-block;border-color:#aaa49b">TRABAJO SELECCIONADO</div><h2 data-en="Work, stories and ways to collaborate." data-es="Trabajo, historias y formas de colaborar.">Trabajo, historias y formas de colaborar.</h2></div><p data-en="This section is managed from Digital Forge's private panel and only displays real, published information." data-es="Esta sección se administra desde el panel privado de Digital Forge y solo muestra información real que haya sido publicada.">Esta sección se administra desde el panel privado de Digital Forge y solo muestra información real que haya sido publicada.</p></div>
-<div class="dynamic-group" id="portfolio-group" hidden><div class="dynamic-group-head"><h3 data-en="Portfolio" data-es="Portafolio">Portafolio</h3><span data-en="REAL PROJECTS / DYNAMIC CMS" data-es="PROYECTOS REALES / CMS DINÁMICO">PROYECTOS REALES / CMS DINÁMICO</span></div><div class="dynamic-grid" id="portfolio-grid"></div></div>
 <div class="dynamic-group" id="cases-group" hidden><div class="dynamic-group-head"><h3 data-en="Case studies" data-es="Casos de estudio">Casos de estudio</h3><span data-en="CONTEXT / PROCESS / DELIVERY" data-es="CONTEXTO / PROCESO / ENTREGA">CONTEXTO / PROCESO / ENTREGA</span></div><div class="dynamic-grid" id="cases-grid"></div></div>
 <div class="dynamic-group" id="testimonials-group" hidden><div class="dynamic-group-head"><h3 data-en="Testimonials" data-es="Testimonios">Testimonios</h3><span data-en="REAL CLIENT WORDS" data-es="PALABRAS REALES DE CLIENTES">PALABRAS REALES DE CLIENTES</span></div><div class="dynamic-grid testimonial-grid" id="testimonials-grid"></div></div>
 <div class="dynamic-group" id="pricing-group" hidden><div class="dynamic-group-head"><h3 data-en="Ways to work together" data-es="Formas de trabajar juntos">Formas de trabajar juntos</h3><span data-en="CLEAR SCOPE / NO HIDDEN PRICES" data-es="ALCANCE CLARO / SIN PRECIOS OCULTOS">ALCANCE CLARO / SIN PRECIOS OCULTOS</span></div><div class="dynamic-grid" id="pricing-grid"></div></div>
@@ -1524,7 +1520,6 @@
 <li><a data-en="Home" data-es="Inicio" href="#home">Inicio</a></li>
 <li><a data-en="Video Editing" data-es="Edición de video" data-service-view-select="video" data-view-target="services" href="#services">Edición de video</a></li>
 <li><a data-en="Website Creation" data-es="Creación web" data-service-view-select="web" data-view-target="web-creation" href="#web-creation">Creación web</a></li>
-<li><a data-en="Portfolio" data-es="Portafolio" href="/portfolio/">Portafolio</a></li>
 <li><a data-en="Contact" data-es="Contacto" href="#contact">Contacto</a></li>
 <li><a data-en="Client portal" data-es="Portal del cliente" href="/portal/" rel="nofollow">Portal del cliente</a></li>
 </ul>
@@ -2187,8 +2182,8 @@
 
     const $=(selector,root=document)=>root.querySelector(selector);
     const dynamicBusiness=document.getElementById("dynamic-business");
-    const dynamicGroups={portfolio:document.getElementById("portfolio-group"),case_study:document.getElementById("cases-group"),testimonial:document.getElementById("testimonials-group"),pricing:document.getElementById("pricing-group")};
-    const dynamicGrids={portfolio:document.getElementById("portfolio-grid"),case_study:document.getElementById("cases-grid"),testimonial:document.getElementById("testimonials-grid"),pricing:document.getElementById("pricing-grid")};
+    const dynamicGroups={case_study:document.getElementById("cases-group"),testimonial:document.getElementById("testimonials-group"),pricing:document.getElementById("pricing-group")};
+    const dynamicGrids={case_study:document.getElementById("cases-grid"),testimonial:document.getElementById("testimonials-grid"),pricing:document.getElementById("pricing-grid")};
     const paypalCta=document.getElementById("paypal-cta");
     const paypalFooter=document.getElementById("paypal-footer");
     const calendlyCta=document.getElementById("calendly-cta");
