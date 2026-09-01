@@ -1,4 +1,4 @@
-const CACHE_NAME = "digital-forge-shell-v5-20260831";
+const CACHE_NAME = "digital-forge-shell-v6-20260901";
 const APP_SHELL = [
   "/offline.html",
   "/manifest.webmanifest",

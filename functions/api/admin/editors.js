@@ -69,14 +69,18 @@ export async function onRequestDelete({ request, env }) {
     const id = cleanText((await request.json()).id,100);
     if (!id) return json({ error: 'Editor no válido.' },400);
     const db = await ensureDatabase(env);
+    const editor = await db.prepare('SELECT id,email FROM editors WHERE id=?').bind(id).first();
+    if (!editor) return json({ error: 'Editor no encontrado.' },404);
     const projects = await db.prepare('SELECT COUNT(*) AS value FROM projects WHERE editor_id=?').bind(id).first();
-    if (Number(projects?.value || 0) > 0) return json({ error: 'Reasigna sus proyectos antes de eliminar este acceso. Puedes desactivarlo ahora.' },409);
+    const unassignedProjects = Number(projects?.value || 0);
     await db.batch([
+      db.prepare("UPDATE projects SET editor_id='',updated_at=? WHERE editor_id=?").bind(nowIso(),id),
+      db.prepare("DELETE FROM project_notifications WHERE recipient_role='editor' AND recipient_id=?").bind(id),
       db.prepare('DELETE FROM editor_sessions WHERE editor_id=?').bind(id),
-      db.prepare('DELETE FROM editor_login_attempts WHERE email IN (SELECT email FROM editors WHERE id=?)').bind(id),
+      db.prepare('DELETE FROM editor_login_attempts WHERE email=?').bind(editor.email),
       db.prepare('DELETE FROM editors WHERE id=?').bind(id),
     ]);
-    return json({ ok: true });
+    return json({ ok: true,unassigned_projects:unassignedProjects });
   } catch (error) {
     return json({ error: error.message || 'No se pudo eliminar el editor.' },400);
   }

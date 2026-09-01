@@ -1,3 +1,4 @@
+import { assertSameOrigin } from '../../lib/auth.js';
 import { cleanText, ensureDatabase, json, nowIso } from '../../lib/db.js';
 
 const allowedStages = new Set(['new','contacted','proposal','active','completed','archived']);
@@ -17,6 +18,7 @@ export async function onRequestGet({ request, env }) {
 }
 
 export async function onRequestPatch({ request, env }) {
+  assertSameOrigin(request);
   const db = await ensureDatabase(env);
   const body = await request.json();
   const id = cleanText(body.id, 100);
@@ -27,4 +29,19 @@ export async function onRequestPatch({ request, env }) {
     .bind(stage, notes, nowIso(), id).run();
   if (!result.meta?.changes) return json({ error: 'Lead not found' }, 404);
   return json({ ok: true });
+}
+
+export async function onRequestDelete({ request, env }) {
+  try {
+    assertSameOrigin(request);
+    const body = await request.json();
+    const id = cleanText(body.id, 100);
+    if (!id) return json({ error: 'Contacto no válido.' }, 400);
+    const db = await ensureDatabase(env);
+    const result = await db.prepare('DELETE FROM leads WHERE id = ?').bind(id).run();
+    if (!result.meta?.changes) return json({ error: 'Contacto no encontrado.' }, 404);
+    return json({ ok: true });
+  } catch (error) {
+    return json({ error: error.message || 'No se pudo eliminar el contacto.' }, 400);
+  }
 }
