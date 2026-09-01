@@ -1,8 +1,10 @@
-const CACHE_NAME = "digital-forge-shell-v4-20260831";
+const CACHE_NAME = "digital-forge-shell-v5-20260831";
 const APP_SHELL = [
   "/offline.html",
   "/manifest.webmanifest",
   "/admin/manifest.webmanifest",
+  "/editor/manifest.webmanifest",
+  "/editor/editor.css",
   "/logo-header.png",
   "/icons/icon-180.png",
   "/icons/icon-192.png",
@@ -75,7 +77,9 @@ self.addEventListener("notificationclick", (event) => {
   event.notification.close();
   const target = event.notification.data?.url || "/portal/";
   event.waitUntil(clients.matchAll({ type: "window", includeUncontrolled: true }).then((windows) => {
-    const existing = windows.find((windowClient) => new URL(windowClient.url).pathname.startsWith("/portal/"));
+    const targetPath = new URL(target, self.location.origin).pathname;
+    const area = targetPath.startsWith("/editor/") ? "/editor/" : targetPath.startsWith("/admin/") ? "/admin/" : "/portal/";
+    const existing = windows.find((windowClient) => new URL(windowClient.url).pathname.startsWith(area));
     return existing ? existing.focus().then(() => existing.navigate(target)) : clients.openWindow(target);
   }));
 });

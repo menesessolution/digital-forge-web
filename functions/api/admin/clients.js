@@ -1,5 +1,5 @@
 import { cleanText, ensureDatabase, json, makeId, nowIso } from '../../lib/db.js';
-import { hashPassword, normalizeEmail } from '../../lib/auth.js';
+import { assertSameOrigin, hashPassword, normalizeEmail } from '../../lib/auth.js';
 
 export async function onRequestGet({ env }) {
   const db = await ensureDatabase(env);
@@ -11,6 +11,7 @@ export async function onRequestGet({ env }) {
 
 export async function onRequestPost({ request, env }) {
   try {
+    assertSameOrigin(request);
     const body = await request.json();
     const name = cleanText(body.name, 180);
     const email = normalizeEmail(body.email);
@@ -34,6 +35,7 @@ export async function onRequestPost({ request, env }) {
 
 export async function onRequestPatch({ request, env }) {
   try {
+    assertSameOrigin(request);
     const body = await request.json();
     const id = cleanText(body.id, 100);
     const name = cleanText(body.name, 180);
@@ -62,6 +64,7 @@ export async function onRequestPatch({ request, env }) {
 
 export async function onRequestDelete({ request, env }) {
   try {
+    assertSameOrigin(request);
     const body = await request.json();
     const id = cleanText(body.id, 100);
     if (!id) return json({ error: 'Selecciona el cliente que deseas eliminar.' }, 400);
@@ -74,6 +77,8 @@ export async function onRequestDelete({ request, env }) {
     if (env.FILES && keys.length) await Promise.all(keys.map((key) => env.FILES.delete(key)));
     await db.batch([
       db.prepare('DELETE FROM project_comments WHERE client_id=? OR project_id IN (SELECT id FROM projects WHERE client_id=?)').bind(id,id),
+      db.prepare('DELETE FROM project_messages WHERE project_id IN (SELECT id FROM projects WHERE client_id=?)').bind(id),
+      db.prepare("DELETE FROM project_notifications WHERE (recipient_role='client' AND recipient_id=?) OR project_id IN (SELECT id FROM projects WHERE client_id=?)").bind(id,id),
       db.prepare('DELETE FROM project_events WHERE project_id IN (SELECT id FROM projects WHERE client_id=?)').bind(id),
       db.prepare('DELETE FROM project_versions WHERE project_id IN (SELECT id FROM projects WHERE client_id=?)').bind(id),
       db.prepare('DELETE FROM projects WHERE client_id=?').bind(id),

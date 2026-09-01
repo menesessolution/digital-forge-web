@@ -1,6 +1,8 @@
 import { cleanText, ensureDatabase, json } from '../../../lib/db.js';
 import { requireClient } from '../../../lib/auth.js';
 
+const safeVideoTypes = new Set(['video/mp4','video/quicktime','video/webm']);
+
 function contentDisposition(name, download) {
   const safe = String(name || 'archivo').replace(/["\r\n]/g, '_');
   return `${download ? 'attachment' : 'inline'}; filename="${safe}"`;
@@ -34,11 +36,15 @@ export async function onRequestGet(context) {
   if (!object?.body) return json({ error: 'Archivo no encontrado.' }, 404);
   const headers = new Headers();
   object.writeHttpMetadata(headers);
-  headers.set('content-type', version.content_type || headers.get('content-type') || 'application/octet-stream');
-  headers.set('content-disposition', contentDisposition(version.original_name, new URL(context.request.url).searchParams.get('download') === '1'));
+  const contentType = safeVideoTypes.has(version.content_type) ? version.content_type : 'application/octet-stream';
+  const requestedDownload = new URL(context.request.url).searchParams.get('download') === '1';
+  headers.set('content-type', contentType);
+  headers.set('content-disposition', contentDisposition(version.original_name, requestedDownload || contentType === 'application/octet-stream'));
   headers.set('accept-ranges', 'bytes');
   headers.set('etag', object.httpEtag);
   headers.set('cache-control', 'private, no-store');
+  headers.set('x-content-type-options', 'nosniff');
+  headers.set('content-security-policy', "default-src 'none'; sandbox");
   if (range) {
     headers.set('content-range', `bytes ${range.offset}-${range.offset + range.length - 1}/${head.size}`);
     headers.set('content-length', String(range.length));

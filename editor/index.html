@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090b0a">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Digital Forge | Sala de edición</title>
+  <link rel="icon" href="../logo-header.png">
+  <link rel="apple-touch-icon" href="../logo-header.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+  <section class="auth-screen" id="auth-screen">
+    <div class="auth-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+    <form class="auth-card" id="login-form">
+      <div class="auth-brand"><img src="../logo-header.png" alt="Digital Forge"><span>DF / EDITOR OS</span></div>
+      <p class="micro">ACCESO PROTEGIDO</p>
+      <h1>Tu sala de<br>edición.</h1>
+      <p class="auth-copy">Proyectos asignados, versiones, feedback y entregas en un mismo flujo.</p>
+      <label>Correo de acceso<input id="login-email" type="email" autocomplete="username" required></label>
+      <label>Contraseña<input id="login-password" type="password" autocomplete="current-password" required></label>
+      <button class="primary" type="submit">Entrar al workspace <span>→</span></button>
+      <p class="form-error" id="login-error" role="alert"></p>
+      <div class="trust-line"><span class="live-dot"></span> Identidad del cliente protegida por el sistema</div>
+    </form>
+  </section>
+
+  <div class="editor-app" id="editor-app" hidden>
+    <header class="topbar">
+      <a class="brand" href="/editor/" aria-label="Digital Forge"><img src="../logo-header.png" alt=""><span>EDITOR <b>OS</b></span></a>
+      <div class="top-status"><span class="live-dot"></span><span>CANAL PRIVADO</span><b id="sync-state">EN LÍNEA</b></div>
+      <div class="top-actions"><button class="ghost" id="install-editor" type="button">Instalar</button><button class="avatar" id="editor-avatar" type="button" title="Cuenta">E</button><button class="ghost logout" id="logout" type="button">Salir</button></div>
+    </header>
+
+    <main class="app-shell">
+      <section class="hero-console">
+        <div><p class="micro">PRODUCCIÓN / DIGITAL FORGE</p><h1 id="greeting">Buenas, editor.</h1><p id="hero-copy">Todo lo necesario para avanzar, revisar y entregar sin salir del sistema.</p></div>
+        <div class="hero-pulse"><div class="pulse-ring"><span id="active-count">0</span></div><p><strong>proyectos activos</strong><span id="attention-copy">Sin alertas pendientes</span></p></div>
+      </section>
+
+      <nav class="mode-switch" aria-label="Secciones">
+        <button class="mode active" data-view="projects" type="button"><i>01</i>Proyectos</button>
+        <button class="mode" data-view="review" type="button"><i>02</i>Revisión</button>
+        <button class="mode" data-view="chat" type="button"><i>03</i>Chat</button>
+        <button class="mode" data-view="alerts" type="button"><i>04</i>Avisos <span class="count" id="notice-count" hidden>0</span></button>
+      </nav>
+
+      <section class="view active" data-view-panel="projects">
+        <div class="section-heading"><div><p class="micro">COLA DE PRODUCCIÓN</p><h2>Proyectos asignados</h2></div><p>Solo ves información técnica. Los datos personales del cliente nunca llegan a este portal.</p></div>
+        <div class="project-grid" id="project-grid"></div>
+      </section>
+
+      <section class="view" data-view-panel="review" hidden>
+        <div class="workspace-empty" id="workspace-empty"><span>↗</span><h2>Selecciona un proyecto</h2><p>Elige uno desde Proyectos para abrir su sala de producción.</p><button class="secondary" data-go="projects" type="button">Ver proyectos</button></div>
+        <div class="workspace" id="workspace" hidden>
+          <aside class="project-rail">
+            <div class="project-id"><span id="workspace-code">DF—</span><b>CLIENTE PROTEGIDO</b></div>
+            <h2 id="workspace-title">Proyecto de edición</h2>
+            <p id="workspace-brief">Sin brief disponible.</p>
+            <div class="progress-block"><div><span>AVANCE</span><strong id="workspace-progress">0%</strong></div><div class="progress-track"><i id="workspace-progress-bar"></i></div></div>
+            <dl><div><dt>Estado</dt><dd id="workspace-status">—</dd></div><div><dt>Entrega</dt><dd id="workspace-due">—</dd></div><div><dt>Servicio</dt><dd id="workspace-service">—</dd></div></dl>
+            <div class="privacy-card"><span>◉</span><div><strong>Modo privacidad activo</strong><p>No solicites ni compartas información personal. Digital Forge supervisa este canal.</p></div></div>
+          </aside>
+          <div class="production-stage">
+            <nav class="workspace-tabs"><button class="active" data-workspace-tab="preview" type="button">Vista previa</button><button data-workspace-tab="upload" type="button">Nueva versión</button><button data-workspace-tab="timeline" type="button">Actividad</button></nav>
+            <section class="workspace-panel" data-workspace-panel="preview">
+              <div class="preview-head"><div><p class="micro">REVIEW PLAYER</p><h3 id="version-heading">Sin versiones</h3></div><select id="version-select" aria-label="Versión"></select></div>
+              <div class="video-shell" id="video-shell"><video id="review-video" controls playsinline preload="metadata"></video><div class="video-placeholder" id="video-placeholder"><span>▶</span><strong>Esperando primera versión</strong><p>Publica un corte desde “Nueva versión”.</p></div></div>
+              <div class="version-meta"><span id="version-state">SIN ARCHIVO</span><span id="version-size">—</span><span id="version-date">—</span></div>
+              <button class="timecode-action" id="use-timecode" type="button">＋ Comentar en <strong id="current-time">00:00</strong></button>
+            </section>
+            <section class="workspace-panel" data-workspace-panel="upload" hidden>
+              <div class="upload-intro"><p class="micro">PUBLICAR VERSIÓN</p><h3>Entrega un corte al cliente.</h3><p>El cliente recibirá un aviso y podrá reproducir, aprobar o solicitar cambios.</p></div>
+              <form id="upload-form"><div class="upload-fields"><label>Título de la versión<input id="upload-title" required placeholder="Corte 01 · revisión"></label><label>Tipo<select id="upload-status"><option value="review">Para revisión</option><option value="final">Entrega final</option></select></label><label class="wide">Notas técnicas<textarea id="upload-notes" placeholder="Qué cambió y qué debe revisar el cliente"></textarea></label></div>
+                <label class="drop-zone" id="drop-zone" for="upload-file"><input id="upload-file" type="file" accept="video/mp4,video/quicktime,video/webm,.mp4,.mov,.m4v,.webm"><span class="drop-icon">⇧</span><strong id="drop-title">Arrastra el video aquí</strong><p id="drop-copy">MP4, MOV, M4V o WebM · máximo 95 MB</p><div class="upload-progress"><i id="upload-progress"></i></div></label>
+                <p class="inline-status" id="upload-message"></p><button class="primary" id="upload-button" type="submit" disabled>Publicar versión <span>→</span></button>
+              </form>
+            </section>
+            <section class="workspace-panel" data-workspace-panel="timeline" hidden><div class="timeline" id="timeline"></div></section>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" data-view-panel="chat" hidden>
+        <div class="chat-layout">
+          <aside class="chat-context"><p class="micro">CANAL SUPERVISADO</p><h2>Feedback que sí mueve el proyecto.</h2><p>Habla únicamente sobre edición, versión, ritmo, textos, audio y entrega.</p><div class="rules"><span>✓ Solo texto</span><span>✓ Marcas de tiempo</span><span>✓ Respeto obligatorio</span><span>× Sin teléfonos</span><span>× Sin correos ni redes</span><span>× Sin enlaces ni imágenes</span></div></aside>
+          <section class="chat-panel"><header><div><span id="chat-code">SIN PROYECTO</span><strong>Cliente protegido · Equipo de edición · Digital Forge</strong></div><button class="secondary" data-go="projects" type="button">Cambiar proyecto</button></header><div class="messages" id="messages"></div><form class="message-compose" id="message-form"><div class="compose-reference" id="compose-reference" hidden><span id="compose-reference-text"></span><button id="remove-timecode" type="button" aria-label="Quitar marca de tiempo">×</button></div><textarea id="message-input" maxlength="1800" required placeholder="Escribe una observación clara sobre el video…"></textarea><div><small>El sistema bloquea automáticamente datos de contacto y lenguaje ofensivo.</small><button class="primary" type="submit">Enviar <span>↑</span></button></div></form></section>
+        </div>
+      </section>
+
+      <section class="view" data-view-panel="alerts" hidden>
+        <div class="section-heading"><div><p class="micro">CENTRO DE AVISOS</p><h2>Lo que necesita tu atención</h2></div><button class="secondary" id="mark-all-read" type="button">Marcar todo como visto</button></div><div class="notice-list" id="notice-list"></div>
+      </section>
+    </main>
+
+    <nav class="mobile-dock" aria-label="Navegación móvil"><button class="active" data-view="projects" type="button"><span>▦</span>Proyectos</button><button data-view="review" type="button"><span>▶</span>Revisión</button><button data-view="chat" type="button"><span>◌</span>Chat</button><button data-view="alerts" type="button"><span>◇</span>Avisos</button></nav>
+  </div>
+
+  <dialog id="password-dialog"><form method="dialog" id="password-form"><p class="micro">SEGURIDAD DE CUENTA</p><h2>Crea tu contraseña privada.</h2><p>La contraseña temporal debe cambiarse antes de continuar.</p><label>Contraseña temporal<input id="current-password" type="password" required></label><label>Nueva contraseña<input id="new-password" type="password" minlength="12" required></label><label>Confirmar contraseña<input id="confirm-password" type="password" minlength="12" required></label><p class="form-error" id="password-error"></p><button class="primary" type="submit">Guardar y continuar <span>→</span></button></form></dialog>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    const $=(selector,root=document)=>root.querySelector(selector);const $$=(selector,root=document)=>Array.from(root.querySelectorAll(selector));
+    const state={editor:null,projects:[],project:null,versions:[],comments:[],events:[],notifications:[],selectedProject:'',selectedVersion:'',view:'projects',workspaceTab:'preview',uploadFile:null,timeSeconds:-1};
+    const statusLabels={briefing:'Briefing',editing:'En edición',review:'En revisión',approved:'Aprobado',delivered:'Entregado',archived:'Archivado'};
+    const versionLabels={review:'Esperando revisión',approved:'Aprobada',changes_requested:'Cambios solicitados',final:'Entrega final'};
+    const escapeHtml=(value)=>String(value??'').replace(/[&<>'"]/g,(character)=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
+    const formatBytes=(bytes)=>{if(!bytes)return'0 B';const units=['B','KB','MB','GB'];const i=Math.min(Math.floor(Math.log(bytes)/Math.log(1024)),3);return`${(bytes/1024**i).toFixed(i?1:0)} ${units[i]}`};
+    const formatTime=(seconds)=>{const value=Math.max(0,Math.floor(Number(seconds)||0));return`${String(Math.floor(value/60)).padStart(2,'0')}:${String(value%60).padStart(2,'0')}`};
+    function toast(message){const element=$('#toast');element.textContent=message;element.classList.add('show');setTimeout(()=>element.classList.remove('show'),2600)}
+    async function api(path,options={}){const headers={...options.headers};if(options.body&&!(options.body instanceof FormData))headers['content-type']='application/json';const response=await fetch(path,{credentials:'same-origin',...options,headers});const data=await response.json().catch(()=>({}));if(response.status===401&&!path.includes('/auth/')){showLogin();throw new Error('Tu sesión terminó. Vuelve a ingresar.')}if(!response.ok)throw new Error(data.error||'No se pudo completar la acción.');return data}
+    function showLogin(){state.editor=null;$('#editor-app').hidden=true;$('#auth-screen').hidden=false;$('#login-password').value=''}
+    function firstName(name){return String(name||'editor').trim().split(/\s+/)[0]||'editor'}
+    function greeting(){const hour=new Date().getHours();return hour<12?'Buenos días':hour<19?'Buenas tardes':'Buenas noches'}
+    async function showApp(editor){state.editor=editor;$('#auth-screen').hidden=true;$('#editor-app').hidden=false;$('#greeting').textContent=`${greeting()}, ${firstName(editor.name)}.`;$('#editor-avatar').textContent=firstName(editor.name).charAt(0).toUpperCase();if(editor.must_change_password){$('#password-dialog').showModal();return}await Promise.all([loadProjects(),loadNotifications()])}
+    async function loadProjects(){const data=await api('/api/editor/projects');state.projects=data.projects||[];$('#active-count').textContent=state.projects.length;renderProjects();if(state.selectedProject&&!state.projects.some((item)=>item.id===state.selectedProject))state.selectedProject=''}
+    function renderProjects(){const list=$('#project-grid');if(!state.projects.length){list.innerHTML='<div class="empty-card"><span>✓</span><h3>La cola está limpia.</h3><p>Cuando Digital Forge te asigne un proyecto aparecerá aquí, sin revelar los datos del cliente.</p></div>';return}list.innerHTML=state.projects.map((project,index)=>`<article class="project-card ${state.selectedProject===project.id?'active':''}" data-project-id="${escapeHtml(project.id)}" tabindex="0"><div class="card-top"><span>${String(index+1).padStart(2,'0')} / ${escapeHtml(project.public_code)}</span><i>${project.changes_count?'CAMBIOS':escapeHtml((statusLabels[project.status]||project.status).toUpperCase())}</i></div><h3>${escapeHtml(project.editor_title)}</h3><p>${escapeHtml(project.editor_brief||'Brief pendiente de Digital Forge.')}</p><div class="card-progress"><i style="width:${Number(project.progress)||0}%"></i></div><footer><span>${project.progress}%</span><span>${project.due_date?new Date(`${project.due_date}T00:00:00`).toLocaleDateString('es',{month:'short',day:'numeric'}):'Sin fecha'}</span><button type="button">Abrir sala →</button></footer></article>`).join('');$$('[data-project-id]',list).forEach((card)=>{const open=()=>openProject(card.dataset.projectId);card.addEventListener('click',open);card.addEventListener('keydown',(event)=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();open()}})})}
+    async function openProject(id,targetView='review'){state.selectedProject=id;renderProjects();$('#sync-state').textContent='CARGANDO';const data=await api('/api/editor/project?id='+encodeURIComponent(id));state.project=data.project;state.versions=data.versions||[];state.comments=data.comments||[];state.events=data.events||[];state.selectedVersion=state.versions[0]?.id||'';renderWorkspace();$('#sync-state').textContent='SINCRONIZADO';switchView(targetView)}
+    function renderWorkspace(){const project=state.project;if(!project)return;$('#workspace-empty').hidden=true;$('#workspace').hidden=false;$('#workspace-code').textContent=project.public_code;$('#workspace-title').textContent=project.editor_title;$('#workspace-brief').textContent=project.editor_brief||'Brief pendiente de Digital Forge.';$('#workspace-progress').textContent=`${project.progress}%`;$('#workspace-progress-bar').style.width=`${project.progress}%`;$('#workspace-status').textContent=statusLabels[project.status]||project.status;$('#workspace-due').textContent=project.due_date?new Date(`${project.due_date}T00:00:00`).toLocaleDateString('es',{dateStyle:'medium'}):'Por definir';$('#workspace-service').textContent=project.service;$('#chat-code').textContent=project.public_code;renderVersionSelect();renderVersion();renderMessages();renderTimeline()}
+    function renderVersionSelect(){const select=$('#version-select');select.innerHTML=state.versions.length?state.versions.map((version)=>`<option value="${escapeHtml(version.id)}">V${version.version_number} · ${escapeHtml(version.title)}</option>`).join(''):'<option value="">Sin versiones</option>';select.value=state.selectedVersion;select.disabled=!state.versions.length}
+    function renderVersion(){const version=state.versions.find((item)=>item.id===state.selectedVersion);const video=$('#review-video');if(!version){video.removeAttribute('src');video.load();video.hidden=true;$('#video-placeholder').hidden=false;$('#version-heading').textContent='Sin versiones';$('#version-state').textContent='SIN ARCHIVO';$('#version-size').textContent='—';$('#version-date').textContent='—';return}video.src=`/api/editor/file/${encodeURIComponent(version.id)}`;video.hidden=false;$('#video-placeholder').hidden=true;$('#version-heading').textContent=`V${version.version_number} · ${version.title}`;$('#version-state').textContent=versionLabels[version.status]||version.status;$('#version-size').textContent=formatBytes(version.size_bytes);$('#version-date').textContent=new Date(version.created_at).toLocaleDateString('es',{dateStyle:'medium'})}
+    function renderMessages(){const list=$('#messages');if(!state.selectedProject){list.innerHTML='<div class="chat-empty">Selecciona un proyecto para abrir el canal.</div>';return}const comments=state.comments||[];list.innerHTML=comments.length?comments.map((comment)=>{const role=comment.author_role||comment.sender_role;const time=Number(comment.time_seconds);return`<article class="message ${role}"><div><strong>${escapeHtml(comment.author_name)}</strong><time>${new Date(comment.created_at).toLocaleString('es',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}</time></div>${Number.isFinite(time)&&time>=0?`<button class="time-jump" data-time="${time}" type="button">▶ ${formatTime(time)}</button>`:''}<p>${escapeHtml(comment.message)}</p></article>`}).join(''):'<div class="chat-empty">Todavía no hay mensajes. Puedes iniciar con una nota sobre la edición.</div>';list.scrollTop=list.scrollHeight;$$('[data-time]',list).forEach((button)=>button.addEventListener('click',()=>{switchView('review');setWorkspaceTab('preview');const video=$('#review-video');video.currentTime=Number(button.dataset.time);video.play().catch(()=>{})}))}
+    function renderTimeline(){const list=$('#timeline');list.innerHTML=state.events.length?state.events.map((event,index)=>`<article><i>${String(state.events.length-index).padStart(2,'0')}</i><div><strong>${escapeHtml(event.detail||event.kind)}</strong><time>${new Date(event.created_at).toLocaleString('es',{dateStyle:'medium',timeStyle:'short'})}</time></div></article>`).join(''):'<div class="chat-empty">Sin actividad registrada.</div>'}
+    function switchView(view){state.view=view;$$('[data-view]').forEach((button)=>button.classList.toggle('active',button.dataset.view===view));$$('[data-view-panel]').forEach((panel)=>{panel.hidden=panel.dataset.viewPanel!==view;panel.classList.toggle('active',panel.dataset.viewPanel===view)});if(view==='chat')renderMessages();if(view==='alerts')renderNotifications();window.scrollTo({top:0,behavior:'smooth'})}
+    function setWorkspaceTab(tab){state.workspaceTab=tab;$$('[data-workspace-tab]').forEach((button)=>button.classList.toggle('active',button.dataset.workspaceTab===tab));$$('[data-workspace-panel]').forEach((panel)=>panel.hidden=panel.dataset.workspacePanel!==tab)}
+    $$('[data-view]').forEach((button)=>button.addEventListener('click',()=>switchView(button.dataset.view)));$$('[data-go]').forEach((button)=>button.addEventListener('click',()=>switchView(button.dataset.go)));$$('[data-workspace-tab]').forEach((button)=>button.addEventListener('click',()=>setWorkspaceTab(button.dataset.workspaceTab)));
+    $('#version-select').addEventListener('change',(event)=>{state.selectedVersion=event.target.value;renderVersion()});$('#review-video').addEventListener('timeupdate',()=>{$('#current-time').textContent=formatTime($('#review-video').currentTime)});
+    $('#use-timecode').addEventListener('click',()=>{if(!state.selectedVersion){toast('Primero selecciona una versión');return}state.timeSeconds=Math.floor($('#review-video').currentTime||0);$('#compose-reference').hidden=false;$('#compose-reference-text').textContent=`Comentario en ${formatTime(state.timeSeconds)}`;switchView('chat');$('#message-input').focus()});$('#remove-timecode').addEventListener('click',()=>{state.timeSeconds=-1;$('#compose-reference').hidden=true});
+    $('#message-form').addEventListener('submit',async(event)=>{event.preventDefault();if(!state.selectedProject){toast('Selecciona un proyecto');return}const button=$('button[type="submit"]',event.currentTarget);button.disabled=true;try{await api('/api/editor/comment',{method:'POST',body:JSON.stringify({project_id:state.selectedProject,version_id:state.selectedVersion,message:$('#message-input').value,time_seconds:state.timeSeconds})});$('#message-input').value='';state.timeSeconds=-1;$('#compose-reference').hidden=true;await openProject(state.selectedProject,'chat');toast('Mensaje enviado')}catch(error){toast(error.message)}finally{button.disabled=false}});
+    const MAX_UPLOAD=95*1024*1024;function chooseFile(file){if(!file)return;const allowed=String(file.type).startsWith('video/')||/\.(mp4|mov|m4v|webm)$/i.test(file.name);if(!allowed||file.size>MAX_UPLOAD){$('#upload-message').textContent=!allowed?'Selecciona un video MP4, MOV, M4V o WebM.':'Este archivo supera 95 MB.';state.uploadFile=null;$('#upload-button').disabled=true;return}state.uploadFile=file;$('#drop-title').textContent=file.name;$('#drop-copy').textContent=`${formatBytes(file.size)} · listo para publicar`;$('#upload-message').textContent='Archivo validado y listo.';$('#upload-button').disabled=false;if(!$('#upload-title').value)$('#upload-title').value=file.name.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ')}
+    $('#upload-file').addEventListener('change',(event)=>chooseFile(event.target.files[0]));const drop=$('#drop-zone');['dragenter','dragover'].forEach((name)=>drop.addEventListener(name,(event)=>{event.preventDefault();drop.classList.add('dragging')}));['dragleave','drop'].forEach((name)=>drop.addEventListener(name,(event)=>{event.preventDefault();drop.classList.remove('dragging')}));drop.addEventListener('drop',(event)=>chooseFile(event.dataTransfer.files[0]));
+    function uploadVersion(form){return new Promise((resolve,reject)=>{const request=new XMLHttpRequest();request.open('POST','/api/editor/files');request.withCredentials=true;request.upload.addEventListener('progress',(event)=>{if(event.lengthComputable){const percent=Math.round(event.loaded/event.total*100);$('#upload-progress').style.width=`${percent}%`;$('#upload-message').textContent=`Subiendo… ${percent}%`}});request.addEventListener('load',()=>{let data={};try{data=JSON.parse(request.responseText||'{}')}catch{}request.status>=200&&request.status<300?resolve(data):reject(new Error(data.error||'No se pudo subir el video.'))});request.addEventListener('error',()=>reject(new Error('Se perdió la conexión.')));request.send(form)})}
+    $('#upload-form').addEventListener('submit',async(event)=>{event.preventDefault();if(!state.selectedProject||!state.uploadFile)return;const button=$('#upload-button');button.disabled=true;const form=new FormData();form.set('project_id',state.selectedProject);form.set('title',$('#upload-title').value);form.set('status',$('#upload-status').value);form.set('notes',$('#upload-notes').value);form.set('file',state.uploadFile);try{await uploadVersion(form);state.uploadFile=null;event.currentTarget.reset();$('#drop-title').textContent='Arrastra el video aquí';$('#drop-copy').textContent='MP4, MOV, M4V o WebM · máximo 95 MB';$('#upload-progress').style.width='0';$('#upload-message').textContent='Versión publicada. El cliente recibió un aviso.';await Promise.all([openProject(state.selectedProject,'review'),loadNotifications()]);setWorkspaceTab('preview');toast('Versión publicada')}catch(error){$('#upload-message').textContent=error.message;button.disabled=false}});
+    async function loadNotifications(){const data=await api('/api/editor/notifications');state.notifications=data.notifications||[];const unread=state.notifications.filter((item)=>!item.read_at).length;$('#notice-count').textContent=unread;$('#notice-count').hidden=!unread;$('#attention-copy').textContent=unread?`${unread} aviso${unread===1?'':'s'} pendiente${unread===1?'':'s'}`:'Sin alertas pendientes';renderNotifications()}
+    function renderNotifications(){const list=$('#notice-list');list.innerHTML=state.notifications.length?state.notifications.map((notice)=>`<button class="notice ${notice.read_at?'':'unread'}" data-notice-id="${escapeHtml(notice.id)}" data-project="${escapeHtml(notice.project_id)}" type="button"><i></i><div><span>${escapeHtml(notice.kind.replace(/_/g,' ').toUpperCase())}</span><strong>${escapeHtml(notice.title)}</strong><p>${escapeHtml(notice.body)}</p></div><time>${new Date(notice.created_at).toLocaleString('es',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}</time></button>`).join(''):'<div class="empty-card"><span>✓</span><h3>Todo al día.</h3><p>No tienes avisos pendientes.</p></div>';$$('[data-notice-id]',list).forEach((button)=>button.addEventListener('click',async()=>{await api('/api/editor/notifications',{method:'PATCH',body:JSON.stringify({id:button.dataset.noticeId})});if(button.dataset.project)await openProject(button.dataset.project,'review');await loadNotifications()}))}
+    $('#mark-all-read').addEventListener('click',async()=>{await api('/api/editor/notifications',{method:'PATCH',body:'{}'});await loadNotifications();toast('Avisos marcados como vistos')});
+    $('#login-form').addEventListener('submit',async(event)=>{event.preventDefault();$('#login-error').textContent='';try{const data=await api('/api/editor/auth/login',{method:'POST',body:JSON.stringify({email:$('#login-email').value,password:$('#login-password').value})});await showApp(data.editor)}catch(error){$('#login-error').textContent=error.message}});
+    $('#password-form').addEventListener('submit',async(event)=>{event.preventDefault();$('#password-error').textContent='';const button=$('button[type="submit"]',event.currentTarget);button.disabled=true;try{await api('/api/editor/auth/password',{method:'POST',body:JSON.stringify({current_password:$('#current-password').value,new_password:$('#new-password').value,confirm_password:$('#confirm-password').value})});$('#password-dialog').close();state.editor.must_change_password=false;await Promise.all([loadProjects(),loadNotifications()]);toast('Contraseña actualizada')}catch(error){$('#password-error').textContent=error.message}finally{button.disabled=false}});
+    $('#logout').addEventListener('click',async()=>{try{await api('/api/editor/auth/logout',{method:'POST'})}catch{}showLogin()});
+    let installPrompt=null;window.addEventListener('beforeinstallprompt',(event)=>{event.preventDefault();installPrompt=event});$('#install-editor').addEventListener('click',async()=>{if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null}else alert('En iPhone: abre esta página en Safari, toca Compartir y elige “Añadir a pantalla de inicio”.')});
+    window.addEventListener('pointermove',(event)=>{document.documentElement.style.setProperty('--mx',`${event.clientX}px`);document.documentElement.style.setProperty('--my',`${event.clientY}px`)},{passive:true});
+    setInterval(()=>{if(state.editor&&document.visibilityState==='visible')loadNotifications().catch(()=>{})},30000);
+    if('serviceWorker'in navigator)navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+    (async()=>{try{const data=await api('/api/editor/auth/session');await showApp(data.editor)}catch{showLogin()}})();
+  </script>
+</body>
+</html>
