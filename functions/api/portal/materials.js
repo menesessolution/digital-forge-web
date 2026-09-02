@@ -54,7 +54,7 @@ export async function onRequestPost(context) {
     ];
     if (project.editor_id) operations.push(notificationInsert(db,{ recipientRole:'editor',recipientId:project.editor_id,projectId,kind:'material_uploaded',title:'Nuevo material disponible',body:'El cliente agregó un archivo al proyecto.' }));
     await db.batch(operations);
-    return json({ ok:true,material:{ id,original_name:originalName,content_type:contentType,size_bytes:file.size,created_at:now } },201);
+    return json({ ok:true,material:{ id,project_id:projectId,original_name:originalName,content_type:contentType,size_bytes:file.size,status:'uploaded',created_at:now } },201);
   } catch (error) {
     return json({ error:error.message || 'No se pudo subir el material.' },400);
   }
