@@ -11,7 +11,7 @@ export async function onRequestGet({ request, env, data }) {
   const [versions,materials,events,messages] = await Promise.all([
     db.prepare(`SELECT id,project_id,version_number,title,notes,status,content_type,size_bytes,created_at,updated_at
       FROM project_versions WHERE project_id=? ORDER BY version_number DESC`).bind(id).all(),
-    db.prepare(`SELECT id,content_type,size_bytes,status,created_at FROM project_materials
+    db.prepare(`SELECT id,display_name,content_type,size_bytes,status,created_at FROM project_materials
       WHERE project_id=? ORDER BY created_at DESC`).bind(id).all(),
     db.prepare(`SELECT id,project_id,kind,detail,created_at FROM project_events WHERE project_id=?
       AND kind IN ('version_uploaded','material_uploaded','approved','changes_requested','editor_comment','client_comment','admin_comment')
@@ -34,7 +34,7 @@ export async function onRequestGet({ request, env, data }) {
   return json({
     project: safeProject,
     versions: (versions.results || []).map((version) => ({ ...version,title:redactExternalContacts(version.title,privateValues),notes:redactExternalContacts(version.notes,privateValues) })),
-    materials: (materials.results || []).map((material,index) => ({ ...material,display_name:`Material ${String((materials.results || []).length-index).padStart(2,'0')}` })),
+    materials: (materials.results || []).map((material,index) => ({ ...material,display_name:redactExternalContacts(material.display_name,privateValues)||`Material ${String((materials.results || []).length-index).padStart(2,'0')}` })),
     comments: publicMessages(messages,'editor').map((message) => ({ ...message,message:redactExternalContacts(message.message,privateValues) })),
     events: (events.results || []).map((event) => ({ ...event,detail:redactExternalContacts(event.detail,privateValues) })),
   });

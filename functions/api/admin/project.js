@@ -10,7 +10,7 @@ export async function onRequestGet({ request, env }) {
   if (!project) return json({ error: 'Proyecto no encontrado.' }, 404);
   const [batch,messages] = await Promise.all([db.batch([
     db.prepare('SELECT * FROM project_versions WHERE project_id=? ORDER BY version_number DESC').bind(id),
-    db.prepare('SELECT id,project_id,client_id,original_name,content_type,size_bytes,status,created_at FROM project_materials WHERE project_id=? ORDER BY created_at DESC').bind(id),
+    db.prepare('SELECT id,project_id,client_id,original_name,display_name,content_type,size_bytes,status,created_at FROM project_materials WHERE project_id=? ORDER BY created_at DESC').bind(id),
     db.prepare('SELECT * FROM project_events WHERE project_id=? ORDER BY created_at DESC LIMIT 100').bind(id),
   ]),loadProjectMessages(db,id)]);
   const comments = messages.map((item) => ({ ...item, author_role: item.sender_role, author_name: item.author_label || (item.sender_role === 'admin' ? 'Digital Forge' : item.sender_role === 'editor' ? 'Equipo de edición' : 'Cliente') }));

@@ -13,7 +13,7 @@ export async function onRequestGet(context) {
   const [batch,messages] = await Promise.all([db.batch([
     db.prepare(`SELECT id,project_id,version_number,title,notes,status,original_name,content_type,size_bytes,created_at,updated_at
       FROM project_versions WHERE project_id=? ORDER BY version_number DESC`).bind(id),
-    db.prepare(`SELECT id,project_id,original_name,content_type,size_bytes,status,created_at
+    db.prepare(`SELECT id,project_id,original_name,display_name,content_type,size_bytes,status,created_at
       FROM project_materials WHERE project_id=? ORDER BY created_at DESC`).bind(id),
     db.prepare('SELECT id,project_id,kind,detail,created_at FROM project_events WHERE project_id=? ORDER BY created_at DESC LIMIT 100').bind(id),
     db.prepare("SELECT key,value FROM settings WHERE key IN ('booking_url','calendly_url')"),

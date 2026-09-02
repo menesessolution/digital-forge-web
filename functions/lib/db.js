@@ -159,6 +159,7 @@ const schemaStatements = [
     project_id TEXT NOT NULL,
     client_id TEXT NOT NULL,
     original_name TEXT NOT NULL,
+    display_name TEXT NOT NULL DEFAULT '',
     content_type TEXT NOT NULL DEFAULT 'application/octet-stream',
     size_bytes INTEGER NOT NULL DEFAULT 0,
     r2_key TEXT NOT NULL,
@@ -287,6 +288,15 @@ export async function ensureDatabase(env) {
   if (!existingCommentColumns.has('time_seconds')) {
     try {
       await env.DB.prepare('ALTER TABLE project_comments ADD COLUMN time_seconds INTEGER NOT NULL DEFAULT -1').run();
+    } catch (error) {
+      if (!/duplicate column/i.test(String(error.message || ''))) throw error;
+    }
+  }
+  const materialColumns = await env.DB.prepare('PRAGMA table_info(project_materials)').all();
+  const existingMaterialColumns = new Set((materialColumns.results || []).map((column) => column.name));
+  if (!existingMaterialColumns.has('display_name')) {
+    try {
+      await env.DB.prepare("ALTER TABLE project_materials ADD COLUMN display_name TEXT NOT NULL DEFAULT ''").run();
     } catch (error) {
       if (!/duplicate column/i.test(String(error.message || ''))) throw error;
     }

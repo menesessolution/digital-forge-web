@@ -26,6 +26,7 @@ export async function onRequestPost(context) {
     if (!context.env.FILES) return json({ error:'El almacenamiento privado no está disponible.' },503);
     const form = await context.request.formData();
     const projectId = cleanText(form.get('project_id'),100);
+    const requestedName = cleanText(form.get('display_name'),120);
     const file = form.get('file');
     if (!projectId || !(file instanceof File)) return json({ error:'Selecciona un proyecto y un archivo.' },400);
     if (!file.size) return json({ error:'El archivo está vacío.' },400);
@@ -38,6 +39,7 @@ export async function onRequestPost(context) {
     if (!project) return json({ error:'Proyecto no encontrado.' },404);
     const id = makeId('material');
     const originalName = safeName(file.name);
+    const displayName = requestedName || originalName.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ');
     const contentType = cleanText(file.type,120) || 'application/octet-stream';
     const key = `materials/${projectId}/${id}-${originalName}`;
     await context.env.FILES.put(key,file.stream(),{
@@ -47,14 +49,14 @@ export async function onRequestPost(context) {
     const now = nowIso();
     const operations = [
       db.prepare(`INSERT INTO project_materials
-        (id,project_id,client_id,original_name,content_type,size_bytes,r2_key,status,created_at,updated_at)
-        VALUES (?,?,?,?,?,?,?,'uploaded',?,?)`).bind(id,projectId,auth.client.id,originalName,contentType,file.size,key,now,now),
+        (id,project_id,client_id,original_name,display_name,content_type,size_bytes,r2_key,status,created_at,updated_at)
+        VALUES (?,?,?,?,?,?,?,?,'uploaded',?,?)`).bind(id,projectId,auth.client.id,originalName,displayName,contentType,file.size,key,now,now),
       db.prepare('INSERT INTO project_events (project_id,kind,detail,created_at) VALUES (?,?,?,?)')
         .bind(projectId,'material_uploaded','El cliente subió nuevo material en crudo',now),
     ];
     if (project.editor_id) operations.push(notificationInsert(db,{ recipientRole:'editor',recipientId:project.editor_id,projectId,kind:'material_uploaded',title:'Nuevo material disponible',body:'El cliente agregó un archivo al proyecto.' }));
     await db.batch(operations);
-    return json({ ok:true,material:{ id,project_id:projectId,original_name:originalName,content_type:contentType,size_bytes:file.size,status:'uploaded',created_at:now } },201);
+    return json({ ok:true,material:{ id,project_id:projectId,original_name:originalName,display_name:displayName,content_type:contentType,size_bytes:file.size,status:'uploaded',created_at:now } },201);
   } catch (error) {
     return json({ error:error.message || 'No se pudo subir el material.' },400);
   }
