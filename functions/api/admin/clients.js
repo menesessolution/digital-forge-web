@@ -71,8 +71,10 @@ export async function onRequestDelete({ request, env }) {
     const db = await ensureDatabase(env);
     const client = await db.prepare('SELECT id,name,email FROM clients WHERE id=?').bind(id).first();
     if (!client) return json({ error: 'Cliente no encontrado.' }, 404);
-    const storedFiles = await db.prepare(`SELECT v.r2_key FROM project_versions v
-      JOIN projects p ON p.id=v.project_id WHERE p.client_id=? AND v.r2_key!=''`).bind(id).all();
+    const storedFiles = await db.prepare(`SELECT r2_key FROM project_versions
+      WHERE project_id IN (SELECT id FROM projects WHERE client_id=?) AND r2_key!=''
+      UNION ALL
+      SELECT r2_key FROM project_materials WHERE client_id=? AND r2_key!=''`).bind(id,id).all();
     const keys = (storedFiles.results || []).map((item) => item.r2_key).filter(Boolean);
     if (env.FILES && keys.length) await Promise.all(keys.map((key) => env.FILES.delete(key)));
     await db.batch([
@@ -80,6 +82,7 @@ export async function onRequestDelete({ request, env }) {
       db.prepare('DELETE FROM project_messages WHERE project_id IN (SELECT id FROM projects WHERE client_id=?)').bind(id),
       db.prepare("DELETE FROM project_notifications WHERE (recipient_role='client' AND recipient_id=?) OR project_id IN (SELECT id FROM projects WHERE client_id=?)").bind(id,id),
       db.prepare('DELETE FROM project_events WHERE project_id IN (SELECT id FROM projects WHERE client_id=?)').bind(id),
+      db.prepare('DELETE FROM project_materials WHERE client_id=?').bind(id),
       db.prepare('DELETE FROM project_versions WHERE project_id IN (SELECT id FROM projects WHERE client_id=?)').bind(id),
       db.prepare('DELETE FROM projects WHERE client_id=?').bind(id),
       db.prepare('DELETE FROM client_sessions WHERE client_id=?').bind(id),
