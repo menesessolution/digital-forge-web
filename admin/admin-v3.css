@@ -31,6 +31,7 @@ html{background:var(--c-bg);scroll-behavior:smooth}body{overflow-x:hidden;backgr
 @media(max-width:600px){.panel[data-panel="projects"] .portal-list{display:block;max-height:330px}.project-client-header{padding:13px}.project-client-header strong{font-size:13px}.project-client-projects .portal-row{min-height:92px;padding-left:24px}}
 
 /* Digital Forge CRM v4 — dashboard lateral inspirado en una consola analítica. */
+.locale-select{appearance:none;min-width:58px;min-height:40px;padding:9px 24px 9px 11px;border:1px solid rgba(255,255,255,.13);border-radius:11px;background:#15161b;color:#f4f2f8;font:800 9px Inter,sans-serif;letter-spacing:.08em;text-align:center;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#858793 50%),linear-gradient(135deg,#858793 50%,transparent 50%);background-position:calc(100% - 12px) 17px,calc(100% - 8px) 17px;background-size:4px 4px,4px 4px;background-repeat:no-repeat}.locale-select:focus-visible{outline:2px solid #8b70e8;outline-offset:2px}.login-card{position:relative}.login-locale{position:absolute;right:24px;top:24px;background-color:#0d0e12}
 @media(min-width:901px){
   body{background:radial-gradient(circle at 82% 0,rgba(124,92,231,.12),transparent 34rem),radial-gradient(circle at 30% 100%,rgba(216,255,66,.045),transparent 28rem),#090a0d}
   .app:not([hidden]){min-height:100vh}
@@ -44,7 +45,7 @@ html{background:var(--c-bg);scroll-behavior:smooth}body{overflow-x:hidden;backgr
   .app:not([hidden]) .top-actions .admin-identity{grid-column:1/-1;min-height:38px;padding:10px 12px;border:1px solid rgba(255,255,255,.09);border-radius:12px;background:rgba(255,255,255,.035);color:#c9c8d2}
   .app:not([hidden]) .top-actions .admin-identity::before{content:"●";margin-right:7px;color:#9cd6b0;font-size:8px}
   .app:not([hidden]) .top-actions .button{min-height:40px;padding:9px 10px;border-radius:11px;font-size:9px;text-align:center}
-  .app:not([hidden]) .top-actions #install-admin{grid-column:1/-1}
+  .app:not([hidden]) .top-actions #install-admin{grid-column:auto}
   .app:not([hidden]) .dashboard.shell{width:auto;max-width:none;margin:0 24px 0 260px;padding:24px 0 56px}
   .app:not([hidden]) .dashboard-head{min-height:78px;margin:0 0 12px;padding:17px 20px;display:flex;align-items:center;border:1px solid rgba(255,255,255,.09);border-radius:18px;background:rgba(20,20,28,.78);box-shadow:0 18px 50px rgba(0,0,0,.17);backdrop-filter:blur(18px)}
   .app:not([hidden]) .dashboard-head .eyebrow{font-size:7px;color:#858294}
@@ -99,3 +100,5 @@ html{background:var(--c-bg);scroll-behavior:smooth}body{overflow-x:hidden;backgr
   .app:not([hidden]) .command-action:nth-of-type(1){background:linear-gradient(145deg,#2b2349,#171923)}.app:not([hidden]) .command-action:nth-of-type(2){background:linear-gradient(145deg,#183029,#121a17)}.app:not([hidden]) .command-action:nth-of-type(3){background:linear-gradient(145deg,#33251b,#171513)}
   .app:not([hidden]) .metric-group[data-metric-panel="work"]{background:linear-gradient(145deg,#211b3a,#12141a)}.app:not([hidden]) .metric-group[data-metric-panel="activity"]{background:linear-gradient(145deg,#173028,#101714)}.app:not([hidden]) .metric-group[data-metric-panel="contact"]{background:linear-gradient(145deg,#322419,#171411)}
 }
+
+@media(max-width:600px){.top-actions .locale-select{min-width:54px;min-height:38px;padding:8px 21px 8px 9px}.login-locale{right:17px;top:17px}}
